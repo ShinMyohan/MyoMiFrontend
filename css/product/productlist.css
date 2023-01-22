@@ -1,0 +1,52 @@
+div.carousel-item > img{
+    height: 400px;
+}
+
+div.card-body{
+    width: 100%;
+    padding: 0px;
+}
+
+div.prodName{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+div.card-body>div.percentage{
+    float: left;
+    margin-right:10px;
+    color: #f5634b;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+div.card-body>div.prodPrice{
+    float: left;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+div.card-body>div.originPrice{
+    float: left;
+    color: #afafaf;
+    text-decoration: line-through;
+}
+
+
+div.prod>div.prodNum{
+    display: none;
+}
+
+/* div.productlist{
+    margin-top: 10px;
+} */
+
+div.list{
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+div.card-footer{
+    padding: 0px;
+}
