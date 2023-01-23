@@ -1,0 +1,102 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    width: 85%;
+}
+
+div.productinfo{
+    width: 1220px;
+    height: 1000px;
+    margin: 20px auto;
+    /* display: inline-block;
+    text-align: center; */
+    background-color: brown;
+}
+
+div.prodmainimg{
+    float:left;
+}
+
+div.prodmainimg > img{
+    width: 570px;
+}
+
+div.product-content{
+    width: 570px;
+    float: left;
+    height: 800px;
+    margin-left: 80px;
+    background-color: aqua;
+}
+
+div.prodbox{
+    width: 100%;
+    /* height: 80px; */
+    background-color: burlywood;
+    float:right;
+}
+
+div.prod-name-seller{
+    float: left;
+    /* margin-left: 40px; */
+    width: 100%;
+    height: 80px;
+    background-color: #4bf5b4;
+}
+
+div.prodprice-cont{
+    background-color: #8b9692;
+    /* margin-left: 40px; */
+    width: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+
+div.prodName{
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+div.sellerName{
+    float: right;
+    /* font-size: 18px; */
+    margin-right: 20px;
+    text-align: center;
+}
+
+
+
+div.prodprice-cont> div.percentage{
+    float: left;
+    margin-right:10px;
+    color: #f5634b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 34px;
+    min-width: 98px;
+    font-weight: 700;
+}
+
+div.prodprice-cont>div.prodPrice{
+    float: left;
+    margin-right: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 34px;
+    min-width: 98px;
+    font-weight: 700;
+}
+
+div.prodprice-cont>div.originPrice{
+    float: left;
+    color: #afafaf;
+    text-decoration: line-through;
+}
+
+div.productinfo> div.product-content > div.prodbox > div.prodNum{
+    display: none;
+}
+
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- basic.css 는 모든 페이지에 들어갈 공통 부분이다. -->
+        <link rel="stylesheet" href="../css/basic.css">
+        <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="../../css/product/productlist.css">
+        <!-- 구글폰트 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <!-- 부트스트랩 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- JQuery CDN HOST-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="../js/basic.js"></script>
+        <!-- <script src="../js/index.js"></script> -->
+        <script src="../../js/product/productlist.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="header">
+                <div class="h1_logo">
+                    <!-- 로고 -->
+                    <div class="logo_main">
+                        <img src="../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
+                    </div>
+                    <!-- 검색 input 박스 -->
+                    <div class="search">
+                        <form class="d-flex">
+                            <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
+                            <div class="search-icon">
+                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg></button></div>
+                        </form>
+                    </div>
+                    <!-- 메뉴바 -->
+                    <nav class="menulist">
+                        <ul>
+                        <!-- <div id="horizontal-underline"></div> -->
+                            <li><a href="#">회원가입</a></li>
+                            <li><a href="#">로그인</a></li>
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">커뮤니티 </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <section>
+            <!-- 전체 상품 목록-->
+            <!-- <div class="menunav">
+                <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" onclick="listByCategory(event)">
+                        <button class="productlist nav-link active" id="nav-all-tab cate allpro" data-bs-toggle="tab" data-bs-target="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true" value="전체상품">전체 상품</button>
+                        <button class="dosiraklist nav-link" id="nav-dosirak-tab cate dosirak" data-bs-toggle="tab" data-bs-target="#nav-dosirak" role="tab" aria-controls="nav-dosirak" aria-selected="false" value="도시락">도시락</button>
+                        <button class="saladlist nav-link" id="nav-salad-tab cate" data-bs-toggle="tab" data-bs-target="#nav-salad" role="tab" aria-controls="nav-salad" aria-selected="false">샐러드</button>
+                        <button class="mealkitlist nav-link" id="nav-mealkit-tab cate" data-bs-toggle="tab" data-bs-target="#nav-mealkit" role="tab" aria-controls="nav-mealkit" aria-selected="false">밀키트</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+                        <div class="row row-cols-1 row-cols-md-4 g-4 productlist list">
+                            <div class="card product border-0 prod">
+                                <img src="../../images/product/prod01.png" class="card-img-top rounded-0" alt="...">
+                                <div class="prodNum">상품번호</div>
+                                <div class="prodName">상품명</div>
+                                <div class="card-body">
+                                    <div class="percentage">할인률</div>
+                                    <div class="prodPrice">할인된 가격</div>
+                                    <div class="originPrice">원가</div>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">리뷰 및 평점 들어갈 자리</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+                        <div class="row row-cols-1 row-cols-md-4 g-4 dosiraklist list">
+                            <div class="card dosirak border-0 prod">
+                                <img src="../../images/product/dosirak.png" class="card-img-top rounded-0" alt="...">
+                                <div class="prodNum">상품번호</div>
+                                    <div class="prodName">상품명</div>
+                                <div class="card-body">
+                                    <div class="percentage">할인률</div>
+                                    <div class="prodPrice">할인된 가격</div>
+                                    <div class="originPrice">원가</div>
+                                </div><div class="card-footer">
+                                    <small class="text-muted">리뷰 및 평점 들어갈 자리</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-salad" role="tabpanel" aria-labelledby="nav-salad-tab">tlhiwhs</div>
+                    <div class="tab-pane fade" id="nav-mealkit" role="tabpanel" aria-labelledby="nav-mealkit-tab">akfjhgsh</div>
+                </div>
+            </div> -->
+        </section>
+        <footer>
+            <div id="footer_wrap">
+                <div id="footer">
+                    <div class="foot_list">
+                        <div class="foot_list_in">
+                            <ul>
+                                <li>
+                                    <a href="#">묘미소개</a>
+                                </li>
+                                <li>
+                                    <a href="#">이용약관</a>
+                                </li>
+                                <li>
+                                    <a href="#">개인정보처리방침</a>
+                                </li>
+                                <li>
+                                    <a href="#">이용안내</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="foot_cont">
+                        <div class="foot_logo">
+                            <img src="../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
+                        </div>
+                        <div class="foot_info">
+                            <div class="foot_info_list">
+                                <dl class="dl">
+                                    <dt>법인명(상호):</dt>
+                                    <dt>주식회사 신묘한컴퍼니</dt>
+                                </dl>
+                                <dl class="dl">
+                                    <dt>대표:</dt>
+                                    <dt>신묘한</dt>
+                                </dl>
+                                <dl>
+                                    <dt>TEL:</dt>
+                                    <dd>
+                                        <strong>1522-0125</strong>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="foot_info_list">
+                                <dl class="dl">
+                                    <dt>사업자등록번호:</dt>
+                                    <dt> 220-10-250316</dt>
+                                </dl>
+                                <dl class="ts">
+                                    <dt>통신판매업신고번호:</dt>
+                                    <dd>" 제 2022-분당오리-0316호 "
+                                        <a href="#">사업자정보확인</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="foot_info_list">
+                                <dl class="dl">
+                                    <dt>주소:</dt>
+                                    <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
+                                </dl>
+                                <dl class="dl">
+                                    <dt>개인정보관리책임자:</dt>
+                                    <dd>세리 성언</dd>
+                                </dl>
+                                <dl>
+                                    <dt>E-Mail:</dt>
+                                    <dd>
+                                        <a href="#">taetaetae@myomi.co.kosta</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <p class="copyright">
+                                Copyright©
+                                <strong>myomi.co.kr</strong>
+                                All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="foot_certify">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

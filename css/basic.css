@@ -1,0 +1,92 @@
+#header {
+    width: 100%;
+}
+
+#header .h1_logo {
+    text-align: left;
+    padding: 50px 0 0 60px;
+    height: 98px;
+    /* display : inline; */
+}
+
+#header .h1_logo > div.logo_main {
+    display: block;
+    float: left;
+    margin-right: 30px;
+}
+
+.search{
+    width:250px;
+    float: left;
+    margin-top: 10px;
+    position: relative;
+}
+
+.search-icon{
+    /* position: absolute; */
+    /* text-align: right; */
+    float: left;
+}
+
+.top_member_box {
+    position: absolute;
+    top: 50px;
+    right: 8px;
+    z-index: 150;
+    line-height: 1;
+}
+
+.list_1 {
+    float: left;
+    margin-top: 8px;
+    margin-right: 30px;
+}
+
+.list_1 > li {
+    float: left;
+    padding-right: 16px;
+    margin-right: 16px;
+    position: relative;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+dl, ul, ol, li {
+    list-style: none;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+nav.menulist a{
+    text-decoration: none;
+    color: black;
+    margin: 1em;
+    float: right;
+}
+
+nav.menulist > ul{
+    float: right;
+    margin-right: 60px;
+    /* position: relative; */
+}
+
+nav.menulist > ul > li{
+    float: left;
+}
+
+nav.menulist > ul > li > a:hover {
+    color:#00b06a;
+    border-radius: 10px;
+    transition: 0.3s;
+}
