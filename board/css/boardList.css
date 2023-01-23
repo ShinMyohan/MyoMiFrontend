@@ -1,0 +1,333 @@
+@charset "UTF-8";
+/* Google web font CDN*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .board_wrap {
+        width: 1000px;
+        box-sizing: border-box;
+        margin: 100px auto;
+    } 
+
+    .board_title strong {
+        font-size: 30px;
+    }
+
+    .board_title {
+        margin-bottom: 30px;
+    }
+    .board_list {
+        width: 100%;
+        border-top: 2px solid #000;
+    }
+
+    .board_list > div {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .board_list > div.top {
+        border-bottom: 1px solid #999;
+    }
+
+    .board_list > div:last-child {
+        border-bottom: 1px solid #000;
+    }
+
+
+    .board_list > div > div{
+        display: inline-block;
+        font-weight: 600;
+        padding: 15px 0;
+    }
+
+    .board_list .num{
+        width: 10%;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .board_list .category{
+        width: 10%;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .board_list .title{
+        width: 45%;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .board_list .date{
+        width: 10%;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .board_list .writer{
+        width: 10%;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .board_list .hits{
+        width: 10%;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .bt_wrap a:first-child {
+    margin-left: 0;
+}
+
+.board_detail {
+    width:100%
+}
+
+.board_detail .b_num{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board_detail .b_category{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board_detail .b_title{
+    width: 45%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board_detail .b_date{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board_detail .b_writer{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board_detail .b_hits{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.searcharea{
+    width:25%;
+    margin-bottom: 20px;
+    display: flex;
+    margin-left:50%;
+}
+
+.searchselect{
+    margin-right: 50px;
+}
+.bt_wrap {
+    float: right;
+}
+
+.search {
+    width:20%;
+    float: right;
+
+}
+.searchselect{
+    width:200px;
+}
+.list{
+    width:100%;
+}
+
+
+.list .bnum{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+ .list .bcategory{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.list .btitle{
+    width: 45%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.list .bdate{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.list .bwriter{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.list .bhits{
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.boardlist > div > div{
+    display: inline-block;
+    font-weight: 600;
+    padding: 15px 0;
+}
+
+.board_view .info dl {
+    width: 50%;
+    padding: 0;
+}
+
+.board_view .info dl:nth-child(-n+2) {
+    margin-bottom: 5px;
+}
+
+.board_view .info dl::before {
+    display: none;
+}
+
+.board_view .info dl dt,
+.board_view .info dl dd {
+    font-size: 20px;
+}
+
+.board_write_wrap{
+    width:1000px;
+    margin: 100px auto;
+    border: 2px solid #999;
+    
+}
+
+.board_write .info dl {
+    width: 50%;
+}
+
+.board_write .info dl:first-child {
+    margin-right: 10%;
+  
+}
+
+.board_write .title dt,
+.board_write .info dt {
+    display: none;
+}
+
+.board_write .title dd,
+.board_write .info dd {
+    width: 73%;    
+}
+
+.board_write .title input[type="text"],
+.board_write .info input[type="text"],
+.board_write .info input[type="text"] {
+    width: 100%;
+}
+/* 
+.board_write {
+    border-top: 2px solid #000;
+} */
+
+.board_write .title,
+.board_write .info {
+    padding: 15px;
+    /* text-align: center; */
+}
+
+.board_write .info {
+    border-top: 1px dashed #ddd;
+    /* border-bottom: 1px solid #000; */
+    font-size: 0;
+    
+}
+
+.board_write .title dl {
+    font-size: 0;
+    text-align: center;
+}
+
+.board_write .info dl {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    /* vertical-align: middle; */
+}
+
+.board_write .title dt,
+.board_write .title dd,
+.board_write .info dt,
+.board_write .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 25px;
+    text-align: center;
+}
+
+.board_write .title dt,
+.board_write .info dt {
+    width: 100px;
+}
+
+.board_write .title dd {
+    width: calc(100% - 100px);
+}
+
+.board_write .title input[type="text"],
+.board_write .info input[type="text"] {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%
+}
+
+
+.board_write .title input[type="text"] {
+    width: 100%;
+}
+
+.board_write .cont {
+    border-bottom: 1px solid #999;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    height: 400px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+
+
+.submit{
+   margin: 0 auto;
+    float: right;
+    padding-top: 10px;
+    padding-right: 5px;
+}
+.cancle{
+    margin: 0 auto;
+    float: right;
+    padding-top: 10px;
+}
