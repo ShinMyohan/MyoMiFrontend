@@ -6,6 +6,10 @@
         <link rel="stylesheet" href="../css/basic.css">
         <link rel="stylesheet" href="../css/index.css">
         <link rel="stylesheet" href="../../css/product/productlist.css">
+        <!-- 구글폰트 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap" rel="stylesheet">
         <!-- 부트스트랩 -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <!-- JQuery CDN HOST-->
@@ -13,9 +17,8 @@
         <!-- JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <script src="../js/basic.js"></script>
-        <script src="../js/index.js"></script>
+        <!-- <script src="../js/index.js"></script> -->
         <script src="../../js/product/productlist.js"></script>
-        <script src="../../js/product/dosiraklist.js"></script>
     </head>
     <body>
         <header>
@@ -28,9 +31,9 @@
                     <!-- 검색 input 박스 -->
                     <div class="search">
                         <form class="d-flex">
-                            <input class="form-control me-2 rounded-4" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
                             <div class="search-icon">
-                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                             </svg></button></div>
                         </form>
@@ -45,42 +48,18 @@
                             <li><a href="#">커뮤니티 </a></li>
                         </ul>
                     </nav>
-
                 </div>
             </div>
         </header>
-
-            <!-- 롤링 배너-->
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                    <img src="../images/banner/banner01.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../images/banner/banner02.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../images/banner/banner03.png" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
-            </div>
         <section>
             <!-- 전체 상품 목록-->
-            <div class="menunav">
+            <!-- <div class="menunav">
                 <nav>
-                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                        <li class="productlist nav-link active" id="nav-all-tab cate" include-html="../html/product/productlist.html" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true" value="product">전체 상품</li>
-                        <li class="dosiraklist nav-link" onclick="dosiraklist()" id="nav-dosirak-tab cate" data-bs-toggle="tab" data-bs-target="#nav-dosirak" type="button" role="tab" aria-controls="nav-dosirak" aria-selected="false" value="dosirak">도시락</li>
-                        <li class="saladlist nav-link" id="nav-salad-tab cate" data-bs-toggle="tab" data-bs-target="#nav-salad" type="button" role="tab" aria-controls="nav-salad" aria-selected="false">샐러드</li>
-                        <li class="mealkitlist nav-link" id="nav-mealkit-tab cate" data-bs-toggle="tab" data-bs-target="#nav-mealkit" type="button" role="tab" aria-controls="nav-mealkit" aria-selected="false">밀키트</li>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" onclick="listByCategory(event)">
+                        <button class="productlist nav-link active" id="nav-all-tab cate allpro" data-bs-toggle="tab" data-bs-target="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true" value="전체상품">전체 상품</button>
+                        <button class="dosiraklist nav-link" id="nav-dosirak-tab cate dosirak" data-bs-toggle="tab" data-bs-target="#nav-dosirak" role="tab" aria-controls="nav-dosirak" aria-selected="false" value="도시락">도시락</button>
+                        <button class="saladlist nav-link" id="nav-salad-tab cate" data-bs-toggle="tab" data-bs-target="#nav-salad" role="tab" aria-controls="nav-salad" aria-selected="false">샐러드</button>
+                        <button class="mealkitlist nav-link" id="nav-mealkit-tab cate" data-bs-toggle="tab" data-bs-target="#nav-mealkit" role="tab" aria-controls="nav-mealkit" aria-selected="false">밀키트</button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -89,12 +68,13 @@
                             <div class="card product border-0 prod">
                                 <img src="../../images/product/prod01.png" class="card-img-top rounded-0" alt="...">
                                 <div class="prodNum">상품번호</div>
-                                    <div class="prodName">상품명</div>
+                                <div class="prodName">상품명</div>
                                 <div class="card-body">
                                     <div class="percentage">할인률</div>
                                     <div class="prodPrice">할인된 가격</div>
                                     <div class="originPrice">원가</div>
-                                </div><div class="card-footer">
+                                </div>
+                                <div class="card-footer">
                                     <small class="text-muted">리뷰 및 평점 들어갈 자리</small>
                                 </div>
                             </div>
@@ -119,7 +99,7 @@
                     <div class="tab-pane fade" id="nav-salad" role="tabpanel" aria-labelledby="nav-salad-tab">tlhiwhs</div>
                     <div class="tab-pane fade" id="nav-mealkit" role="tabpanel" aria-labelledby="nav-mealkit-tab">akfjhgsh</div>
                 </div>
-            </div>
+            </div> -->
         </section>
         <footer>
             <div id="footer_wrap">
@@ -192,9 +172,9 @@
                                 </dl>
                             </div>
                             <p class="copyright">
-                                "Copyright©"
+                                Copyright©
                                 <strong>myomi.co.kr</strong>
-                                "All rights reserved."
+                                All rights reserved.
                             </p>
                         </div>
                     </div>

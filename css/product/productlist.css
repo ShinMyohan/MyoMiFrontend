@@ -1,7 +1,19 @@
+/* ------ 롤링배너 ------ */
+.carousel {
+    width:100%;
+    margin: 100px 0px 100px 0px;
+}
+
 div.carousel-item > img{
     height: 400px;
 }
 
+div.menunav{
+    width: 85%;
+    margin:auto;
+}
+
+/*  */
 div.card-body{
     width: 100%;
     padding: 0px;
@@ -50,3 +62,4 @@ div.list{
 div.card-footer{
     padding: 0px;
 }
+

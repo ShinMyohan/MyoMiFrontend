@@ -1,37 +1,28 @@
-// 즉, html 문서가 parsing 되고 돔 트리가 완성된 다음 함수 실행됨
-// 화면에 렌더링 되기 바로 직전에 jquery 내용이 실행된다.
+let data = []; //이게 전체상품 리스트 다 들어오는 배열
+
 $(()=>{
-    // alert('js first');
-
+    $('section').load('../../html/product/productlist.html') //index.html의 section 태그에 product.list 포함
     function showList(url){
-        let $origin = $('div.product').first()
-        // let $parent = $('div.productlist')
-        // $parent.find('div.product').not($origin).remove()
+        let $origin = $('.menunav .card');
 
-        //부모 기준에서는 empty()를 쓸 수 있지만 자식에서는 .remove()를 써야한다.
         $('div.product').not(':first-child').remove();
         $origin.show()
         $.ajax({
             url: url,
             method: 'get',
-            // 응답이 성공했을 때의 콜백함수
             success: function(jsonObj){
-                // jsonObj 는 자바 객체
                 let list = jsonObj;
-                // console.log(jsonObj);
+                data = [...jsonObj]; //spread sheets , ...은 [] 벗겨줌
+                // let $origin = $('div.product').first();
+                // let $parent = $('div.productlist');
+                // $(list).each((p)=>{
+                //     let prodNum = list[p]["NUM"];
+                //     let prodName = list[p]["WEEK"] + "주 " + list[p]["NAME"];
+                //     let originPrice = list[p]["ORIGIN_PRICE"];
+                //     let percentage = list[p]["PERCENTAGE"];
+                //     let prodPrice = originPrice - originPrice*(percentage/100);
 
-                let $origin = $('div.product').first();
-                let $parent = $('div.productlist');
-                $(list).each((p)=>{ //list를 하나씩 조회하는 반복문!
-                    // console.log(p);
-                    // console.log(list[p]["NAME"]);
-                    let prodNum = list[p]["NUM"];
-                    let prodName = list[p]["WEEK"] + "주 " + list[p]["NAME"];
-                    let originPrice = list[p]["ORIGIN_PRICE"];
-                    let percentage = list[p]["PERCENTAGE"];
-                    let prodPrice = originPrice - originPrice*(percentage/100);
-
-                    let $copy = $origin.clone()
+                //     let $copy = $origin.clone()
                     // 상품 번호로 이미지 가져올거임
                     // let imgStr = '<img src="../images/' + prodNo + '.jpeg">'
                     // $copy.find('div.img').html(imgStr);
@@ -43,30 +34,26 @@ $(()=>{
                     //.empty()를 쓴 이유는 태그에 '이미지'라는 글자를 비우고 이미지 객체를 appned 하기 위해서
                     //$copy.find('div.img').empty().append($imgObj)
 
-                    $copy.find('div.prodNum').html(prodNum)
-                    $copy.find('div.prodName').html(prodName)
-                    $copy.find('div.percentage').html(percentage + "%")
-                    $copy.find('div.prodPrice').html(prodPrice.toLocaleString() + '원')
-                    $copy.find('div.originPrice').html(originPrice.toLocaleString() + '원')
-                    $parent.append($copy);
-                })
-                $origin.hide(); //원래 기본형 지우기~
+                //     $copy.find('div.prodNum').html(prodNum)
+                //     $copy.find('div.prodName').html(prodName)
+                //     $copy.find('div.percentage').html(percentage + "%")
+                //     $copy.find('div.prodPrice').html(prodPrice.toLocaleString() + '원')
+                //     $copy.find('div.originPrice').html(originPrice.toLocaleString() + '원')
+                //     $parent.append($copy);
+                // })
+                // $origin.hide(); //원래 기본형 지우기~
+                dataList(list);
             },
-            // 응답이 실패했을 때의 콜백함수
-            // 응답코드가 200번이 아니면 즉 에러 404, 500, CORS 에러 등을 마주하면 여기로 빠진다.
             error: function(xhr){
                 alert(xhr.status)
             }
         })
     }
-    //let url = 'http://localhost:8088/myback/product/list' //백엔드랑 맞춰줘야함~ list인지 info인지~
-    // let url = 'http://내ip 주소 넣어도됨:8088/myback/productlist'
-    // let url = 'http://192.168.0.17:8088/myback/product/list'
     let url = backURL+'/product/list'
 
     //-- 상품목록 요청 start --
     //showList(1)을 하면 ..?
-    showList(url, 1)
+    showList(url)
     //-- 상품목록 요청 end --
 
     //-- 페이지번호가 클릭되었을 때 할 일 START --
@@ -98,3 +85,51 @@ $(()=>{
     })
     // -- 상품이 클릭되었을 때 할 일 END --
 })
+
+function listByCategory(event) {
+    //console.log(event.target.value); //도시락, 샐러드, 밀키트
+    let $origin = $('.menunav .card');
+    let $parent = $('div.productlist');
+    let cate = event.target.value;
+    $parent.empty()
+    switch(cate) {
+        case '전체상품':
+            dataList(data);
+            break;
+        case '도시락':
+            let dosirak = data.filter(item=>item.CATEGORY === '도시락')
+            // console.log(d); //앞에 ""+ 문자열주면 Object 로 타입이 바뀌어서 값 안찍힘 주의~
+            dataList(dosirak);
+            break;
+        case '샐러드':
+            let salad = data.filter(item=>item.CATEGORY === '샐러드')
+            dataList(salad);
+            break;
+        case '밀키트':
+            let mealkit = data.filter(item=>item.CATEGORY === '밀키트')
+            dataList(mealkit);
+            break;
+        }
+}
+
+function dataList(list){
+    console.log(list)
+    let $origin = $('.menunav .card');
+    let $parent = $('div.productlist');
+    list.forEach(item=>{
+        let prodNum = item["NUM"];
+        let prodName = item["WEEK"] + "주 " + item["NAME"];
+        let originPrice = item["ORIGIN_PRICE"];
+        let percentage = item["PERCENTAGE"];
+        let prodPrice = originPrice - originPrice*(percentage/100);
+
+        let $copy = $origin.clone()
+        $copy.show()
+        $copy.find('div.prodNum').html(prodNum)
+        $copy.find('div.prodName').html(prodName)
+        $copy.find('div.percentage').html(percentage + "%")
+        $copy.find('div.prodPrice').html(prodPrice.toLocaleString() + '원')
+        $copy.find('div.originPrice').html(originPrice.toLocaleString() + '원')
+        $parent.append($copy);
+    })
+}

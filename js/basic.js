@@ -4,22 +4,6 @@ let frontURL = 'http://172.30.1.14:5500/html/'
 $(()=>{
     // -- 메뉴가 클릭되었을 대 일어날 일 START --
     $('section>nav>ul>li').click((e)=>{
-        //셋팅
-        let menu = $(e.target).attr('class')
-        switch(menu){
-            case 'productlist':
-                $('section>div.tab-content').load('./../product/productlist.html')
-                break;
-            case 'dosirak':
-                $('section').load('../../product/dosiraklist.html')
-                break;
-            case 'salad':
-                break;
-            case 'mealKit':
-                //$.ajax(get) 방식을 함축해 놓은데 .load!
-                // $('section').load('./../product/productlist.html')
-                break;
-        }
     })
     // -- 메뉴가 클릭되었을 대 일어날 일 END --
 
