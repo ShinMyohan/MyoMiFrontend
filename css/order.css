@@ -1,0 +1,198 @@
+*{
+    box-sizing: border-box;
+}
+
+/* 주문 상품 목록 보여주기 START */
+div.container {
+    width: 80%;
+    margin-top: 3%;
+}
+
+#hr1 {
+    border: 0;
+    border-top: 1px dashed #666666;
+    border-bottom: 1px dashed #fff;
+}
+
+#hr2 {
+    width: 80%;
+    padding: 0;
+    border: none;
+    border-top: medium double #2e2e2e;
+    color: #303030;
+    text-align: center;
+    margin-left: 10%;
+}
+
+#productContainer {
+    margin-top: 2%;
+    padding-left: 4%;
+    display: flex;
+}
+
+#img {
+    padding-top : -10%;
+    width: 100px;
+    height: 100px;
+}
+
+#productDetail {
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+#options {
+    /* 아이템들 가운데 정렬 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+}
+
+#containerHr {
+    width: 78%;
+    margin-left: 11%;
+}
+
+.btn-light {
+    border-radius: 100%;
+    border: #2e2e2e;
+    height: 30px;
+    width: 30px;
+    margin-top: 3%;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+#amountContainer {
+    width:50%;
+    margin-bottom: 3%;
+    display: flex;
+
+}
+
+#productAmount {
+    padding: 0;
+    /* 글자 가운데 정렬 */
+    text-align: center;
+}
+
+div.btn-success {
+    padding: 10% 10%;
+    height: 10px;
+}
+
+/* 주문 상품 목록 보여주기 END */
+
+/* 주문 작성탭 보여주기 START */
+#oneInputSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#inputBox {
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    width: 130%;
+    font-weight: bold;
+    margin: 18% 0 9% 0;
+}
+
+#textBox {
+    width: 100%;
+    margin-top: 5%;
+    margin-left: 10%;
+    background-color: #e4e4e4;
+}
+
+#postNum {
+    margin-top: -60px;
+    margin-left: 30%;
+    width: 100%;
+    border: #fff;
+}
+
+#receiveDate {
+    width: 150px;
+    height: 35px;
+    padding: 5px 30px 5px 10px;
+    margin: -30px 0 0 20px;
+    border-radius: 4px;
+    outline: 0 none;
+}
+
+#dayInfo {
+    margin: -45px 0 0 -30px;
+}
+
+div.dropdown {
+    margin: 4% 0 0 10%;
+    border: #fff;
+}
+
+#payment {
+    padding: 220px;
+}
+
+#coupon {
+    margin: 5% 0 0 10%;
+    width: 40%;
+    border: #fff;
+}
+
+#couponAmount {
+    margin: -85px 0 0 -90px;
+}
+
+#point1 {
+    margin: 10px 0 0 -8px;
+    width: 120%;
+    border: #fff;
+}
+
+#point2 {
+    margin: 10px 0% 0 10px;
+    width: 100%;
+    border: #fff;
+}
+
+#radio {
+    margin: 10px 0 0 0;
+}
+
+div.alert-primary {
+    margin-top: 40px;
+    text-align: center;
+    width: 70%;
+}
+
+div.payment {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 주문 작성탭 보여주기 END */
+
+/* 쿠폰 목록 조회 모달 보여주기 START */
+
+
+/* 쿠폰 목록 조회 모달 보여주기 END */
+/* div.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+#couponCheck {
+    padding-right: -10px;
+}
+
+#modalTitle {
+    display: flex;
+    margin-left: 13%;
+}
