@@ -1,3 +1,10 @@
+# OS Caches
+**/.DS_Store
+
+# images
+*.png
+*.jpeg
+
 # Logs
 logs
 *.log

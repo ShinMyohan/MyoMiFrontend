@@ -2,7 +2,6 @@ let backURL = 'http://192.168.35.27:8080/MyoMiBackend/'
 let frontURL = 'http://192.168.35.27:5500/html/'
 
 
-
 window.couponModal = () => {
     userId = 'user2'
     getCouponList(userId)
