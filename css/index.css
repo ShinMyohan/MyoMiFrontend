@@ -3,28 +3,8 @@ section{
     margin: auto;
 }
 
-input.searchbox{
-    padding-left: 20px;
-    border:none;
-    color:#fff;
-    background-color: #f8f8f8;
-    height: 40px;
-}
-
-input.searchbox:focus{
-    outline:none;
-    box-shadow: none;
-    background-color: #f8f8f8;
-}
-
 button.btn {
     border:none;
-}
-
-div.search-icon{
-    position: absolute;
-    top: -2px;
-    right: 20px;
 }
 
 .nav-link{
@@ -43,5 +23,3 @@ div.search-icon{
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover {
     color:#009a5a;
 }
-
-/* --------- footer  영역 --------- */

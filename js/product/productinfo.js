@@ -16,6 +16,7 @@ $(()=>{
             //     console.log(list[p]["COMPANY_NAME"])
             // })
             // $('div.img>img').attr('src', '../images/' + jsonObj.prodNo+'.jpeg')
+            $('div.prodNum').html(jsonObj[0]["PRODNUM"]);
             $('div.prodName>h3').html(jsonObj[0]["NAME"])
             $('div.sellerName>h6').html(jsonObj[0]["COMPANY_NAME"])
             $('div.percentage b').html(jsonObj[0]["PERCENTAGE"]+"%")
