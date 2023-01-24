@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리뷰작성</title>
+<link href="../../css/review/review_write.css" rel="stylesheet" />
+<link href="../../css/review/media.css" rel="stylesheet" />
+<link href="../../css/review/star.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="../../js/review/basic.js"></script>
+    <script src="../../js/review/addreview.js"></script>
+</head>
+<body>
+    <div class="review_wrap">
+        <div class="review_title">
+            <strong>상품리뷰작성</strong>
+            <p>정성껏 작성해주시면 좋겠어요.</p>
+        </div>
+        <div class="review_write_wrap">
+            <div class="review_write">
+                <div class="title">
+                    <dl>
+                        <dt>제목</dt>
+                        <dd><input type="text" id="title" value="" placeholder="제목 입력"></dd>
+                    </dl>
+                </div>
+                <div class="info">
+                    <dl>
+                        <dt>아이디</dt>
+                        <dd><input type="text" id="id" value="" placeholder="아이디 입력"></dd>
+                    </dl>
+                    <dl>
+                        <dt>주문번호</dt>
+                        <dd><input type="number" id="order_num" value="" placeholder="주문번호 입력"></dd>
+                    </dl>
+                    <dl>
+                    <dt>카테고리</dt>
+                        <dd><select id="sort">
+                    <option value="4">포토리뷰</option>
+                    <option value="3">일반리뷰</option>
+                  </select></dd>
+                    </dl>
+                </div>
+                <div class="mystar">
+                평점을 선택하시오
+                <fieldset>
+                 <input
+                        type="radio"
+                        name="reviewStar"
+                        value="5"
+                        id="rate1"
+                      /><label for="rate1">★</label>
+                      <input
+                        type="radio"
+                        name="reviewStar"
+                        value="4"
+                        id="rate2"
+                      /><label for="rate2">★</label>
+                      <input
+                        type="radio"
+                        name="reviewStar"
+                        value="3"
+                        id="rate3"
+                      /><label for="rate3">★</label>
+                      <input
+                        type="radio"
+                        name="reviewStar"
+                        value="2"
+                        id="rate4"
+                      /><label for="rate4">★</label>
+                      <input
+                        type="radio"
+                        name="reviewStar"
+                        value="1"
+                        id="rate5"
+                      /><label for="rate5">★</label>
+                </fieldset>
+               </div>
+                <div class="cont">
+                    <textarea 
+                    id="content"
+                    name="content"
+                    rows="10"
+                    placeholder="내용 입력"></textarea>
+                </div>
+            </div>
+            <div class="bt_wrap">
+                <input
+                  type="submit"
+                  class="input-submit"
+                  id="btn-write"
+                  value="리뷰작성"
+                />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
