@@ -1,0 +1,143 @@
+section{
+    /* height: 1000px; */
+    margin: 200px auto 100px auto;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* 주문 상품 목록 보여주기 START */
+div.container {
+    width: 80%;
+    margin-top: 3%;
+}
+
+div.container div.checkbox{
+    width: 50px;
+    display: flex;
+    align-items: center;
+}
+
+div.container div.checkbox input{
+    width:20px;
+    height:20px;
+    border-radius: 0;
+    border-color: #8f8d8d;
+}
+
+#mainContainer h2{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+}
+
+div.container h4{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+}
+
+#hr1 {
+    border-top: 10px solid #00af85;
+}
+
+div#cartTitle{
+    border-bottom: 2px solid #e8e8e8;
+}
+
+div#cartTitle h4{
+    margin-bottom: 20px;
+}
+
+div.cart-box{
+    width: 100%;
+    margin: 0 auto 0 auto;
+}
+
+#productContainer {
+    margin-top: 2%;
+    padding-left: 4%;
+    display: flex;
+    padding-bottom: 2%;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#img {
+    padding-top : -10%;
+    width: 100px;
+    height: 100px;
+}
+
+#productDetail {
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+#options {
+    /* 아이템들 가운데 정렬 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+}
+
+#cart-price {
+    /* 아이템들 가운데 정렬 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+}
+
+#containerHr {
+    width: 78%;
+    margin-left: 11%;
+}
+
+.btn-light {
+    border-radius: 100%;
+    border: #2e2e2e;
+    height: 30px;
+    width: 30px;
+    margin-top: 3%;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+#amountContainer {
+    width:50%;
+    margin-bottom: 3%;
+    display: flex;
+    pointer-events:none;
+}
+
+#amountContainer button.btn-success{
+    font-size: 22px;
+    background-color: #eeeeee;
+    color:#2e2e2e;
+    border-radius: 0;
+    border:none;
+}
+
+#productAmount {
+    padding: 0;
+    /* 글자 가운데 정렬 */
+    text-align: center;
+}
+
+#productAmount strong{
+    font-size: 20px;
+}
+
+div.btn-success {
+    padding: 10% 10%;
+    height: 10px;
+}
+
+/* 주문 상품 목록 보여주기 END */
+
+#removeCart{
+    background-color: #00af85;
+    width:200px;
+    font-size: 24px;
+    float: right;
+}

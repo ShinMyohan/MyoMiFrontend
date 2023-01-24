@@ -27,10 +27,32 @@
     position: relative;
 }
 
+
+
 .search-icon{
     /* position: absolute; */
     /* text-align: right; */
     float: left;
+}
+
+input.searchbox{
+    padding-left: 20px;
+    border:none;
+    color:#fff;
+    background-color: #f8f8f8;
+    height: 40px;
+}
+
+input.searchbox:focus{
+    outline:none;
+    box-shadow: none;
+    background-color: #f8f8f8;
+}
+
+div.search-icon{
+    position: absolute;
+    top: -2px;
+    right: 20px;
 }
 
 .top_member_box {
@@ -96,14 +118,15 @@ nav.menulist > ul > li > a:hover {
     transition: 0.3s;
 }
 
+/* footer 시작 */
 #footer_wrap {
     position: relative;
     background: #f7f7f7;
 }
 
 #footer {
-    overflow: hidden;
-    padding: 0 0 0px 0;
+    /* overflow: hidden; */
+    padding: 20px 0 0px 0;
 }
 
 .foot_list {
@@ -294,3 +317,4 @@ dd {
     color: #8a8989;
     font-size: 12px;
 }
+/* ------ footer 끝 ------ */

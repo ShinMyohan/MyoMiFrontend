@@ -204,3 +204,22 @@ div.prod_detail_images{
     width: 860px;
     margin: 0 auto 100px auto;
 }
+
+div.modal-content div.modal-body{
+    margin: 20px auto;
+}
+
+div.modal-content div.modal-body, div.modal-content div.modal-footer {
+    text-align: center;
+    justify-content: center;
+}
+
+div.modal-content div.modal-footer button.modal-cart{
+    border-color: #00af85;
+    background-color: #00af85;
+}
+
+div.modal-content div.modal-footer button.modal-cart:hover{
+    border-color: rgba(0, 175, 133, 0.9);
+    background-color: rgba(0, 175, 133, 0.9);
+}
