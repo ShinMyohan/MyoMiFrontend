@@ -57,14 +57,7 @@ $(()=>{
 });
 
   let url= backURL +'board/add'
-
-// //--작성 클릭시 START --
-// $("div.submit").click(() => {
-//     location.href ="./board_detail.html"
-//    });
-// //--작성 클릭시 END --
-
-
+  
 //--취소 클릭시 START --
 $("div.cancle").click(() => {
     location.href ="./boardlist.html"
