@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 부트스트랩 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="../css/order.css">
+        <script src="../js/order.js"></script>
+        <script src="../js/delivery.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    </head>
+    <body>
+        <!-- 주문 상품 목록 보여주기 START -->
+        <div class="container" id="mainContainer">
+            <h2>주문서/ 결제</h2>
+            <hr id="hr1">
+        </div>
+        <div class="container">
+            <h4>주문</h4>
+        </div>
+        <hr id="hr2">
+        <div>
+            <!-- 상품 상세 1 -->
+            <div class="container" id="productContainer">
+                <img src="../imgs/shin.png" class="rounded" id="img">
+                <div id="productDetail" class="col">
+                    <h5>신묘한</h5>
+                </div>
+
+                <div id="options" class="col">
+                    <h6>수량</h6>
+                    <h6>3</h6>
+                </div>
+                <div id="options" class="col">
+                    <h6>금액</h6>
+                    <h6>235,000</h6>
+                </div>
+            </div>
+            <hr id="containerHr">
+            <!-- 상품 상세 2 -->
+            <div class="container" id="productContainer">
+                <img src="../imgs/jojini.png" class="rounded" id="img">
+                <div id="productDetail" class="col">
+                    <h5>조지니</h5>
+                </div>
+                <div id="options" class="col">
+                    <h6>수량</h6>
+                    <h6 >1</h6>
+                </div>
+                <div id="options" class="col">
+                    <h6>금액</h6>
+                    <h6>125,000</h6>
+                </div>
+            </div>
+            <hr id="containerHr">
+            <div class="container" id="amountContainer">
+                <div id="productAmount" class="col">
+                    <strong>총 상품금액</strong>
+                    <br>
+                    <button type="button" class="btn btn-success">460,000</button>
+                </div>
+                <button type="button" class="button btn-light">+</button>
+                <div id="productAmount" class="col">
+                    <strong>총 할인금액</strong>
+                    <br>
+                    <button type="button" class="btn btn-success">12,000</button>
+                </div>
+                <button type="button" class="button btn-light">=</button>
+                <div id="productAmount" class="col">
+                    <strong>결제 금액</strong>
+                    <br>
+                    <button type="button" class="btn btn-success">460,000</button>
+                </div>
+            </div>
+            <hr id="hr2">
+        </div>
+        <!-- 주문 상품 목록 보여주기 END -->
+
+        <!-- 주문 작성탭 보여주기 START -->
+        <br><br><br>
+        <div class="container">
+            <h4>주문자 정보</h4>
+            <hr>
+            <div>
+                <div id="oneInputSection">
+                    <div id="inputBox">
+                        <span id="title">∙ 주문하시는 분</span>
+                        <span id="title">∙ 휴대폰 번호</span>
+                        <span id="title">∙ 이메일</span>
+                        <span id="title">∙ 주문 요청사항</span>
+                    </div>
+                    <div id="inputBox">
+                        <input type="text" class="form-control" id="textBox" >
+                        <input type="text" class="form-control" id="textBox" >
+                        <input type="text" class="form-control" id="textBox" >
+                        <input type="text" class="form-control" id="textBox" name="msg" style="width:210%" placeholder="요청사항을 입력해주세요">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br>
+        <div class="container">
+            <h4>배송 정보</h4>
+            <hr>
+            <div>
+                <div id="oneInputSection">
+                    <div id="inputBox">
+                        <div id="title">∙ 받으실 분</div>
+                        <div id="title">∙ 받으실 곳</div>
+                        <div id="title" style="margin-top:130%">∙ 휴대폰 번호</div>
+                    </div>
+                    <div id="inputBox">
+                        <input type="text" class="form-control textBox" id="textBox" name="name" placeholder="수령자 이름">
+                        <input type="text" class="form-control textBox" id="textBox" name="postNum" placeholder="우편번호 (검색된 값)">
+                        <input type="text" class="form-control textBox" id="textBox" name="addr" style="width:210%" placeholder="주소 (검색된 값)">
+                        <input type="text" class="form-control textBox" id="textBox" name="addrDetail" style="width:210%" placeholder="상세주소 입력">
+                        <input type="text" class="form-control textBox" id="textBox" name="tel" placeholder="휴대폰 번호 입력">
+                    </div>
+                    <div id="inputBox">
+                        <button type="button" class="btn btn-primary" id="postNum">우편번호 검색</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br><br>
+        <div class="container">
+            <h4>배송방법 및 수령일 선택</h4>
+            <hr>
+            <div>
+                <div id="oneInputSection">
+                    <div id="inputBox">
+                        <div id="title">∙ 수령일</div>
+                        <div id="title">∙ 배송 요청사항</div>
+                    </div>
+                    <div id="inputBox">
+                        <div class="control select is-info">
+                            <select id="receiveDate" name="receiveDate" class="sort-post">
+                                <option value="화요일">화요일</option>
+                                <option value="수요일">수요일</option>
+                                <option value="목요일">목요일</option>
+                                <option value="금요일">금요일</option>
+                                <option value="토요일">토요일</option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control" id="textBox" name="deliveryMsg" style="width:210%" placeholder="배송 요청사항 입력">
+                    </div>
+                    <div id="inputBox">
+                        <button type="button" class="btn" id="dayInfo">선택한 요일과 매주 같은 요일에 배송됩니다.</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br><br>
+        <div class="container">
+            <h4>할인 혜택</h4>
+            <hr>
+            <div>
+                <div id="oneInputSection">
+                    <div id="inputBox">
+                        <div id="title">∙ 총 결제예정금액</div>
+                        <div id="title" style = "margin-top: 6%;">∙ 쿠폰 사용</div>
+                        <div id="title" style = "margin-top: 6%;">∙ 포인트 사용</div>
+                        <div id="title" style = "margin-top: 6%;">∙ 최종 결제 금액</div>
+                        <div id="title" style = "margin-top: 6%;">∙ 포인트 적립 예정 금액</div>
+                    </div>
+                    <div id="inputBox">
+                        <input type="text" class="form-control" id="textBox" name="totalProdPrice" placeholder="총 결제예정금액" >
+                        <button type="button" class="btn btn-success" id="coupon" onclick="couponModal()" data-bs-toggle="modal" data-bs-target="#open-coupon-modal">쿠폰조회</button>
+                        <input type="text" class="form-control" id="textBox" name="usedPoint" placeholder="포인트 사용액(입력)" >
+                        <input type="text" class="form-control" id="textBox" name="totalPrice" >
+                        <input type="text" class="form-control" id="textBox" name="savePoint" >
+                    </div>
+                    <div id="couponAmount">
+                        쿠폰할인액: <span>24000</span>
+                    </div>
+                    <div id="inputBox">
+                        <button type="button" class="btn btn-danger" id="point1">전액사용</button>
+                    </div>
+                    <div id="inputBox">
+                        <button type="button" class="btn btn-success" id="point2">보유 포인트 확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><br><br>
+        <div class="container">
+            <h4>결제 정보 선택 / 결제</h4>
+            <hr>
+            <div>
+                <div id="oneInputSection">
+                    <div id="inputBox">
+                        <div id="title">∙ 일반 카드결제</div>
+                    </div>
+                    <div id="inputBox">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio" checked>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="payment">
+                <div class="alert alert-primary">
+                    <strong>최종결제금액 : </strong> <span>123,424</span>
+                </div>
+                <button type="button" class="btn btn-success" onclick="createDeliveryButton()">결제하기</button>
+            </div>
+        <br><br><br><br><br><br>
+    </body>
+</html>
+
+
+<!-- 쿠폰 조회 모달 -->
+<div class="modal fade" id="open-coupon-modal">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">내 쿠폰 목록</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="modalTitle">
+                <span class="col">선택</span>
+                <span class="col">이름</span>
+                <span class="col">할인율</span>
+                <span class="col">사용만료</span>
+            </div>
+            <hr>
+            <div class="couponParent"></div>
+            <!-- <div id="couponList">
+                라디오 버튼 1개만 눌리게 하기 위해선 name이 있어야함
+                <span class="col"><input type="radio" class="form-check-input" name="radio" id="couponCheck" unchecked></span>
+                <span class="col"><input class="form-check-input" type="checkbox" id="couponCheck" onclick="clickOnlyOne(this)" unchecked></span>
+                <span class="col" id="couponName"></span>
+                <span class="col" id="couponPercentage"></span>
+                <span class="col" id="couponDate"></span>
+            </div> -->
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">적용</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="couponCancle()">사용취소</button>
+        </div>
+    </div>
+</div>
