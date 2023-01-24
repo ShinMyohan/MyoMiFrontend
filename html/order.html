@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="../css/order.css">
         <script src="../js/order.js"></script>
         <script src="../js/delivery.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     </head>
     <body>
         <!-- 주문 상품 목록 보여주기 START -->
@@ -170,7 +171,7 @@
                     </div>
                     <div id="inputBox">
                         <input type="text" class="form-control" id="textBox" name="totalProdPrice" placeholder="총 결제예정금액" >
-                        <button type="button" class="btn btn-success" id="coupon" data-bs-toggle="modal" data-bs-target="#open-coupon-modal">쿠폰조회</button>
+                        <button type="button" class="btn btn-success" id="coupon" onclick="couponModal()" data-bs-toggle="modal" data-bs-target="#open-coupon-modal">쿠폰조회</button>
                         <input type="text" class="form-control" id="textBox" name="usedPoint" placeholder="포인트 사용액(입력)" >
                         <input type="text" class="form-control" id="textBox" name="totalPrice" >
                         <input type="text" class="form-control" id="textBox" name="savePoint" >
@@ -218,7 +219,7 @@
 
 <!-- 쿠폰 조회 모달 -->
 <div class="modal fade" id="open-coupon-modal">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
@@ -227,23 +228,27 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-            <div id="modalTitle">
+            <div class="modalTitle">
                 <span class="col">선택</span>
-                <span class="col">쿠폰</span>
-                <span class="col">사용기한</span>
-
+                <span class="col">이름</span>
+                <span class="col">할인율</span>
+                <span class="col">사용만료</span>
             </div>
             <hr>
-            <div id="modalTitle" style="margin: 0 45px 0 65px;">
-                <span class="col"><input class="form-check-input" type="checkbox" checked></span>
-                <span class="col">쿠폰 이름</span>
-                <span class="col">2023-01-23 ~ 2023-01-30</span>
-            </div>
+            <div class="couponParent"></div>
+            <!-- <div id="couponList">
+                라디오 버튼 1개만 눌리게 하기 위해선 name이 있어야함
+                <span class="col"><input type="radio" class="form-check-input" name="radio" id="couponCheck" unchecked></span>
+                <span class="col"><input class="form-check-input" type="checkbox" id="couponCheck" onclick="clickOnlyOne(this)" unchecked></span>
+                <span class="col" id="couponName"></span>
+                <span class="col" id="couponPercentage"></span>
+                <span class="col" id="couponDate"></span>
+            </div> -->
         </div>
         <!-- Modal footer -->
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">적용</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">사용취소</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="couponCancle()">사용취소</button>
         </div>
     </div>
 </div>

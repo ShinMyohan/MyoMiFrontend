@@ -24,12 +24,11 @@ function createDelivery(orderNum) {
     console.log('addr : ' + addr)
 
 
-    // if (receiverName == '') { alert('받는 사람 닉네임을 입력해주세요!');return;}
-    // if (postNum == '') {alert('우편번호를 선택해주세요!');return;}
-    // if (addr == '') {alert('주소를 입력해주세요!');return;}
-    // if (addrDetail == '') {alert('상세 주소를 입력해주세요!');return;}
-    // if (tel == '') {alert('수신자 핸드폰 번호를 입력해주세요!');return;}
-    // if (receiveDate == '') {alert('수령일을 선택해주세요!');return;}
+    // if (name == '') { alert('받는 사람 닉네임을 입력해주세요!');return;}
+    // if (tel == '') {alert('우편번호를 선택해주세요!');return;}
+    // if (postNum == '') {alert('주소를 입력해주세요!');return;}
+    // if (addr == '') {alert('상세 주소를 입력해주세요!');return;}
+    // if (receiveDate == '') {alert('수신자 핸드폰 번호를 입력해주세요!');return;}
 
 
     let data = { 'num': num, 'name': name, 'tel': tel,'addr': addr,
@@ -39,9 +38,6 @@ function createDelivery(orderNum) {
     $.ajax({
         type: 'POST',
         url: backURL + 'order/delivery',
-        // beforeSend: function (xhr) {
-        //     xhr.setRequestHeader('Content-type', 'application/json');
-        // },
         data: JSON.stringify(data),
         success: function (response) {
             console.log(response)
@@ -59,8 +55,3 @@ function confirmPayment(orderNum) {
         console.log("결제를 취소하였습니다.");
     }
 }
-
-
-
-
-
