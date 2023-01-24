@@ -21,7 +21,7 @@ $(() => {
           let category = list[p]["CATEGORY"];
           let title = list[p]["TITLE"];
           let createdDate = list[p]["CREATED_DATE"];
-          let user_id = list[p]["USER_ID"];
+          let name = list[p]["NAME"];
           let hits = list[p]["HITS"];
           let $copy = $origin.clone();
           
@@ -29,7 +29,7 @@ $(() => {
           $copy.find("div.bcategory").html(category);
           $copy.find("div.btitle").html(title);
           $copy.find("div.bdate").html(moment(createdDate).format("YYYY-MM-DD"));
-          $copy.find("div.bwriter").html(user_id);
+          $copy.find("div.bwriter").html(name);
           $copy.find("div.bhits").html(hits);
 
           $parent.append($copy);
@@ -77,7 +77,7 @@ $(() => {
               category = list[p]["CATEGORY"];
               title = list[p]["TITLE"];
               let createdDate = list[p]["CREATED_DATE"];
-              let user_id = list[p]["USER_ID"];
+              let name = list[p]["NAME"];
               let hits = list[p]["HITS"];
               let $copy = $origin.clone();
               
@@ -85,7 +85,7 @@ $(() => {
               $copy.find("div.bcategory").html(category);
               $copy.find("div.btitle").html(title);
               $copy.find("div.bdate").html( moment(createdDate).format("YYYY-MM-DD"));
-              $copy.find("div.bwriter").html(user_id);
+              $copy.find("div.bwriter").html(name);
               $copy.find("div.bhits").html(hits);
                $parent.append($copy);
             });
