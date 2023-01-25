@@ -54,7 +54,7 @@ function getProductInfo(orderNum) {
                 totalPrice += originPrice * prodCnt
                 discountPrice += originPrice*(percentage/100)*prodCnt
                 payPrice += (originPrice - originPrice*(percentage/100))*prodCnt
-
+                console.log('totalPrice1 : ' + totalPrice)
                 let productHTML = `<div id="orderProduct">
                                         <img src="../../images/shin.png" class="rounded" id="img">
                                         <div id="productDetail" class="col">
@@ -72,10 +72,12 @@ function getProductInfo(orderNum) {
                 $('#orderProductList').append(productHTML);
         }
         $('#totalPrice').html(totalPrice.toLocaleString())
+        console.log('totalPrice2 : ' + totalPrice)
         $('#discountPrice').html(discountPrice.toLocaleString())
         $('#payPrice').html(payPrice.toLocaleString())
         $('#totalProdPrice').val(payPrice)
         $('#totalPayPrice').val(payPrice)
+        $('#totalPay').html(payPrice)
         $('#savePoint').val((payPrice/100))
     },
         error: function (xhr) {
@@ -107,6 +109,7 @@ function couponApplyAmount(percentage) {
     let total = (price - amount)
     $('#totalPayPrice').val(total.toLocaleString())
     $('#savePoint').val(((price-amount) / 100).toLocaleString().split(".")[0])
+    $('#totalPay').html(total.toLocaleString()+'원')
 }
 
 // 쿠폰 조회 모달에서 적용취소를 눌렀을 경우 checked를 풀기
@@ -123,7 +126,7 @@ function createPayment(orderNum) {
     // 할인혜택
     let couponNum = localStorage.getItem('coupon');
     let usedPoint = $('input[id=usedPoint]').val();
-    if(usedPoint = '') {usedPoint == 0}
+    if(usedPoint == '') {usedPoint = 0}
     let totalPrice = $('input[id=totalPayPrice]').val();
     let savePoint = $('input[id=savePoint]').val();
 
