@@ -12,8 +12,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script src="../../js/basic.js"></script>
         <script src="../../js/index.js"></script>
-        <script src="../../js/order/order.js"></script>
         <script src="../../js/order/delivery.js"></script>
+        <script src="../../js/order/order.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     </head>
     <body>
@@ -214,7 +214,7 @@
         </div>
             <div class="payment">
                 <div class="alert alert-primary">
-                    <strong>최종결제금액 : </strong> <span>123,424</span>
+                    <strong>최종결제금액 : </strong> <span id="totalPay"></span>
                 </div>
                 <button type="button" class="btn btn-success" id="paymentBtn"onclick="createDeliveryButton()">결제하기</button>
             </div>
