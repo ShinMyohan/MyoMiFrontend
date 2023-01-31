@@ -24,11 +24,11 @@ $(()=>{
                     let totalPriceByOne = originPrice - originPrice*(percentage/100);
                     let totalPrice = totalPriceByOne*prodCnt;
 
-                    
-
                     let $copy = $origin.clone()
                     $copy.show()
-                    $copy.find('div.checkbox input').val(cartNum)
+                    $copy.find('input[name=del-cart-check]').val(cartNum)
+                    console.log(cartNum)
+                    // $copy.find('div.checkbox input').val(cartNum)
                     $copy.find('div#options h5').html(prodCnt)
                     $copy.find('div#productDetail h5').html(prodName)
                     $copy.find('div#cart-price h5').html(totalPrice.toLocaleString() + '원')
