@@ -1,10 +1,11 @@
-*{
+/* *{
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Roboto', sans-serif;
-}
+} */
 
 #header {
     width: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #header .h1_logo {
@@ -120,6 +121,7 @@ nav.menulist > ul > li > a:hover {
 
 /* footer 시작 */
 #footer_wrap {
+    font-family: 'Noto Sans KR', sans-serif;
     position: relative;
     background: #f7f7f7;
 }
