@@ -1,0 +1,84 @@
+section div.mp-seller-add{
+    width: 80%;
+    margin: 100px auto 100px auto;
+    /* background-color: rgb(221, 172, 109); */
+}
+
+div.mp-seller-add h5.add-title{
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+div.mp-seller-add div.add-prodinfo{
+    width: 95%;
+    height: 1000px;
+    margin: 40px auto 20px auto;
+    /* background-color: aquamarine; */
+}
+
+div.mp-seller-add div.add-prodinfo input.add-prodname{
+    width: 40em;
+    border: none;
+    border-bottom: 1px solid #d9d9d9;
+    outline: none;
+}
+
+
+div.mp-seller-add div.add-prodinfo div.select ul{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+div.mp-seller-add div.add-prodinfo div.select {
+    display: inline-block;
+    width: 200px;
+    border: 1px solid #999;
+}
+  
+div.mp-seller-add div.add-prodinfo div.select div.selected {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 5px;
+  }
+  
+div.mp-seller-add div.add-prodinfo div.select div.selected div.selected-value {
+    max-width: 90px;
+}
+  
+/* div.mp-seller-add div.add-prodinfo div.select div.selected div.arrow {
+    width: 24px;
+    background: url("https://uxwing.com/wp-content/themes/uxwing/download/02-arrow-direction/arrow-bottom.png") no-repeat 70% 50%;
+    background-size: 50% 50%;
+  } */
+  
+div.mp-seller-add div.add-prodinfo div.select ul {
+    width: 200px;
+    border: 1px solid #999;
+    position: absolute;
+    background: #fff;
+    border-top: none;
+    margin: 1px 0 0 -1px;
+    cursor: pointer;
+    display: none; /* 처음엔 닫혀있는 상태 */
+}
+
+div.mp-seller-add div.add-prodinfo div.select.active ul{
+    display: initial;
+}
+  
+div.mp-seller-add div.add-prodinfo div.select ul li {
+    padding: 8px 5px;
+}
+
+div.mp-seller-add div.add-prodinfo div.select.select ul li,
+div.mp-seller-add div.add-prodinfo div.select div.selected div.selected-value {
+  white-space: nowrap; /* 줄바꿈 안함 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 말줄임 적용 */
+}
+
+div.mp-seller-add div.add-prodinfo div.select ul li:hover {
+    background: rgba(0, 175, 133, 0.5);
+}
