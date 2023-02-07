@@ -1,0 +1,117 @@
+div.user-login-page{
+    width: 620px;
+    height: 2000px;
+    margin: 200px auto 100px auto;
+    /* background-color: antiquewhite; */
+    border: 1px solid #e2e2e2;
+    border-top: 2px solid rgba(0, 175, 133, 0.9);
+}
+
+div.user-login-page div.login-content{
+    padding: 0 auto;
+}
+
+div.user-login-page div.login-content h2{
+    margin: 20px 0 60px 0;
+    text-align: center;
+}
+
+div.login-content div.login-form-cont form.login-form-element{
+    width: 500px;
+    margin: 0 auto;
+}
+
+div.user-login-page div.login-content input.login-user-id, input.login-user-pwd{
+    display: block;
+    width: 500px;
+    height: 60px;
+    margin: 0 auto 14px auto;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e2e2e2;
+    outline: none;
+}
+
+/* ------ 체크박스 ------ */
+/* form.login-form-element span.id-save-cont {
+    line-height: 16px;
+} */
+
+form.login-form-element input.save-user-id{
+    position: absolute;
+    top: 3px;
+    left: 1px;
+    width: 0;
+    z-index: -1;
+    visibility: hidden;
+}
+
+form.login-form-element label.save-user-checkbox{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    min-width: 16px;
+    min-height: 16px;
+    padding: 0 0 0 20px;
+    background: url('../../images/common/check_off.png') no-repeat 0px 50%;
+    color: #333;
+    font-size: 15px;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+/* jquery 혹은 js 만들면 이 주석 풀기 */
+/* form.login-form-element label.on {
+    background: url('../../images/common/check_on.png') no-repeat 1px 50%;
+} */
+
+/* 확인용 */
+form.login-form-element label.save-user-checkbox:hover{
+    background: url('../../images/common/check_on.png') no-repeat 0px 50%;
+}
+
+/* ------ 아이디/비밀번호 찾기 ------ */
+form.login-form-element ul.find-id-pwd{
+    /* list-style:none; */
+    float: right;
+}
+
+form.login-form-element ul.find-id-pwd li{
+    float:left;
+}
+
+form.login-form-element ul.find-id-pwd li button{
+    font-size: 15px;
+    padding-top: 0px;
+}
+
+/* ---- 로그인 / 회원가입 버튼 ----*/
+form.login-form-element div.login-signup-button button{
+    width: 100%;
+    height: 64px;
+    font-size: 22px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+}
+
+form.login-form-element div.login-signup-button button.btn-login{
+    background-color: #00af85;
+    color:#ffffff;
+}
+
+form.login-form-element div.login-signup-button button.btn-signup{
+    border: 1px solid #00af85;
+    color: #00af85;
+}
+
+/* form.login-form-element div.oauth-sns-login-in{
+    width: 100%;
+} */
+
+form.login-form-element div.oauth-sns-login-in li.btn-kakao-login{
+    width: 100%;
+    height: 60px;
+    background: url("../../images/oauth/ico_login_kakao.png")no-repeat left 13px center #fee500;
+    background-size: 24px;
+}
