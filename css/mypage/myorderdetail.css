@@ -1,0 +1,90 @@
+/* 세부 내용 기본 form */
+div.mp-order-detail-form{
+    margin-left: 50px; /* 임시 */
+    width: 80%;
+    margin-bottom: 10%;
+}
+
+/* 금액 색상 */
+strong {
+    color: #00af85;
+}
+
+div.mp-order-detail-title {
+    margin-top: 5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.mp-order-detail-title span {
+    font-size: 15px;
+    font-weight: 400;
+    color: #00af85;
+    margin: 1em;
+}
+
+
+/* 주문 내역 테이블 */
+div.mp-order-detail-table{
+    margin-top:20px;
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+div.mp-order-detail-table table{
+    width: 100%;
+}
+
+div.mp-order-detail-table .btn-success {
+    color: #00af85;
+    background-color: #fff;
+    border-color: #00af85;
+    font-weight: 500;
+}
+
+div.mp-order-detail-table table th{
+    height: 3em;
+    background-color: #f7f7f7;
+    border-top: 1px solid #777777;
+}
+
+div.mp-order-detail-table table tbody tr{
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+div.mp-order-detail-table table thead tr th{
+    font-weight: 500;
+}
+
+div.mp-order-detail-table table tbody tr td{
+    padding: 15px 0;
+}
+
+/* 주문자 정보 테이블 CSS */
+div.mp-detail-table table{
+    width: 100%;
+}
+
+div.mp-detail-table {
+    border-top: 1px solid #949393;
+}
+
+div.mp-detail-table tr {
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    height: 3em;
+}
+
+div.mp-detail-table th {
+    background-color: #f7f7f7;
+    font-weight: 600;
+    padding-left: 15px;
+}
+
+div.mp-detail-table td {
+    padding-left: 15px;
+}
