@@ -7,118 +7,118 @@
       padding: 0px;
     }
 
-    .board_wrap {
+    .board-wrap {
         width: 1000px;
         box-sizing: border-box;
         margin: 100px auto;
     } 
 
-    .board_title strong {
+    .board-title strong {
         font-size: 30px;
     }
 
-    .board_title {
+    .board-title {
         margin-bottom: 30px;
     }
-    .board_list {
+    .board-list {
         width: 100%;
         border-top: 2px solid #000;
     }
 
-    .board_list > div {
+    /* .board-list > div {
         border-bottom: 1px solid #ddd;
-    }
+    } */
 
-    .board_list > div.top {
+    .board-list > div.top {
         border-bottom: 1px solid #999;
     }
-
-    .board_list > div:last-child {
+/* 
+    .board-list > div:last-child {
         border-bottom: 1px solid #000;
-    }
+    } */
 
 
-    .board_list > div > div{
+    .board-list > div > div{
         display: inline-block;
         font-weight: 600;
         padding: 15px 0;
     }
 
-    .board_list .num{
+    .board-list .num{
         width: 10%;
         text-align: center;
         font-size: 15px;
     }
 
-    .board_list .category{
+    .board-list .category{
         width: 10%;
         text-align: center;
         font-size: 15px;
     }
 
-    .board_list .title{
+    .board-list .title{
         width: 45%;
         text-align: center;
         font-size: 15px;
     }
 
-    .board_list .date{
+    .board-list .date{
         width: 10%;
         text-align: center;
         font-size: 15px;
     }
 
-    .board_list .writer{
+    .board-list .writer{
         width: 10%;
         text-align: center;
         font-size: 15px;
     }
 
-    .board_list .hits{
+    .board-list .hits{
         width: 10%;
         text-align: center;
         font-size: 15px;
     }
 
-    .bt_wrap a:first-child {
+    .bt-wrap a:first-child {
     margin-left: 0;
 }
 
-.board_detail {
+.board-detail {
     width:100%
 }
 
-.board_detail .b_num{
+.board-detail .b_num{
     width: 10%;
     text-align: center;
     font-size: 15px;
 }
 
-.board_detail .b_category{
+.board-detail .b_category{
     width: 10%;
     text-align: center;
     font-size: 15px;
 }
 
-.board_detail .b_title{
+.board-detail .b_title{
     width: 45%;
     text-align: center;
     font-size: 15px;
 }
 
-.board_detail .b_date{
+.board-detail .b_date{
     width: 10%;
     text-align: center;
     font-size: 15px;
 }
 
-.board_detail .b_writer{
+.board-detail .b_writer{
     width: 10%;
     text-align: center;
     font-size: 15px;
 }
 
-.board_detail .b_hits{
+.board-detail .b_hits{
     width: 10%;
     text-align: center;
     font-size: 15px;
@@ -134,7 +134,7 @@
 .searchselect{
     margin-right: 50px;
 }
-.bt_wrap {
+.bt-wrap {
     float: right;
 }
 
@@ -193,118 +193,118 @@
     padding: 15px 0;
 }
 
-.board_view .info dl {
+.board-view .info dl {
     width: 50%;
     padding: 0;
 }
 
-.board_view .info dl:nth-child(-n+2) {
+.board-view .info dl:nth-child(-n+2) {
     margin-bottom: 5px;
 }
 
-.board_view .info dl::before {
+.board-view .info dl::before {
     display: none;
 }
 
-.board_view .info dl dt,
-.board_view .info dl dd {
+.board-view .info dl dt,
+.board-view .info dl dd {
     font-size: 20px;
 }
 
-.board_write_wrap{
+.board-write-wrap{
     width:1000px;
     margin: 100px auto;
     border: 2px solid #999;
     
 }
 
-.board_write .info dl {
+.board-write .info dl {
     width: 50%;
 }
 
-.board_write .info dl:first-child {
+.board-write .info dl:first-child {
     margin-right: 10%;
   
 }
 
-.board_write .title dt,
-.board_write .info dt {
+.board-write .title dt,
+.board-write .info dt {
     display: none;
 }
 
-.board_write .title dd,
-.board_write .info dd {
+.board-write .title dd,
+.board-write .info dd {
     width: 73%;    
 }
 
-.board_write .title input[type="text"],
-.board_write .info input[type="text"],
-.board_write .info input[type="text"] {
+.board-write .title input[type="text"],
+.board-write .info input[type="text"],
+.board-write .info input[type="text"] {
     width: 100%;
 }
 /* 
-.board_write {
+.board-write {
     border-top: 2px solid #000;
 } */
 
-.board_write .title,
-.board_write .info {
+.board-write .title,
+.board-write .info {
     padding: 15px;
     /* text-align: center; */
 }
 
-.board_write .info {
+.board-write .info {
     border-top: 1px dashed #ddd;
     /* border-bottom: 1px solid #000; */
     font-size: 0;
     
 }
 
-.board_write .title dl {
+.board-write .title dl {
     font-size: 0;
     text-align: center;
 }
 
-.board_write .info dl {
+.board-write .info dl {
     display: inline-block;
     width: 100%;
     text-align: center;
     /* vertical-align: middle; */
 }
 
-.board_write .title dt,
-.board_write .title dd,
-.board_write .info dt,
-.board_write .info dd {
+.board-write .title dt,
+.board-write .title dd,
+.board-write .info dt,
+.board-write .info dd {
     display: inline-block;
     vertical-align: middle;
     font-size: 25px;
     text-align: center;
 }
 
-.board_write .title dt,
-.board_write .info dt {
+.board-write .title dt,
+.board-write .info dt {
     width: 100px;
 }
 
-.board_write .title dd {
+.board-write .title dd {
     width: calc(100% - 100px);
 }
 
-.board_write .title input[type="text"],
-.board_write .info input[type="text"] {
+.board-write .title input[type="text"],
+.board-write .info input[type="text"] {
     padding: 10px;
     box-sizing: border-box;
     width: 100%
 }
 
 
-.board_write .title input[type="text"] {
+.board-write .title input[type="text"] {
     width: 100%;
 }
 
 
-.board_write .cont {
+.board-write .cont {
     border-bottom: 1px solid #999;
 }
 

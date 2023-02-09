@@ -3,59 +3,60 @@
     padding: 0px;
   }
 
-  .board_wrap {
+  .board-wrap {
       width: 1000px;
       box-sizing: border-box;
       margin: 100px auto;
   } 
 
-.board_view .info dl {
+.board-view .info dl {
     width: 50%;
     padding: 0;
 }
 
-.board_view .info dl:nth-child(-n+2) {
+.board-view .info dl:nth-child(-n+2) {
     margin-bottom: 5px;
 }
 
-.board_view .info dl::before {
+.board-view .info dl::before {
     display: none;
 }
 
-.board_view .info dl dt,
-.board_view .info dl dd {
+.board-view .info dl dt,
+.board-view .info dl dd {
     font-size: 1.2rem;
 }
 
-.board_view {
+.board-view {
     width: 100%;
     border-top: 2px solid #000;
+  
 }
 
-.board_view .title {
+.board-view .title {
     padding: 20px 15px;
     border-bottom: 1px dashed #ddd;
     font-size: 2rem;
     margin-bottom:10px;
 }
 
-.board_view .info {
+.board-view .info {
     padding: 15px;
     border-bottom: 1px solid #999;
     font-size: 0;
 }
 
-.board_view .info dl {
+.board-view .info dl {
     position: relative;
     display: inline-block;
     padding: 0 20px;
 }
 
-.board_view .info dl:first-child {
+.board-view .info dl:first-child {
     padding-left: 0;
 }
 
-.board_view .info dl::before {
+.board-view .info dl::before {
     content: "";
     position: absolute;
     top: 1px;
@@ -66,22 +67,22 @@
     background: #ddd;
 }
 
-.board_view .info dl:first-child::before {
+.board-view .info dl:first-child::before {
     display: none;
 }
 
-.board_view .info dl dt,
-.board_view .info dl dd {
+.board-view .info dl dt,
+.board-view .info dl dd {
     display: inline-block;
     font-size: 1.4rem;
 }
 
-.board_view .info dl dd {
+.board-view .info dl dd {
     margin-left: 10px;
     color: #777;
 }
 
-.board_view .cont {
+.board-view .cont {
     padding: 15px;
     border-bottom: 1px solid #000;
     line-height: 160%;
@@ -108,6 +109,11 @@
     height: 300px;
 }
 
+.bt-wrap-add {
+    margin-top : 10px;
+    float: right;
+}
+
 .back{
     margin: 0 auto;
     float: right;
@@ -126,3 +132,101 @@
     float: right;
     padding-top: 10px;
 }
+
+.board-rep {
+    margin-top : 80px;
+    margin-bottom : 10px;
+  
+}
+
+.board-rep-count {
+    margin-top : 10px;
+    margin-bottom : 10px;
+}
+
+.rep-add {
+    float: right;
+    margin-top : 10px;
+    margin-bottom : 10px;
+
+}
+
+.board-rep-list {
+    margin-top : 25px;
+}
+
+.rep-line {
+    border-top: 1px solid #999;
+    margin-top :40px;
+}
+
+.rwriter {
+    margin : 0 auto;
+    float : left;
+    margin-right : 10px;
+}
+
+.rdate {
+    margin : 0 auto;
+    float : left;
+    width : 88%
+}
+
+.rcontent {
+    margin-top : 10px;
+    float : left;
+    height : 40px;
+    width : 800px;
+    height : 100px;
+    padding : 7px;
+}
+
+#rep-edit {
+    float: right;
+}
+
+.rep-menu {
+    margin-top : 15px;
+    float : right;
+}
+
+.rep-list button {
+    margin-left : 10px;
+    margin-top : 33px;
+}
+
+.rep-edit-btn {
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.rep-del-btn {
+    text-align: center;
+    margin-bottom: 2px;
+}
+.rep-second-btn {
+    text-align: center;
+}
+
+#rep-content {
+    width : 840px;
+    height : 70px;
+    border : 0;
+    /* border-bottom : 1px solid lightgrey; */
+    /* border : 2px solid black; */
+}
+
+.re-rep {
+    /* border : 1px solid black; */
+    float : right;
+    margin-top: 10px;
+    height : 70px;
+    width : 750px;
+}
+
+.hidden-rep-btn {
+    float : right;
+    margin-top : 46px;
+}
+
+/*-----------------------------------------*/
