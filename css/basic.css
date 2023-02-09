@@ -1,42 +1,35 @@
-/* *{
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Roboto', sans-serif;
-} */
-
 #header {
     width: 100%;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-#header .h1_logo {
+#header div.h1-logo {
     text-align: left;
     padding: 50px 0 0 100px;
     height: 98px;
     /* display : inline; */
 }
 
-#header .h1_logo > div.logo_main {
+#header div.h1-logo > div.logo-main {
     display: block;
     float: left;
     margin-right: 30px;
 }
 
-.search{
+div.main-search{
     width:250px;
     float: left;
     margin-top: 10px;
     position: relative;
 }
 
-
-
-.search-icon{
+div.main-search .search-icon{
     /* position: absolute; */
     /* text-align: right; */
     float: left;
 }
 
-input.searchbox{
+div.main-search input.searchbox{
     padding-left: 20px;
     border:none;
     color:#fff;
@@ -44,49 +37,28 @@ input.searchbox{
     height: 40px;
 }
 
-input.searchbox:focus{
+div.main-search input.searchbox:focus{
     outline:none;
     box-shadow: none;
     background-color: #f8f8f8;
 }
 
-div.search-icon{
+div.main-search div.search-icon{
     position: absolute;
     top: -2px;
     right: 20px;
 }
 
-.top_member_box {
-    position: absolute;
-    top: 50px;
-    right: 8px;
-    z-index: 150;
-    line-height: 1;
-}
-
-.list_1 {
-    float: left;
-    margin-top: 8px;
-    margin-right: 30px;
-}
-
-.list_1 > li {
-    float: left;
-    padding-right: 16px;
-    margin-right: 16px;
-    position: relative;
-}
-
-li {
+nav.main-menu-bar li {
     display: list-item;
     text-align: -webkit-match-parent;
 }
 
-dl, ul, ol, li {
+nav.main-menu-bar ul, ol, li {
     list-style: none;
 }
 
-ul {
+nav.main-menu-bar ul {
     display: block;
     list-style-type: disc;
     margin-block-start: 1em;
@@ -119,7 +91,7 @@ nav.menulist > ul > li > a:hover {
     transition: 0.3s;
 }
 
-/* footer 시작 */
+/* ------ footer 시작 ------ */
 #footer_wrap {
     font-family: 'Noto Sans KR', sans-serif;
     position: relative;
@@ -131,19 +103,19 @@ nav.menulist > ul > li > a:hover {
     padding: 20px 0 0px 0;
 }
 
-.foot_list {
+.foot-list {
     /* line-height: 1; */
     position: relative;
     margin-top: 40px;
 }
 
-.foot_list_in {
+.foot-list_in {
     position: relative;
     width: 1200px;
     margin: 0 auto;
 }
 
-.foot_list div > ul {
+.foot-list div > ul {
     overflow: hidden;
     width: 1200px;
     /* margin: 0 auto; */
@@ -152,21 +124,21 @@ nav.menulist > ul > li > a:hover {
     border-bottom: 1px solid #999;
 }
 
-.foot_list div > ul li {
+.foot-list div > ul li {
     float: left;
     /* line-height: 30px; */
 }
 
-.foot_list div > ul li:first-child a {
+.foot-list div > ul li:first-child a {
     padding-left: 0;
     border-left: 0 none;
 }
 
-.foot_list div > ul li:first-child a {
+.foot-list div > ul li:first-child a {
     background: none;
 }
 
-.foot_list div > ul li a {
+.foot-list div > ul li a {
     padding: 0 40px 0 0px;
     color: #999;
     font-size: 16px;
@@ -174,12 +146,12 @@ nav.menulist > ul > li > a:hover {
     text-decoration: none;
 }
 
-a {
+.foot-cont a {
     color: #333;
     text-decoration: none;
 }
 
-.foot_cont {
+.foot-cont {
     overflow: hidden;
     padding: 40px 0 40px 0;
     color: #fff;
@@ -188,30 +160,30 @@ a {
     position: relative;
 }
 
-.foot_list ul, .foot_cont, .foot_certify {
+.foot-list ul, .foot-cont, .foot-certify {
     position: relative;
     width: 1200px;
     margin: 0 auto;
 }
 
-.foot_cont .foot_logo {
+.foot-cont .foot-logo {
     padding: 0 0 0 0;
     position: absolute;
     top: 38px;
     right: 0;
 }
 
-.foot_cont .foot_logo > img {
+.foot-cont .foot-logo > img {
     overflow-clip-margin: content-box;
     overflow: clip;
 }
 
-.foot_cont .foot_info_list {
+.foot-cont .foot-info-list {
     width: 100%;
     /* margin-bottom: 12px; */
 }
 
-.foot_cont .foot_info_list dl {
+.foot-cont .foot-info-list dl {
     float: left;
     line-height: 1;
     position: relative;
@@ -219,14 +191,14 @@ a {
     line-height: 1px;
 }
 
-.foot_cont .foot_info_list dt {
+.foot-cont .foot-info-list dt {
     float: left;
     font-size: 15px;
     color: #999;
     font-weight: 400;
 }
 
-.foot_cont .foot_info_list dd {
+.foot-cont .foot-info-list dd {
     float: left;
     padding: 0 15px 0 3px;
     font-size: 15px;
@@ -237,15 +209,15 @@ a {
     overflow: visible;
 }
 
-dd {
+.foot-cont dd {
     margin-inline-start: 0px;
 }
 
-.foot_cont .foot_info_list dl.ts dd {
+.foot-cont .foot-info-list dl.ts dd {
     padding-right: 14px;
 }
 
-.foot_cont .foot_info_list dd > a.btn_licensee_info {
+.foot-cont .foot-info-list dd > a.btn_licensee_info {
     border: 1px solid #999;
     height: 24px;
     /* line-height: 24px; */
@@ -266,20 +238,20 @@ dd {
     text-align: center;
 }
 
-.foot_cont .foot_info_list:after {
+.foot-cont .foot-info-list:after {
     content: "";
     display: block;
     clear: both;
 }
 
-.foot_cont .foot_info_list dd > a {
+.foot-cont .foot-info-list dd > a {
     font-size: 15px;
     color: #999;
     font-weight: 400;
     text-decoration: none;
 }
 
-.foot_cont .copyright {
+.foot-cont .copyright {
     float: left;
     width: 100%;
     margin-top: 15px;
@@ -288,12 +260,12 @@ dd {
     /* line-height: 1; */
 }
 
-.foot_cont .copyright strong {
+.foot-cont .copyright strong {
     margin-left: 5px;
     margin-right: 5px;
 }
 
-.foot_certify {
+.foot-certify {
     overflow: hidden;
     padding: 5px 0 15px 0;
     text-align: right;
@@ -301,16 +273,16 @@ dd {
     display: none;
 }
 
-.foot_certify span:first-child {
+.foot-certify span:first-child {
     padding: 0 10px 0 0;
 }
 
-.foot_certify span {
+.foot-certify span {
     display: inline-block;
     padding: 0 10px 0 10px;
 }
 
-.foot_cont .foot_info_list dl.dl:after {
+.foot-cont .foot-info-list dl.dl:after {
     content: "/";
     display: block;
     position: absolute;

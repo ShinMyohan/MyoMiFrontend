@@ -1,5 +1,5 @@
-let backURL = 'http://192.168.0.11:8088/MyoMiBackend/'
-let frontURL = 'http://192.168.0.11:5500/html/'
+let backURL = 'http://192.168.0.18:8088/MyoMiBackend/'
+let frontURL = 'http://192.168.0.18:5500/html/'
 
 $(()=>{
     // -- 메뉴가 클릭되었을 대 일어날 일 START --

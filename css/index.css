@@ -1,25 +1,20 @@
-section{
-    /* width: 85%; */
-    margin: auto;
-}
-
-button.btn {
+div.all-prod-list button.btn {
     border:none;
 }
 
-.nav-link{
+div.all-prod-list .nav-link{
     height: 80px;
 }
 
-.nav-tabs .nav-link {
+div.all-prod-list .nav-tabs .nav-link {
     font-size: 18px;
     font-weight: 500;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+div.all-prod-list .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
     color:#6c757d;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover {
+div.all-prod-list .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover {
     color:#009a5a;
 }
