@@ -1,4 +1,7 @@
 $(() => {
+  $('.hidden-rep-btn').hide();
+  // $('.re-hidden-rep-btn').hide();
+
   function viewBoard() {
     let url = backURL;
   // ------글 상세내용 START------
@@ -78,4 +81,68 @@ $(() => {
     location.href = "./detail.html?num=" + num;
   });
   //-------수정폼으로 이동 END--------
+
+
+  //===================원댓글======================
+  //------댓글 수정버튼 눌렀을 때 START-----
+  function showMenuEditRep() {
+   $('.hidden-rep-btn').show();
+   $('.rep-menu').hide();
+  }
+  //-----댓글 수정버튼 눌렀을 떄 END--------
+
+  //-----수정버튼 누른 후 취소버튼 눌렀을때
+  function showMenuCancle() {
+    $('.hidden-rep-btn').hide();
+    $('.rep-menu').show();
+   }
+
+
+  //-------------댓글 수정 START-------------
+   $('.rep-edit-btn').click(()=>{
+     //alert('수정버튼 클릭됨');
+     $('#rep-content').attr('readonly', false);
+     $('#rep-content').css("border","1px solid green")
+     showMenuEditRep();
+   })
+  //-------------댓글 수정 END-------------
+
+  $('#hid-cancle-btn').click(()=>{
+    $('#rep-content').attr('readonly', true);
+    $('#rep-content').css("border","0")
+    showMenuCancle();
+  })
+//====================원댓글END=========================
+
+//===================리댓글========================
+//------댓글 수정버튼 눌렀을 때 START-----
+// function showMenuEditRep() {
+//   $('.re-hidden-rep-btn').show();
+//   $('.re-rep-menu').hide();
+//  }
+//  //-----댓글 수정버튼 눌렀을 떄 END--------
+
+//  //-----수정버튼 누른 후 취소버튼 눌렀을때
+//  function showMenuCancle() {
+//    $('.re-hidden-rep-btn').hide();
+//    $('.re-rep-menu').show();
+//   }
+
+
+//  //-------------댓글 수정 START-------------
+//   $('.re-rep-edit-btn').click(()=>{
+//     //alert('수정버튼 클릭됨');
+//     $('#re-rep-content').attr('readonly', false);
+//     $('#re-rep-content').css("border","1px solid green")
+//     showMenuEditRep();
+//   })
+//  //-------------댓글 수정 END-------------
+
+//  $('#re-hid-cancle-btn').click(()=>{
+//    $('#re-rep-content').attr('readonly', true);
+//    $('#re-rep-content').css("border","0")
+//    showMenuCancle();
+//  })
+  
+ //===================리댓END=======================
 });

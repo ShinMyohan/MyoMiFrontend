@@ -120,4 +120,9 @@ $("div.boardlist").on('click','div.list',(e)=>{
 })
 
 //--글 클릭시 END--
+
+$('div.board-title').click(() => {
+   location.href ="./boardlist.html"
+})
+
   });
