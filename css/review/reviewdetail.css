@@ -1,0 +1,128 @@
+*{
+    margin: 0px;
+    padding: 0px;
+  }
+.review-img img{
+ width:140px;
+height:140px;
+display: flex;
+
+}
+  .review-wrap {
+      width: 1000px;
+      box-sizing: border-box;
+      margin: 100px auto;
+  } 
+
+.review-view .info dl {
+    width: 50%;
+    padding: 0;
+}
+
+.review-view .info dl:nth-child(-n+2) {
+    margin-bottom: 5px;
+}
+
+.review-view .info dl::before {
+    display: none;
+}
+
+.review-view .info dl dt,
+.review-view .info dl dd {
+    font-size: 1.2rem;
+}
+
+.review-view {
+    width: 100%;
+    border-top: 2px solid #000;
+}
+
+.review-view .title {
+    padding: 20px 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 2rem;
+    margin-bottom:10px;
+}
+
+.review-view .info {
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    font-size: 0;
+}
+
+.review-view .info dl {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.review-view .info dl:first-child {
+    padding-left: 0;
+}
+
+.review-view .info dl::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 13px;
+    background: #ddd;
+}
+
+.review-view .info dl:first-child::before {
+    display: none;
+}
+
+.review-view .info dl dt,
+.review-view .info dl dd {
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+.review-view .info dl dd {
+    margin-left: 10px;
+    color: #777;
+}
+
+.review-view .cont {
+    padding: 15px;
+    border-bottom: 1px solid #000;
+    line-height: 160%;
+    font-size: 1.4rem;
+}
+.writer{
+   font-size: 20px;
+   padding-left: 15px;
+}
+
+.hits{
+    float:right;
+    font-size: 20px;
+    padding-left:15px;
+}
+.created-date{
+    display:inline-block;
+    font-size: 20px;
+    padding-left: 15px;
+}
+.cont{
+    margin-top:30px;
+    border-top: 1px solid #999;
+    height: 300px;
+}
+
+.back{
+    margin: 0 auto;
+    float: right;
+    padding-top: 10px;
+    padding-right: 5px;
+ } 
+ .review-edit{
+    margin: 0 auto;
+    margin-right:5px;
+    float: right;
+    padding-top: 10px;
+ }
+ 

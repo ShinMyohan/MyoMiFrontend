@@ -2,9 +2,9 @@ $(() => {
   // alert('js first');
 
   function showList(url) {
-    let $origin = $("div.spr-review").first();
+    let $origin = $("div.b-pr-review").first();
     //부모 기준에서는 empty()를 쓸 수 있지만 자식에서는 .remove()를 써야한다.
-    $("div.spr-review").not(":first-child").remove();
+    $("div.b-pr-review").not(":first-child").remove();
     $origin.show();
     $.ajax({
       url: url,
@@ -13,8 +13,8 @@ $(() => {
       success: function (jsonObj) {
         // jsonObj 는 자바 객체
         let list = jsonObj;
-        let $origin = $("div.spr-review").first();
-        let $parent = $("div.spr-reviews");
+        let $origin = $("div.b-pr-review").first();
+        let $parent = $("div.b-pr-reviews");
         $(list).each((p) => {
           //list를 하나씩 조회하는 반복문!
           console.log(p);
@@ -25,13 +25,19 @@ $(() => {
           let prodName = list[p]["NAME"];
           let title = list[p]["TITLE"];
           let content = list[p]["CONTENT"];
+          
+          let star = ''
+          for(let i=0; i<starRating;i++){
+            star += '&#11088;'
+            }
+          
           let $copy = $origin.clone();
-          $copy.find("div.id").html(id);
-          $copy.find("div.date").html(moment(date).format("YYYY-MM-DD"));
-          $copy.find("div.starRating").html("평점: " + starRating + "점");
-          $copy.find("div.prodName").html(prodName);
-          $copy.find("h3.title").html(title);
-          $copy.find("div.content").html(content);
+          $copy.find("div.b-id").html(id);
+          $copy.find("div.b-date").html(moment(date).format("|"+"YYYY-MM-DD"));
+          $copy.find("div.b-star-rating").html(star);
+          $copy.find("div.b-prod-name").html(prodName);
+          $copy.find("h3.b-title").html(title);
+          $copy.find("div.br-content").html(content);
           $parent.append($copy);
         });
         $origin.hide(); //원래 기본형 지우기

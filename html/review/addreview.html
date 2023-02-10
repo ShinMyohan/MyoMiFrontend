@@ -12,13 +12,14 @@
     <script src="../../js/review/addreview.js"></script>
 </head>
 <body>
-    <div class="review_wrap">
-        <div class="review_title">
+    <div class="review-wrap">
+        <div class="review-title">
             <strong>상품리뷰작성</strong>
-            <p>정성껏 작성해주시면 좋겠어요.</p>
+            <p>정성껏 작성해주세요.</p>
         </div>
-        <div class="review_write_wrap">
-            <div class="review_write">
+        <div class="review-write-wrap">
+            <div class="review-write">
+                <form>
                 <div class="title">
                     <dl>
                         <dt>제목</dt>
@@ -32,7 +33,7 @@
                     </dl>
                     <dl>
                         <dt>주문번호</dt>
-                        <dd><input type="number" id="order_num" value="" placeholder="주문번호 입력"></dd>
+                        <dd><input type="text" id="order-num" value="" placeholder="주문번호 입력"></dd>
                     </dl>
                     <dl>
                     <dt>카테고리</dt>
@@ -47,31 +48,31 @@
                 <fieldset>
                  <input
                         type="radio"
-                        name="reviewStar"
+                        name="review-star"
                         value="5"
                         id="rate1"
                       /><label for="rate1">★</label>
                       <input
                         type="radio"
-                        name="reviewStar"
+                        name="review-star"
                         value="4"
                         id="rate2"
                       /><label for="rate2">★</label>
                       <input
                         type="radio"
-                        name="reviewStar"
+                        name="review-star"
                         value="3"
                         id="rate3"
                       /><label for="rate3">★</label>
                       <input
                         type="radio"
-                        name="reviewStar"
+                        name="review-star"
                         value="2"
                         id="rate4"
                       /><label for="rate4">★</label>
                       <input
                         type="radio"
-                        name="reviewStar"
+                        name="review-star"
                         value="1"
                         id="rate5"
                       /><label for="rate5">★</label>
@@ -83,16 +84,21 @@
                     name="content"
                     rows="10"
                     placeholder="내용 입력"></textarea>
+<div class="upload-review-img">             
+<input type="file" name="f1" class="review-img-upload">
+<div class="show-review-img"><img/></div>
+</div>
                 </div>
-            </div>
-            <div class="bt_wrap">
-                <input
-                  type="submit"
-                  class="input-submit"
-                  id="btn-write"
-                  value="리뷰작성"
-                />
-            </div>
+             <div class="bt-wrap">
+            <div class="cancel">
+                <button type="button" class="review-write-cancel">취소</button>
+               </div>
+           <div class="submit">
+            <button type="button" id="submit" class="review-write-submit">작성</button>
+           </div>
+        </div>
+                </form>
+        </div>
         </div>
     </div>
 </body>
