@@ -1,8 +1,10 @@
 /* intall 'Product Reviews App by Shopify' first
 upload this css to assets and apply, use' {{ 'xxxxxxx.css' | asset_url | stylesheet_tag }} 'in theme.liquid
 set 3 reviews per page in the app setting */
-
-.spr-container {
+.prod-review{
+display:flex;
+}
+.b-pr-container {
   min-height: 10px;
   max-width: 1200px;
   margin: 0 auto;
@@ -27,46 +29,118 @@ set 3 reviews per page in the app setting */
   padding: 5px;
   margin-right: 24px;
 }
-
-.spr-review {
+.b-prod-name{
+float:right;
+color:green;
+font-weight: bold;
+}
+.b-pr-review {
   width: 31%;
-  margin: 0 1% !important;
+  margin-left: 0 1% !important;
+  margin-right: 40px;
   min-height: 250px;
   display: inline-block;
-  float: left;
   padding: 20px 25px !important;
   /*background: #fff;*/
+  margin-top:1.5%;
   margin-bottom: 25px !important;
   border: 1px solid;
   border-radius: 12px;
 }
-
+.br-prod-img{
+display :flex;
+}
+.br-img img{
+ width:110px;
+height:110px;
+position: relative;
+left:20px;
+}
 .spr-pagination {
   clear: both;
 }
-#product-review .title {
+#bproduct-review .btitle {
   display: block;
   clear: both;
   float: none;
 }
-/* .starRating {
-  font-size: 0;
-  letter-spacing: -4px;
+.pr-intro{
+display:flex;
 }
-.starRating a {
-  font-size: 22px;
-  letter-spacing: 0;
+.total-starrating{
+position:relative;
+top:60px;
+left:20px;
+}
+.review-count{
+position:relative;
+/* left: 360px; */
+top:60px;
+}
+.review-cnt{
+position:relative;
+top:60px;
+left:20px;
+}
+
+.bt-wrap{
+position: relative;
+left:1050px;
+
+}
+.review-write-btn{
+text-align: center;
+border-radius: 5px;
+font-size: 15px;
+    background: #00af85;
+color: #fff;
+cursor:pointer;
+width: 120px;
+    height: 48px;
+}
+.pr-container{
+   min-height: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  float: none;
+  padding: 0 15px !important;
+  width: 100%;
+  font-size: inherit;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.pr-review{
+display: flex;
+border: 1px solid black;
+  height: 31%;
+  width:95%;
+  margin-left: 0 1% !important;
+  margin-right: 40px;
+  min-height: 250px;
   display: inline-block;
-  margin-left: 5px;
-  color: #ccc;
-  text-decoration: none;
+  padding: 20px 25px !important;
+  margin-top:1.5%;
+  margin-bottom: 25px !important;
+  border: 1px solid;
 }
-.starRating a:first-child {
-  margin-left: 0;
+.prod-review{
+display:flex;
 }
-.starRating a.on {
-  color: #777;
-} */
+.review-img img{
+ width:70px;
+height:70px;
+position:relative;
+top: 10px;
+}
+.star-rating{
+position:relative;
+/* bottom:20px; */
+}
+.order-review {
+    display:flex;
+   float:right;
+}
+
 @media (max-width: 800px) {
   .spr-review {
     float: none;

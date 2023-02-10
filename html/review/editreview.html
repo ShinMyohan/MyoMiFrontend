@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리뷰수정</title>
+<link href="../../css/review/review_edit.css" rel="stylesheet" />
+<link href="../../css/review/media.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="../../js/review/basic.js"></script>
+    <script src="../../js/review/editreview.js"></script>
+</head>
+<body>
+ <div class="review-wrap">
+        <div class="review-title">
+            <strong>상품리뷰수정</strong>
+            <p>정성껏 작성해주세요.</p>
+        </div>
+        <div class="review-write-wrap">
+            <div class="review-write">
+                <form>
+                <div class="title">
+                    <dl>
+                        <dt>제목</dt>
+                        <dd><input type="text" id="title" value="" placeholder="제목 입력"></dd>
+                    </dl>
+                </div>
+                <div class="info">
+                    <dl>
+                        <dt>아이디</dt>
+                        <dd><input type="text" id="id" value="아이디" placeholder="아이디 입력" readonly></dd>
+                    </dl>
+                    <dl>
+                        <dt>주문번호</dt>
+                        <dd><input type="number" id="order-num" value="주문번호" placeholder="주문번호 입력" readonly></dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                    <textarea 
+                    id="content"
+                    name="content"
+                    rows="10"
+                    placeholder="내용 입력"></textarea>
+                </div>
+             <div class="bt-wrap">
+            <div class="cancel">
+                <button type="button" class="review-write-cancel">취소</button>
+               </div>
+           <div class="submit">
+            <button type="button" id="submit" class="review-write-submit">수정완료</button>
+           </div>
+        </div>
+                </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

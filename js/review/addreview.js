@@ -1,10 +1,10 @@
 $(() => {
-  $("div.bt_wrap>#btn-write").click(function () {
+  $("'div.submit>#submit'").click(function () {
     let title = $("#title").val();
-    let order_num = $("#order_num").val();
+    let order_num = $("#order-num").val();
     let id = $("#id").val();
     let sort = $("#sort option:checked").val();
-    let star = $('input[name="reviewStar"]:checked').val();
+    let star = $('input[name="review-star"]:checked').val();
     let content = $("div.cont>#content").val();
 
     if (title == "") {
