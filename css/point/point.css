@@ -1,0 +1,156 @@
+.point-div {
+    width : 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.point-header{
+    margin-top:50px;
+}
+
+.point-div{
+    margin:0;
+    padding:0;
+}
+
+.calendar {
+    border : 1px solid rgb(211, 207, 207);
+    margin-top : 50px;
+    justify-content: space-between;
+    height : 100px;
+}
+
+.date-term{
+    margin-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin-top: 9px;
+}
+
+.date-check-box {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height : 100px;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+
+.date-check-box button {
+    background-color: white;
+    border : 1px solid grey;
+    padding: 5px 8px;
+    text-align: center;
+    
+}
+
+.date-check-list button:hover {
+    background: lightgrey;
+}
+
+.date-check-calendar input{
+    border-radius: 5px;
+    border : 1px solid grey;
+}  
+
+#date-submit-btn {
+    background-color: rgb(0, 175, 133);
+    color: white;
+    border:0px;
+    padding: 5px 25px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.nav-tap {
+    margin-top : 100px;
+}
+
+.point-list-header {
+    margin-top : 100px;
+    margin-bottom : 10px;
+}
+
+.list-header { 
+    background-color : rgba(242, 238, 238, 0.341);
+    height : 40px;
+    display : flex;
+    align-items : center;
+    justify-content: space-between;
+    border-top : 1.7px solid grey;
+    border-bottom :1.3px solid lightgrey;
+    
+}
+.list-header > div{
+    display : inline-block;
+    font-size: 15px;
+    text-align : center;
+}
+
+.point-created-date {
+   width : 15%;
+}
+
+.point-sort {
+    width : 15%;
+}
+
+.point-content{
+    width : 30%;
+}
+
+/* .point-avaliable{
+    width : 15%;
+} */
+
+.point-amount{
+    width : 10%;
+}
+
+.point-total{
+    width : 12%;
+}
+
+.list-body {
+    height : 40px;
+    display : flex;
+    align-items : center;
+    justify-content: space-between;
+    text-align: center;
+    border-bottom:1px solid lightgrey
+}
+
+.p-date {
+    width : 15%;
+ }
+ 
+ .p-sort {
+     width : 15%;
+ }
+ 
+ .p-content{
+     width : 30%;
+ }
+ 
+ /* .p-avaliable{
+     width : 15%;
+ } */
+ 
+ .p-amount{
+     width : 10%;
+ }
+ 
+ .p-total{
+     width : 12%;
+ }
+
+.startDate {
+    width : 20%;
+ }
+
+ .endDate {
+    width :20%;
+ }
+
