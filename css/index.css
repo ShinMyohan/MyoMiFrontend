@@ -1,3 +1,14 @@
+.header-bar{
+    width:100%;
+    height:40px;
+    font-size: 16px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00af85;
+}
+
 div.all-prod-list button.btn {
     border:none;
 }
