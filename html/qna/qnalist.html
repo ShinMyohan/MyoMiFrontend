@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- basic.css 는 모든 페이지에 들어갈 공통 부분이다. -->
+        <link rel="stylesheet" href="../../css/basic.css">
+        <!-- <link rel="stylesheet" href="../../css/index.css"> -->
+        <link rel="stylesheet" href="../../css/qna/qnalist.css">
+        <!-- 구글폰트 -->
+        <!-- 구글폰트 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <!-- 부트스트랩 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- JQuery CDN HOST-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="../../js/basic.js"></script>
+        <script src="../../js/qna/qnalist.js"></script>
+        <!-- <script src="../../js/index.js"></script> -->
+    </head>
+    <body>
+        <div class="qna">
+            <div class="qna-text">상품 Q&A</div>
+            <div class="qna-list">
+            <div class="qna-row">
+                <div class="qna-num">1</div>
+                <div class="qna-fake-title"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                  </svg>
+                    문의드립니다</div>
+                <div class="qna-user-name">강**</div>
+                <div class="qna-date">2023.02.04</div>
+                <div class="qna-status">답변완료</div>
+            </div>
+                <div class="qna-detail">
+                    <div class="qna-question-top">
+                    <div class="q-icon">Q.</div>
+                    <div class="qna-title">문의드립니다</div>
+                </div>
+                <div class="qna-question-bottom">
+                    <div class="qna-content">혹시 정기배송 날짜를 변경할 수 있나요?</div>
+                </div>
+
+                <div class="qna-answer-top">
+                    <div class="a-icon">A.</div>
+                    <div class="answer-title">안녕하세요 미미미호네 도시락가게입니다.</div>
+                </div>
+                <div class="qna-answer-bottom">
+                    <div class="answer-content">고객님 정기배송 상품은 배송일 변경이 가능하십니다.</div>
+                </div>
+                </div>
+            </div>  
+
+            <div>
+                <input type="button" class="qna-add-button" value="상품문의 글쓰기">
+            </div>
+
+
+            <!--상품문의 모달창-->
+            <form>
+                <div class="qna-write">
+                    <div class ="qna-group">
+                        <div class="modal-head">
+                        <div class="qna-top">상품문의 쓰기</div>
+                        <div class="close-btn" id="close-btn">X</div>
+                        </div>
+                        <div class="modal-prod-info">
+                            <div class="prod-img"><img src="../../imgs/prod01.png"></div>
+                            <div class="prod-info-text">
+                            <div class="seller-name">판매처</div>
+                            <div class="prod-name">상품이름</div>
+                            </div>
+                        </div> 
+                        <div class="qna-box">
+                            <div class="modal-qna-writer">
+                                <div class="modal-col-1">작성자</div>
+                                <div class="modal-col-2">강태리</div>
+                            </div>
+                            <div class="modal-qna-title">
+                                <div class="modal-col-1">제목</div>
+                                <div class="modal-col-2"><input type ="text" id="modal-qna-title" placeholder="제목 입력"></div>
+                            </div>
+                            <div class="modal-qna-content">
+                                <div class="modal-col-1">내용</div>
+                                <div class="modal-col-2"><textarea id="modal-qna-content" placeholder="해당글은 비밀글로만 작성이 됩니다."></textarea></div>
+                            </div>
+                            <div class="modal-file">
+                                <div class="modal-col-1">파일</div>
+                                <div class="modal-col-2">
+                                    <div class="modal-file-row">
+                                    <input class="upload-name" placeholder="첨부파일">
+                                        <div class="upload-button"><label for="file">찾아보기</label>
+                                            <input type="file" multiple id="file">
+                                        </div>
+                                        <div>
+                                            <input type="button" class="upload-file-add" value="+추가">
+                                        </div>
+                                    </div>
+                                    <div class="modal-file-row-2">
+                                        <input class="upload-name-2" placeholder="첨부파일">
+                                            <div class="upload-button"><label for="file">찾아보기</label>
+                                                <input type="file" id="file">
+                                            </div>
+                                            <div>
+                                                <input type="button" class="upload-file-del" value="-삭제">
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-buttons">
+                                <input type="button" class="modal-cancel" id="close-btn" value="취소">
+                                <input type="button" class="modal-submit" value="등록">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+    </body>
+</html>
