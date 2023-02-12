@@ -1,0 +1,233 @@
+/* 마이페이지 전체 적용 속성 */
+section.mp-page{
+    margin-top: 80px;
+    width: 100%;
+}
+
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
+}
+
+div.mypage-basic i{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+div.mypage-basic{
+    margin: 0 auto;
+    padding-top: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
+}
+
+/* 마이페이지 박스 속성 */
+div.mypage-basic div.mp-user{
+    display: flex;
+    margin: 0 50px 0 20px;
+}
+
+
+div.mypage-basic div.mp-user-info div.mp-user-name-level{
+    width:280px;
+    margin: 0 20px 0 20px;
+    padding-left: 20px;
+    height: 6em;
+    border-bottom: 1px solid #d9d9d9;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-items: flex-start; */
+}
+
+/* user 프로필 박스 */
+div.mypage-basic div.mp-user-info span.mp-user-name{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border:0 solid black; /* input 박스 테두리 지우기*/
+    pointer-events: none; /* input 박스 클릭 이벤트 지우기 */
+    background: transparent; /* input 박스 transparent 효과 지우기*/
+}
+
+/* user 이름 아래 menu */
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu {
+    margin-top: 40px;
+    /* flex-direction: column; */
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu{
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul li{
+    margin: 10px 0 10px 0;
+}
+
+    /* user 마이페이지 상단 고정 정보(적립금,쿠폰,팔로우) */
+div.mypage-basic div.mp-user-activity{
+    width: 100%;
+    height: 6em;
+    display:flex;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    text-align: center;
+}
+
+div.mypage-basic div.mp-user-activity div.row{
+    border-color: #d9d9d9;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.mp-border{
+    border-right: 1px solid #d9d9d9;
+}
+
+
+div.mypage-basic div.mp-user-activity div.row div.col div{
+    font-weight: 500;
+}
+
+
+div.mypage-basic div.mp-user-activity div.row div.col span{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.col span:hover{
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(0, 175, 133);
+    cursor: pointer;
+}
+
+div.mypage-basic div.mp-user div.main-box{
+    flex:content;
+
+}
+
+/*상품문의 날짜조회*/
+.mpq-period{
+    justify-content: center;
+    text-align: center;
+
+}
+
+div.mypage-basic div.mp-user div.main-box div.mp-qna{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top:50px;
+
+}
+
+div.mypage-basic div.mp-user div.main-box div.mpq-date-search{
+    border-style: solid;
+    border-width:0.1px;
+    border-color:#d9d9d9;
+    width: 100%;
+    height:70px;
+    margin-top:30px;
+
+}
+
+div.mypage-basic div.mp-user div.main-box div.mpq-date-search div.mpq-period{
+    text-align: center;
+    color:#807f7f;
+    display: flex;
+    margin-top:18px;
+    line-height : 32px;
+}
+
+
+.period-text{
+    width:80px;
+    font-size:15px;
+
+}
+
+.flex-item{
+    width: 50px;
+    height: 35px;
+    margin: 0px;
+    font-size:15px;
+    text-align: center;
+    border-style: solid;
+    border-width:0.1px;
+    border-color:#d9d9d9;
+}
+
+.datepicker{
+    display:flex;
+    margin-left:15px;
+}
+
+.btn{
+    margin-left:10px;
+    width:80px;
+}
+
+/*상품문의 리스트*/
+.mpq-qna-list{
+    margin-top:50px;
+    font-size:15px;
+    justify-content: center;
+
+}
+
+.mpq-qna-table{
+    width:100%;
+}
+
+.qna-list-title{
+    border-bottom: #817f7f solid 0.5px;
+    width:100%;
+    height: 40px;
+}
+
+.qna-list-row{
+    width:100%;
+    margin-bottom: 20px;
+    border-bottom:#d9d9d9 solid 0.3px;
+    height: 30px;
+}
+
+.qna-date{
+    width:12%;
+    text-align: center;
+}
+.qna-store-name{
+    width:30%;
+    text-align: center;
+}
+
+.qna-title{
+    width:43%;
+    text-align: center;
+}
+
+.qna-status{
+    width:15%;
+    text-align:center;
+}
+
+.qna-title2{
+    cursor: pointer;
+}
+
+
+
