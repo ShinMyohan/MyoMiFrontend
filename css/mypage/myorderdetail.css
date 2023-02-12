@@ -1,7 +1,6 @@
 /* 세부 내용 기본 form */
 div.mp-order-detail-form{
-    margin-left: 50px; /* 임시 */
-    width: 80%;
+    width: 100%;
     margin-bottom: 10%;
 }
 
@@ -62,6 +61,10 @@ div.mp-order-detail-table table thead tr th{
 
 div.mp-order-detail-table table tbody tr td{
     padding: 15px 0;
+}
+
+div.mp-order-detail-table table tbody tr td.order-num {
+    border-right: 1px dashed #d9d9d9;
 }
 
 /* 주문자 정보 테이블 CSS */

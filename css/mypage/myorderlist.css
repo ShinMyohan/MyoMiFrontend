@@ -1,7 +1,5 @@
 /* 세부 내용 기본 form */
 div.mp-order-list-form {
-    /* margin-left: 50px; */
-    /* 임시 */
     width: 100%;
     margin-bottom: 10%;
 }
@@ -14,11 +12,11 @@ div.mp-order-list-main {
 }
 
 /* 조회기간 */
-div.mp-order-list-form div.container {
+div.mp-order-list-form div.period {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #f8f8f8; */
+    width: 100%;
     margin: 1% 0 3% 0;
     padding: 0.5%;
     border-radius: 10px;
@@ -38,7 +36,7 @@ div.mp-order-list-form .search-period {
     letter-spacing: 1.5px;
 }
 
-div.mp-order-list-form .container .nav-item {
+div.mp-order-list-form .period .nav-item {
     width: 70px;
     margin-right: 3px;
     background-color: #fff;
@@ -47,13 +45,13 @@ div.mp-order-list-form .container .nav-item {
     text-align: center;
 }
 
-div.mp-order-list-form .container .nav-link {
+div.mp-order-list-form .period .nav-link {
     padding: 3.5px;
     border: 1px solid #ddd;
     border-radius: 15px;
 }
 
-div.mp-order-list-form .container .nav-link:focus {
+div.mp-order-list-form .period .nav-link:focus {
     border-color: #fff;
     border: 1px dashed #FFA000 !important;
     color: #00af85;
