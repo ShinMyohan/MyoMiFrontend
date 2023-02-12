@@ -1,13 +1,13 @@
 /* 세부 내용 기본 form */
 div.mp-order-list-form {
-    margin-left: 50px;
+    /* margin-left: 50px; */
     /* 임시 */
-    width: 80%;
+    width: 100%;
     margin-bottom: 10%;
 }
 
 /* 타이틀을 제외한 조회기간, 테이블 가운데 정렬*/
-div.mp-order-list-main{
+div.mp-order-list-main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,40 +18,56 @@ div.mp-order-list-form div.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ECF9FF;
-    width: 100%;
-    height: 10px;
+    /* background-color: #f8f8f8; */
     margin: 1% 0 3% 0;
-    padding: 2%;
+    padding: 0.5%;
     border-radius: 10px;
-    border: 1px solid rgba(188, 188, 188, 0.7);
+    border: 2px solid rgba(0, 175, 133, 0.3);
     font-size: 14px;
 }
 
-.search-period {
+div.mp-order-list-form .bi-calendar2-check-fill {
+    margin-bottom: 4px;
+    color: #FFA000;
+}
+
+div.mp-order-list-form .search-period {
     font-size: 16px;
     margin-right: 10px;
     font-weight: 700;
     letter-spacing: 1.5px;
 }
 
-div.container .btn-light {
+div.mp-order-list-form .container .nav-item {
     width: 70px;
     margin-right: 3px;
     background-color: #fff;
-    border-color: rgb(209, 209, 209);
-    color: #1f1f1f;
     font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+}
+
+div.mp-order-list-form .container .nav-link {
+    padding: 3.5px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+div.mp-order-list-form .container .nav-link:focus {
+    border-color: #fff;
+    border: 1px dashed #FFA000 !important;
+    color: #00af85;
+    border-radius: 15px;
 }
 
 
 /* 금액 색상 */
-strong {
+div.mp-order-list-form strong {
     color: #00af85;
 }
 
 div.mp-order-list-title {
-    margin-top: 5em;
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
 }
@@ -82,6 +98,11 @@ div.mp-order-list-table table tbody tr {
     border-bottom: 1px solid #d9d9d9;
 }
 
+div.mp-order-list-table table tbody tr:last-child {
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #777777;
+}
+
 div.mp-order-list-table table thead tr th {
     font-weight: 500;
 }
@@ -100,21 +121,64 @@ div.mp-order-list-table .review-show {
 
 /* 리뷰 남기기 버튼 (비활성화) */
 div.mp-order-list-table .review-hide {
-    color: #797878cb;
-    background-color: #d2d2d28a;
+    color: #555454cb;
+    background-color: #ededed8a;
     border-color: #9b9b9b92;
     font-weight: 500;
 }
 
+/* 페이지네이션 가운데 정렬용 */
+div.mp-user .mp-activity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 페이지네이션 button */
+.pagination {
+    /* 바닥에 붙이기 */
+    position: absolute;
+    bottom: 0;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 4px 12px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.pagination a.active {
+    background-color: #FFA000;
+    color: white;
+    border: 1px solid #FFA000;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 /* ------ Date Picker CSS  ------- */
-.datepicker {
+div.mp-order-list-main .datepicker {
     margin-left: 10px;
 }
 
-input {
+div.mp-order-list-main input {
     padding: 10px 15px !important;
     border: 1px solid #CFD8DC !important;
-    border-radius: 4px !important;
+    border-radius: 12px !important;
     /* box-sizing: border-box; */
     background-color: #fff !important;
     color: #000 !important;
@@ -125,7 +189,7 @@ input {
     width: 215px;
 }
 
-input:focus {
+div.mp-order-list-main input:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -133,7 +197,7 @@ input:focus {
     outline-width: 0;
 }
 
-.daterangepicker {
+div.mp-order-list-main .daterangepicker {
     background-color: #fff !important;
     border-radius: 0 !important;
     align-content: center !important;
@@ -142,7 +206,7 @@ input:focus {
 
 /*Weekday Heading*/
 thead tr:nth-child(2) {
-    color: #8EA7E9 !important;
+    color: #797979 !important;
 }
 
 tbody tr td {
@@ -158,7 +222,7 @@ tbody tr td {
 .start-date,
 .end-date {
     border-radius: 0px !important;
-    background-color: #FFD4D4 !important;
+    background-color: #76dafe !important;
 }
 
 .available:hover {
