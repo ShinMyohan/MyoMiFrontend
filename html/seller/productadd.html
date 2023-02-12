@@ -65,36 +65,70 @@
     <section>
         <div class="mp-seller-add">
             <h5 class="add-title">상품 등록</h5>
-            <div class="add-prodinfo">
-                <h5>상품 정보</h5>
-                <input type="text" class="add-prodname" id="add-prodname" name="add-prodname" placeholder="상품명을 입력하세요." maxlength="100">
-                <span id="textLengthCheck">(0 / 100)</span>
+            <form id="file-upload-form" class="uploader">
+                <div class="add-prodinfo">
+                    <h5>상품 정보</h5>
+                    <input type="text" required class="add-prodname" id="add-prodname" name="add-prodname" placeholder="상품명을 입력하세요." maxlength="30">
+                    <span id="textLengthCheck">(0 / 30)</span>
+                    <!-- 셀렉트 박스 -->
+                    <div class="grid text-center">
+                        <div class="wrap seller-wrap-cate">
+                            <select name="category" class="seller-wrap">
+                                <!-- <option value="" disabled selected hidden>카테고리</option> -->
+                                <option value="salad">샐러드</option>
+                                <option value="dosirak">도시락</option>
+                                <option value="mealkit">밀키트</option>
+                            </select>
+                        </div>
+                        <div class="wrap seller-wrap-week">
+                            <select name="category" class="seller-wrap">
+                                <!-- <option value="" disabled selected hidden>배송단위</option> -->
+                                <option value="1week">1주</option>
+                                <option value="2week">2주</option>
+                                <option value="3week">3주</option>
+                                <option value="4week">4주</option>
+                                <option value="5week">5주+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 할인률 / 가격 입력 박스 -->
+                    <input type="number" pattern="/[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;" class="add-prodpercent" id="add-prodpercent" name="add-prodpercent" placeholder="할인율을 입력해주세요" maxlength="50">
+                    <input type="number" pattern="/[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;" required class="add-prodprice" id="add-prodprice" name="add-prodprice" placeholder="원가를 입력해주세요" maxlength="50"><div class="final-prodprice" id="최종할인가">할인가</div>
+                    <!-- 특이사항 입력 박스 -->
+                    <div style="margin-top: 80px">
+                        <span>특이사항</span>
+                        <textarea placeholder="상품 알러지 정보, 재료 변경 등 제품의 특이사항을 적어주세요."></textarea>
+                    </div>
+                    <!-- 이미지 업로더 -->
+                    <div class="seller-file-uploader">
+                        <span>대표이미지</span>
+                        <!-- Upload  -->
+                        <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
 
-                <div class="select">
-                    <div class="selected">
-                      <div class="selected-value">none</div>
-                      <div class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                      </svg></div>
+                        <label for="file-upload" id="file-drag">
+                            <img id="file-image" src="#" alt="Preview" class="hidden">
+                            <div id="start">
+                                <i class="fa fa-download" aria-hidden="true"></i>
+                                
+                                <div id="notimage" class="hidden">Please select an image</div>
+                                <span id="file-upload-btn" class="btn btn-upload">+</span>
+                                <div>크기: 최소 100 ~ 최대 500 (권장 크기 500x500)</div>
+                                <div>용량: 5MB 이하, 파일 형식 JPG, PNG</div>
+                                </div>
+                                <div id="response" class="hidden">
+                                <div id="messages"></div>
+                                <progress class="progress" id="file-progress" value="0">
+                                    <span>0</span>%
+                                </progress>
+                            </div>
+                        </label>
                     </div>
-                    <ul>
-                      <li class="option">none</li>
-                      <li class="option">option 1</li>
-                      <li class="option">option 2</li>
-                      <li class="option">option 3</li>
-                      <li class="option">loooooooooooooooooong text option</li>
-                    </ul>
-                  </div>
-                <!-- <div class="form-group col-12" >
-                    <div class="textLengthWrap">
-                      <p class="textCount">0자</p>
-                      <p class="textTotal">/200자</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn prod-add-btn" type="button" onclick="">상품 등록</button>
+                        <button class="btn prod-cancel-btn" type="button">등록 취소</button>
                     </div>
-                    <textarea style="height:300px; resize: none;" maxlength="200" placeholder="텍스트를 입력하세요.">
-                    </textarea>	
-                  </div> -->
-                  
-            </div>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -183,18 +217,5 @@
             </div>
         </div>
     </footer>
-    <script>
-        $("#add-prodname").keyup(function(e) {
-            //console.log("키업!");
-            var content = $(this).val();
-            $("#textLengthCheck").text("(" + content.length + " / 100)"); //실시간 글자수 카운팅
-            if (content.length > 100) {
-                alert("최대 45자까지 입력 가능합니다.");
-                $(this).val(content.substring(0, 100));
-                $('#textLengthCheck').text("(100 / 100)");
-            }
-        });
-    </script>
 
-</body>
 </html>
