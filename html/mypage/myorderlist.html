@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../css/basic.css">
+    <!-- <link rel="stylesheet" href="../../css/mypage/mypage.css"> -->
+    <link rel="stylesheet" href="../../css/mypage/myorderlist.css">
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- JQuery CDN HOST-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="../../js/board/basic.js"></script>
+    <script src="../../js/mypage/myorderlist.js"></script>
+    <!-- DatePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+</head>
+
+<body>
+    <div class="mp-order-list-form">
+        <div class="mp-order-list-title">
+            <h5>주문목록/ 배송조회 n건</h5>
+        </div>
+        <div class="mp-order-list-main">
+            <div class="container">
+                <span class="search-period">조회기간</span>
+                <span><button type="button" class="btn btn-light">7일</button></span>
+                <span><button type="button" class="btn btn-light">15일</button></span>
+                <span><button type="button" class="btn btn-light">1개월</button></span>
+                <span><button type="button" class="btn btn-light">3개월</button></span>
+                <span><button type="button" class="btn btn-light">6개월</button></span>
+                <span><button type="button" class="btn btn-light">1년</button></span>
+                <!-- Date Picker -->
+                <div class="datepicker">
+                    <form autocomplete="off">
+                        <div class="flex-row d-flex justify-content-center">
+                            <div class="input-group input-daterange">
+                                <input type="text" name="daterange" value="02/10/2023 - 01/15/2018" readonly />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <span>
+                    <button class="btn" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg></button></span>
+            </div>
+            <!-- 주문정보 테이블 START -->
+            <div class="mp-order-list-table">
+                <table>
+                    <colgroup>
+                        <!-- 날짜/주문번호 -->
+                        <col style="width:15%">
+                        <!-- 상품명/옵션 -->
+                        <col>
+                        <!-- 상품금액/수량 -->
+                        <col style="width:15%">
+                        <!-- 주문상태 -->
+                        <col style="width:15%">
+                        <!-- 확인/리뷰 -->
+                        <col style="width:15%">
+                    </colgroup>
+                    <thead>
+                        <!-- tr>th*5 -->
+                        <tr class="order-title">
+                            <th>날짜/주문번호</th>
+                            <th>상품명/옵션</th>
+                            <th>상품금액/수량</th>
+                            <th>주문상태</th>
+                            <th>확인/리뷰</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="order-num">2023/01/07
+                                <div>주문번호</div>
+                            </td>
+                            <td>
+                                <div
+                                    style="display: flex; justify-content: center; margin: 0 15px 0 15px; align-items: center;">
+                                    <span><a href="#"><img src="../../images/shin.png"
+                                                style="width:3em; height:3em;"></a></span>
+                                    <div>
+                                        <a href="#">
+                                            [택배배송]2주 정기배송 샐러드 주 3일 하루 한끼(주 3팩)
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <strong>13,600원</strong> / 1개
+                            </td>
+                            <td> 결제완료 </td>
+                            <td><button type="button" class="btn btn-success review-show">리뷰남기기</button></td>
+                        </tr>
+                        <tr>
+                            <td class="order-num">2023/01/07
+                                <div>주문번호</div>
+                            </td>
+                            <td>
+                                <div
+                                    style="display: flex; justify-content: center; margin: 0 15px 0 15px; align-items: center;">
+                                    <span><a href="#"><img src="../../images/jojini.png"
+                                                style="width:3em; height:3em;"></a></span>
+                                    <div>
+                                        <a href="#">
+                                            [택배배송]2주 정기배송 샐러드 주 3일 하루 한끼(주 3팩)
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <strong>13,600원</strong> / 1개
+                            </td>
+                            <td> 결제완료 </td>
+                            <td><button type="button" class="btn btn-success review-hide">작성완료</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
