@@ -1,67 +1,94 @@
 .point-div {
     width : 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .point-header{
     margin-top:50px;
 }
 
-.point-div{
-    margin:0;
-    padding:0;
+/* ------ Date Picker CSS  ------- */
+
+div.mp-order-list-main .datepicker {
+    margin-left: 10px;
 }
 
-.calendar {
-    border : 1px solid rgb(211, 207, 207);
-    margin-top : 50px;
-    justify-content: space-between;
-    height : 100px;
+div.mp-order-list-main input {
+    padding: 10px 15px !important;
+    border: 1px solid #CFD8DC !important;
+    border-radius: 12px !important;
+    /* box-sizing: border-box; */
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 13px !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    width: 215px;
 }
 
-.date-term{
+div.mp-order-list-main input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #FFA000 !important;
+    outline-width: 0;
+}
+
+div.mp-order-list-main .daterangepicker {
+    background-color: #fff !important;
+    border-radius: 0 !important;
+    align-content: center !important;
+    padding: 0 !important;
+}
+
+
+/* 조회기간 */
+.period {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1% 0 3% 0;
+    padding: 0.5%;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 175, 133, 0.3);
+    font-size: 14px;
+}
+
+div.mp-order-list-form .bi-calendar2-check-fill {
+    margin-bottom: 4px;
+    color: #FFA000;
+}
+
+div.mp-order-list-form .search-period {
+    font-size: 16px;
     margin-right: 10px;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    margin-top: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
 }
 
-.date-check-box {
-    display: flex;
-    align-items: center;
+div.mp-order-list-form .period .nav-item {
+    width: 70px;
+    margin-right: 3px;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 15px;
     text-align: center;
-    height : 100px;
-    margin: 0 auto;
-    justify-content: space-around;
 }
 
-
-.date-check-box button {
-    background-color: white;
-    border : 1px solid grey;
-    padding: 5px 8px;
-    text-align: center;
-    
+div.mp-order-list-form .period .nav-link {
+    padding: 3.5px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
 }
 
-.date-check-list button:hover {
-    background: lightgrey;
-}
-
-.date-check-calendar input{
-    border-radius: 5px;
-    border : 1px solid grey;
-}  
-
-#date-submit-btn {
-    background-color: rgb(0, 175, 133);
-    color: white;
-    border:0px;
-    padding: 5px 25px;
-    text-align: center;
-    border-radius: 5px;
+div.mp-order-list-form .period .nav-link:focus {
+    border-color: #fff;
+    border: 1px dashed #FFA000 !important;
+    color: #00af85;
+    border-radius: 15px;
 }
 
 .nav-tap {
@@ -69,7 +96,7 @@
 }
 
 .point-list-header {
-    margin-top : 100px;
+    margin-top : 20px;
     margin-bottom : 10px;
 }
 
@@ -119,7 +146,8 @@
     align-items : center;
     justify-content: space-between;
     text-align: center;
-    border-bottom:1px solid lightgrey
+    border-bottom:1px solid lightgrey;
+    font-size : 13px;
 }
 
 .p-date {
@@ -153,4 +181,88 @@
  .endDate {
     width :20%;
  }
+
+/* ------ Date Picker CSS  ------- */
+
+div.mp-order-list-main .datepicker {
+    margin-left: 10px;
+}
+
+div.mp-order-list-main input {
+    padding: 10px 15px !important;
+    border: 1px solid #CFD8DC !important;
+    border-radius: 12px !important;
+    /* box-sizing: border-box; */
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 13px !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    width: 215px;
+}
+
+div.mp-order-list-main input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #FFA000 !important;
+    outline-width: 0;
+}
+
+div.mp-order-list-main .daterangepicker {
+    background-color: #fff !important;
+    border-radius: 0 !important;
+    align-content: center !important;
+    padding: 0 !important;
+}
+
+
+/* 조회기간 */
+.period {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1% 0 3% 0;
+    padding: 0.5%;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 175, 133, 0.3);
+    font-size: 14px;
+}
+
+div.mp-order-list-form .bi-calendar2-check-fill {
+    margin-bottom: 4px;
+    color: #FFA000;
+}
+
+div.mp-order-list-form .search-period {
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+div.mp-order-list-form .period .nav-item {
+    width: 70px;
+    margin-right: 3px;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+}
+
+div.mp-order-list-form .period .nav-link {
+    padding: 3.5px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+div.mp-order-list-form .period .nav-link:focus {
+    border-color: #fff;
+    border: 1px dashed #FFA000 !important;
+    color: #00af85;
+    border-radius: 15px;
+}
+
 

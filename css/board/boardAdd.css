@@ -1,0 +1,41 @@
+.board-write-wrap {
+    width : 1000px;
+    margin: 100px auto;
+    border: 1px solid #999;
+    border-radius: 10px;
+
+}
+
+.title {
+    padding : 10px 20px;
+}
+
+.info {
+    padding : 10px 20px;
+}
+
+.select {
+    padding : 10px 20px;
+}
+
+.content-textarea{
+    padding : 10px 20px;
+}
+
+.file-upload {
+    padding : 20px;
+}
+
+.submit {
+    margin: 0 auto;
+    float: right;
+    padding-top: 10px;
+    padding-right: 5px;
+}
+
+.cancle {
+    margin: 0 auto;
+    float: right;
+    padding-top: 10px;
+}
+
