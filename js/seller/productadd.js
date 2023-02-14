@@ -13,25 +13,25 @@ $(()=>{
   // ---------- select 옵션 박스 ----------
   $('select').each(function(){
     var $this = $(this), selectOptions = $(this).children('option').length;
-  
-    $this.addClass('hide-select'); 
+
+    $this.addClass('hide-select');
     $this.wrap('<div class="select"></div>');
     $this.after('<div class="custom-select"></div>');
 
     var $customSelect = $this.next('div.custom-select');
     $customSelect.text($this.children('option').eq(0).text());
-  
+
     var $optionlist = $('<ul />', {
         'class': 'select-options'
     }).insertAfter($customSelect);
-  
+
     for (var i = 0; i < selectOptions; i++) {
         $('<li />', {
             text: $this.children('option').eq(i).text(),
             rel: $this.children('option').eq(i).val()
         }).appendTo($optionlist);
     }
-  
+
     var $optionlistItems = $optionlist.children('li');
 
     $customSelect.click(function(e) {
