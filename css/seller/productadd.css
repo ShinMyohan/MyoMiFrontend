@@ -10,14 +10,46 @@ section .mp-seller-add{
     border-bottom: 2px solid #d9d9d9;
 }
 
+.mp-seller-add h6{
+  font-size: 20px;
+  margin-left: 2.5%;
+  margin-top: 2em;
+
+}
+
 .mp-seller-add .add-prodinfo{
-    width: 40em;
+    width: 95%;
     height: 1000px;
-    margin: 40px auto 20px auto;
+    margin: 0 auto 20px auto;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+table{
+  font-size: 17px;
+  width: 100%;
+  margin: 1em auto;
+  text-align: left;
+}
+
+table tbody tr{
+  height: 60px;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+table tbody tr th{
+  width: 20%;
+  padding-left: 1em;
+  background-color: rgba(0, 175, 133, 0.1);
+}
+
+table tbody tr td{
+  padding-left: 0.5em;
 }
 
 .mp-seller-add .add-prodinfo input.add-prodname{
-    width: 34em;
+    width: 80%;
     border: none;
     border-bottom: 2px solid #d9d9d9;
     outline: none;
@@ -37,17 +69,17 @@ section .mp-seller-add{
     width: 18em;
     border: 2px solid #b1b1b1;
 }
-  
+
 .mp-seller-add .add-prodinfo .select .selected {
     display: flex;
     justify-content: space-between;
     padding: 8px 5px;
   }
-  
+
 .mp-seller-add .add-prodinfo .select .selected .selected-value {
     max-width: 90px;
 }
-  
+
 .mp-seller-add .add-prodinfo .select ul {
     /* width: 200px; */
     width: 18em;
@@ -63,7 +95,7 @@ section .mp-seller-add{
 .mp-seller-add .add-prodinfo .select.active ul{
     display: initial;
 }
-  
+
 .mp-seller-add .add-prodinfo .select ul li {
     padding: 5px 5px;
 }
@@ -73,23 +105,19 @@ section .mp-seller-add{
   white-space: nowrap; /* 줄바꿈 안함 */
   overflow: hidden;
   text-overflow: ellipsis; /* 말줄임 적용 */
+  padding-left: 1em;
 }
 
 .mp-seller-add .add-prodinfo .select ul li:hover {
     background: rgba(0, 175, 133, 0.5);
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 /* --------- 셀렉트 박스 START --------- */
-.grid{
-    margin-top: 40px;
-    height: 100px;
-    display: block;
+input[type="number"]{
+  width: 3em;
+  border: none;
+  border-bottom:2px solid #d9d9d9; /* input 박스 테두리 지우기*/
+  outline: none;
 }
 
 .seller-wrap-cate{
@@ -145,6 +173,7 @@ select {
 .custom-select:active, .custom-select.active {
     background-color: #fff;
     color: #9E9E9E;
+    text-align: left;
 }
 .custom-select:active:after, .custom-select.active:after {
     transform: rotateZ(180deg);
@@ -152,7 +181,7 @@ select {
     transform-origin: 50% 25%;
 }
 .custom-select:focus{
-   outline: 2px;
+  outline: 2px;
 }
 .select-options {
     max-height: 200px;
@@ -222,19 +251,22 @@ select {
     text-align: center;
 }
 
+td small{
+  font-size: 12px;
+  color:#a1a1a1;
+}
+
 .mp-seller-add .add-prodinfo textarea{
-    width: 40em;
+    width: 85%;
     height: 120px;
     resize: none;
     outline: none;
-    border: 2px solid #d9d9d9;
-    /* border-left: none;
-    border-right: none; */
+    /* border: 2px solid #d9d9d9; */
+    border:none;
 }
 
 .seller-file-uploader{
-    width:40em;
-    height: 300px;
+    width:85%;
 }
 
 /* 이미지 업로더  */
@@ -266,10 +298,10 @@ p {
   padding: 2rem 1.5rem;
   text-align: center;
   background: #fff;
-  border: 2px solid #d9d9d9;
+  /* border: 2px solid #d9d9d9; */
   transition: all 0.2s ease;
   -webkit-user-select: none;
-     -moz-user-select: none;
+    -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
@@ -357,11 +389,12 @@ p {
 }
 .uploader div {
   /* margin: 0 0 0.5rem 0; */
+  text-align: left;
   color: #424242;
 }
 .uploader .btn-upload {
   display: inline-block;
-  margin: 0.5rem 0.5rem 2rem 0.5rem;
+  margin: 0.5rem 0.5rem 2rem 7.5rem;
   clear: both;
   font-family: inherit;
   font-size: 50px;
@@ -385,11 +418,12 @@ p {
 }
 
 /* 등록/취소 버튼 */
-.d-md-block{
+div.prod-add-form-btn{
+    margin-top: 3em;
     text-align: center;
 }
 
-button.prod-add-btn{
+.prod-add-form-btn button.prod-add-btn{
     background-color: #00af85;
     color: #fff;
 }
