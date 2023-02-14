@@ -49,7 +49,7 @@ table tbody tr td{
 }
 
 .mp-seller-add .add-prodinfo input.add-prodname{
-    width: 22em;
+    width: 80%;
     border: none;
     border-bottom: 2px solid #d9d9d9;
     outline: none;
@@ -257,7 +257,7 @@ td small{
 }
 
 .mp-seller-add .add-prodinfo textarea{
-    width: 30em;
+    width: 85%;
     height: 120px;
     resize: none;
     outline: none;
@@ -266,7 +266,7 @@ td small{
 }
 
 .seller-file-uploader{
-    width:30em;
+    width:85%;
 }
 
 /* 이미지 업로더  */
@@ -394,7 +394,7 @@ p {
 }
 .uploader .btn-upload {
   display: inline-block;
-  margin: 0.5rem 0.5rem 2rem 0.5rem;
+  margin: 0.5rem 0.5rem 2rem 7.5rem;
   clear: both;
   font-family: inherit;
   font-size: 50px;
