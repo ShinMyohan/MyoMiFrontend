@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="../../css/basic.css">
     <link rel="stylesheet" href="../../css/mypage/mypage.css">
-    <link rel="stylesheet" href="../../css/point/point.css">
+    <link rel="stylesheet" href="../../css/myboardlist/myboardlist.css">
     <!-- 부트스트랩 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -29,8 +29,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
     <script src="../../js/board/basic.js"></script>
-    <script src="../../js/point/pointlist.js"></script>
-   
+    <script src="../../js/myboardlist/myboardlist.js"></script>
+
 
 
 </head>
@@ -178,12 +178,12 @@
                         </div>
                     </div>
 
-                    <!------------------ 포인트 목록 ------------------->
-                    <div class="point-div">
-                        <div class="point-header">
-                            <h4> 적립금 </h4>
+                    <!------------------ 게시글 목록 ------------------->
+                    <div class="mp-board-list-div">
+                        <div class="mp-board-list-header">
+                            <h4> 내가 쓴 게시글 </h4>
                         </div>
-
+                    
                         <div class="mp-order-list-main">
                             <div class="period">
                                 <span class="search-period">
@@ -233,31 +233,68 @@
                             </div>
                         </div>
 
-                        <div class="point-list">
-                            <div class="point-list-header">
-                                <strong> yyyy-MM-dd ~ yyyy-MM-dd </strong> 까지의 적립내역 총 n 건
+                        <div class="nav-tab">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" type="button"
+                                        role="tab" aria-selected="true">내가 쓴 게시글</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="my-reps-tab" data-bs-toggle="tab" type="button"
+                                        role="tab" aria-selected="false">내가 쓴 댓글</button>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <!-------- 내가 쓴 글 리스트  --------->
+                        <div class="my-board-list">
+                            <div class="my-board-list-header">
+                               <strong> yyyy-MM-dd ~ yyyy-MM-dd </strong> 까지의 작성 글 목록 
                             </div>
 
                             <div class="list-header">
-                                <div class="point-created-date">날짜</div>
-                                <div class="point-sort">유형</div>
-                                <div class="point-content">내용</div>
-                                <!-- <div class="point-avaliable">유효기간</div> -->
-                                <div class="point-amount">적립내역</div>
-                                <div class="point-total">잔여적립금</div>
+                                <div class="my-board-list-num" style="display:none">번호</div> 
+                                <div class="my-board-list-category">카테고리</div>
+                                <div class="my-board-list-title">제목</div>
+                                <div class="my-board-list-created-date">작성일</div>
+                                <div class="my-board-list-hits">조회수</div>
                             </div>
 
                             <div class="list-body">
-                                <div class="p-date">2023.02.10</div>
-                                <div class="p-sort">구매적립</div>
-                                <div class="p-content">적립금 상세내용입니다 </div>
-                                <!-- <div class = "p-avaliable">2024.02.09</div> -->
-                                <div class="p-amount">255</div>
-                                <div class="p-total">255</div>
+                                <div class="my-board-body-num" style="display:none">번호</div> 
+                                <div class="my-board-body-category">오늘의 식단</div>
+                                <div class="my-board-body-title">오늘은 마라탕을 먹었어요</div>
+                                <div class="my-board-body-created-date">2023/02/16</div>
+                                <div class="my-board-body-hits">0</div>
+                            </div>
+                        </div>
+
+                    <!-- 내가 쓴 댓글 목록 -->
+                        <div class="my-rep-list">
+                            <div class="my-rep-list-header">
+                               <strong> yyyy-MM-dd ~ yyyy-MM-dd </strong> 까지의 작성 댓글 목록 
+                            </div>
+
+                            <div class="list-rep-header">
+                                <div class="my-rep-list-num" style="display:none">번호</div> 
+                                <div class="my-rep-list-category">카테고리</div>
+                                <div class="my-rep-list-title">제목</div>
+                                <div class="my-rep-list-content">댓글 내용</div>
+                                <div class="my-rep-list-created-date">작성일</div>
+                            </div>
+
+                            <div class="list-rep-body">
+                                <div class="my-rep-body-num" style="display:none">번호</div> 
+                                <div class="my-rep-body-category">오늘의 식단</div> 
+                                <div class="my-rep-body-title">오늘은 마라탕을 먹었어요</div>
+                                <div class="my-rep-body-content">마라탕엔 푸주죠</div>
+                                <div class="my-rep-body-created-date">2023/02/16</div>
+                               
                             </div>
                         </div>
                     </div>
-                    <!-------point-div------->
+                    <!------coupon-div------->
                 </div>
                 <!------------ 마이페이지 END -------------->
             </div>
