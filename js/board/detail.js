@@ -1,5 +1,6 @@
 $(() => {
   $('.hidden-rep-btn').hide();
+  $('.re-rep-write').hide();
   // $('.re-hidden-rep-btn').hide();
 
   function viewBoard() {
@@ -112,6 +113,16 @@ $(() => {
     $('#rep-content').css("border","0")
     showMenuCancle();
   })
+
+  $('.rep-second-btn').click (()=>{
+    $('.re-rep-write').show();
+  })
+
+
+  $('#re-rep-cancle-btn').click (()=>{
+    $('.re-rep-write').hide();
+  })
+  
 //====================원댓글END=========================
 
 //===================리댓글========================

@@ -6,6 +6,7 @@
 
 .coupon-header{
     margin-top:50px;
+    margin-bottom : 30px;
 }
 
 .nav-tap {
@@ -26,6 +27,7 @@
     border-top : 1.7px solid grey;
     border-bottom :1.3px solid lightgrey;
     margin-bottom: 10px;
+    -webkit-text-stroke: thin;
 }
 
 .list-header > div{
@@ -111,6 +113,7 @@
     border-top : 1.7px solid grey;
     border-bottom :1.3px solid lightgrey;
     margin-bottom: 10px;
+    -webkit-text-stroke: thin;
 }
 .expired-list-header > div{
     display : inline-block;
