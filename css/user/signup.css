@@ -4,9 +4,15 @@ small {
 }
 
 table.signup-user-form input{
-    height: 38px;
+    height: 36px;
     outline: none;
     border: 1px solid #d9d9d9;
+}
+
+/* 폼컨트롤 */
+table.signup-user-form input.form-control{
+    border-radius: 0;
+    outline: none;
 }
 
 section .mp-signup{
@@ -29,14 +35,14 @@ section .mp-signup{
 
 .mp-signup .add-userinfo{
     width: 95%;
-    height: 1000px;
+    height: 1200px;
     margin: 0 auto 20px auto;
     border-top: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
 }
 
 table{
-    font-size: 17px;
+    font-size: 14px;
     width: 100%;
     margin: 1em auto;
     text-align: left;
@@ -51,7 +57,8 @@ table tbody tr{
 table tbody tr th{
     width: 20%;
     padding-left: 1em;
-    background-color: rgba(0, 175, 133, 0.1);
+    /* background-color: rgba(0, 175, 133, 0.1); */
+    background-color: #320d910f;
 }
 
 table tbody tr td{
@@ -67,20 +74,19 @@ table tbody tr td{
 }
 
 .mp-signup .btn-dup-check {
-    border: 2px solid #888888;
+    border: 1px solid #888888;
     border-radius: 0px;
     color: #888888;
     margin-left:10px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .mp-signup .btn-dup-check:hover {
-    border: 2px solid #5b5b5b90;
     border-radius: 0px;
     background-color: #5b5b5b90;
     color: white;
     margin-left:10px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* 휴대폰번호 S */
@@ -118,19 +124,20 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .mp-signup small.users-email{
-    font-size: 18px;
-    margin: 14px 10px 0 10px;
+    font-size: 14px;
+    margin: 16px 10px 0 10px;
 }
 
 .mp-signup select.user-email-basic{
     margin: 10px 0 0 8px;
     width: 140px;
+    font-size: 14px;
 }
 /* 이메일 E */
 
 /* 집주소 S */
 .mp-signup input.user-address{
-    width: 100%;
+    width: 90%;
 }
 /* 집주소 E */
 
@@ -165,42 +172,61 @@ td small{
     color:#a1a1a1;
 }
 
-.mp-signup .add-userinfo textarea{
-    width: 85%;
-    height: 120px;
+/* 약관 동의 S */
+.mp-signup div.terms-confitions-form{
+    margin-top: 60px;
+    border-radius: 0;
+}
+
+.mp-signup div.agreement-all{
+    padding: 10px 0 6px 10px;
+    border-bottom: 1px solid #d9d9d9;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mp-signup div.agreement-check{
+    padding: 10px 0 6px 20px;
+    border-bottom: 1px dashed #d9d9d9;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.mp-signup div.terms-confitions-form p{
+    padding: 10px 0 6px 20px;
+    font-size: 12px;
+}
+
+.mp-signup div.terms-confitions-form textarea{
+    width: 100%;
+    height: 150px;
     resize: none;
-    outline: none;
-    /* border: 2px solid #d9d9d9; */
-    border:none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 12px;
+    border-bottom: 1px dashed #d9d9d9;
+    white-space: pre-line;
 }
 
-.seller-file-uploader{
-    width:85%;
-}
 
+/* 약관 동의 E */
 
 /* 등록/취소 버튼 */
-div.prod-add-form-btn{
+div.signup-form-btn{
     margin-top: 3em;
     text-align: center;
 }
 
-.prod-add-form-btn button.prod-add-btn{
-    background-color: #00af85;
+.signup-form-btn button.sign-up-btn{
+    padding: 10px 30px;
+    border-radius: 0;
+    background-color: #5a0bd8;
     color: #fff;
+    font-size: 12px;
+    font-weight: 400;
 }
 
-button.prod-add-btn:hover{
-    background-color: rgba(1, 198, 152, 0.8);
-    color: #fff;
-}
-
-button.prod-cancel-btn{
-    background-color: #b1b1b1;
-    color: #fff;
-}
-
-button.prod-cancel-btn:hover{
-    background-color: rgba(177, 177, 177, 0.8);
+button.sign-up-btn:hover{
+    background-color: #5a0bd8c5;
     color: #fff;
 }
