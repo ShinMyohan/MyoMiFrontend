@@ -79,7 +79,10 @@
                             <tr>
                                 <th scope="row"><small>*</small> 비밀번호</th>
                                 <td>
-                                    <input type="password" class="users-info form-control" id="signupPwd"><small> * 영문 대소문자/숫자/특수문자를 혼용하여 8~16자</small>
+                                    <div class="signup-password">
+                                        <input type="password" class="users-info form-control" id="signupPwd">
+                                        <small> * 영문 대소문자/숫자/특수문자를 혼용하여 8~16자</small>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -105,9 +108,9 @@
                                         <option value="019">019</option>
                                     </select>
                                     <small class="user-tel-num"> - </small>
-                                    <input type="number" class="tel-number" id="signupTel2" pattern="/[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;">
+                                    <input type="text" class="tel-number" id="signupTel2" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4">
                                     <small class="user-tel-num"> - </small>
-                                    <input type="number" class="tel-number" id="signupTel3" pattern="/[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;">
+                                    <input type="text" class="tel-number" id="signupTel3" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="4">
                                 </td>
                             </tr>
                             <tr>
@@ -377,7 +380,7 @@
 
 
 부 칙(시행일) 이 약관은 2021년 05월 19일부터 시행합니다.
-                            </textarea> 
+                            </textarea>
                         </div>
                         <p style="white-space:pre-wrap">귀하께서는 쇼핑몰에서 위와 같이 수집하는 개인정보에 대해, 동의하지 않거나 개인정보를 기재하지 않음으로써 거부할 수 있습니다.
 다만, 이때 회원에게 제공되는 서비스가 제한될 수 있습니다.</p>
@@ -387,7 +390,19 @@
                     </div>
                 </div>
             </form>
-            
+        </div>
+        <!-- 모달 -->
+        <div class="modal" tabindex="-1" id="agreementModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>약관을 읽어보시고 동의해주세요.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

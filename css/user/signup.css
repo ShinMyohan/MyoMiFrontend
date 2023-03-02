@@ -16,7 +16,7 @@ table.signup-user-form input.form-control{
 }
 
 section .mp-signup{
-    width: 90%;
+    width: 80%;
     margin: 100px auto 100px auto;
 }
 
@@ -58,7 +58,7 @@ table tbody tr th{
     width: 20%;
     padding-left: 1em;
     /* background-color: rgba(0, 175, 133, 0.1); */
-    background-color: #320d910f;
+    background-color: #079c3b1f;
 }
 
 table tbody tr td{
@@ -70,7 +70,7 @@ table tbody tr td{
     text-align: right;
 }
 .mp-signup input.users-info{
-    width: 200px;
+    width: 300px;
 }
 
 .mp-signup .btn-dup-check {
@@ -89,6 +89,15 @@ table tbody tr td{
     font-size: 12px;
 }
 
+/* 비밀번호 */
+.mp-signup div.signup-password{
+    display: flex;
+}
+
+.mp-signup div.signup-password small{
+    margin: 10px;
+}
+
 /* 휴대폰번호 S */
 .mp-signup select.user-tel-number{
     width: 80px;
@@ -98,7 +107,6 @@ table tbody tr td{
 .mp-signup input.tel-number{
     margin-top: 10px;
     width: 100px;
-    
 }
 
 .mp-signup small.user-tel-num{
@@ -125,7 +133,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .mp-signup small.users-email{
     font-size: 14px;
-    margin: 16px 10px 0 10px;
+    margin: 16px 5px 0 5px;
 }
 
 .mp-signup select.user-email-basic{
@@ -220,13 +228,13 @@ div.signup-form-btn{
 .signup-form-btn button.sign-up-btn{
     padding: 10px 30px;
     border-radius: 0;
-    background-color: #5a0bd8;
+    background-color: #079c3b;
     color: #fff;
     font-size: 12px;
     font-weight: 400;
 }
 
 button.sign-up-btn:hover{
-    background-color: #5a0bd8c5;
+    background-color: #079c3bcf;
     color: #fff;
 }

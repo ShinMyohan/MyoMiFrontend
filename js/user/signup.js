@@ -59,6 +59,18 @@ $(()=>{
             $('#signupName').removeClass('is-invalid');
         }
     });
+
+    // 전체동의 클릭시 모두 동의됨, 전체동의 재클릭시 모두 동의 체크 해제됨
+    $("#agreementAll").click(function(e){
+        if($('#agreementAll').is(':checked') == true) {
+            $('#agreementTnc').prop("checked", true);
+            $('#agreementPersonal').prop("checked", true);
+        } else {
+            $('#agreementTnc').prop("checked", false);
+            $('#agreementPersonal').prop("checked", false);
+        }
+    })
+
 })
 
 
@@ -102,8 +114,9 @@ function getTel(){
         $('#signupName').attr('placeholder','이름을 입력해주세요.');
     }
 
-    if(tel == '') {
-        
+    if($('#agreementAll').is(':checked') == false || $('#agreementTnc').is(':checked') == false || $('#agreementPersonal').is(':checked') == false) {
+        // $('#agreementModal').style.display ='block';
+        $('#agreementModal').modal("show");
     }
 }
 
