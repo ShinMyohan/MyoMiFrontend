@@ -5,6 +5,9 @@
 *.png
 *.jpeg
 
+package-lock.json
+package.json
+
 # Logs
 logs
 *.log

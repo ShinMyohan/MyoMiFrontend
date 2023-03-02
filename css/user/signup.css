@@ -73,7 +73,7 @@ table tbody tr td{
     width: 300px;
 }
 
-.mp-signup .btn-dup-check {
+.mp-signup tr.signup-user-login-id .btn-dup-check {
     border: 1px solid #888888;
     border-radius: 0px;
     color: #888888;
@@ -81,12 +81,13 @@ table tbody tr td{
     font-size: 12px;
 }
 
-.mp-signup .btn-dup-check:hover {
+.mp-signup tr.signup-user-login-id .btn-dup-check:hover {
     border-radius: 0px;
     background-color: #5b5b5b90;
     color: white;
     margin-left:10px;
     font-size: 12px;
+    border: 1px solid #5b5b5b44;
 }
 
 /* 비밀번호 */
@@ -121,6 +122,15 @@ input[type="number"]::-webkit-inner-spin-button {
 /* 휴대폰번호 E */
 
 /* 이메일 S */
+.mp-signup div.singup-email-content button.btn-dup-check{
+    border: 1px solid #888888;
+    border-radius: 0px;
+    color: #888888;
+    margin-left:10px;
+    font-size: 12px;
+    height: 30px;
+}
+
 .mp-signup input.user-email{
     margin-top: 10px;
     width: 140px;
@@ -147,7 +157,25 @@ input[type="number"]::-webkit-inner-spin-button {
 .mp-signup input.user-address{
     width: 90%;
 }
+
+.mp-signup #roadAddress{
+    width: 360px;
+}
+
+.mp-signup #postcode{
+    width: 100px;
+}
+
+.mp-signup #detailAddress{
+    width:360px;
+}
+
+.mp-signup #extraAddress{
+    border: none;
+}
+
 /* 집주소 E */
+
 
 /* --- */
 .mp-signup .add-prodpercent{

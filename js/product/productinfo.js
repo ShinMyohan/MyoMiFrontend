@@ -1,61 +1,35 @@
 $(()=>{
-    // alert('dd');
     // -- 상품 보여주기 START --
-    let url = backURL + 'product/info'
-    //console.log(url)
+    let url = backURL + 'product/'
     let data = location.search.substring(1) //prodNum=1
-    // console.log(data);
+
+    let regex = /[^0-9]/g;
+    let prodNum = data.replace(regex,"");
     $.ajax({
-        url: url,
+        url: url + prodNum,
         method: 'get',
         data: data,
         success: function(jsonObj){
-            let list = jsonObj;
-            console.log(jsonObj[0])
-            // $(list).each((p)=>{
-            //     console.log(list[p]["COMPANY_NAME"])
-            // })
+            let list = jsonObj['body'];
             // $('div.img>img').attr('src', '../images/' + jsonObj.prodNo+'.jpeg')
-            $('div.prodNum').html(jsonObj[0]["PRODNUM"]);
-            $('div.prodName>h3').html(jsonObj[0]["NAME"])
-            $('div.sellerName>h6').html(jsonObj[0]["COMPANY_NAME"])
-            $('div.percentage b').html(jsonObj[0]["PERCENTAGE"]+"%")
-            $('div.originPrice').html(jsonObj[0]["ORIGIN_PRICE"].toLocaleString()+"원")
-            let percentage = jsonObj[0]["PERCENTAGE"]
-            let originPrice = jsonObj[0]["ORIGIN_PRICE"]
+            $('div.prodNum').html(list['prodNum']);
+            $('div.prodName>h3').html(list['name'])
+            $('div.sellerName>h6').html(list['seller'])
+            $('div.percentage b').html(list['percentage']+"%")
+            $('div.originPrice').html(list['originPrice'].toLocaleString()+"원")
+            let percentage = list['percentage']
+            let originPrice = list['originPrice']
             let prodPrice = originPrice - originPrice*(percentage/100);
             $('div.prodPrice').html(prodPrice.toLocaleString()+"원")
-            let prodCnt = $('#result').html()
-            let totalPrice = prodPrice*prodCnt //자동으로 안변함;;
-            $('div.total-sum').html(totalPrice.toLocaleString()+"원")
+            // 처음 뿌려줄 땐 1개 수량 그대로.
+            $('div.total-sum').html(prodPrice.toLocaleString()+"원")
 
-            $('div.to-cart div.prodName h5').html(jsonObj[0]["NAME"])
-
-            //실패
-            // $('#result').on('keyup',function(){
-            //     let cnt = $('#result').html()
-            //     console.log(cnt)
-
-            //     let total = prodPrice*cnt
-            //     console.log(totlal)
-            // })
+            $('div.to-cart div.prodName h5').html(list['name'])
         },
         error: function(xhr){
             alert(xhr.status)
         }
     })
-
-    //실패 js
-    // $(function(){
-    //     $('#result').on('keyup',function(){
-    //         let cnt = $('#result').html()
-    //         console.log(cnt)
-
-    //         $('div.prodPrice').html();
-    //         let total = prodPrice*cnt
-    //         console.log(totlal)
-    //     })
-    // })
 
     //--상품정보보여주기 END--
     $('header>nav>ul>li').click((e)=>{
@@ -77,4 +51,43 @@ $(()=>{
                 break;
         }
     })
+
+    // 수량 조절 버튼 누를 때 총 합계 변화
+    $("#quantityMin").click(function(){
+        let prodPrice = $('#prodPrice').html()
+        let price = prodPrice.replace(regex,"")
+        let qtt = $('#result').html()
+        let totalPrice = price*qtt;
+        $('#tt-price').html(totalPrice.toLocaleString()+"원")
+    })
+
+    $("#quantityPl").click(function(){
+        let prodPrice = $('#prodPrice').html()
+        let price = prodPrice.replace(regex,"")
+        let qtt = $('#result').html()
+        let totalPrice = price*qtt;
+        $('#tt-price').html(totalPrice.toLocaleString()+"원")
+    })
 })
+
+// 수량 조절 + , - 버튼
+function count(type)  {
+    // 결과를 표시할 element
+    const resultElement = document.getElementById('result');
+    // 현재 화면에 표시된 값
+    let number = resultElement.innerText;
+
+    // 더하기/빼기
+    if(type === 'plus') {
+        number = parseInt(number) + 1;
+    }else if(type === 'minus')  {
+        number = parseInt(number) - 1;
+    }
+
+    if(number < 1) {
+        alert('수량은 1개 이상 선택 가능합니다.')
+        number=1
+    }
+    // 결과 출력
+    resultElement.innerText = number;
+}

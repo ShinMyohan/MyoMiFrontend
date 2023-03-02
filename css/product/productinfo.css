@@ -129,26 +129,26 @@ div.btn-orders button{
 }
 
 div.btn-orders > .btn-success {
-    border: 1px solid #00af85;
-    background-color: #00af85;
+    border: 1px solid #079c3b;
+    background-color: #079c3b;
 }
 
 div.btn-orders > .btn-success:hover {
-    border: 1px solid #00af85;
+    border: 1px solid #079c3b;
     /* color: #009572; */
-    background-color: #00af85;
+    background-color: #079c3b;
 }
 
 div.btn-orders > .btn-outline-success {
-    border: 1px solid #00af85;
-    color:#00af85;
+    border: 1px solid #079c3b;
+    color:#079c3b;
     background-color: #ffffff;
 }
 
 div.btn-orders > .btn-outline-success:hover {
-    border: 1px solid rgba(0, 175, 133, 0.9);
+    border: 1px solid #079c3bdc;
     color: #ffffff;
-    background-color: rgba(0, 175, 133, 0.9);
+    background-color: #079c3bdc;
 }
 
 div.total-price-cont{
@@ -182,7 +182,7 @@ div.nav-menu-bar{
     height: 80px;
     color:#00af85;
     border: 1px solid #afafaf;
-    border-top: 2px solid #00af85;
+    border-top: 2px solid #079c3b;
     border-bottom: none;
     border-radius: 0;
     padding-top: 25px;
@@ -215,11 +215,11 @@ div.modal-content div.modal-body, div.modal-content div.modal-footer {
 }
 
 div.modal-content div.modal-footer button.modal-cart{
-    border-color: #00af85;
-    background-color: #00af85;
+    border-color: #079c3b;
+    background-color: #079c3b;
 }
 
 div.modal-content div.modal-footer button.modal-cart:hover{
-    border-color: rgba(0, 175, 133, 0.9);
-    background-color: rgba(0, 175, 133, 0.9);
+    border-color: #079c3bdc;
+    background-color: #079c3bdc;
 }

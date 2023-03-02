@@ -79,7 +79,6 @@ function getTel(){
     let pwd = $('#signupPwd').val();
     let checkpwd = $('#checkPwd').val();
     let name = $('#signupName').val();
-    
     let tel1 = $('#signupTel1 option:selected').val();
     let tel2 = $('#signupTel2').val();
     let tel3 = $('#signupTel3').val();
@@ -115,7 +114,6 @@ function getTel(){
     }
 
     if($('#agreementAll').is(':checked') == false || $('#agreementTnc').is(':checked') == false || $('#agreementPersonal').is(':checked') == false) {
-        // $('#agreementModal').style.display ='block';
         $('#agreementModal').modal("show");
     }
 }
