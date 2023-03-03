@@ -3,8 +3,9 @@ $(()=>{
     let url = backURL + 'product/'
     let data = location.search.substring(1) //prodNum=1
 
-    let regex = /[^0-9]/g;
+    let regex = /[^0-9]/g; //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
     let prodNum = data.replace(regex,"");
+    //그 영어,한글,특수 문자 등등이있다면 ""로 처리 = 있다면 없애주어라
     $.ajax({
         url: url + prodNum,
         method: 'get',

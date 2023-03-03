@@ -10,4 +10,22 @@ $(()=>{
             break;
         }
     }
+
+    $.ajax({
+        url: url,
+        method: 'get',
+        contentType: 'application/json; charset=utf-8',
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function(jsonObj){
+            let list = jsonObj['body'];
+            // console.log(jsonObj['body']);
+            data = [...jsonObj['body']]; //spread sheets , ...은 [] 벗겨줌
+            dataList(list);
+        },
+        error: function(xhr){
+            alert(xhr.status)
+        }
+    })
 })

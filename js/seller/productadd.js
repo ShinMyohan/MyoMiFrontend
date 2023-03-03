@@ -1,6 +1,42 @@
+function addProduct() {
+  let prodName = $('#addProdname').val()
+  let prodCate = $('#categorySelect option:selected').val();
+  let prodWeek = $('#weekSelect option:selected').val();
+  let prodPercent = $('#percentage').val();
+  let originPrice = $('#originalPrice').val();
+  let detail = $('#prodDetail').val();
+
+  let data = {
+    "name":prodName,
+    "category":prodCate,
+    "week":prodWeek,
+    "percentage":prodPercent,
+    "originPrice":originPrice,
+    "detail":detail
+  }
+
+  let url = backURL+'product/add'
+  $.ajax({
+    url: url,
+    type: 'POST',
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+    },
+    data: JSON.stringify(data),
+    success: function () {
+      alert("상품 등록 완료.");
+      window.location.reload;
+    },
+    error: function(xhr){
+      alert(xhr.status)
+    }
+  })
+}
+
 $(()=>{
   // ---------- 상품명 글자수 제한 ----------
-  $("#add-prodname").keyup(function(e) {
+  $("#addProdname").keyup(function(e) {
     //console.log("키업!");
     var content = $(this).val();
     $("#textLengthCheck").text("(" + content.length + " / 30)"); //실시간 글자수 카운팅

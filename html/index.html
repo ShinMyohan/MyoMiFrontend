@@ -19,6 +19,7 @@
         <script src="../js/basic.js"></script>
         <script src="../js/index.js"></script>
         <script src="../../js/product/productlist.js"></script>
+        <script src="../js/product/productsearch.js"></script>
     </head>
     <body>
         <header>
@@ -31,9 +32,9 @@
                     <!-- 검색 input 박스 -->
                     <div class="search">
                         <form class="d-flex">
-                            <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
+                            <input class="form-control me-2 rounded-5 searchbox" id="searchBox" type="text" aria-label="Search">
                             <div class="search-icon">
-                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <button class="btn" type="submit" onclick="searchProduct()"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                             </svg></button></div>
                         </form>
