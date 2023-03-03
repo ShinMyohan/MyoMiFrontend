@@ -12,9 +12,10 @@
   <!-- JQuery CDN HOST-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="../../js/board/basic.js"></script>
+    <script src="../../js/basic.js"></script>
     <script src="../../js/board/boardEdit.js"></script>
-    <script src="../../js/board/detail.js"></script>
+  
+    <!-- <script src="../../js/board/detail.js"></script> -->
 
   </head>
   <body>
@@ -57,13 +58,16 @@
   <div class="board-write-wrap">
 
     <div class="board-write">
+        <div class="num" hidden>
+            <input type="text" id="num" name="board-num">
+        </div>
 
         <div class="title">
-            <input class="form-control" type="text" id="title" placeholder="제목을 입력해주세요" aria-label="제목을 입력해주세요">
+            <input class="form-control" type="text" id="title" name="board-title" placeholder="제목을 입력해주세요" aria-label="제목을 입력해주세요">
         </div>
 
         <div class="info">
-            <input class="form-control" type="text" id="writer" placeholder="아이디" aria-label="아이디">
+            <input class="form-control" type="text" id="writer" name="board-writer" placeholder="아이디" aria-label="아이디">
         </div>
 
         <div class="select">
@@ -78,7 +82,7 @@
         <div class="content-textarea">
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">글 내용을 입력해주세요</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" id="content" style="height: 400px"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1"  name="content" style="height: 400px"></textarea>
               </div>
         </div>
 
