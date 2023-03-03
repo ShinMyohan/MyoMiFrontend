@@ -3,22 +3,22 @@
 }
 
 /* 주문 상품 목록 보여주기 START */
-div.container {
+.order-page div.container {
     width: 80%;
     margin-top: 3%;
 }
 
-#mainContainer {
+.order-page #mainContainer {
     margin-top: 10%;
 }
 
-#hr1 {
+.order-page #hr1 {
     border: 0;
     border-top: 1px dashed #666666;
     border-bottom: 1px dashed #fff;
 }
 
-#hr2 {
+.order-page #hr2 {
     width: 80%;
     padding: 0;
     border: none;
@@ -28,131 +28,143 @@ div.container {
     margin-left: 10%;
 }
 
-#productContainer {
+.order-page #productContainer {
     margin-top: 2%;
     /* display: block; */
 }
 
-#discountPrice, #totalPrice {
+.order-page #discountPrice, #totalPrice {
     background-color: #fff;
     color: #00af85;
     border: 1px solid #00af85;
 }
 
-#payPrice {
+.order-page #payPrice {
     background-color: rgba(0, 175, 133, 0.9);
     color: #fff;
     border: 1px solid #00af85;
 }
 
-#orderProduct {
+.order-page #orderProduct {
     display: flex;
     align-items: center;
 }
 
-#img {
+.order-page #orderProduct h5{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.order-page #img {
     padding-top : -10%;
     width: 100px;
     height: 100px;
 }
 
-#productDetail {
+.order-page #productDetail {
     margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#options {
+.order-page #options {
     /* 아이템들 가운데 정렬 */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.btn-light {
-    border-radius: 100%;
-    border: #2e2e2e;
-    height: 30px;
-    width: 30px;
-    margin-top: 3%;
-    margin-left: 7%;
-    margin-right: 7%;
-}
-
-#amountContainer {
+.order-page #amountContainer {
     width:50%;
-    margin-bottom: 3%;
+    margin-top: 0%;
+    margin-bottom: 2%;
     display: flex;
-
+    align-items: center;
 }
 
-#productAmount {
+.order-page #productAmount {
     padding: 0;
     /* 글자 가운데 정렬 */
     text-align: center;
+    font-size: 17px;
 }
 
-div.btn-success {
-    padding: 10% 10%;
-    height: 10px;
+.order-page #productAmount .btn-success{
+font-size: 18px;
+background-color: #FFDFDF;
+color:#2e2e2e;
+border-radius: 0;
+border:none;
+border-radius: 10px;
+margin-top: 3px;
+}
+
+.order-page .amountInput {
+    padding: 15% 7%;
+    height: 20px;
+    width: 90%;
 }
 
 /* 주문 상품 목록 보여주기 END */
 
 /* 주문 작성탭 보여주기 START */
-#oneInputSection {
+.order-page #oneInputSection {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 
-#inputBox {
+.order-page #inputBox {
     display: flex;
     flex-direction: column;
 }
 
-#title {
+.order-page #title {
     width: 130%;
     font-weight: bold;
     margin: 18% 0 9% 0;
 }
 
-.inputForm {
+.order-page .inputForm {
     width: 100%;
     margin-top: 5%;
     margin-left: 10%;
     background-color: #e4e4e4;
 }
 
-#postNum {
-    margin-top: -60px;
-    margin-left: 30%;
-    width: 100%;
+.order-page #searchPostNum {
+    margin-top: -89px;
+    margin-left: 30px;
+    width: 80%;
     border: #fff;
 }
 
-#receiveDate {
+.order-page #receiveDate {
     width: 150px;
     height: 35px;
-    padding: 5px 30px 5px 10px;
-    margin: -30px 0 0 20px;
+    padding: 5px 5px 5px 10px;
+    margin: 8px 0 0 20px;
     border-radius: 4px;
     outline: 0 none;
 }
 
-#dayInfo {
-    margin: -45px 0 0 -20px;
+.order-page #dayInfo {
+    margin: -38px 0 0 -30px;
 }
 
-div.dropdown {
+.order-page div.dropdown {
     margin: 4% 0 0 10%;
     border: #fff;
 }
 
-#payment {
+.order-page #payment {
     padding: 220px;
 }
 
-#coupon {
+.order-page #coupon {
     margin: 5% 0 0 10%;
     width: 45%;
     border: #fff;
@@ -160,43 +172,41 @@ div.dropdown {
     color: #fff;
 }
 
-#getcouponAmount {
+.order-page #getcouponAmount {
     margin: -85px 0 0 -70px;
 }
 
-#point1 {
-    margin: 10px 0 0 30%;
-    width: 100%;
+.order-page #point1 {
+    margin: 8px 0 0 0px;
     border: #fff;
-    background-color: #f5634b;
+    background-color:  rgba(0, 175, 133, 0.9);
 }
 
-#point2 {
-    margin: 10px 0% 0 20%;
-    width: 100%;
+.order-page #point2 {
+    margin: 8px 2px 0 -15px;
     border: #fff;
-    background-color: rgba(0, 175, 133, 0.9);
+    background-color: #f5634b;
     color: #fff;
 }
 
-#radio {
+.order-page #radio {
     margin: 10px 0 0 0;
 }
 
-div.alert-primary {
+.order-page div.alert-primary {
     margin-top: 40px;
     text-align: center;
     width: 70%;
 }
 
-div.payment {
+.order-page div.payment {
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#paymentBtn {
+.order-page #paymentBtn {
     background-color: #00a37d;
     border: #fff;
     color: #fff;
@@ -213,18 +223,19 @@ div.payment {
 
 div.modalTitle {
     display: flex;
-    margin-left: 13%;
+    margin-left: 9%;
+    justify-content: center;
 }
 
 #couponList {
     display: flex;
-    margin: 0 45px 0 14%;
+    justify-content: center;
+    /* margin: 0 45px 0 14%; */
 }
-
 #couponName {
-    margin-left: -2%;
+    margin-left: -3%;
 }
 
 #couponPercentage {
-    margin-left: 11%;
+    /* margin-left: 11%; */
 }
