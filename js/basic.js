@@ -1,6 +1,4 @@
-let backURL = 'http://192.168.0.18:8888/myomi/'
-let frontURL = 'http://192.168.0.18:5500/html/'
-let token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYWEiLCJhdXRoIjoiUk9MRV9TRUxMRVIiLCJleHAiOjE2Nzc4MzgyNzR9.h7MoyCXSlXiDLaTwEHmJCUrpXLX8coj0-UekxOiUTrU'
+
 
 $(()=>{
     // -- 메뉴가 클릭되었을 대 일어날 일 START --
