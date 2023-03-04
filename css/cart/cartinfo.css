@@ -214,3 +214,17 @@ div.cart-box-detail #updateProdCnt {
     font-size: 24px;
     float: right;
 } */
+
+
+/* 장바구니가 비었을 때 */
+div.emptyCart{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+div.emptyCart h3{
+    font-size: 23px;
+    font-weight: 700;
+    color:#7b7a7a9d;
+}

@@ -9,12 +9,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <!-- CSS 파일 -->
         <link rel="stylesheet" href="../../css/order/payment.css">
+        <script src="../../js/basic.js"></script>
+        <script src="../../js/order/order.js"></script>
     </head>
     <body>
         <!---------------- Section ----------------->
         <div class="payment">
             <div>
                 <h3>주문완료</h3>
+                <button onclick="payment()">주문버튼~</button>
                 <hr>
             </div>
             <div class="payment-title">
@@ -27,12 +30,11 @@
                 <hr>
                 <div class="order-info-wrap">
                     <ul class="order-info">
-                        <li class="order-li-item"><div class="order-title">주문번호</div><div class="order-content">2301</div></li>
-                        <li class="order-li-item"><div class="order-title">배송정보</div><div class="order-content">주문자명/ 주문자 휴대폰 번호<br>
-                            [우편번호] 00도 00시 어쩌구 주소<br>
-                            배송 요청메시지 : 01월 12일 (목)</div></li>
-                        <li class="order-li-item"><div class="order-title">결제수단</div><div class="order-content">KB국민카드<br>결제금액: <span class="payment-amount">48,360</span>원</div></li>
-                        <li class="order-li-item"><div class="order-title">주문상품</div><div class="order-content">2주 정기배송 샐러드 주3일 하루 한끼(주3팩) 외 1건</div></li>
+                        <li class="order-li-item"><div class="order-title">주문번호</div><div class="order-content" id="paymentOrderNum"></div></li>
+                        <li class="order-li-item"><div class="order-title">배송정보</div><div class="order-content" id="paymentUserInfo"></li>
+                        <li class="order-li-item"><div class="order-title">배송 요청사항</div><div class="order-content" id="paymentDeliveryMsg"></div></li>
+                        <li class="order-li-item"><div class="order-title">수령일</div><div class="order-content" id="paymentRecieveDate"></li>
+                        <li class="order-li-item"><div class="order-title">주문상품</div><div class="order-content" id="paymentProdName"></div></li>
                     </ul>
                 </div>
                 <hr style="border-color: #b4b4b4;">
@@ -43,13 +45,13 @@
                 <hr>
                 <div class="order-info-wrap">
                     <ul class="order-info">
-                        <li class="order-li-item"><div class="order-title">주문일자</div><div class="order-content">2023-01-07(22:20)
+                        <li class="order-li-item"><div class="order-title">주문일자</div><div class="order-content" id="paymentPayCreatedDate">
                         </div></li>
-                        <li class="order-li-item"><div class="order-title">주문자명</div><div class="order-content">장세리</div>
-                        <li class="order-li-item"><div class="order-title">총 상품금액</div><div class="order-content"><strong>48,360원</strong></div></li>
-                        <li class="order-li-item"><div class="order-title">쿠폰 사용</div><div class="order-content">1000원</div></li>
-                        <li class="order-li-item"><div class="order-title">포인트 사용</div><div class="order-content">1000원</div></li>
-                        <li class="order-li-item"><div class="order-title">총 결제금액</div><div class="order-content"><span class="payment-amount">46,360</span>원<br>적립 예정금 : +<strong>423</strong>원</div></li>
+                        <li class="order-li-item"><div class="order-title">결제수단</div><div class="order-content" >카카오페이</div>
+                        <li class="order-li-item"><div class="order-title">총 상품금액</div><div class="order-content" id="paymentOriginPrice"><strong></strong></div></li>
+                        <li class="order-li-item"><div class="order-title">쿠폰 사용</div><div class="order-content" id="paymentCoupon"></div></li>
+                        <li class="order-li-item"><div class="order-title">포인트 사용</div><div class="order-content" id="paymentUsedPoint"></div></li>
+                        <li class="order-li-item"><div class="order-title">총 결제금액</div><div class="order-content"><span class="payment-amount" id="paymentTotalPrice"></span>원<br>적립 예정금 : + <strong id="paymentSavePoint"></strong>원</div></li>
                     </ul>
                 </div>
                 <hr>

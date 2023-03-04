@@ -30,6 +30,14 @@ $(()=>{
             },
             success: function (jsonObj) {
                 let list = jsonObj;
+                if(list.length == 0) {
+                    let emptyHTML = `<div class="emptyCart">
+                                        <h3>장바구니가 비었습니다.</h3>
+                                    </div><hr>`;
+                    $('div.cart-box-detail').first().hide();
+                    $('div.cart-box').append(emptyHTML);
+                }
+
                 localStorage.setItem('cartList', JSON.stringify(list));
                 // console.log(list.length)
                 console.log(list)
@@ -77,6 +85,7 @@ $(()=>{
     infoCart()
 })
 
+
 // 장바구니 상품 수량 수정 (빼기)
 function modifyMinusProdCnt(prodNum) {
     $.ajax({
@@ -89,6 +98,7 @@ function modifyMinusProdCnt(prodNum) {
         data: JSON.stringify({'product': {'prodNum': prodNum}, 'prodCnt': '-1'}),
         success: function (jsonObj) {
             console.log(prodNum + '번 상품 수량 1개 감소 완료')
+            window.location.reload()
         }
     })
 }
@@ -106,9 +116,26 @@ function modifyPlusProdCnt(prodNum) {
         data: JSON.stringify({'product': {'prodNum': prodNum}, 'prodCnt': '1'}),
         success: function (jsonObj) {
             console.log(prodNum + '번 상품 수량 1개 증가 완료')
-        }
+            window.location.reload()
+            // 현재 화면에 표시된 값
+            // let number = $('div#options .prodCnt').html()
+            // console.log(number)
+            // number = parseInt(number) + 1;
+            // if(number < 1) {
+            //     alert('수량은 1개 이상 선택 가능합니다.')
+            //     number=1
+            // }
+            // // 결과 출력
+            // $('div#options .prodCnt').html(number)
+            }
     })
 }
+
+
+// 선택한 상품의 가격만 계산되도록 하기
+// window.recruitmentStateCheckbox = () => {
+//     localStorage.getItem('cartList')
+// }
 
 
 // 장바구니 선택 삭제

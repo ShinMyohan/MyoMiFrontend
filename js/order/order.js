@@ -94,32 +94,35 @@ $(()=>{
 })
 }
 
-
-    // 수령일 나타내기 -> 최소 4일 후
-    function getDateList() {
-
-        document.getElementById('receiveDate').value = new Date().toISOString().substring(0, 10);
-
-        // // let today = new Date().toISOString().split('T')[0];
-        // let date3m = new Date();
-        // date3m.setDate(date3m.getDate() + 3);
-        // date3m = date3m.toISOString().split('T')[0];
-        // // document.getElementsById("receiveDate")[0].setAttribute('min', today);
-        // document.getElementById('receiveDate')[0].setAttribute('max', date3m)
-
-        // for(let i = 1; i<= 10; i++) {
-        //     if($("#receiveDate").index.val() == i){
-        //         $("#receiveDate").html(dateStr + i)
-        //     }
-        // }
-    }
-
-
     getUserInfo()
     getOrderProdInfo()
     getDateList()
 
 })
+
+ // 수령일 나타내기 -> 최소 5일 전에 주문 가능
+function getDateList() {
+
+    let today = new Date()//.toISOString().substring(0, 10);
+    let minDate = new Date(today);
+
+    let days = ['일','월','화','수','목','금','토'];
+
+$("#selectRecieveDate").each(function() {
+    for(i=0; i<= 9; i++) {
+        minDate.setDate(today.getDate() + 5 + i) // 일자
+        let dayName = days[minDate.getDay()]; // 요일
+
+        const year = minDate.getFullYear();
+        const month = minDate.getMonth() + 1;
+        const date = minDate.getDate();
+
+        // yyyy-mm-dd 형식으로 변환
+        let receiveDate = `${year}-${month >= 10 ? month : '0' + month}-${date >= 10 ? date : '0' + date}`;
+        $(`#selectRecieveDate option:eq(${i})`).replaceWith(`<option>${receiveDate} (${dayName})</option>`);
+    }
+})
+}
 
 
 //----------------------------------------- 쿠폰 ----------------------------------------------
@@ -282,7 +285,7 @@ function createOrder() {
     // 배송정보
     let name = $('input[id=name]').val();
     let tel = $('input[id=tel]').val();
-    let addr = $('input[id=postcode]').val() + $('input[id=roadAddress]').val() + $('input[id=extraAddress]').val();
+    let addr = '[' + $('input[id=postcode]').val() + ']' + ' ' + $('input[id=roadAddress]').val() + ' ' + $('input[id=extraAddress]').val();
     let deliveryMsg = $('input[id=deliveryMsg]').val();
     let receiveDate = $('input[id=receiveDate]').val();
 
@@ -407,10 +410,66 @@ function paymentComplete(data) {
             localStorage.removeItem('cartList');
             localStorage.removeItem('orderList');
             localStorage.removeItem('coupon');
+
+            Afterpayment(data.orderNum)
         // })
     }) // done
     .fail(function() {
         alert("에러"); // --> 아임포트에서 결제 취소되도록
         // location.replace("/");
     })
+}
+
+window.payment = () => {
+    let mmm = 68;
+    Afterpayment(mmm);
+}
+
+function Afterpayment(orderNum) {
+    $.ajax({
+        type: 'GET',
+        url: backURL + 'order/' + orderNum,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Content-type', 'application/json');
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        },
+        success: function (response) {
+            let orderInfo = response;
+            console.log(orderInfo)
+
+            // 주문자 정보 보여주기
+            let orderNum = orderInfo['orderNum'];
+            let userName = orderInfo['userName'];
+            let tel = orderInfo['tel'];
+            let addr = orderInfo['addr'];
+            // let msg = orderInfo['msg'];
+            let deliveryMsg = orderInfo['deliveryMsg'];
+            let receiveDate = orderInfo['receiveDate'];
+            let originPrice = orderInfo['originPrice'];
+            let usedPoint = orderInfo['usedPoint'];
+            let totalPrice = orderInfo['totalPrice'];
+            let savePoint = orderInfo['savePoint'];
+            let payCreatedDate = orderInfo['payCreatedDate'];
+            let orderDetails = orderInfo['orderDetails'];
+
+            if(deliveryMsg = 'null') {
+                deliveryMsg = '없음'
+            }
+            $('#paymentOrderNum').html(orderNum)
+            $('#paymentUserInfo').html(userName + ' / ' + tel + '<br>' + addr)
+            $('#paymentRecieveDate').html(' ' + receiveDate)
+            $('#paymentDeliveryMsg').html(' ' + deliveryMsg)
+            $('#paymentProdName').html(orderDetails)
+            $('#paymentPayCreatedDate').html(payCreatedDate)
+            $('#paymentOriginPrice').html(originPrice.toLocaleString().split(".")[0]+'원')
+            $('#paymentCoupon').html((originPrice-usedPoint-totalPrice).toLocaleString().split(".")[0]+'원')
+            $('#paymentUsedPoint').html(usedPoint.toLocaleString().split(".")[0]+'원')
+            $('#paymentTotalPrice').html(totalPrice)
+            $('#paymentSavePoint').html(savePoint.toLocaleString().split(".")[0])
+        },
+        error: function (xhr) {
+            console.log(xhr.status);
+        }
+    })
+
 }

@@ -142,8 +142,8 @@ margin-top: 3px;
     border: #fff;
 }
 
-.order-page #receiveDate {
-    width: 150px;
+.order-page #selectRecieveDate {
+    width: 160px;
     height: 35px;
     padding: 5px 5px 5px 10px;
     margin: 8px 0 0 20px;
@@ -152,7 +152,7 @@ margin-top: 3px;
 }
 
 .order-page #dayInfo {
-    margin: -38px 0 0 -30px;
+    margin: -37px 0 0 -20px;
 }
 
 .order-page div.dropdown {

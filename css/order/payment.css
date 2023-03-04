@@ -49,8 +49,13 @@ div.payment .info .order-info-wrap .order-info .order-li-item .order-content {
     letter-spacing: 0.5px;
 }
 
+div.payment #paymentRecieveDate{
+    color: #079c3b;
+    font-weight: 600;
+}
+
 div.payment .info .order-info-wrap .order-info .order-li-item .order-content .payment-amount {
-    color: #00af85;
+    color: #079c3b;
     font-weight: bold;
 }
 
@@ -61,7 +66,7 @@ div.payment .ok-button {
 }
 
 div.payment .btn-success {
-    background-color: #00af85;
+    background-color: #079c3b;
     border-color: #fff;
     width: 8em;
 }
