@@ -66,4 +66,8 @@ div.list{
 div.card-footer{
     padding: 0px;
 }
-
+/* 이미지 */
+#productMainImg{
+    width: 100%;
+    /* height: 25%; */
+}

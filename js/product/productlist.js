@@ -70,13 +70,14 @@ function dataList(list){
         let originPrice = item["originPrice"];
         let percentage = item["percentage"];
         let prodPrice = originPrice - originPrice*(percentage/100);
+        let roundPrice = Math.round(prodPrice)
         let image = item["productImgUrl"];
         let $copy = $origin.clone()
         $copy.show()
         $copy.find('div.prodNum').html(prodNum)
         $copy.find('div.prodName').html(prodName)
         $copy.find('div.percentage').html(percentage + "%")
-        $copy.find('div.prodPrice').html(prodPrice.toLocaleString() + '원')
+        $copy.find('div.prodPrice').html(roundPrice.toLocaleString() + '원')
         $copy.find('div.originPrice').html(originPrice.toLocaleString() + '원')
         $copy.find('#productMainImg').attr('src', image)
         $parent.append($copy);

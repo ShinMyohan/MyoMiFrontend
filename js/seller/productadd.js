@@ -5,7 +5,9 @@ $(()=>{
     let prodCate = $('#categorySelect option:selected').val();
     let prodWeek = $('#weekSelect option:selected').val();
     let prodPercent = $('#percentage').val();
-    let originPrice = $('#originalPrice').val();
+    let inputPrice = $('#originalPrice').val();
+    let regex = /[^0-9]/g; //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
+    let originPrice = inputPrice.replace(regex,"");
     let detail = $('#prodDetail').val();
     let imgFile = $('input[name="f"]').get(0).files[0];
     // let prodImages = "";
@@ -125,7 +127,7 @@ $(()=>{
   // ---------- 할인률, 원가 입력시 할인가 자동 계산 ---------- 
 
 
-  // ---------- 파일업로더 ---------- 
+  // ---------- 파일업로더 ----------
 })
 
 
@@ -147,4 +149,26 @@ function readUrl(event) {
     console.log(image);
     reader.readAsDataURL(image);
   }
+}
+
+// 할인률 2자릿수만 입력가능하게
+function maxLengthCheck(object){
+  if(object.value.length > object.maxLength){
+    object.value = object.value.slice(0, object.maxLength);
+  }
+}
+
+// 가격입력시 자동으로 , 찍히게
+function inputNumberFormat(obj) {
+  obj.value = comma(uncomma(obj.value));
+}
+
+function comma(str) {
+  str = String(str);
+  return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
+
+function uncomma(str) {
+  str = String(str);
+  return str.replace(/[^\d]+/g, '');
 }
