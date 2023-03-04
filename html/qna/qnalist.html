@@ -24,35 +24,38 @@
     <body>
         <div class="qna">
             <div class="qna-text">상품 Q&A</div>
-            <div class="qna-list">
-            <div class="qna-row">
-                <div class="qna-num">1</div>
-                <div class="qna-fake-title"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                  </svg>
-                    문의드립니다</div>
-                <div class="qna-user-name">강**</div>
-                <div class="qna-date">2023.02.04</div>
-                <div class="qna-status">답변완료</div>
-            </div>
+            <div class = "qna-parent-list">
+                <div class="qna-list">
+                <div class="qna-row">
+                    <div class="qna-num"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                      </svg>&nbsp;
+                    <div class="qna-fake-title">문의드립니다</div>
+                    <div class="qna-user-name"></div>
+                    <div class="qna-date"></div>
+                    <div class="qna-status"></div>
+                </div>
                 <div class="qna-detail">
                     <div class="qna-question-top">
                     <div class="q-icon">Q.</div>
-                    <div class="qna-title">문의드립니다</div>
-                </div>
+                    <div class="qna-title"></div>
+                    </div>
                 <div class="qna-question-bottom">
-                    <div class="qna-content">혹시 정기배송 날짜를 변경할 수 있나요?</div>
+                    <div class="qna-content"></div>
                 </div>
-
-                <div class="qna-answer-top">
-                    <div class="a-icon">A.</div>
-                    <div class="answer-title">안녕하세요 미미미호네 도시락가게입니다.</div>
+                <div class="qna-answer">
+                    <div class="qna-answer-top">
+                        <div class="a-icon">A.</div>
+                        <p>&nbsp;안녕하세요<div class="answer-title"></div>&nbsp;입니다.</p>
+                    </div>
+                    <div class="qna-answer-bottom">
+                        <div class="answer-content" id="answer-content"></div>
+                    </div>
                 </div>
-                <div class="qna-answer-bottom">
-                    <div class="answer-content">고객님 정기배송 상품은 배송일 변경이 가능하십니다.</div>
                 </div>
-                </div>
-            </div>  
+                </div> 
+            </div> 
 
             <div>
                 <input type="button" class="qna-add-button" value="상품문의 글쓰기">
@@ -70,18 +73,18 @@
                         <div class="modal-prod-info">
                             <div class="prod-img"><img src="../../imgs/prod01.png"></div>
                             <div class="prod-info-text">
-                            <div class="seller-name">판매처</div>
-                            <div class="prod-name">상품이름</div>
+                            <div class="seller-name"></div>
+                            <div class="prod-name"></div>
                             </div>
                         </div> 
                         <div class="qna-box">
                             <div class="modal-qna-writer">
                                 <div class="modal-col-1">작성자</div>
-                                <div class="modal-col-2">강태리</div>
+                                <div class="modal-col-2" id="user-id"></div>
                             </div>
                             <div class="modal-qna-title">
                                 <div class="modal-col-1">제목</div>
-                                <div class="modal-col-2"><input type ="text" id="modal-qna-title" placeholder="제목 입력"></div>
+                                <div class="modal-col-2"><input type ="text" id="modal-qna-title" name="modal-qna-title" placeholder="제목 입력"></div>
                             </div>
                             <div class="modal-qna-content">
                                 <div class="modal-col-1">내용</div>
