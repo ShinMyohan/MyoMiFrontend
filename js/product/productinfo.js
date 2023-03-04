@@ -12,7 +12,8 @@ $(()=>{
         data: data,
         success: function(jsonObj){
             let list = jsonObj['body'];
-            // $('div.img>img').attr('src', '../images/' + jsonObj.prodNo+'.jpeg')
+            console.log(list);
+            $('#prodMainImg').attr('src', list["productImgUrl"])
             $('div.prodNum').html(list['prodNum']);
             $('div.prodName>h3').html(list['name'])
             $('div.sellerName>h6').html(list['seller'])

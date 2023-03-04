@@ -64,12 +64,13 @@ function dataList(list){
     let $origin = $('.menunav .card');
     let $parent = $('div.productlist');
     list.forEach(item=>{
+        console.log(item);
         let prodNum = item["prodNum"];
         let prodName = item["week"] + "주 " + item["name"];
         let originPrice = item["originPrice"];
         let percentage = item["percentage"];
         let prodPrice = originPrice - originPrice*(percentage/100);
-
+        let image = item["productImgUrl"];
         let $copy = $origin.clone()
         $copy.show()
         $copy.find('div.prodNum').html(prodNum)
@@ -77,6 +78,7 @@ function dataList(list){
         $copy.find('div.percentage').html(percentage + "%")
         $copy.find('div.prodPrice').html(prodPrice.toLocaleString() + '원')
         $copy.find('div.originPrice').html(originPrice.toLocaleString() + '원')
+        $copy.find('#productMainImg').attr('src', image)
         $parent.append($copy);
     })
 

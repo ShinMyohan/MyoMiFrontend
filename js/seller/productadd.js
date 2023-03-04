@@ -1,64 +1,70 @@
-function addProduct() {
-  let prodName = $('#addProdname').val()
-  let prodCate = $('#categorySelect option:selected').val();
-  let prodWeek = $('#weekSelect option:selected').val();
-  let prodPercent = $('#percentage').val();
-  let originPrice = $('#originalPrice').val();
-  let detail = $('#prodDetail').val();
-  let imgFile = $('input[name="f"]').get(0).files[0];
-  // let prodImages = "";
-  // for(var i=0; i < imgFile.length; i++) {
-  //   if(i == imgFile.length-1) {
-  //     prodImages += imgFile[i]
-  //   }
-  //   prodImages += imgFile[i] + ",";
-  // }
-
-  let data = {
-    "name":prodName,
-    "category":prodCate,
-    "week":prodWeek,
-    "percentage":prodPercent,
-    "originPrice":originPrice,
-    "detail":detail
-  }
-
-  let formData = new FormData();
-
-  formData.append('name', prodName);
-  formData.append('category', prodCate);
-  formData.append('week', prodWeek);
-  formData.append('percentage', prodPercent);
-  formData.append('originPrice', originPrice);
-  formData.append('detail', detail);
-  formData.append('file', imgFile)
-  formData.append('productSaveDto',JSON.stringify(data));
-  console.log(formData)
-  let url = backURL+'product/add'
-  $.ajax({
-    url: url,
-    type: 'POST',
-    beforeSend: function (xhr) {
-      // xhr.setRequestHeader('Content-type', 'application/json');
-      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-    },
-    contentType: false,
-    processData: false,
-    enctype: 'multipart/form-data',
-    data: formData,
-    success: function () {
-      alert("상품 등록 완료.");
-      window.location.reload;
-    },
-    error: function(xhr){
-      alert(xhr.status)
-      // JSON.parse(xhr.responseText). 예) .msg 어드바이스가 응답할 내용 -> json형태로 응답을받으니
-    }
-  })
-  alert(formData.get('file'));
-}
-
 $(()=>{
+  // function addProduct() {
+  $('#prodAddBtn').click(function(){
+    let prodName = $('#addProdname').val()
+    let prodCate = $('#categorySelect option:selected').val();
+    let prodWeek = $('#weekSelect option:selected').val();
+    let prodPercent = $('#percentage').val();
+    let originPrice = $('#originalPrice').val();
+    let detail = $('#prodDetail').val();
+    let imgFile = $('input[name="f"]').get(0).files[0];
+    // let prodImages = "";
+    // for(var i=0; i < imgFile.length; i++) {
+    //   if(i == imgFile.length-1) {
+    //     prodImages += imgFile[i]
+    //   }
+    //   prodImages += imgFile[i] + ",";
+    // }
+
+    let data = {
+      "name":prodName,
+      "category":prodCate,
+      "week":prodWeek,
+      "percentage":prodPercent,
+      "originPrice":originPrice,
+      "detail":detail
+    }
+
+    let formData = new FormData();
+
+    formData.append('name', prodName);
+    formData.append('category', prodCate);
+    formData.append('week', prodWeek);
+    formData.append('percentage', prodPercent);
+    formData.append('originPrice', originPrice);
+    formData.append('detail', detail);
+    formData.append('file', imgFile)
+    formData.append('productSaveDto',JSON.stringify(data));
+    console.log(formData)
+    let url = backURL+'product/add'
+    $.ajax({
+      url: url,
+      type: 'POST',
+      beforeSend: function (xhr) {
+        // xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      },
+      contentType: false,
+      processData: false,
+      enctype: 'multipart/form-data',
+      data: formData,
+      success: function () {
+        alert("상품 등록 완료.");
+        window.location.reload;
+      },
+      error: function(xhr){
+        // alert(xhr.status)
+        alert('상품등록실패'+xhr.status)
+        // JSON.parse(xhr.responseText). 예) .msg 어드바이스가 응답할 내용 -> json형태로 응답을받으니
+      }
+    })
+    // alert(formData.get('file'));
+    alert(originPrice);
+  })
+
+// }
+
+
   // ---------- 상품명 글자수 제한 ----------
   $("#addProdname").keyup(function(e) {
     //console.log("키업!");
@@ -134,6 +140,7 @@ function readUrl(event) {
     reader.onload = function(event) {
       var img = document.createElement("img");
       img.setAttribute("src", event.target.result);
+      img.setAttribute("width", '200');
       divTag.appendChild(img);
     };
 
