@@ -14,35 +14,22 @@
 
 .order-page #hr1 {
     border: 0;
-    border-top: 1px dashed #666666;
-    border-bottom: 1px dashed #fff;
+    border-top: 6px solid #079c3b;
 }
 
 .order-page #hr2 {
-    width: 80%;
+    width: 78%;
     padding: 0;
     border: none;
-    border-top: medium double #2e2e2e;
+    border-top: 2px solid #2e2e2e;
     color: #303030;
     text-align: center;
-    margin-left: 10%;
+    margin-left: 11%;
 }
 
 .order-page #productContainer {
     margin-top: 2%;
     /* display: block; */
-}
-
-.order-page #discountPrice, #totalPrice {
-    background-color: #fff;
-    color: #00af85;
-    border: 1px solid #00af85;
-}
-
-.order-page #payPrice {
-    background-color: rgba(0, 175, 133, 0.9);
-    color: #fff;
-    border: 1px solid #00af85;
 }
 
 .order-page #orderProduct {
@@ -58,19 +45,13 @@
 
 .order-page #img {
     padding-top : -10%;
+    margin-left: 15px;
     width: 100px;
     height: 100px;
 }
 
 .order-page #productDetail {
     margin-left: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.order-page #options {
-    /* 아이템들 가운데 정렬 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,8 +74,8 @@
 
 .order-page #productAmount .btn-success{
 font-size: 18px;
-background-color: #FFDFDF;
-color:#2e2e2e;
+background-color: #f6c762;
+color:#ffffff;
 border-radius: 0;
 border:none;
 border-radius: 10px;
@@ -107,52 +88,53 @@ margin-top: 3px;
     width: 90%;
 }
 
-/* 주문 상품 목록 보여주기 END */
-
-/* 주문 작성탭 보여주기 START */
-.order-page #oneInputSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.order-page .order-li {
+    display: grid;
+    grid-template-columns: 110px 300px 200px;
     align-items: center;
+    width: 40%;
+    margin: 1%;
 }
 
-.order-page #inputBox {
-    display: flex;
-    flex-direction: column;
-}
-
-.order-page #title {
-    width: 130%;
+.order-page .order-title {
     font-weight: bold;
-    margin: 18% 0 9% 0;
+    float:left;
+    margin: 1% 0;
+}
+.order-page .order-content {
+    font-weight: 450;
+    letter-spacing: 0.5px;
+    width: 300px;
 }
 
-.order-page .inputForm {
-    width: 100%;
-    margin-top: 5%;
-    margin-left: 10%;
-    background-color: #e4e4e4;
+.order-page .form-control {
+    background-color: #f8f7f7a7;
 }
 
 .order-page #searchPostNum {
-    margin-top: -89px;
-    margin-left: 30px;
-    width: 80%;
+    /* margin-top: -89px; */
+    margin-left: 10px;
+    width: 130px;
+    height: 36px;
     border: #fff;
+    background-color: #079c3b;
+}
+
+.order-page #roadAddress, #extraAddress{
+    margin-top: 4%;
 }
 
 .order-page #selectRecieveDate {
     width: 160px;
     height: 35px;
     padding: 5px 5px 5px 10px;
-    margin: 8px 0 0 20px;
+    /* margin: 10px 0 0 0px; */
     border-radius: 4px;
     outline: 0 none;
 }
 
 .order-page #dayInfo {
-    margin: -37px 0 0 -20px;
+    margin-left: -120px;
 }
 
 .order-page div.dropdown {
@@ -164,39 +146,64 @@ margin-top: 3px;
     padding: 220px;
 }
 
-.order-page #coupon {
-    margin: 5% 0 0 10%;
-    width: 45%;
-    border: #fff;
-    background-color: rgba(0, 175, 133, 0.9);
-    color: #fff;
+.order-page .coupon-button {
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.order-page #getcouponAmount {
-    margin: -85px 0 0 -70px;
+.order-page #coupon {
+    width: 95px;
+    border: #fff;
+    background-color: #079c3b;
+    color: #fff;
+    margin-left: 20px;
+}
+
+.order-page .coupon-display {
+    margin: 22px 0 0 10px;
+}
+
+
+.order-page #usedPoint, #totalProdPrice, #totalPayPrice, #savePoint {
+    width: 110px;
+    margin-left: 20px;
 }
 
 .order-page #point1 {
-    margin: 8px 0 0 0px;
+    margin-left: 7px;
+    width: 55px;
     border: #fff;
-    background-color:  rgba(0, 175, 133, 0.9);
-}
-
-.order-page #point2 {
-    margin: 8px 2px 0 -15px;
-    border: #fff;
-    background-color: #f5634b;
+    background-color: #ff6d02;
     color: #fff;
 }
 
+.order-page #point2 {
+    margin-left: 3px;
+    width: 135px;
+    border: #fff;
+    background-color: #079c3b;
+    color: #fff;
+}
+
+.order-page .payMethod {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .order-page #radio {
-    margin: 10px 0 0 0;
+    margin: 5px 0 0 -5px;
 }
 
 .order-page div.alert-primary {
+    background-color: #f0f0f0b6;
     margin-top: 40px;
     text-align: center;
     width: 70%;
+    border: #fff;
 }
 
 .order-page div.payment {
@@ -207,9 +214,14 @@ margin-top: 3px;
 }
 
 .order-page #paymentBtn {
-    background-color: #00a37d;
+    background-color: #079c3b;
+    font-size: large;
     border: #fff;
     color: #fff;
+}
+
+.order-page #paymentBtn:hover {
+    background-color: #015eff;
 }
 /* 주문 작성탭 보여주기 END */
 

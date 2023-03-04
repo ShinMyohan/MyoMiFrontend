@@ -42,7 +42,7 @@ div.container h5{
 }
 
 #hr1 {
-    border-top: 9px solid #AEDEFC;
+    border-top: 6px solid #079c3b;
 }
 
 div#cartTitle{
@@ -167,7 +167,7 @@ div.cart-box-detail #updateProdCnt {
 
 #amountContainer button.btn-success{
     font-size: 18px;
-    background-color: #FFDFDF;
+    background-color: #f6c762;
     color:#2e2e2e;
     border-radius: 0;
     border:none;
@@ -201,9 +201,10 @@ div.cart-box-detail #updateProdCnt {
     padding: 8px 13px;
     font-size: large;
     font-weight: 500;
-    color:#2e2e2e;
-    background-color: #FFA000;
+    color:#fff;
+    background-color: #079c3bda;
     border-color: #fff;
+    border-radius: 10px;
 }
 
 /* 주문 상품 목록 보여주기 END */

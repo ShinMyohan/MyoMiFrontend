@@ -223,6 +223,7 @@ window.couponCancel = () => {
 
 //----------------------------------------- 포인트 ----------------------------------------------
 // 포인트 조회
+let myPoint = 0;
 function getTotalPoint() {
     $.ajax({
         method: 'GET',
@@ -237,7 +238,9 @@ function getTotalPoint() {
             console.log(point)
 
             let totalPoint = point['totalPoint'];
+            $('#usedPoint').css('display', 'flex');
             $('#usedPoint').val(totalPoint.toLocaleString().split(".")[0])
+            myPoint = totalPoint; // 최대 사용 포인트 설정 위함
 
         },
         error: function (xhr) {
@@ -246,6 +249,16 @@ function getTotalPoint() {
     });
 }
 
+function maxPointCheck(object){
+    if(object.value > myPoint) {
+
+    } else if(object.value > myPoint){
+        alert(myPoint +'원 이하로 사용 가능합니다.')
+        $('#usedPoint').val(myPoint.toLocaleString())
+    }
+}
+
+
 // 포인트 적용 금액 -> 가진 포인트보다 작은금액이면 0원, 그만큼만 쓰이도록
 function pointApplyAmount() {
     let price = $('#totalProdPrice').val().replace(',', '')
@@ -253,6 +266,11 @@ function pointApplyAmount() {
     let point = $('#usedPoint').val().replace(',', '')
     let afterUsedPointTotal = (price - coupon - point)
     let total = 0
+    if(point < 0) {
+        point = 0
+        alert('최소 포인트 사용 금액은 0원 입니다.')
+    }
+
     if(afterUsedPointTotal < 100) {
         point = price - coupon - 100
         $('#usedPoint').val(point)
@@ -472,4 +490,61 @@ function Afterpayment(orderNum) {
         }
     })
 
+}
+
+// 우편번호 검색
+function execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+            var extraRoadAddr = ''; // 참고 항목 변수
+
+            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                extraRoadAddr += data.bname;
+            }
+            // 건물명이 있고, 공동주택일 경우 추가한다.
+            if(data.buildingName !== '' && data.apartment === 'Y'){
+                extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+            if(extraRoadAddr !== ''){
+                extraRoadAddr = ' (' + extraRoadAddr + ')';
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('postcode').value = data.zonecode;
+            document.getElementById("roadAddress").value = roadAddr;
+            document.getElementById("jibunAddress").value = data.jibunAddress;
+
+            // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+            if(roadAddr !== ''){
+                document.getElementById("roadAddress").value += extraRoadAddr;
+                // document.getElementById("extraAddress").value = extraRoadAddr;
+            } else {
+                document.getElementById("extraAddress").value = '';
+            }
+
+            var guideTextBox = document.getElementById("guide");
+            // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+            if(data.autoRoadAddress) {
+                var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                guideTextBox.style.display = 'block';
+
+            } else if(data.autoJibunAddress) {
+                var expJibunAddr = data.autoJibunAddress;
+                guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                guideTextBox.style.display = 'none';
+            } else {
+                guideTextBox.innerHTML = '';
+                guideTextBox.style.display = 'none';
+            }
+        }
+    }).open();
 }
