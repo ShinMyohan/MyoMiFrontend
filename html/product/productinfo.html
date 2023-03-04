@@ -65,10 +65,12 @@
                     <div class="prodNum">상품번호</div>
                     <div class="prod-name-seller">
                         <div class="prodName"><h3>상품이름</h3></div>
-                        <div class="sellerName">
-                            <h6>판매자 상호명</h6>
-                            <button type="button" class="btn btn-outline-dark btn-sm">판매자 스토어</button>
-                        </div>
+                        <form>
+                            <div class="sellerName">
+                                <h6>판매자 상호명</h6><input type="text" id="sellerId" style="display:none">
+                                <button type="button" class="btn btn-outline-dark btn-sm" id="sellerStore" onclick="getSellerStore()">판매자 스토어</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="prodprice-cont">

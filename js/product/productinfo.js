@@ -1,13 +1,12 @@
 $(()=>{
     // -- 상품 보여주기 START --
-    let url = backURL + 'product/'
     let data = location.search.substring(1) //prodNum=1
 
     let regex = /[^0-9]/g; //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
     let prodNum = data.replace(regex,"");
     //그 영어,한글,특수 문자 등등이있다면 ""로 처리 = 있다면 없애주어라
     $.ajax({
-        url: url + prodNum,
+        url: backURL + 'product/' + prodNum,
         method: 'get',
         data: data,
         success: function(jsonObj){
@@ -16,9 +15,10 @@ $(()=>{
             $('#prodMainImg').attr('src', list["productImgUrl"])
             $('div.prodNum').html(list['prodNum']);
             $('div.prodName>h3').html(list['name'])
-            $('div.sellerName>h6').html(list['seller'])
+            $('div.sellerName>h6').html(list['sellerName'])
             $('div.percentage b').html(list['percentage']+"%")
             $('div.originPrice').html(list['originPrice'].toLocaleString()+"원")
+            $('#sellerId').val(list['sellerId'])
             let percentage = list['percentage']
             let originPrice = list['originPrice']
             let prodPrice = Math.round(originPrice - originPrice*(percentage/100));
@@ -70,6 +70,11 @@ $(()=>{
         let totalPrice = price*qtt;
         $('#tt-price').html(totalPrice.toLocaleString()+"원")
     })
+
+    // $('#sellerStore').click(function(){
+    //     let seller = $('#sellerId').val()
+    //     location.href='../../html/product/sellerstore.html/'+seller;
+    // })
 })
 
 // 수량 조절 + , - 버튼
@@ -93,3 +98,23 @@ function count(type)  {
     // 결과 출력
     resultElement.innerText = number;
 }
+
+// // $('#sellerStore').click(function(){
+function getSellerStore() {
+    let seller = $('#sellerId').val()
+    location.href='../../html/product/sellerstore.html?seller='+seller;
+    // $.ajax({
+    //     url: backURL + 'product/list/seller/' + seller,
+    //     method: 'get',
+    //     success: function(jsonObj){
+    //         // let list = jsonObj['body'];
+    //         console.log(jsonObj);
+    //         alert('눌렀다');
+            
+    //     },
+    //     error: function(xhr){
+    //         alert(xhr.status)
+    //     }
+    // })
+}
+// // })
