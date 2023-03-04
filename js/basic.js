@@ -1,6 +1,3 @@
-let backURL = 'http://localhost:8888/myomi/'
-let frontURL = 'http://localhost:5500/html/'
-let token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpZDIiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjc4MDAxMjM4fQ.BzeGUQUOjHPbLGfnHqzXU8rEYQdtHootHVTGbT_9eEU'
 $(()=>{
     // -- 메뉴가 클릭되었을 대 일어날 일 START --
     $('section>nav>ul>li').click((e)=>{
@@ -16,6 +13,56 @@ $(()=>{
 })
 
 
+function Afterpayment(orderNum) {
+    $.ajax({
+        type: 'GET',
+        url: backURL + 'order/' + orderNum,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Content-type', 'application/json');
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        },
+        success: function (response) {
+            let orderInfo = response;
+            console.log(orderInfo)
+
+            // 주문자 정보 보여주기
+            let orderNum = orderInfo['orderNum'];
+            let userName = orderInfo['userName'];
+            let tel = orderInfo['tel'];
+            let addr = orderInfo['addr'];
+            // let msg = orderInfo['msg'];
+            let deliveryMsg = orderInfo['deliveryMsg'];
+            let receiveDate = orderInfo['receiveDate'];
+            let originPrice = orderInfo['originPrice'];
+            let usedPoint = orderInfo['usedPoint'];
+            let totalPrice = orderInfo['totalPrice'];
+            let savePoint = orderInfo['savePoint'];
+            let payCreatedDate = orderInfo['payCreatedDate'];
+            let orderDetails = orderInfo['orderDetails'];
+
+            if(deliveryMsg = 'null') {
+                deliveryMsg = '없음'
+            }
+            $('#paymentOrderNum').html(orderNum)
+            $('#paymentUserInfo').html(userName + ' / ' + tel + '<br>' + addr)
+            $('#paymentRecieveDate').html(' ' + receiveDate)
+            $('#paymentDeliveryMsg').html(' ' + deliveryMsg)
+            $('#paymentProdName').html(orderDetails)
+            $('#paymentPayCreatedDate').html(payCreatedDate)
+            $('#paymentOriginPrice').html(originPrice.toLocaleString().split(".")[0]+'원')
+            $('#paymentCoupon').html((originPrice-usedPoint-totalPrice).toLocaleString().split(".")[0]+'원')
+            $('#paymentUsedPoint').html(usedPoint.toLocaleString().split(".")[0]+'원')
+            $('#paymentTotalPrice').html(totalPrice)
+            $('#paymentSavePoint').html(savePoint.toLocaleString().split(".")[0])
+        },
+        error: function (xhr) {
+            console.log(xhr.status);
+        }
+    })
+
+}
+
+// 우편번호 검색
 function execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -47,7 +94,8 @@ function execDaumPostcode() {
 
             // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
             if(roadAddr !== ''){
-                document.getElementById("extraAddress").value = extraRoadAddr;
+                document.getElementById("roadAddress").value += extraRoadAddr;
+                // document.getElementById("extraAddress").value = extraRoadAddr;
             } else {
                 document.getElementById("extraAddress").value = '';
             }

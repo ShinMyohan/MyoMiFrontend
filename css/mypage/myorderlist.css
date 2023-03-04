@@ -20,7 +20,7 @@ div.mp-order-list-form div.period {
     margin: 1% 0 3% 0;
     padding: 0.5%;
     border-radius: 10px;
-    border: 2px solid rgba(0, 175, 133, 0.3);
+    border: 2px solid #079c3b6c;
     font-size: 14px;
 }
 
@@ -54,14 +54,14 @@ div.mp-order-list-form .period .nav-link {
 div.mp-order-list-form .period .nav-link:focus {
     border-color: #fff;
     border: 1px dashed #FFA000 !important;
-    color: #00af85;
+    color: #079c3b;
     border-radius: 15px;
 }
 
 
 /* 금액 색상 */
 div.mp-order-list-form strong {
-    color: #00af85;
+    color: #079c3b;
 }
 
 div.mp-order-list-title {
@@ -109,11 +109,28 @@ div.mp-order-list-table table tbody tr td {
     padding: 15px 0;
 }
 
+div.mp-order-list-table .img-prod{
+display: flex;
+margin: 0 15px 0 15px;
+align-items: center;
+}
+
+/* 결제 완료 */
+div.mp-order-list-table .pay-complete {
+    font-weight: 700;
+}
+
+/* 주문 취소 */
+div.mp-order-list-table .pay-cancel {
+    color: #777777;
+}
+
+
 /* 리뷰 남기기 버튼 (활성화) */
 div.mp-order-list-table .review-show {
-    color: #00af85;
+    color: #079c3b;
     background-color: #fff;
-    border-color: #00af85;
+    border-color: #079c3b;
     font-weight: 500;
 }
 
