@@ -21,7 +21,7 @@ $(()=>{
             $('div.originPrice').html(list['originPrice'].toLocaleString()+"원")
             let percentage = list['percentage']
             let originPrice = list['originPrice']
-            let prodPrice = originPrice - originPrice*(percentage/100);
+            let prodPrice = Math.round(originPrice - originPrice*(percentage/100));
             $('div.prodPrice').html(prodPrice.toLocaleString()+"원")
             // 처음 뿌려줄 땐 1개 수량 그대로.
             $('div.total-sum').html(prodPrice.toLocaleString()+"원")

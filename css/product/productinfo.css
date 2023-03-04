@@ -17,6 +17,7 @@ div.prodmainimg{
 
 div.prodmainimg > img{
     width: 570px;
+    height: 570px;
 }
 
 div.product-content{
@@ -134,9 +135,9 @@ div.btn-orders > .btn-success {
 }
 
 div.btn-orders > .btn-success:hover {
-    border: 1px solid #079c3b;
+    border: 1px solid #079c3bda;
     /* color: #009572; */
-    background-color: #079c3b;
+    background-color: #079c3bda;
 }
 
 div.btn-orders > .btn-outline-success {
@@ -223,3 +224,4 @@ div.modal-content div.modal-footer button.modal-cart:hover{
     border-color: #079c3bdc;
     background-color: #079c3bdc;
 }
+

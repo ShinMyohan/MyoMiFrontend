@@ -1,3 +1,4 @@
+let regex = /[^0-9]/g; //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
 $(()=>{
   // function addProduct() {
   $('#prodAddBtn').click(function(){
@@ -6,7 +7,7 @@ $(()=>{
     let prodWeek = $('#weekSelect option:selected').val();
     let prodPercent = $('#percentage').val();
     let inputPrice = $('#originalPrice').val();
-    let regex = /[^0-9]/g; //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
+
     let originPrice = inputPrice.replace(regex,"");
     let detail = $('#prodDetail').val();
     let imgFile = $('input[name="f"]').get(0).files[0];
@@ -124,8 +125,18 @@ $(()=>{
 
   });
 
-  // ---------- 할인률, 원가 입력시 할인가 자동 계산 ---------- 
-
+  // ---------- 할인률, 원가 입력시 할인가 자동 계산 ----------
+  // ---------- 상품가격 계산 ----------
+  $("#originalPrice").keyup(function(e) {
+    //console.log("키업!");
+    var content = $("#originalPrice").val();
+    let originPrice = content.replace(regex,'');
+    let percentage = $('#percentage').val()
+    let price = Math.round(originPrice - originPrice*(percentage/100))
+    $('#afterDC').val(price.toLocaleString()+"원")
+    let finalPrice = Math.round((price*0.91))
+    $('#finalPricePerOne').val(finalPrice.toLocaleString()+"원")
+  });
 
   // ---------- 파일업로더 ----------
 })
@@ -172,3 +183,6 @@ function uncomma(str) {
   str = String(str);
   return str.replace(/[^\d]+/g, '');
 }
+
+
+

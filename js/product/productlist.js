@@ -72,6 +72,8 @@ function dataList(list){
         let prodPrice = originPrice - originPrice*(percentage/100);
         let roundPrice = Math.round(prodPrice)
         let image = item["productImgUrl"];
+        let reviewCnt = item["reviewCnt"];
+        let stars = item["stars"];
         let $copy = $origin.clone()
         $copy.show()
         $copy.find('div.prodNum').html(prodNum)
@@ -80,6 +82,18 @@ function dataList(list){
         $copy.find('div.prodPrice').html(roundPrice.toLocaleString() + '원')
         $copy.find('div.originPrice').html(originPrice.toLocaleString() + '원')
         $copy.find('#productMainImg').attr('src', image)
+        if(reviewCnt == null) {
+            $copy.find('div.card-footer small.review-cnt').html(0)
+        } else {
+            $copy.find('div.card-footer small.review-cnt').html(reviewCnt)
+        }
+
+        if(stars == null) {
+            $copy.find('div.card-footer small.prod-stars').html(0)
+
+        }
+        $copy.find('div.card-footer small.prod-stars').html(stars)
+
         $parent.append($copy);
     })
 
