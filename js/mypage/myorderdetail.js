@@ -38,7 +38,7 @@ function getMyOrderDetail(orderNum) {
             let cancelMethod = '' // 환불 수단
             let pricePerProd = 0
             let totalOriginPrice = 0 // 주문한 기본 가격
-            $('div.mp-order-detail-table tbody tr td').attr('rowspan', length);
+            // $('div.mp-order-detail-table tbody tr td').attr('rowspan', length);
 
             if(deliveryMsg = 'null') {
                 deliveryMsg = '없음'
@@ -50,7 +50,7 @@ function getMyOrderDetail(orderNum) {
             }
 
 
-            $('#detailOrderNum').html('(주문번호: ' + orderNum + ' )')
+            $('#detailOrderNum').html('(주문번호 : ' + orderNum + ')')
             $('#detailUserName').html(userName)
             $('#detailUserAddr').html(addr)
             $('#detailUserTel').html(tel)
@@ -64,14 +64,6 @@ function getMyOrderDetail(orderNum) {
             $('#detailCancelPrice').html(cancelPrice)
             $('#detailCancelMethod').html(cancelMethod)
 
-            // 리뷰 썼는지 확인
-            // if(reviewNum == null) {
-            //     reviewCss = 'show'
-            //     reviewStatus= '리뷰 남기기'
-            // } else {
-            //     reviewCss = 'hide'
-            //     reviewStatus= '리뷰 완료'
-            // }
 
             let payStatus = ''
             if(canceledDate != null) {
@@ -96,10 +88,9 @@ function getMyOrderDetail(orderNum) {
 
                 let orderHTML = `<tr>
                                     <td>
-                                        <div
-                                            style="display: flex; margin: 0 15px 0 25px; align-items: center;">
+                                        <div class="order-prod-name">
                                             <span><a href="#"><img src="../../images/shin.png"
-                                                        style="width:3em; height:3em; margin-right: 10px;"></a></span>
+                                                        style="width:3.5em; height:3.5em; margin-right: 15px;"></a></span>
                                             <div>
                                                 <a href="#">
                                                     ${prodName}
@@ -108,9 +99,9 @@ function getMyOrderDetail(orderNum) {
                                         </div>
                                     </td>
                                     <td>
-                                        <strong>${originPricePerOne}원</strong> / ${prodCnt}개
+                                        <strong>${originPricePerOne}</strong>원 / ${prodCnt}개
                                     </td>
-                                    <td>${pricePerProd}원</td>
+                                    <td class="price-per-prod">${pricePerProd}원</td>
                                     <td class="${payCss}">${payStatus}</td>
                                 </tr>`;
                 $('#mypageOrderDetail').append(orderHTML);

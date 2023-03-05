@@ -1,6 +1,3 @@
-let backURL = 'http://localhost:8888/myomi/'
-let frontURL = 'http://localhost:5500/html/'
-let token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpZDIiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNjc4MDgwNTg1fQ.a9vZq6arI2XBwp2buY6Acd9Ldk8EtydCVRqTy4RyEt8'
 $(()=>{
     // -- 메뉴가 클릭되었을 대 일어날 일 START --
     $('section>nav>ul>li').click((e)=>{

@@ -6,7 +6,7 @@ div.mp-order-detail-form{
 
 /* 금액 색상 */
 strong {
-    color: #00af85;
+    color: #079c3b;
 }
 
 div.mp-order-detail-title {
@@ -16,9 +16,9 @@ div.mp-order-detail-title {
 }
 
 div.mp-order-detail-title span {
-    font-size: 15px;
-    font-weight: 400;
-    color: #00af85;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff6d02;
     margin: 1em;
 }
 
@@ -37,10 +37,18 @@ div.mp-order-detail-table table{
     width: 100%;
 }
 
+div.mp-order-detail-table .order-prod-name{
+    display: flex;
+    margin: 0 13px 0 20px;
+    align-items: center;
+    font-size: 16.5px;
+    font-weight: 500;
+}
+
 div.mp-order-detail-table .btn-success {
-    color: #00af85;
+    color: #079c3b;
     background-color: #fff;
-    border-color: #00af85;
+    border-color: #079c3b;
     font-weight: 500;
 }
 
@@ -63,9 +71,25 @@ div.mp-order-detail-table table tbody tr td{
     padding: 15px 0;
 }
 
-div.mp-order-detail-table table tbody tr td.order-num {
-    border-right: 1px dashed #d9d9d9;
+div.mp-order-detail-table .price-per-prod{
+    font-weight: 600;
 }
+
+/* 결제 완료 */
+div.mp-order-detail-table .pay-complete {
+    font-weight: 500;
+    color: #656565;
+}
+
+/* 주문 취소 */
+div.mp-order-detail-table .pay-cancel {
+    color: #777777;
+}
+
+
+/* div.mp-order-detail-table table tbody tr td.order-num {
+    border-right: 1px dashed #d9d9d9;
+} */
 
 /* 주문자 정보 테이블 CSS */
 div.mp-detail-table table{
@@ -92,13 +116,4 @@ div.mp-detail-table td {
     padding-left: 15px;
 }
 
-/* 결제 완료 */
-div.mp-detail-table td.pay-complete {
-    font-weight: 700;
-    color: #00af85;
-}
 
-/* 주문 취소 */
-div.mp-detail-table td.pay-cancel {
-    color: #777777;
-}

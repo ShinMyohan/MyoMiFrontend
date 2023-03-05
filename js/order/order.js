@@ -464,21 +464,31 @@ function Afterpayment(orderNum) {
             // let msg = orderInfo['msg'];
             let deliveryMsg = orderInfo['deliveryMsg'];
             let receiveDate = orderInfo['receiveDate'];
-            let originPrice = orderInfo['originPrice'];
+            // let originPrice = orderInfo['originPrice'];
             let usedPoint = orderInfo['usedPoint'];
             let totalPrice = orderInfo['totalPrice'];
             let savePoint = orderInfo['savePoint'];
             let payCreatedDate = orderInfo['payCreatedDate'];
             let orderDetails = orderInfo['orderDetails'];
 
+            let orderDetailsLength = orderDetails.length/4; // 외 *건 때문에 -1
+            let originPrice = 0
             if(deliveryMsg = 'null') {
                 deliveryMsg = '없음'
             }
+
+            // 상품 원래 금액
+            for(let i=0; i<= orderDetailsLength-1; i++) {
+                let prodCnt = orderDetails[i * 4 + 2]
+                let originPricePerOne = orderDetails[i * 4 + 3]
+                originPrice += originPricePerOne * prodCnt
+            }
+
             $('#paymentOrderNum').html(orderNum)
             $('#paymentUserInfo').html(userName + ' / ' + tel + '<br>' + addr)
             $('#paymentRecieveDate').html(' ' + receiveDate)
             $('#paymentDeliveryMsg').html(' ' + deliveryMsg)
-            $('#paymentProdName').html(orderDetails)
+            $('#paymentProdName').html(orderDetails[1]+ ' 외 ' + (orderDetailsLength-1) + '건' )
             $('#paymentPayCreatedDate').html(payCreatedDate)
             $('#paymentOriginPrice').html(originPrice.toLocaleString().split(".")[0]+'원')
             $('#paymentCoupon').html((originPrice-usedPoint-totalPrice).toLocaleString().split(".")[0]+'원')
