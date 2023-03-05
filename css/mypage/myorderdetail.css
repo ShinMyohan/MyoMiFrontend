@@ -91,3 +91,14 @@ div.mp-detail-table th {
 div.mp-detail-table td {
     padding-left: 15px;
 }
+
+/* 결제 완료 */
+div.mp-detail-table td.pay-complete {
+    font-weight: 700;
+    color: #00af85;
+}
+
+/* 주문 취소 */
+div.mp-detail-table td.pay-cancel {
+    color: #777777;
+}

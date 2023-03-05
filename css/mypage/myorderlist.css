@@ -1,3 +1,8 @@
+*{
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    /* font-family: 'Roboto', sans-serif; */
+}
+
 /* 세부 내용 기본 form */
 div.mp-order-list-form {
     width: 100%;
@@ -61,7 +66,7 @@ div.mp-order-list-form .period .nav-link:focus {
 
 /* 금액 색상 */
 div.mp-order-list-form strong {
-    color: #079c3b;
+    color: #079c3bd6;
 }
 
 div.mp-order-list-title {
@@ -107,13 +112,38 @@ div.mp-order-list-table table thead tr th {
 
 div.mp-order-list-table table tbody tr td {
     padding: 15px 0;
+    border-right: 1px dashed #d9d9d9;
 }
 
-div.mp-order-list-table .img-prod{
+div.mp-order-list-table table tbody tr td:last-child {
+    padding: 15px 0;
+    border-right: 1px dashed #ffffff;
+}
+
+div.mp-order-list-table .order-date {
+    color: #353535;
+    font-size: 16.5px;
+    font-weight: 600;
+}
+
+div.mp-order-list-table .order-num {
+    color: #777777;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+div.mp-order-list-table #pName:hover {
+    color: #ff6b02a5;
+    font-size: 16.5px;
+    font-weight: 700;
+}
+
+
+/* div.mp-order-list-table .img-prod{
 display: flex;
 margin: 0 15px 0 15px;
 align-items: center;
-}
+} */
 
 /* 결제 완료 */
 div.mp-order-list-table .pay-complete {
@@ -128,11 +158,21 @@ div.mp-order-list-table .pay-cancel {
 
 /* 리뷰 남기기 버튼 (활성화) */
 div.mp-order-list-table .review-show {
-    color: #079c3b;
+    color: #079c3bd9;
     background-color: #fff;
-    border-color: #079c3b;
+    border-color: #079c3bdc;
     font-weight: 500;
+    height: 36px;
 }
+
+div.mp-order-list-table .review-show:hover {
+    color: #fff;
+    background-color: #ff6b02b2;
+    border-color: #ff6d02;
+    font-weight: 500;
+    height: 36px;
+}
+
 
 /* 리뷰 남기기 버튼 (비활성화) */
 div.mp-order-list-table .review-hide {
@@ -140,6 +180,7 @@ div.mp-order-list-table .review-hide {
     background-color: #ededed8a;
     border-color: #9b9b9b92;
     font-weight: 500;
+    height: 36px;
 }
 
 /* 페이지네이션 가운데 정렬용 */

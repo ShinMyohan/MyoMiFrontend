@@ -442,3 +442,53 @@ window.payment = () => {
     let mmm = 68;
     Afterpayment(mmm);
 }
+
+// 결제 완료 페이지로 이동
+function Afterpayment(orderNum) {
+    $.ajax({
+        type: 'GET',
+        url: backURL + 'order/' + orderNum,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Content-type', 'application/json');
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        },
+        success: function (response) {
+            let orderInfo = response;
+            console.log(orderInfo)
+
+            // 주문자 정보 보여주기
+            let orderNum = orderInfo['orderNum'];
+            let userName = orderInfo['userName'];
+            let tel = orderInfo['tel'];
+            let addr = orderInfo['addr'];
+            // let msg = orderInfo['msg'];
+            let deliveryMsg = orderInfo['deliveryMsg'];
+            let receiveDate = orderInfo['receiveDate'];
+            let originPrice = orderInfo['originPrice'];
+            let usedPoint = orderInfo['usedPoint'];
+            let totalPrice = orderInfo['totalPrice'];
+            let savePoint = orderInfo['savePoint'];
+            let payCreatedDate = orderInfo['payCreatedDate'];
+            let orderDetails = orderInfo['orderDetails'];
+
+            if(deliveryMsg = 'null') {
+                deliveryMsg = '없음'
+            }
+            $('#paymentOrderNum').html(orderNum)
+            $('#paymentUserInfo').html(userName + ' / ' + tel + '<br>' + addr)
+            $('#paymentRecieveDate').html(' ' + receiveDate)
+            $('#paymentDeliveryMsg').html(' ' + deliveryMsg)
+            $('#paymentProdName').html(orderDetails)
+            $('#paymentPayCreatedDate').html(payCreatedDate)
+            $('#paymentOriginPrice').html(originPrice.toLocaleString().split(".")[0]+'원')
+            $('#paymentCoupon').html((originPrice-usedPoint-totalPrice).toLocaleString().split(".")[0]+'원')
+            $('#paymentUsedPoint').html(usedPoint.toLocaleString().split(".")[0]+'원')
+            $('#paymentTotalPrice').html(totalPrice)
+            $('#paymentSavePoint').html(savePoint.toLocaleString().split(".")[0])
+        },
+        error: function (xhr) {
+            console.log(xhr.status);
+        }
+    })
+
+}
