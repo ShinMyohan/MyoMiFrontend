@@ -10,23 +10,61 @@ $(()=>{
         method: 'get',
         data: data,
         success: function(jsonObj){
-            let list = jsonObj['body'];
-            console.log(list);
-            $('#prodMainImg').attr('src', list["productImgUrl"])
-            $('div.prodNum').html(list['prodNum']);
-            $('div.prodName>h3').html(list['name'])
-            $('div.sellerName>h6').html(list['sellerName'])
-            $('div.percentage b').html(list['percentage']+"%")
-            $('div.originPrice').html(list['originPrice'].toLocaleString()+"원")
-            $('#sellerId').val(list['sellerId'])
-            let percentage = list['percentage']
-            let originPrice = list['originPrice']
+            let product = jsonObj['body'];
+            console.log(product["qnas"]);
+            $('#prodMainImg').attr('src', product["productImgUrl"])
+            $('div.prodNum').html(product['prodNum']);
+            $('div.prodName>h3').html(product['name'])
+            $('div.sellerName>h6').html(product['sellerName'])
+            $('div.percentage b').html(product['percentage']+"%")
+            $('div.originPrice').html(product['originPrice'].toLocaleString()+"원")
+            $('#sellerId').val(product['sellerId'])
+            let percentage = product['percentage']
+            let originPrice = product['originPrice']
             let prodPrice = Math.round(originPrice - originPrice*(percentage/100));
             $('div.prodPrice').html(prodPrice.toLocaleString()+"원")
             // 처음 뿌려줄 땐 1개 수량 그대로.
             $('div.total-sum').html(prodPrice.toLocaleString()+"원")
 
-            $('div.to-cart div.prodName h5').html(list['name'])
+            $('div.to-cart div.prodName h5').html(product['name'])
+
+            // 상품 문의
+            let $origin = $('div.qna-list');
+            let $parent = $('div.qna-parent-list');
+            $parent.empty()
+            let qnaList = product["qnas"]
+            console.log(qnaList)
+            //배열의 길이 만큼 qna도 존재하므로 qnaList.length = qna의 가장 최신글 표시 넘버
+            let qnum = qnaList.length
+            qnaList.forEach(qna=>{
+                console.log(qna)
+                let queTitle = qna['queTitle']
+                let queContent = qna['queContent']
+                let queCreatedDate = qna['queCreatedDate']
+                let ansContent = qna['ansContent']
+                let ansCreatedDate = qna['ansCreatedDate']
+                let writer = qna['userId']
+                //유저네임 첫글자 빼고 다 * 로 치환
+                let userName = writer.replace(/(?<=.{1})./gi,"*")
+                let $copy = $origin.clone()
+
+                $copy.show()
+                $copy.find('.qna-num').html(qnum--)
+                $copy.find('.qna-user-name').html(userName)
+                $copy.find('.qna-date').html(queCreatedDate)
+                if(ansCreatedDate == '' || ansContent == '') {
+                    $copy.find('.qna-status').html('답변대기')
+                } else {
+                    $copy.find('.qna-status').html('답변완료')
+                }
+                $copy.find('.qna-title').html(queTitle)
+                $copy.find('.qna-content').html(queContent)
+                $copy.find('.ans-date').html(ansCreatedDate)
+                $copy.find('.answer-content').html(ansContent)
+
+                $parent.append($copy);
+            })
+
         },
         error: function(xhr){
             alert(xhr.status)
@@ -117,4 +155,4 @@ function getSellerStore() {
     //     }
     // })
 }
-// // })
+

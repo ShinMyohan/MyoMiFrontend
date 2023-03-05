@@ -1,3 +1,8 @@
+html, body{
+    margin: 0;
+    height: 100%;
+}
+
 body{
     width: 100%;
 }
@@ -225,3 +230,16 @@ div.modal-content div.modal-footer button.modal-cart:hover{
     background-color: #079c3bdc;
 }
 
+/* 문의 */
+div.qna-answer-top{
+    display: flex;
+    justify-content: space-between
+}
+
+#ans-box{
+    display: flex;
+}
+
+div.ans-date{
+    margin-right: 138px;
+}
