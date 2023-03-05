@@ -36,6 +36,9 @@ $(()=>{
             console.log(qnaList)
             //배열의 길이 만큼 qna도 존재하므로 qnaList.length = qna의 가장 최신글 표시 넘버
             let qnum = qnaList.length
+            if(qnaList.length == 0) {
+                $('div.qna-non-list').css('display','block')
+            }
             qnaList.forEach(qna=>{
                 console.log(qna)
                 let queTitle = qna['queTitle']

@@ -119,11 +119,18 @@ nav.menulist > ul > li > a:hover {
     transition: 0.3s;
 }
 
+section{
+    margin-bottom: 200px;
+}
+
 /* footer 시작 */
+footer{
+    background: #f7f7f7;
+}
+
 #footer_wrap {
     font-family: 'Noto Sans KR', sans-serif;
     position: relative;
-    background: #f7f7f7;
 }
 
 #footer {
@@ -139,15 +146,17 @@ nav.menulist > ul > li > a:hover {
 
 .foot_list_in {
     position: relative;
-    width: 1200px;
+    /* width: 1200px; */
+    width: 100%;
     margin: 0 auto;
 }
 
 .foot_list div > ul {
     overflow: hidden;
-    width: 1200px;
+    /* width: 1200px; */
+    width: 100%;
     /* margin: 0 auto; */
-    padding-left:0px;
+    padding-left:20px;
     padding-bottom: 40px;
     border-bottom: 1px solid #999;
 }
@@ -181,7 +190,7 @@ a {
 
 .foot_cont {
     overflow: hidden;
-    padding: 40px 0 40px 0;
+    padding: 40px 0 40px 20px;
     color: #fff;
     font-size: 15px;
     /* line-height: 1; */
@@ -190,12 +199,13 @@ a {
 
 .foot_list ul, .foot_cont, .foot_certify {
     position: relative;
-    width: 1200px;
+    /* width: 1200px; */
+    width: 100%;
     margin: 0 auto;
 }
 
 .foot_cont .foot_logo {
-    padding: 0 0 0 0;
+    padding-right: 20px;
     position: absolute;
     top: 38px;
     right: 0;

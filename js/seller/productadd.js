@@ -40,11 +40,12 @@ $(()=>{
     formData.append('productSaveDto',JSON.stringify(data));
     console.log(formData)
     let url = backURL+'product/add'
+
+    let token = Cookies.get('token')
     $.ajax({
       url: url,
       type: 'POST',
       beforeSend: function (xhr) {
-        // xhr.setRequestHeader('Content-type', 'application/json');
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
       },
       contentType: false,

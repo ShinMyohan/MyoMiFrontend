@@ -19,6 +19,7 @@
         <script src="../../js/basic.js"></script>
         <script src="../../js/index.js"></script>
         <script src="../../js/user/login.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     </head>
     <body>
         <header>
@@ -59,9 +60,9 @@
         </header>
         <!-- ------ 로그인 페이지 START ------ -->
         <section>
-            <div class="user-login-page">
+            <div class="user-login-page shadow p-3 mb-5 bg-body rounded">
                 <div class="login-content">
-                    <h2>로그인</h2>
+                    <h2 style="font-family: 'Roboto', sans-serif;">로그인</h2>
                     <div class="login-form-cont">
                         <form class="login-form-element">
                             <input type="text" class="login-user-id form-control" name="" id="loginId" placeholder="아이디">
@@ -78,7 +79,7 @@
                                 </ul>
                             </div>
                             <div class="login-signup-button">
-                                <button type="button" class="btn btn-login" onclick="requestLogin()">로그인</button>
+                                <button type="button" class="btn btn-login" id="loginBtn">로그인</button>
                                 <button type="button" class="btn btn-signup">회원가입</button>
                             </div>
                         <!-- </form> -->

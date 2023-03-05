@@ -3,7 +3,8 @@ div.user-login-page{
     height: 850px;
     margin: 200px auto 100px auto;
     border: 1px solid #e2e2e2;
-    border-top: 3px solid rgba(0, 175, 133, 0.9);
+    border-radius: 10px;
+    /* border-top: 3px solid#079c3be7 */
 }
 
 div.user-login-page div.login-content{
@@ -95,13 +96,13 @@ form.login-form-element div.login-signup-button button{
 }
 
 form.login-form-element div.login-signup-button button.btn-login{
-    background-color: #00af85;
+    background-color: #079c3b;
     color:#ffffff;
 }
 
 form.login-form-element div.login-signup-button button.btn-signup{
-    border: 1px solid #00af85;
-    color: #00af85;
+    border: 1px solid #079c3b;
+    color: #079c3b;
 }
 
 
