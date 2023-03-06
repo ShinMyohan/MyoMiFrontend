@@ -1,92 +1,63 @@
-/* *{
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Roboto', sans-serif;
-} */
-
+/* ---- 헤더 영역 ---- */
 #header {
     width: 100%;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-#header .h1_logo {
+#header .h1-logo {
     text-align: left;
     padding: 50px 0 0 100px;
     height: 98px;
     /* display : inline; */
 }
 
-#header .h1_logo > div.logo_main {
+#header .h1-logo > .logo-main {
     display: block;
     float: left;
     margin-right: 30px;
 }
 
-.search{
+.main-search{
     width:250px;
     float: left;
     margin-top: 10px;
     position: relative;
 }
 
-
-
-.search-icon{
-    /* position: absolute; */
-    /* text-align: right; */
+.main-search .search-icon{
     float: left;
 }
 
-input.searchbox{
+.main-search .searchbox{
     padding-left: 20px;
     border:none;
-    color:#fff;
     background-color: #f8f8f8;
     height: 40px;
 }
 
-input.searchbox:focus{
+.main-search .searchbox:focus{
     outline:none;
+    color:#333;
     box-shadow: none;
     background-color: #f8f8f8;
 }
 
-div.search-icon{
+.main-search .search-icon{
     position: absolute;
     top: -2px;
     right: 20px;
 }
 
-.top_member_box {
-    position: absolute;
-    top: 50px;
-    right: 8px;
-    z-index: 150;
-    line-height: 1;
-}
-
-.list_1 {
-    float: left;
-    margin-top: 8px;
-    margin-right: 30px;
-}
-
-.list_1 > li {
-    float: left;
-    padding-right: 16px;
-    margin-right: 16px;
-    position: relative;
-}
-
-li {
+nav.main-menu-bar li {
     display: list-item;
     text-align: -webkit-match-parent;
 }
 
-dl, ul, ol, li {
+nav.main-menu-bar ul, ol, li {
     list-style: none;
 }
 
-ul {
+nav.main-menu-bar ul {
     display: block;
     list-style-type: disc;
     margin-block-start: 1em;
@@ -106,7 +77,6 @@ nav.menulist a{
 nav.menulist > ul{
     float: right;
     margin-right: 60px;
-    /* position: relative; */
 }
 
 nav.menulist > ul > li{
@@ -119,7 +89,159 @@ nav.menulist > ul > li > a:hover {
     transition: 0.3s;
 }
 
-/* footer 시작 */
+/* 전체 카테고리 및 메뉴 */
+.gnb{
+    position: relative;
+    /* z-index: 2; */
+}
+
+.gnb a{
+    color: #333;
+    text-decoration: none;
+}
+
+.gnb .gnb-in{
+    width: 85%;
+    margin: 60px auto -100px auto;
+}
+
+/*  메뉴박스  */
+.gnb-menu-box{
+    clear:both;
+}
+
+.gnb-menu-box ul.gnb-menu0 {
+    height: 30px;
+    overflow: visible;
+    padding-top: 12px;
+    list-style-type: none;
+    clear:both;
+    background-color: #ffffff;
+}
+
+.gnb-menu-box ul li.gnb-sub-list{
+    width: 20%;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    float: left;
+    text-align: left;
+    list-style-type: none;
+}
+
+/* 클릭시 전체메뉴 박스 */
+#menubar{
+    position: absolute;
+    z-index: 2;
+    width: 70%;
+    right: 7%;
+    /* top: 123%; */
+    margin-top: -4px;
+}
+
+section{
+    position: relative;
+    z-index: -2;
+}
+
+.allmenu{
+    background-color: #ffffff;
+    font-family: 'Noto Sans KR', sans-serif;
+    border: 1px solid #e9e9e9;
+    border-top: none;
+}
+
+.gnb-allmenu .allmenu ul.allmenu-list{
+    display: flex;
+    margin-bottom: 50px;
+    padding-top: 0;
+}
+
+.gnb-allmenu .allmenu ul.allmenu-list li{
+    display: inline-block;
+    margin: 30px 0 0 0;
+    text-align: left;
+    line-height: 0;
+    vertical-align: top;
+}
+
+.gnb-allmenu .allmenu ul.allmenu-list li hr{
+    width: 90%;
+    border: 0.5px solid black;
+    padding-top: 0;
+}
+
+.gnb-allmenu .allmenu ul.allmenu-list li ul{
+    padding-left: 0;
+    margin-top: -14px;
+    margin-left: 10px;
+}
+
+.gnb-allmenu div.allmenu ul.allmenu-list li ul li{
+    display: block;
+}
+
+/* ------ floating scroll 메뉴 ------ */
+.scroll-right-menu{
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+    position: fixed;
+    z-index: 100;
+}
+
+.scroll-right-menu a {
+    color: #333;
+    text-decoration: none;
+}
+
+#scroll-cart{
+    height: 28px;
+    padding-top: 5px;
+    border: 2px solid #ffffff;
+}
+
+.qmenu-wrap{
+    width: 68px;
+    border: 1px solid #e2e2e2;
+    border-radius: 999px;
+    background: #fff;
+    padding-bottom: 6px;
+}
+
+.qmenu-wrap ul.qm {
+    padding: 10px 14px 0 14px;
+}
+
+.qmenu-wrap ul.qm li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.scroll-right-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scr-paging button{
+    border:none;
+    background-color: #ffffff;
+}
+
+.scroll-right-cont ul{
+    margin: 10px;
+    padding-left: 0px;
+}
+
+.scr-paging2{
+    margin-bottom: 10px;
+}
+
+/* ------ footer 시작 ------ */
 #footer_wrap {
     font-family: 'Noto Sans KR', sans-serif;
     position: relative;
@@ -131,19 +253,19 @@ nav.menulist > ul > li > a:hover {
     padding: 20px 0 0px 0;
 }
 
-.foot_list {
+.foot-list {
     /* line-height: 1; */
     position: relative;
     margin-top: 40px;
 }
 
-.foot_list_in {
+.foot-list_in {
     position: relative;
     width: 1200px;
     margin: 0 auto;
 }
 
-.foot_list div > ul {
+.foot-list div > ul {
     overflow: hidden;
     width: 1200px;
     /* margin: 0 auto; */
@@ -152,21 +274,21 @@ nav.menulist > ul > li > a:hover {
     border-bottom: 1px solid #999;
 }
 
-.foot_list div > ul li {
+.foot-list div > ul li {
     float: left;
     /* line-height: 30px; */
 }
 
-.foot_list div > ul li:first-child a {
+.foot-list div > ul li:first-child a {
     padding-left: 0;
     border-left: 0 none;
 }
 
-.foot_list div > ul li:first-child a {
+.foot-list div > ul li:first-child a {
     background: none;
 }
 
-.foot_list div > ul li a {
+.foot-list div > ul li a {
     padding: 0 40px 0 0px;
     color: #999;
     font-size: 16px;
@@ -174,12 +296,12 @@ nav.menulist > ul > li > a:hover {
     text-decoration: none;
 }
 
-a {
+.foot-cont a {
     color: #333;
     text-decoration: none;
 }
 
-.foot_cont {
+.foot-cont {
     overflow: hidden;
     padding: 40px 0 40px 0;
     color: #fff;
@@ -188,30 +310,30 @@ a {
     position: relative;
 }
 
-.foot_list ul, .foot_cont, .foot_certify {
+.foot-list ul, .foot-cont, .foot-certify {
     position: relative;
     width: 1200px;
     margin: 0 auto;
 }
 
-.foot_cont .foot_logo {
+.foot-cont .foot-logo {
     padding: 0 0 0 0;
     position: absolute;
     top: 38px;
     right: 0;
 }
 
-.foot_cont .foot_logo > img {
+.foot-cont .foot-logo > img {
     overflow-clip-margin: content-box;
     overflow: clip;
 }
 
-.foot_cont .foot_info_list {
+.foot-cont .foot-info-list {
     width: 100%;
     /* margin-bottom: 12px; */
 }
 
-.foot_cont .foot_info_list dl {
+.foot-cont .foot-info-list dl {
     float: left;
     line-height: 1;
     position: relative;
@@ -219,14 +341,14 @@ a {
     line-height: 1px;
 }
 
-.foot_cont .foot_info_list dt {
+.foot-cont .foot-info-list dt {
     float: left;
     font-size: 15px;
     color: #999;
     font-weight: 400;
 }
 
-.foot_cont .foot_info_list dd {
+.foot-cont .foot-info-list dd {
     float: left;
     padding: 0 15px 0 3px;
     font-size: 15px;
@@ -237,15 +359,15 @@ a {
     overflow: visible;
 }
 
-dd {
+.foot-cont dd {
     margin-inline-start: 0px;
 }
 
-.foot_cont .foot_info_list dl.ts dd {
+.foot-cont .foot-info-list dl.ts dd {
     padding-right: 14px;
 }
 
-.foot_cont .foot_info_list dd > a.btn_licensee_info {
+.foot-cont .foot-info-list dd > a.btn_licensee_info {
     border: 1px solid #999;
     height: 24px;
     /* line-height: 24px; */
@@ -266,20 +388,20 @@ dd {
     text-align: center;
 }
 
-.foot_cont .foot_info_list:after {
+.foot-cont .foot-info-list:after {
     content: "";
     display: block;
     clear: both;
 }
 
-.foot_cont .foot_info_list dd > a {
+.foot-cont .foot-info-list dd > a {
     font-size: 15px;
     color: #999;
     font-weight: 400;
     text-decoration: none;
 }
 
-.foot_cont .copyright {
+.foot-cont .copyright {
     float: left;
     width: 100%;
     margin-top: 15px;
@@ -288,12 +410,12 @@ dd {
     /* line-height: 1; */
 }
 
-.foot_cont .copyright strong {
+.foot-cont .copyright strong {
     margin-left: 5px;
     margin-right: 5px;
 }
 
-.foot_certify {
+.foot-certify {
     overflow: hidden;
     padding: 5px 0 15px 0;
     text-align: right;
@@ -301,16 +423,16 @@ dd {
     display: none;
 }
 
-.foot_certify span:first-child {
+.foot-certify span:first-child {
     padding: 0 10px 0 0;
 }
 
-.foot_certify span {
+.foot-certify span {
     display: inline-block;
     padding: 0 10px 0 10px;
 }
 
-.foot_cont .foot_info_list dl.dl:after {
+.foot-cont .foot-info-list dl.dl:after {
     content: "/";
     display: block;
     position: absolute;
