@@ -24,6 +24,9 @@ $(()=>{
         $.ajax({
             url:backURL + 'cart/list',
             method:'GET',
+            xhrFields: {
+                withCredentials: true
+            },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('Content-type', 'application/json');
                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -91,6 +94,9 @@ function modifyMinusProdCnt(prodNum) {
     $.ajax({
         type:'PUT',
         url: backURL + 'cart',
+        xhrFields: {
+            withCredentials: true
+        },
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -109,6 +115,9 @@ function modifyPlusProdCnt(prodNum) {
     $.ajax({
         type:'PUT',
         url: backURL + 'cart',
+        xhrFields: {
+            withCredentials: true
+        },
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -149,6 +158,9 @@ console.log(removeList)
     $.ajax({
         type:'DELETE',
         url: backURL + 'cart',
+        xhrFields: {
+            withCredentials: true
+        },
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);

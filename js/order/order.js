@@ -18,6 +18,7 @@ function confirmPayment() {
     }
 }
 $(()=>{
+    localStorage.setItem('coupon', 0);
     let totalPrice = 0
     let discountPrice = 0
     let payPrice = 0
@@ -72,6 +73,9 @@ $(()=>{
         $.ajax({
             method: 'GET',
             url: backURL + 'user/info',
+            xhrFields: {
+                withCredentials: true
+            },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('Content-type', 'application/json');
                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -140,6 +144,9 @@ function getCouponList() {
         method: 'GET',
         url: backURL + 'mypage/couponList',
         data: {},
+        xhrFields: {
+            withCredentials: true
+        },
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -229,6 +236,9 @@ function getTotalPoint() {
         method: 'GET',
         url: backURL + 'point',
         data: {},
+        xhrFields: {
+            withCredentials: true
+        },
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -305,23 +315,19 @@ function createOrder() {
     let tel = $('input[id=tel]').val();
     let addr = '[' + $('input[id=postcode]').val() + ']' + ' ' + $('input[id=roadAddress]').val() + ' ' + $('input[id=extraAddress]').val();
     let deliveryMsg = $('input[id=deliveryMsg]').val();
-    let receiveDate = $('input[id=receiveDate]').val();
+    let receiveDate = $('#selectRecieveDate option:selected').text();
 
 
-    // if (receiverName == '') { alert('받는 사람 닉네임을 입력해주세요!');return;}
-    // if (postNum == '') {alert('우편번호를 선택해주세요!');return;}
-    // if (addr == '') {alert('주소를 입력해주세요!');return;}
-    // if (addrDetail == '') {alert('상세 주소를 입력해주세요!');return;}
-    // if (tel == '') {alert('수신자 핸드폰 번호를 입력해주세요!');return;}
-    // if (receiveDate == '') {alert('수령일을 선택해주세요!');return;}
+    if (name == '') { alert('받는 사람 닉네임을 입력해주세요!');return;}
+    if (tel == '') {alert('수신자 핸드폰 번호를 입력해주세요!');return;}
+    if (addr == '') {alert('주소를 입력해주세요!');return;}
+    if (receiveDate == '') {alert('수령일을 선택해주세요!');return;}
 
     let data = { 'msg': msg, 'couponNum': couponNum, 'usedPoint': usedPoint,
     'totalPrice': totalPrice, 'savePoint': savePoint, "orderDetails": orderDetails,
         "delivery": {"name" : name, "tel" : tel, "addr" : addr, "deliveryMsg" : deliveryMsg,
         "receiveDate" : receiveDate}};
 
-
-    console.log(data)
     $.ajax({
         type: 'POST',
         url: backURL + 'order',
@@ -331,8 +337,7 @@ function createOrder() {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         success: function (response) {
-            console.log(response);
-            alert('주문 완료!');
+            console.log('orderNum: ' + response);
             localStorage.setItem('coupon', 0);
             payment(response) // 주문 번호
         },
@@ -390,8 +395,6 @@ function paymentCard(data) {
         data.merchant_uid = rsp.merchant_uid; // 상점 거래 id
         // data.totalPrice = rsp.paid_amount // 결제 금액
         data.payCreatedDate = rsp.paid_at // 1677823984
-        alert(data.payCreatedDate)
-        alert(data.payCreatedDate)
         paymentComplete(data);
 
 		} else {
@@ -410,6 +413,9 @@ function paymentComplete(data) {
         url: backURL + "payment",
         method: "PUT",
         data: JSON.stringify(data),
+        xhrFields: {
+            withCredentials: true
+        },
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -424,81 +430,19 @@ function paymentComplete(data) {
         // })
         // .then(function(){
             alert('결제 완료')
+            alert(result)
             // location.replace("/orderList");
             localStorage.removeItem('cartList');
             localStorage.removeItem('orderList');
             localStorage.removeItem('coupon');
 
-            Afterpayment(data.orderNum)
+            localStorage.setItem('orderNum', result)
+            window.location.href = frontURL + 'order/payment.html';
+            Afterpayment(result)
         // })
     }) // done
     .fail(function() {
         alert("에러"); // --> 아임포트에서 결제 취소되도록
         // location.replace("/");
     })
-}
-
-window.payment = () => {
-    let mmm = 68;
-    Afterpayment(mmm);
-}
-
-// 결제 완료 페이지로 이동
-function Afterpayment(orderNum) {
-    $.ajax({
-        type: 'GET',
-        url: backURL + 'order/' + orderNum,
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader('Content-type', 'application/json');
-            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-        },
-        success: function (response) {
-            let orderInfo = response;
-            console.log(orderInfo)
-
-            // 주문자 정보 보여주기
-            let orderNum = orderInfo['orderNum'];
-            let userName = orderInfo['userName'];
-            let tel = orderInfo['tel'];
-            let addr = orderInfo['addr'];
-            // let msg = orderInfo['msg'];
-            let deliveryMsg = orderInfo['deliveryMsg'];
-            let receiveDate = orderInfo['receiveDate'];
-            // let originPrice = orderInfo['originPrice'];
-            let usedPoint = orderInfo['usedPoint'];
-            let totalPrice = orderInfo['totalPrice'];
-            let savePoint = orderInfo['savePoint'];
-            let payCreatedDate = orderInfo['payCreatedDate'];
-            let orderDetails = orderInfo['orderDetails'];
-
-            let orderDetailsLength = orderDetails.length/4; // 외 *건 때문에 -1
-            let originPrice = 0
-            if(deliveryMsg = 'null') {
-                deliveryMsg = '없음'
-            }
-
-            // 상품 원래 금액
-            for(let i=0; i<= orderDetailsLength-1; i++) {
-                let prodCnt = orderDetails[i * 4 + 2]
-                let originPricePerOne = orderDetails[i * 4 + 3]
-                originPrice += originPricePerOne * prodCnt
-            }
-
-            $('#paymentOrderNum').html(orderNum)
-            $('#paymentUserInfo').html(userName + ' / ' + tel + '<br>' + addr)
-            $('#paymentRecieveDate').html(' ' + receiveDate)
-            $('#paymentDeliveryMsg').html(' ' + deliveryMsg)
-            $('#paymentProdName').html(orderDetails[1]+ ' 외 ' + (orderDetailsLength-1) + '건' )
-            $('#paymentPayCreatedDate').html(payCreatedDate)
-            $('#paymentOriginPrice').html(originPrice.toLocaleString().split(".")[0]+'원')
-            $('#paymentCoupon').html((originPrice-usedPoint-totalPrice).toLocaleString().split(".")[0]+'원')
-            $('#paymentUsedPoint').html(usedPoint.toLocaleString().split(".")[0]+'원')
-            $('#paymentTotalPrice').html(totalPrice)
-            $('#paymentSavePoint').html(savePoint.toLocaleString().split(".")[0])
-        },
-        error: function (xhr) {
-            console.log(xhr.status);
-        }
-    })
-
 }
