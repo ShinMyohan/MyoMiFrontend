@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="../../css/cart/cartinfo.css">
         <!-- <link rel="stylesheet" href="../../css/index.css"> -->
         <!-- 구글폰트 -->
-        <!-- 구글폰트 -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap" rel="stylesheet">
@@ -57,15 +56,14 @@
         </header>
         <section>
             <!-- 주문 상품 목록 보여주기 START -->
-            <div class="container" id="mainContainer">
+            <div class="cart-page">
                 <h2>장바구니</h2>
                 <hr id="hr1">
-            </div>
             <div class="container" id="cartTitle">
                 <h4>장바구니 목록</h4>
                 <div>
-                <button type="button" class="btn" id="removeCart">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                <button type="button" class="btn" id="removeCart" onclick="removeCart()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                     <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/></svg>
                 선택 삭제</button></div>
             </div>
@@ -74,67 +72,62 @@
                 <!-- 상품 상세 1 -->
                 <div class="container cart-box-detail" id="productContainer">
                     <div class="checkbox">
-                        <input class="form-check-input cart-checkbox" type="checkbox" id="checkboxNoLabel" name="del-cart-check" value="gg" aria-label="...">
+                        <input class="form-check-input cart-checkbox" type="checkbox" name="del-cart-check" value="gg" aria-label="...">
                     </div>
                     <img src="../../images/product/salad01.png" class="rounded" id="img">
                     <div id="productDetail" class="col">
                         <h6>상품명</h6>
                         <h5>상품명</h5>
                     </div>
-
-                    <div id="options" class="col">
-                        <h6>수량</h6>
-                        <h5>갯수</h5>
+                    <div id="percentage" class="col-2">
+                        <h6>할인율</h6>
+                        <h5>할인율</h5>
                     </div>
-                    <div id="cart-price" class="col">
+                    <div id="options" class="col-2">
+                        <h6>수량</h6>
+                        <span class="cnt-update">
+                            <button type="button plus" class="btn btn-info" id="updateProdCnt" onclick="updateMinusProdCnt(this.value)">-</button>
+                            <h5></h5>
+                            <button type="button minus" class="btn btn-info" id="updateProdCnt" onclick="updatePlusProdCnt(this.value)">+</button>
+                            </span>
+                    </div>
+                    <div id="cart-price" class="col-2">
                         <h6>금액</h6>
                         <h5>상품금액</h5>
                     </div>
                 </div>
-                <!-- <hr id="containerHr"> -->
-                <!-- 상품 금액 -->
-                <!-- <div class="container" id="amountContainer">
-                    <div id="productAmount" class="col">
-                        <strong>총 상품금액</strong>
-                        <br>
-                        <button type="button" class="btn btn-success">상품금액</button>
-                    </div>
-                    <button type="button" class="button btn-light">+</button>
-                    <div id="productAmount" class="col">
-                        <strong>총 할인금액</strong>
-                        <br>
-                        <button type="button" class="btn btn-success">할인금액</button>
-                    </div>
-                    <button type="button" class="button btn-light">=</button>
-                    <div id="productAmount" class="col">
-                        <strong>결제 금액</strong>
-                        <br>
-                        <button type="button" class="btn btn-success">총 금액</button>
-                    </div>
-                </div>
-                <hr id="hr2"> -->
             </div>
-            <!-- <hr id="hr2"> -->
-            <div class="container" id="amountContainer">
-                <div id="productAmount" class="col">
+            <div id="amountContainer">
+                <div id="productAmount" class="col-4">
                     <strong>총 상품금액</strong>
                     <br>
                     <button type="button" class="btn btn-success" id="all-prod-price">상품금액</button>
                 </div>
-                <button type="button" class="button btn-light">+</button>
-                <div id="productAmount" class="col">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                </div>
+                <div id="productAmount" class="col-4">
                     <strong>총 할인금액</strong>
                     <br>
                     <button type="button" class="btn btn-success" id="all-dc-price">할인금액</button>
                 </div>
-                <button type="button" class="button btn-light">=</button>
-                <div id="productAmount" class="col">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-forward" viewBox="0 0 16 16">
+                        <path d="M9.502 5.513a.144.144 0 0 0-.202.134V6.65a.5.5 0 0 1-.5.5H2.5v2.9h6.3a.5.5 0 0 1 .5.5v1.003c0 .108.11.176.202.134l3.984-2.933a.51.51 0 0 1 .042-.028.147.147 0 0 0 0-.252.51.51 0 0 1-.042-.028L9.502 5.513zM8.3 5.647a1.144 1.144 0 0 1 1.767-.96l3.994 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a1.144 1.144 0 0 1-1.767-.96v-.503H2a.5.5 0 0 1-.5-.5v-3.9a.5.5 0 0 1 .5-.5h6.3v-.503z"/>
+                    </svg>
+                </div>
+                <div id="productAmount" class="col-4">
                     <strong>결제 금액</strong>
                     <br>
                     <button type="button" class="btn btn-success" id="total-prod-price">총 금액</button>
                 </div>
             </div>
             <!-- 주문 상품 목록 보여주기 END -->
+            <div class="cart-to-order"><button type="button" class="btn btn-primary" onclick="cartToOrderPage()">주문하기</button></div>
+        </div>
         </section>
         <footer>
             <div id="footer_wrap">
