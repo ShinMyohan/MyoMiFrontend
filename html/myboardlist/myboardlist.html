@@ -28,9 +28,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-     <!-- LocaleString -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
- 
+    <!-- LocaleString -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
     <script src="../../js/basic.js"></script>
     <script src="../../js/myboardlist/myboardlist.js"></script>
     <script src="../../js/mypage/userinfo.js"></script>
@@ -42,42 +44,35 @@
 <body>
     <header>
         <div id="header">
-            <div class="h1_logo">
+            <div class="h1-logo">
                 <!-- 로고 -->
-                <div class="logo_main">
+                <div class="logo-main">
                     <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
                 </div>
                 <!-- 검색 input 박스 -->
-                <div class="search">
+                <div class="main-search">
                     <form class="d-flex">
                         <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
                         <div class="search-icon">
-                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                    height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path
-                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                </svg></button>
-                        </div>
+                        <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg></button></div>
                     </form>
                 </div>
                 <!-- 메뉴바 -->
                 <nav class="menulist">
-                    <ul>
-                        <!-- <div id="horizontal-underline"></div> -->
-                        <li><a href="#">회원가입</a></li>
-                        <li><a href="#">로그인</a></li>
+                    <ul class="main-menu-bar">
+                    <!-- <div id="horizontal-underline"></div> -->
+                        <li><a href="../../html/user/signup.html">회원가입</a></li>
+                        <li><a href="../../html/user/login.html">로그인</a></li>
                         <li><a href="#">공지사항</a></li>
                         <li><a href="#">커뮤니티 </a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="34"
-                                    height="36" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-                                </svg></a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30"
-                                    height="30" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                                    <path
-                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                </svg></a></li>
+                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                        </svg></a></li>
+                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg></a></li>
                     </ul>
                 </nav>
             </div>
@@ -187,7 +182,7 @@
                         <div class="mp-board-list-header">
                             <h4> 내가 쓴 게시글 </h4>
                         </div>
-                    
+
                         <div class="mp-order-list-main">
                             <div class="period">
                                 <span class="search-period">
@@ -254,11 +249,11 @@
                         <!-------- 내가 쓴 글 리스트  --------->
                         <div class="my-board-list">
                             <div class="my-board-list-header">
-                               <strong> yyyy-MM-dd ~ yyyy-MM-dd </strong> 까지의 작성 글 목록 
+                                <strong> yyyy-MM-dd ~ yyyy-MM-dd </strong> 까지의 작성 글 목록
                             </div>
 
                             <div class="list-header">
-                                <div class="my-board-list-num" style="display:none">번호</div> 
+                                <div class="my-board-list-num" style="display:none">번호</div>
                                 <div class="my-board-list-category">카테고리</div>
                                 <div class="my-board-list-title">제목</div>
                                 <div class="my-board-list-created-date">작성일</div>
@@ -266,7 +261,7 @@
                             </div>
 
                             <div class="list-body">
-                                <div class="my-board-body-num" style="display:none">번호</div> 
+                                <div class="my-board-body-num" style="display:none">번호</div>
                                 <div class="my-board-body-category">오늘의 식단</div>
                                 <div class="my-board-body-title">오늘은 마라탕을 먹었어요</div>
                                 <div class="my-board-body-created-date">2023/02/16</div>
@@ -274,14 +269,14 @@
                             </div>
                         </div>
 
-                    <!-- 내가 쓴 댓글 목록 -->
+                        <!-- 내가 쓴 댓글 목록 -->
                         <div class="my-rep-list">
                             <div class="my-rep-list-header">
-                               <strong> yyyy-MM-dd ~ yyyy-MM-dd </strong> 까지의 작성 댓글 목록 
+                                <strong> yyyy-MM-dd ~ yyyy-MM-dd </strong> 까지의 작성 댓글 목록
                             </div>
 
                             <div class="list-rep-header">
-                                <div class="my-rep-list-num" style="display:none">번호</div> 
+                                <div class="my-rep-list-num" style="display:none">번호</div>
                                 <div class="my-rep-list-category">카테고리</div>
                                 <div class="my-rep-list-title">제목</div>
                                 <div class="my-rep-list-content">댓글 내용</div>
@@ -289,12 +284,12 @@
                             </div>
 
                             <div class="list-rep-body">
-                                <div class="my-rep-body-num" style="display:none">번호</div> 
-                                <div class="my-rep-body-category">오늘의 식단</div> 
+                                <div class="my-rep-body-num" style="display:none">번호</div>
+                                <div class="my-rep-body-category">오늘의 식단</div>
                                 <div class="my-rep-body-title">오늘은 마라탕을 먹었어요</div>
                                 <div class="my-rep-body-content">마라탕엔 푸주죠</div>
                                 <div class="my-rep-body-created-date">2023/02/16</div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -307,8 +302,8 @@
     <footer>
         <div id="footer_wrap">
             <div id="footer">
-                <div class="foot_list">
-                    <div class="foot_list_in">
+                <div class="foot-list">
+                    <div class="foot-list_in">
                         <ul>
                             <li>
                                 <a href="#">묘미소개</a>
@@ -325,12 +320,12 @@
                         </ul>
                     </div>
                 </div>
-                <div class="foot_cont">
-                    <div class="foot_logo">
+                <div class="foot-cont">
+                    <div class="foot-logo">
                         <img src="../../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
                     </div>
-                    <div class="foot_info">
-                        <div class="foot_info_list">
+                    <div class="foot-info">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>법인명(상호):</dt>
                                 <dt>주식회사 신묘한컴퍼니</dt>
@@ -346,7 +341,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="foot_info_list">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>사업자등록번호:</dt>
                                 <dt> 220-10-250316</dt>
@@ -358,7 +353,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="foot_info_list">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>주소:</dt>
                                 <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
@@ -381,7 +376,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="foot_certify">
+                <div class="foot-certify">
                     <span></span>
                     <span></span>
                 </div>

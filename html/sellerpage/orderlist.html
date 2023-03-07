@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="../../css/basic.css">
     <!-- <link rel="stylesheet" href="../../css/mypage/mypage.css"> -->
@@ -21,45 +22,43 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/sellerpage/orderlist.js"></script>
-     <!-- DatePicker -->
-     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <!-- DatePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 </head>
+
 <body>
     <header>
         <div id="header">
-            <div class="h1_logo">
+            <div class="h1-logo">
                 <!-- 로고 -->
-                <div class="logo_main">
+                <div class="logo-main">
                     <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
                 </div>
                 <!-- 검색 input 박스 -->
-                <div class="search">
+                <div class="main-search">
                     <form class="d-flex">
                         <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
                         <div class="search-icon">
-                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18"
-                                    height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path
-                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                </svg></button>
-                        </div>
+                        <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg></button></div>
                     </form>
                 </div>
                 <!-- 메뉴바 -->
                 <nav class="menulist">
-                    <ul>
+                    <ul class="main-menu-bar">
                     <!-- <div id="horizontal-underline"></div> -->
-                        <li><a href="#">회원가입</a></li>
-                        <li><a href="#">로그인</a></li>
+                        <li><a href="../../html/user/signup.html">회원가입</a></li>
+                        <li><a href="../../html/user/login.html">로그인</a></li>
                         <li><a href="#">공지사항</a></li>
                         <li><a href="#">커뮤니티 </a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="36" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                         </svg></a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                         </svg></a></li>
                     </ul>
@@ -80,7 +79,7 @@
                     <div class="mp-user-name-level">
                         <span class="mp-user-hi">안녕하세요!</span>
                         <span class="mp-user-name">[셀러상호명]<i>님</i></span>
-                        
+
                     </div>
                     <div class="mp-user-menu">
                         <ul>
@@ -104,7 +103,7 @@
                     </div>
                 </div>
                 <!-- 유저정보 박스 END -->
-                
+
                 <!------------ 회원 활동 표시 창 START -------------->
                 <div class="mp-activity">
                     <div class="mp-user-activity">
@@ -112,10 +111,12 @@
                             <div class="row">
                                 <div class="col mp-border">
                                     <div>
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
-                                            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                                          </svg>
-                                          오늘 주문 건
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                                        </svg>
+                                        오늘 주문 건
                                     </div>
                                     <span class="mp-user-point">몇
                                         <i>건</i>
@@ -123,10 +124,13 @@
                                 </div>
                                 <div class="col mp-border">
                                     <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-left-heart" viewBox="0 0 16 16">
-                                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12ZM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Z"/>
-                                            <path d="M8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
-                                          </svg> 미답변 문의 건 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-chat-left-heart" viewBox="0 0 16 16">
+                                            <path
+                                                d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12ZM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Z" />
+                                            <path
+                                                d="M8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+                                        </svg> 미답변 문의 건
                                     </div>
                                     <span class="mp-user-coupon">몇
                                         <i>건</i>
@@ -134,8 +138,10 @@
                                 </div>
                                 <div class="col">
                                     <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
-                                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
+                                            <path
+                                                d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z" />
                                         </svg> 팔로우
                                     </div>
                                     <span class="mp-user-follow">몇
@@ -189,8 +195,8 @@
                             </div>
                             <span>
                                 <button class="btn" type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        class="bi bi-search" viewBox="0 0 16 16">
                                         <path
                                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                     </svg></button></span>
@@ -221,10 +227,10 @@
                             </div>
                         </div>
                         <!--셀러 주문현황 조회 END-->
-                </div>   
+                    </div>
+                </div>
+                <!------------ 마이페이지 END -------------->
             </div>
-            <!------------ 마이페이지 END -------------->
-        </div>
     </section>
     <!-- section end -->
 
@@ -232,8 +238,8 @@
     <footer>
         <div id="footer_wrap">
             <div id="footer">
-                <div class="foot_list">
-                    <div class="foot_list_in">
+                <div class="foot-list">
+                    <div class="foot-list_in">
                         <ul>
                             <li>
                                 <a href="#">묘미소개</a>
@@ -250,12 +256,12 @@
                         </ul>
                     </div>
                 </div>
-                <div class="foot_cont">
-                    <div class="foot_logo">
+                <div class="foot-cont">
+                    <div class="foot-logo">
                         <img src="../../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
                     </div>
-                    <div class="foot_info">
-                        <div class="foot_info_list">
+                    <div class="foot-info">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>법인명(상호):</dt>
                                 <dt>주식회사 신묘한컴퍼니</dt>
@@ -271,7 +277,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="foot_info_list">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>사업자등록번호:</dt>
                                 <dt> 220-10-250316</dt>
@@ -283,7 +289,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="foot_info_list">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>주소:</dt>
                                 <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
@@ -306,7 +312,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="foot_certify">
+                <div class="foot-certify">
                     <span></span>
                     <span></span>
                 </div>
@@ -314,20 +320,20 @@
         </div>
     </footer>
 
-     <!--주문상세 모달창 START-->
-     <form>
+    <!--주문상세 모달창 START-->
+    <form>
         <div class="sl-order-modal">
-            <div class ="order-group">
+            <div class="order-group">
                 <div class="modal-head">
-                <div class="order-top">주문상세</div>
-                <div class="close-btn" id="close-btn">X</div>
+                    <div class="order-top">주문상세</div>
+                    <div class="close-btn" id="close-btn">X</div>
                 </div>
                 <div class="modal-order-info">
                     <div class="prod-img"><img src="../../imgs/prod01.png"></div>
                     <div class="prod-info-text">
-                    <div class="prod-name" id="prod-name"></div>
+                        <div class="prod-name" id="prod-name"></div>
                     </div>
-                </div> 
+                </div>
                 <div class="order-box">
                     <div class="order-detail">
                         <table class="table-order-modal">
@@ -337,7 +343,7 @@
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">주문번호</div>
-                                <div class="modal-content" id ="modal-prod-num"></div>
+                                <div class="modal-content" id="modal-prod-num"></div>
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">주문수량</div>
@@ -345,15 +351,15 @@
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">결제일시</div>
-                                <div class="modal-content" id ="modal-created-date"></div>
+                                <div class="modal-content" id="modal-created-date"></div>
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">총 결제금액</div>
-                                <div class="modal-content" id ="modal-total-price"></div>
+                                <div class="modal-content" id="modal-total-price"></div>
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">요청사항</div>
-                                <div class="modal-content" id ="modal-msg"></div>
+                                <div class="modal-content" id="modal-msg"></div>
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">배송기간</div>
@@ -361,11 +367,11 @@
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">배송요청일</div>
-                                <div class="modal-content" id ="modal-d-date"></div>
+                                <div class="modal-content" id="modal-d-date"></div>
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">배송요청사항</div>
-                                <div class="modal-content" id ="modal-d-msg"></div>
+                                <div class="modal-content" id="modal-d-msg"></div>
                             </div>
                             <div class="order-modal-row">
                                 <div class="modal-title">수령인</div>
@@ -379,13 +385,14 @@
                                 <div class="modal-title">수령지</div>
                                 <div class="modal-content" id="modal-d-addr"></div>
                             </div>
-                        </div>
                     </div>
-                    <div class="modal-button">
-                        <input type="button" class="modal-submit" value="확인">
-                    </div>
+                </div>
+                <div class="modal-button">
+                    <input type="button" class="modal-submit" value="확인">
+                </div>
             </div>
         </div>
     </form>
 </body>
+
 </html>
