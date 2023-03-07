@@ -7,20 +7,20 @@ $(() => {
     let url = backURL;
     // ------글 상세내용 START------
     let data = location.search.substring(1);
-    console.log(data)
+    // console.log(data)
     $.ajax({
       method: "get",
       url: url + 'board/' + data,
       data: data,
       beforeSend: function (xhr) {
-        xhr.setRequestHeader('Content-type', 'application/json');
+        //  xhr.setRequestHeader('Content-type', 'application/json');
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
       },
 
       success: function (jsonObj) {
         let list = jsonObj;
         localStorage.setItem("list", JSON.stringify(list));
-        console.log(list);
+        // console.log(list);
 
         let hits = list["hits"];
         let createdDate = list["created_date"];
@@ -28,14 +28,30 @@ $(() => {
         let title = list["title"];
         let cont = list["content"];
         let name = list["userName"];
+        let userName = name.replace(/(?<=.{1})./gi, "*")
         let comments = list["comments"];
+        let image = list["boardImgUrl"]
+        let enableUpdate = list["enableUpdate"]
+        let enableDelete = list["enableDelete"]
 
         $("div.num").html(num);
-        $("div.cont").html(cont);
+        $("div.content").html(cont);
         $("div.title").html(title);
         $("div.createdDate").html("작성일 | " + moment(createdDate).format("YYYY-MM-DD"));
-        $("div.writer").html("작성자 | " + name);
+        $("div.writer").html("작성자 | " + userName);
         $("div.hits").html("조회수 | " + hits);
+        if (image == null) {
+          $('.imgArea').hide();
+        } else {
+          $("#boardImg").attr('src', image)
+        }
+
+        if (enableUpdate == false) {
+          $('#edit').attr('div.edit', 'button').hide();
+        }
+        if (enableDelete == false) {
+          $('#del').attr('div.del', 'button').hide();
+        }
 
         //---------------------------------------------
 
@@ -45,24 +61,36 @@ $(() => {
         let $parent = $("div.board-rep-list")
 
         $(comments).each((p) => {
-          console.log(comments)
+          // console.log(comments)
           let parent = comments[p]["parent"]
           let rnum = comments[p]["commentNum"]
           let rwriter = comments[p]["userName"]
+          let userName = rwriter.replace(/(?<=.{1})./gi, "*")
           let rdate = comments[p]["createdDate"]
           let rcontent = comments[p]["content"]
+          let enableUpdate = comments[p]["enableUpdate"]
+          let enableDelete = comments[p]["enableDelete"]
 
           let $copy = $origin.clone();
 
           if (parent == 0) {
             $copy.find("div.prnum").html(rnum);
-            $copy.find("div.prwriter").html(rwriter);
+            $copy.find("div.prwriter").html(userName);
             $copy.find("div.prdate").html(rdate);
             $copy.find("input[name=prep-content").val(rcontent);
             $parent.append($copy);
           }
+          if (enableUpdate == false) {
+            $('#hid-edit-btn').attr('div.dropdown-menu', 'li').hide();
+          }
+          if (enableDelete == false) {
+            $('#rep-del-btn').attr('div.dropdown-menu', 'li').hide();
+          }
         });
         $origin.hide();
+
+        let length = $('div.parent-clone').length;
+        $('div.board-rep-count>i').html(length - 1);
       },
       error: function (xhr) {
         alert(xhr.status);
@@ -74,24 +102,29 @@ $(() => {
 
   //글 삭제 
   $('div.del').click(function () {
-    let data = location.search.substring(1);
+    if (confirm('정말 삭제하시겠습니까?')) {
+      let data = location.search.substring(1);
 
-    $.ajax({
-      method: "delete",
-      url: backURL + "board/" + data,
-      data: data,
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader('Content-type', 'application/json');
-        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-      },
-      success: function () {
-        alert("삭제되었습니다.");
+      $.ajax({
+        method: "delete",
+        url: backURL + "board/" + data,
+        data: data,
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Content-type', 'application/json');
+          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        },
+        success: function () {
+          alert("삭제되었습니다.");
+          window.location.href = "./boardlist.html"
+        },
+        error: function (xhr) {
+          alert(xhr.status);
+        },
 
-      },
-      error: function (xhr) {
-        alert(xhr.status);
-      },
-    });
+      });
+    } else {
+      alert("취소되었습니다.")
+    }
   })
   //--------목록으로 START----------
   $("div.back").click(() => {
@@ -101,7 +134,6 @@ $(() => {
 
   //-------수정폼으로 이동 START--------
   $("div.edit").click((e) => {
-    // viewBoard();
     let boardNum = $(e.target).parents('div.list').find('div.bnum').html();
     location.href = "./boardedit.html";
   });
@@ -117,21 +149,16 @@ $(() => {
   //댓글 작성
   $('div.rep-add>#rep-add').click(function () {
     let num = $('div.num').html();
-    console.log("글번호~~~~~~~~" + num)
     let content = $('#content').val();
     if (content == '') {
       alert('내용을 입력하세요.');
 
       return;
     }
-
-    let data = { "content": content }
-    console.log(data)
-
     $.ajax({
       method: "POST",
       url: backURL + "comment/" + num,
-      data: JSON.stringify(data),
+      data: JSON.stringify({ "content": content }),
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -156,17 +183,10 @@ $(() => {
 
       return;
     }
-
-    let data = {
-      "content": content
-    }
-
-    console.log("데이타" + data)
-
     $.ajax({
       type: "put",
       url: backURL + "comment/" + boardNum + '/' + commentNum,
-      data: JSON.stringify(data),
+      data: JSON.stringify({ "content": content }),
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -183,24 +203,28 @@ $(() => {
 
   //댓글 삭제
   function delComment(commentNum) {
-    let data = location.search.substring(1);
-    let boardNum = $('div.num').html();
-    $.ajax({
-      method: "delete",
-      url: backURL + "comment/" + boardNum + '/' + commentNum,
-      data: data,
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader('Content-type', 'application/json');
-        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-      },
-      success: function () {
-        alert("삭제되었습니다.");
-        window.location.href = "./detail.html?" + boardNum
-      },
-      error: function (xhr) {
-        alert(xhr.status);
-      },
-    });
+    if (confirm('정말 삭제하시겠습니까?')) {
+      let data = location.search.substring(1);
+      let boardNum = $('div.num').html();
+      $.ajax({
+        method: "delete",
+        url: backURL + "comment/" + boardNum + '/' + commentNum,
+        data: data,
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Content-type', 'application/json');
+          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        },
+        success: function () {
+          alert("삭제되었습니다.");
+          window.location.href = "./detail.html?" + boardNum
+        },
+        error: function (xhr) {
+          alert(xhr.status);
+        },
+      });
+    } else {
+      alert("취소되었습니다.")
+    }
   };
 
   //댓글 수정 버튼 클릭 
@@ -223,18 +247,21 @@ $(() => {
   $('div.board-rep-list').on('click', 'div.parent-clone>div.hidden-rep-btn>#hid-edit-btn', (e) => {
     let content = $(e.target).parents('div.parent-clone').find('div.prcontent>input[name="prep-content"]').val();
     let commentNum = $(e.target).parents('div.parent-clone').find('div.prnum').html();
-    console.log("내용" + content, commentNum)
+    // console.log("내용" + content, commentNum)
     editComment(content, commentNum);
   })
 
   //댓글 삭제 콜 
   $('div.board-rep-list').on('click', 'div.parent-clone>div.rep-menu>ul.dropdown-menu>li.rep-del-btn', (e) => {
-    let commentNum = $(e.target).parents('div.parent-clone').find('div.prnum').html();
+    let commentNum = $(e.target).parents('div.parent-clone').find('div.prnum').val();
     delComment(commentNum);
   })
 
 });
 
+$("div.rep-menu").click(() => {
+  alert("클릭")
+});
 
 
 

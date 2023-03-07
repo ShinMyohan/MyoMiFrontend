@@ -47,7 +47,6 @@
     align-items : center;
     justify-content: space-between;
     text-align: center;
-    margin-bottom: 20px;
     border-bottom:1px solid lightgrey;
     font-size : 13px;
 }
@@ -115,7 +114,6 @@
     align-items : center;
     justify-content: space-between;
     text-align: center;
-    margin-bottom: 20px;
     border-bottom:1px solid lightgrey;
     font-size : 13px;
 }

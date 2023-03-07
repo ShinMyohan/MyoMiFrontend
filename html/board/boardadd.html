@@ -68,10 +68,10 @@
             <div class="title">
                 <input class="form-control" type="text" id="title" placeholder="제목을 입력해주세요" aria-label="제목을 입력해주세요">
             </div>
-
+<!-- 
             <div class="info">
                 <input class="form-control" type="text" id="writer" placeholder="아이디" aria-label="아이디">
-            </div>
+            </div> -->
 
             <div class="select">
                 <select class="form-select" aria-label="Default select example" id="select">
@@ -85,13 +85,13 @@
             <div class="content-textarea">
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label"><strong>글 내용을 입력해주세요 </strong></label>
-                    <textarea class="form-control" id="content" style="height: 400px"></textarea>
+                    <textarea class="form-control" id="content" style="height: 400px; resize: none;"></textarea>
                   </div>
             </div>
  
         <div class="file-upload">
             <div class="mb-3">
-                <input class="form-control" type="file" id="formFileMultiple" multiple>
+                <input class="form-control" type="file" name="boardFile" id="formFileMultiple" >
               </div>
         </div>
         </div>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="foot_cont">
                     <div class="foot_logo">
-                        <img src="../../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
+                        <img src="../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
                     </div>
                     <div class="foot_info">
                         <div class="foot_info_list">
@@ -196,5 +196,4 @@
         </div>
     </footer>
 </body>
-
 </html>

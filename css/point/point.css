@@ -148,7 +148,7 @@ div.mp-order-list-form .period .nav-link:focus {
     align-items : center;
     justify-content: space-between;
     text-align: center;
-    border-bottom:1px solid lightgrey;
+    border-bottom:1.7px solid grey;
     font-size : 13px;
 }
 
