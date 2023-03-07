@@ -1,17 +1,14 @@
-*{
-    margin: 0px;
-    padding: 0px;
-  }
+
 .review-img img{
- width:140px;
-height:140px;
-display: flex;
+    width:140px;
+    height:140px;
+    display: flex;
 
 }
   .review-wrap {
-      width: 1000px;
-      box-sizing: border-box;
-      margin: 100px auto;
+     width: 1000px;
+     box-sizing: border-box;
+     margin: 100px auto;
   } 
 
 .review-view .info dl {
@@ -118,11 +115,18 @@ display: flex;
     float: right;
     padding-top: 10px;
     padding-right: 5px;
- } 
+ }
+.bt-wrap-add{
+    display:flex;
+}
+
  .review-edit{
     margin: 0 auto;
     margin-right:5px;
     float: right;
     padding-top: 10px;
- }
- 
+ } 
+
+.review-list{
+    padding-top: 10px;
+}
