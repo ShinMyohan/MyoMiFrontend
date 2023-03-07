@@ -52,6 +52,7 @@ div.mypage-basic div.mp-user-info div.mp-user-name-level{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* align-items: flex-start; */
 }
 
 /* user 프로필 박스 */
@@ -125,144 +126,106 @@ div.mypage-basic div.mp-user-activity div.row div.col span:hover{
 
 div.mypage-basic div.mp-user div.main-box{
     flex:content;
+
 }
 
-/*상품문의 상세 본문*/
-.qna{
+/*판매자신청 main*/
+.mp-sl-signup{
     text-align: center;
     font-size: 30px;
     font-weight: 700;
     margin-top:50px;
 }
-div.mp-qna-detail{
-    margin-top:50px;
+
+.mp-sl-headbox{
+    margin-top:10px;
+    border-bottom: #d9d9d9 solid 0.5px;
+    padding-bottom: 25px;
+}
+
+.sl-signup-text-1{
+    text-align:center;
     font-size:15px;
-    width:100%;
+    font-weight: 500;
+    color:#706f6f;
+}
+
+.sl-signup-button{
+    text-align: center;
+    margin-top:30px;
+
+}
+
+.sl-signup-btn,.sl-store-btn{
+    border-radius: 5px;
+    border:rgb(0, 175, 133) solid 1px;
+    background-color: white;
+    color:rgb(0, 175, 133);
+    padding:5px;
+    font-size: 15px;
+}
+
+.sl-signup{
+    font-weight: 600;
+    font-size:20px;
+    margin-top:40px;
+    text-align: center;
+}
+
+/*상품문의 리스트*/
+.mp-signup-list{
+    margin-top:80px;
+    font-size:15px;
     justify-content: center;
 }
 
-.mpdt-qna-category{
-    width:90px;
-}
-
-.mpdt-qna-title{
-    margin-left:0px;
-}
-
-.mpdt-user-name{
-    width:90px;
-}
-
-.mpdt-prod-info{
+.mp-signup-table{
     width:100%;
-    height:130px;
+}
+
+.signup-title{
+    border-bottom: #817f7f solid 1px;
+    width:100%;
+    height: 30px;
     display:flex;
-    margin-top: 15px;
-}
-/*이미지 부모요소*/
-.prod-img{
-    width:100px;
-    height:100px;
-    position: relative;
-    overflow: hidden;
-}
-
-/*이미지 자식요소*/
-.prod-img img
-{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.mpdt-prod-info-text{
-    padding-left:10px;
     font-weight: 600;
 }
 
-.qna-detail-top{
+
+.signup-list-row{
     width:100%;
-    height:auto;
-}
-
-.qna-row-1,.qna-row-2{
-    display: flex;
-    margin-bottom: 8px;
-    border-bottom: #d9d9d9 0.5px solid;
-    padding-bottom:8px;
-    
-}
-#qnaMainImg{
-    width:100px;
-    height:100px;
-}
-
-.mpdt-form{
+    border-bottom:#d9d9d9 solid 0.3px;
+    height: 35px;
     display:flex;
+    padding-top: 5px;
 }
 
-.mpdt-qna-q{
-    border-bottom:#d9d9d9 0.5px solid;
+.signup-manager{
+    width:15%;
+    text-align: center;
 }
-.mpdt-q-content{
-    width:750px;
-    height:auto;
-    margin-bottom:50px;
-    font-size:15px;
-}
-
-.mpdt-qna-a{
-    margin-top: 30px;
-    border-bottom:#d9d9d9 0.5px solid;
-    padding-bottom:80px;
+.signup-store-name{
+    width:50%;
+    text-align:center;
 }
 
-.q-icon,.a-icon{
-    width:5%;
-    font-weight: 700;
-    font-size: 20px;
-    float: left;
+.signup-store-num{
+    width:20%;
+    text-align:center;
 }
 
-.mpdt-answer-title,.qna-admin{
- font-weight: 600;   
+.signup-status{
+    width:15%;
+    text-align:center;
 }
 
-.mpdt-answer-info{
-    display:flex;
-    border-bottom:#d9d9d9 0.3px solid;
-    padding-bottom:8px;
-
+.signup-store-name2{
+    cursor: pointer;
+    width:50%;
+    text-align:center;
 }
 
-.mpdt-answer-date{
-    margin-left:10px;
-    font-size: 10px;
-    margin-top: 5px;
-}
-
-.mpdt-answer-content{
-    font-size:15px;
-    margin-left:5%;
-    margin-top:10px;
-}
-
-.mpdt-button{
-    float:right;
-    background-color:white;
-    border:1px solid;
-    color:rgb(0, 175, 133);
-    padding: 5px 20px;
-    margin-right:5px;
-    margin-top:20px;
-    font-weight: 600;
-    border-color:rgb(0, 175, 133);
-}
-
-/*상품문의 수정모달창*/
+/*판매자신청 상세모달*/
 .modal-head{
     display:flex;
     border-bottom: #d9d9d9 solid 0.5px;
@@ -278,146 +241,40 @@ div.mp-qna-detail{
     cursor: pointer;
 }
 
-.qna-top{
+.info-top{
     font-size: 15px;
     padding-top:10px;
     padding-bottom:10px;
     font-weight:500; 
 }
 
-.qna-box{
-    margin:0 10px 0 10px;
+.info-content{
+    display: flex;
+    padding:8px;
+    font-size: 15px;
 }
 
-/*이미지 부모요소*/
-.prod-img{
-    width:80px;
-    height:80px;
-    position: relative;
-    overflow: hidden;
-}
-
-/*이미지 자식요소*/
-.prod-img img{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.prod-info-text{
-    padding-left:10px;
+.info-row{
+    width:18%;
     font-weight: 500;
 }
 
-.qna-write{
-    width:100%;
-    clear:both;
+.sl-signup-info{
+    padding:15px 0px 10px 15px;
+    color:#817f7f
+}
+.info-head{
+    display: flex;
     font-size: 13px;
+    font-weight: 500;
 }
 
-.prod-info-modal{
-    width:100%;
-    height:80px;
-    display:flex;
-    margin-top:10px;
-    margin-bottom:10px;
-    margin-left:10px;
-}
-
-.modal-qna-writer, .modal-qna-title, .modal-qna-content,.modal-file{
-    display:flex;
-}
-
-
-.modal-qna-writer, .modal-qna-title, .modal-qna-content, .modal-file{
-    border-bottom:#d9d9d9 0.3px solid;  
-}
-
-.modal-col-1{
-    width:12%;
-    background-color: rgba(227, 238, 221, 0.096);
-    text-align: center;
-    font-weight:600;
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    padding: 10px;
-    font-size:13px;
-}
-
-.modal-col-2{
-    text-align: center;
-    padding:5px;
-    font-size:13px;
-    padding: 8px;
-}
-
-.img-box{
-    margin-bottom: 30px;
-    width:100px;
-    height:100px;
-}
-
-[name=modal-qna-title]{
-    width: 600px;
-    height:30px;
-    border-radius: 4px;
-    border:#d9d9d9 0.3px solid;
-    outline:none;
-}
-
-#modal-qna-content{
-    width: 650px;
-    height: 230px;
-    border:#d9d9d9 0.3px solid;
-    outline:none;
-}
-
-
-#detail-formfile{
-    font-size: 13px;
-    margin-top: 16px;
-}
-.modal-file-row, .modal-file-row-2{
-    display:flex;
-}
-
-.modal-file-row-2{
-    margin-top: 3px;
-}
-
-.modal-buttons{
-    margin-top:30px;
-    margin-bottom:20px;
-    text-align: center;
-}
-
-.modal-cancel{
-    background-color: white;
-    color:black;
-    border:#d9d9d9 0.5px solid;
-}
-
-.modal-submit{
-    background-color:rgb(0, 175, 133);
-    color:white;
-    border:rgb(0, 175, 133) 0.5px solid;
-}
-
-.modal-cancel,.modal-submit{
-    font-weight: 600;
-    font-size: 13px;
-    border-radius: 3px;
-    width:90px;
-    height: 40px;
+.info-text{
+    font-size: 10px;
 }
 
 /* 모달창효과 */
-.modal-qna-edit {
+.modal-seller-info {
     position: fixed;
     top:0; left: 0; bottom: 0; right: 0;
     width: 100%;
@@ -426,11 +283,11 @@ div.mp-qna-detail{
     background-color: rgba(0, 0, 0, 0.4);
   }
 
-  .modal-qna-edit.show {
+  .modal-seller-info.show {
     display: block;
   }
 
-  .qna-group{
+  .info-group{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -440,9 +297,12 @@ div.mp-qna-detail{
     border-radius: 5px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
     transform: translateX(-50%) translateY(-50%);
-    height: 85vh; overflow-y: auto; 
-
+    height: 50vh; overflow-y: auto; 
   }
+
+
+
+
 
 
 

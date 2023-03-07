@@ -1,15 +1,7 @@
 $(()=>{
   let url = backURL+'product/qna/'
-
-    //파일명 보여주기
-    $("#file").on('change',function(){
-      var fileName = $("#file").val();
-      $(".upload-name").val(fileName);
-    });
-
 //--모달 닫기
 $(document).on('click', '#close-btn', function (e) {
-console.log("click event");
 $('.qna-write').removeClass('show');
 
 });
@@ -28,7 +20,7 @@ function showList(){
       },
       success: function(jsonObj){
           let list = jsonObj;
-          console.log(list)
+          // console.log(list)
           let $origin = $("div.qna-list").first();
           let $parent = $("div.qna-parent-list");
           $(list).each(p=>{
@@ -83,7 +75,6 @@ function showList(){
 
 //--모달 열기 
 $(document).on('click', '.qna-add-button', function (e) {
-  console.log("click event");
   $('.qna-write').addClass('show');
   });
   
@@ -91,7 +82,8 @@ $(document).on('click', '.qna-add-button', function (e) {
   $(document).on('click','.modal-submit', function(e){
     let qnaTitle = $('input[name=modal-qna-title]').val();
     let qnaContent = $('#modal-qna-content').val();
-    console.log(qnaTitle,qnaContent)
+    let imgFile = $('input[name="qnafile"]').get(0).files[0];
+    // console.log(qnaTitle,qnaContent)
   
     if(qnaTitle == ''){
       alert("제목이 입력되지 않았습니다.");
@@ -102,22 +94,24 @@ $(document).on('click', '.qna-add-button', function (e) {
       alert("내용이 입력되지 않았습니다.");
       return;
     }
-  
-    let data = {
-      "queTitle": qnaTitle,
-      "queContent": qnaContent,
-    }
-  
-    console.log(data);
-    // let num = location.search.substring(1);
+
+    let formData = new FormData();
+    formData.append('queTitle', qnaTitle);
+    formData.append('queContent', qnaContent);
+    formData.append('file', imgFile)
+    // console.log(formData)
+
     $.ajax({
       type: "POST",
       url: url+1, //임시 상품번호
-      data: JSON.stringify(data),
+      data: formData,
       beforeSend: function (xhr) {
-        xhr.setRequestHeader('Content-type', 'application/json');
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
       },
+      contentType: false,
+      processData: false,
+      enctype: 'multipart/form-data',
+      data: formData,
       success: function (response) {
         alert("등록이 완료되었습니다.");
         window.location.href = "./qnalist.html";
@@ -129,11 +123,6 @@ $(document).on('click', '.qna-add-button', function (e) {
   }
   )
   //--모달창 등록버튼 눌렀을 때 할 일 END--
-
-
-
-
-
 
 })
 

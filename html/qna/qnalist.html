@@ -19,14 +19,13 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <script src="../../js/basic.js"></script>
         <script src="../../js/qna/qnalist.js"></script>
-        <!-- <script src="../../js/index.js"></script> -->
     </head>
     <body>
         <div class="qna">
             <div class="qna-text">상품 Q&A</div>
             <div class = "qna-parent-list">
                 <div class="qna-list">
-                <div class="qna-row">
+                    <div class="qna-row">
                     <div class="qna-num"></div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
@@ -35,33 +34,30 @@
                     <div class="qna-user-name"></div>
                     <div class="qna-date"></div>
                     <div class="qna-status"></div>
-                </div>
-                <div class="qna-detail">
-                    <div class="qna-question-top">
-                    <div class="q-icon">Q.</div>
-                    <div class="qna-title"></div>
                     </div>
-                <div class="qna-question-bottom">
-                    <div class="qna-content"></div>
-                </div>
-                <div class="qna-answer">
-                    <div class="qna-answer-top">
-                        <div class="a-icon">A.</div>
-                        <p>&nbsp;안녕하세요<div class="answer-title"></div>&nbsp;입니다.</p>
+                    <div class="qna-detail">
+                        <div class="qna-question-top">
+                            <div class="q-icon">Q.</div>
+                            <div class="qna-title"></div>
+                        </div>
+                        <div class="qna-question-bottom">
+                            <div class="qna-content"></div>
+                        </div>
+                        <div class="qna-answer">
+                            <div class="qna-answer-top">
+                            <div class="a-icon">A.</div>
+                                <p>&nbsp;안녕하세요<div class="answer-title"></div>&nbsp;입니다.</p>
+                            </div>
+                            <div class="qna-answer-bottom">
+                                <div class="answer-content" id="answer-content"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="qna-answer-bottom">
-                        <div class="answer-content" id="answer-content"></div>
-                    </div>
-                </div>
-                </div>
                 </div> 
             </div> 
-
             <div>
                 <input type="button" class="qna-add-button" value="상품문의 글쓰기">
             </div>
-
-
             <!--상품문의 모달창-->
             <form>
                 <div class="qna-write">
@@ -78,10 +74,6 @@
                             </div>
                         </div> 
                         <div class="qna-box">
-                            <div class="modal-qna-writer">
-                                <div class="modal-col-1">작성자</div>
-                                <div class="modal-col-2" id="user-id"></div>
-                            </div>
                             <div class="modal-qna-title">
                                 <div class="modal-col-1">제목</div>
                                 <div class="modal-col-2"><input type ="text" id="modal-qna-title" name="modal-qna-title" placeholder="제목 입력"></div>
@@ -94,22 +86,11 @@
                                 <div class="modal-col-1">파일</div>
                                 <div class="modal-col-2">
                                     <div class="modal-file-row">
-                                    <input class="upload-name" placeholder="첨부파일">
-                                        <div class="upload-button"><label for="file">찾아보기</label>
-                                            <input type="file" multiple id="file">
+                                        <div class="file-button">
+                                            <div class="mb-3">
+                                                <input class="form-control" type="file" name="qnafile" id="formfile" >
+                                              </div>
                                         </div>
-                                        <div>
-                                            <input type="button" class="upload-file-add" value="+추가">
-                                        </div>
-                                    </div>
-                                    <div class="modal-file-row-2">
-                                        <input class="upload-name-2" placeholder="첨부파일">
-                                            <div class="upload-button"><label for="file">찾아보기</label>
-                                                <input type="file" id="file">
-                                            </div>
-                                            <div>
-                                                <input type="button" class="upload-file-del" value="-삭제">
-                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -123,3 +104,4 @@
             </form>
     </body>
 </html>
+

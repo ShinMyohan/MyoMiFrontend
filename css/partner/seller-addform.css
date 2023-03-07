@@ -125,187 +125,189 @@ div.mypage-basic div.mp-user-activity div.row div.col span:hover{
     cursor: pointer;
 }
 
-/* 세부 내용 기본 form */
-div.mypage-basic div.mp-user div.mp-activity div.mp-section-form{
-    margin-top: 40px;
-}
+div.mypage-basic div.mp-user div.main-box{
+    flex:content;
 
-div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit {
-    display: flex;
-    justify-content: space-between
 }
-
-div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
-    font-size: 15px;
-    font-weight: 400;
-    color: #777777;
-    margin: 1em;
-}
-
-/*나의 상품문의 시작*/
-.mp-qna{
-    text-align: center;
-    font-size: 30px;
+/*판매자신청폼*/
+.sl-signup-title{
+    font-size:20px;
     font-weight: 700;
     margin-top:50px;
-    margin-bottom: 50px;
 }
 
-/* 조회기간 */
-.period {
+.sl-signup-info{
+    background-color: #d9d9d92f;
+    padding:15px 0px 10px 15px;
+    margin-top: 20px;
+}
+.info-head{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 1% 0 3% 0;
-    padding: 0.5%;
-    border-radius: 10px;
-    border: 2px solid rgba(0, 175, 133, 0.3);
-    font-size: 14px;
-}
-
-.bi-calendar2-check-fill {
-    margin-bottom: 4px;
-    color: #FFA000;
-}
-
-.search-period {
-    font-size: 16px;
-    margin-right: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-}
-
-.period .nav-item {
-    width: 70px;
-    margin-right: 3px;
-    background-color: #fff;
-    font-weight: 500;
-    font-size: 15px;
-    text-align: center;
-}
-
-.period .nav-link {
-    padding: 3.5px;
-    border: 1px solid #ddd;
-    border-radius: 15px;
-}
-
-.period .nav-link:focus {
-    border-color: #fff;
-    border: 1px dashed #FFA000 !important;
-    color: #00af85;
-    border-radius: 15px;
-}
-
-/* ------ Date Picker CSS  ------- */
-.datepicker {
+    font-size: 13px;
+    font-weight: 600;
     margin-left: 10px;
 }
 
-.daterangepicker {
-    background-color: #fff !important;
-    border-radius: 0 !important;
-    align-content: center !important;
-    padding: 0 !important;
+.info-head-text{
+    margin-left:7px;
 }
 
-/*Weekday Heading*/
-thead tr:nth-child(2) {
-    color: #797979 !important;
+.info-text{
+    font-size: 13px;
+    margin-left:22px;
 }
 
-tbody tr td {
-    padding: 5px 7px !important;
+.sl-signup-body{
+    margin-top: 40px;
 }
 
-.month {
-    font-size: 16px !important;
-    padding-bottom: 10px !important;
-    padding-top: 10px !important;
+.signup-body-t{
+    font-size: 15px;
+    font-weight: 600;
 }
 
-.start-date,.end-date {
-    border-radius: 0px !important;
-    background-color: #76dafe !important;
+.signup-body-content{
+    margin-top: 20px;
 }
 
-.available:hover {
-    border-radius: 0px !important;
-}
-
-.off {
-    color: #EEEEEE !important;
-}
-
-.off:hover {
-    background-color: #EEEEEE !important;
-    color: #fff !important;
-}
-
-.drp-buttons {
-    display: none !important;
-}
-
-/*상품문의 리스트*/
-.mpq-qna-list{
-    margin-top:50px;
+.sl-number,.sl-ceo-name,.sl-store-name,.sl-store-addr,.sl-itn-num,.sl-store-manager,.sl-bank-info,.sl-account-info,.signup-file-upload{
     font-size:13px;
-    justify-content: center;
-
+    width: 100%;
 }
 
-.mpq-qna-table{
-    width:100%;
+.sl-number{
+    border-bottom: #d9d9d9 solid 0.5px;
+    padding-bottom: 12px;
 }
 
-.qna-list-title{
-    border-bottom: #817f7f solid 0.5px;
-    width:100%;
-    height: 30px;
-    display: flex;
-    text-align: center;
+.sl-num-warn{
+    margin-left: 16%;
+    font-size: 12px;
+    color:red;
 }
 
-.qna-list-row{
-    width:100%;
-    border-bottom:#d9d9d9 solid 0.3px;
-    height: 25px;
-    display: flex;
+.form-col-1{
+    width:15%;
+    margin:15px 0 15px 0;
+}
+
+#input-sl-number, #input-sl-ceo-name, #input-sl-store-addr-1,#input-sl-itn-num,#input-sl-manager{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:30%;
+}
+
+#input-sl-store-name, #input-sl-store-addr-2, #input-sl-store-addr-3{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:40%;
+}
+
+.btnbtn{
+    background-color: #d9d9d9;
+}
+
+.sl-num-btn, .sl-search-addr{
+    display: contents;
+}
+
+.sl-num-button, .sl-searchadd-button{
+    color:rgb(0, 175, 133);
+    background-color: white;
+    border: rgb(0, 175, 133) solid 0.5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.sl-store-addr-warn{
+    margin-left: 16%;
     margin-top: 5px;
-
+    font-size: 14px;
+    color:#eab42c;
 }
 
-.qna-num{
-    width:10%;
-    text-align:center;
-}
-
-.qna-date{
-    width:18%;
-    text-align: center;
-}
-.qna-store-name{
+#input-sl-bank,#input-account-uname{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
     width:20%;
+}
+
+#input-account-num{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:30%;
+}
+
+.mp-sl-singup-formbox{
+    height:auto;
+    margin-bottom: 100px;
+}
+
+.signup-body-upload{
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 30px;
+    border-top: #d9d9d9 solid 0.5px;
+    padding-top: 20px;
+}
+
+.signup-upload-info{
+    font-size: 12px;
+    margin-top: 5px;
+    color:#6d6c6c
+}
+
+.upload-name{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:20%;
+    height: 30px;
+    margin-top: 8px;
+}
+
+.upload-button label {
+    color:rgb(0, 175, 133);
+    background-color: white;
+    border: rgb(0, 175, 133) solid 0.5px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 5px;
+    margin-top: 8px;
+}
+
+.upload-button input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+} 
+
+.sl-upload-num{
+    display:flex;
+}
+
+.signup-file-upload{
+    margin-top: 15px;
+}
+
+.submit{
     text-align: center;
+    margin-top: 50px;
 }
 
-.qna-title{
-    width:42%;
-    text-align: center;
+#signup-button{
+    background-color:rgb(0, 175, 133);
+    border-radius: 5px;
+    border:rgb(0, 175, 133);
+    color: white;
+    padding: 5px;
+    width: 200px;
+    height: 40px;
 }
-
-.qna-status{
-    width:10%;
-    text-align:center;
-}
-
-.qna-title2{
-    cursor: pointer;
-    width:42%;
-
-}
-
-
-
-

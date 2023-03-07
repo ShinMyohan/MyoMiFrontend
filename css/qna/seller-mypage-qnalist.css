@@ -12,10 +12,18 @@ div.mp-background {
     position: relative;
 }
 
+/* i 태그 속성주기 */
 div.mypage-basic i{
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
+    color: black;
+}
+
+/* a 태그 속성주기 */
+div.mypage-basic a{
+    color:black;
+    text-decoration: none;
 }
 
 div.mypage-basic{
@@ -33,7 +41,6 @@ div.mypage-basic div.mp-user{
     display: flex;
     margin: 0 50px 0 20px;
 }
-
 
 div.mypage-basic div.mp-user-info div.mp-user-name-level{
     width:280px;
@@ -61,7 +68,6 @@ div.mypage-basic div.mp-user-info span.mp-user-name{
 /* user 이름 아래 menu */
 div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu {
     margin-top: 40px;
-    /* flex-direction: column; */
 }
 
 div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu{
@@ -73,13 +79,18 @@ div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu
 div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul{
     font-size: 16px;
     font-weight: 500;
+    margin-left: -20px;
 }
 
 div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul li{
     margin: 10px 0 10px 0;
 }
 
-    /* user 마이페이지 상단 고정 정보(적립금,쿠폰,팔로우) */
+/* user 마이페이지 상단 고정 정보(적립금,쿠폰,팔로우) */
+section.mp-page div.mypage-basic div.mp-user div.mp-activity{
+    width: 100%;
+}
+
 div.mypage-basic div.mp-user-activity{
     width: 100%;
     height: 6em;
@@ -102,7 +113,6 @@ div.mypage-basic div.mp-user-activity div.row div.col div{
     font-weight: 500;
 }
 
-
 div.mypage-basic div.mp-user-activity div.row div.col span{
     font-size: 20px;
     font-weight: 500;
@@ -115,113 +125,195 @@ div.mypage-basic div.mp-user-activity div.row div.col span:hover{
     cursor: pointer;
 }
 
-div.mypage-basic div.mp-user div.main-box{
-    flex:content;
-
+/* 세부 내용 기본 form */
+div.mypage-basic div.mp-user div.mp-activity div.mp-section-form{
+    margin-top: 40px;
 }
 
-/*판매자 상품문의 리스트*/
-.period{
-    justify-content: center;
-    text-align: center;
-
+div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit {
+    display: flex;
+    justify-content: space-between
 }
 
-div.mypage-basic div.mp-user div.main-box div.qna{
+div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
+    font-size: 15px;
+    font-weight: 400;
+    color: #777777;
+    margin: 1em;
+}
+
+/*나의 상품문의 시작*/
+.mp-qna{
     text-align: center;
     font-size: 30px;
     font-weight: 700;
     margin-top:50px;
-
+    margin-bottom: 50px;
 }
 
-div.mypage-basic div.mp-user div.main-box div.date-search{
-    border-style: solid;
-    border-width:0.1px;
-    border-color:#d9d9d9;
-    width: 100%;
-    height:70px;
-    margin-top:30px;
-
-}
-
-div.mypage-basic div.mp-user div.main-box div.date-search div.period{
-    text-align: center;
-    color:#807f7f;
+/* 조회기간 */
+.period {
     display: flex;
-    margin-top:18px;
-    line-height : 32px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1% 0 3% 0;
+    padding: 0.5%;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 175, 133, 0.3);
+    font-size: 14px;
 }
 
-
-.text{
-    width:80px;
-    font-size:15px;
-
+.bi-calendar2-check-fill {
+    margin-bottom: 4px;
+    color: #FFA000;
 }
 
-.flex-item{
-    width: 50px;
-    height: 35px;
-    margin: 0px;
-    font-size:15px;
+.search-period {
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.period .nav-item {
+    width: 70px;
+    margin-right: 3px;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 15px;
     text-align: center;
-    border-style: solid;
-    border-width:0.1px;
-    border-color:#d9d9d9;
 }
 
-.datepicker{
+.period .nav-link {
+    padding: 3.5px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+.period .nav-link:focus {
+    border-color: #fff;
+    border: 1px dashed #FFA000 !important;
+    color: #00af85;
+    border-radius: 15px;
+}
+
+/* ------ Date Picker CSS  ------- */
+.datepicker {
+    margin-left: 10px;
+}
+
+.daterangepicker {
+    background-color: #fff !important;
+    border-radius: 0 !important;
+    align-content: center !important;
+    padding: 0 !important;
+}
+
+/*Weekday Heading*/
+thead tr:nth-child(2) {
+    color: #797979 !important;
+}
+
+tbody tr td {
+    padding: 5px 7px !important;
+}
+
+.month {
+    font-size: 16px !important;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+}
+
+.start-date,.end-date {
+    border-radius: 0px !important;
+    background-color: #76dafe !important;
+}
+
+.available:hover {
+    border-radius: 0px !important;
+}
+
+.off {
+    color: #EEEEEE !important;
+}
+
+.off:hover {
+    background-color: #EEEEEE !important;
+    color: #fff !important;
+}
+
+.drp-buttons {
+    display: none !important;
+}
+
+/*상품문의 리스트*/
+
+.qna-combobox{
     display:flex;
-    margin-left:15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float:right;
+    
 }
-
-.btn{
-    margin-left:10px;
-    width:80px;
-}
-
-.qna-head{
-    border-top:#717070 solid 0.5px;
-}
-
-.qna-content{
-    margin-top:100px;
+.mpq-qna-list{
+    margin-top:50px;
     font-size:15px;
     justify-content: center;
+    height: auto;
+    margin-bottom: 400px;
+
+
 }
 
+.mpq-qna-table{
+    width:100%;
+}
+
+.qna-list-title{
+    border-bottom: #817f7f solid 1.5px;
+    width:100%;
+    height: 30px;
+    display: flex;
+    font-weight: 600;
+}
+
+.qna-list-row{
+    width:100%;
+    border-bottom:#d9d9d9 solid 0.3px;
+    height: 30px;
+    display: flex;
+    margin-top: 8px;
+}
+
+.qna-num{
+    width:10%;
+    text-align:center;
+}
 
 .qna-date{
     width:12%;
     text-align: center;
 }
-.qna-store-name{
+.qna-writer{
     width:30%;
     text-align: center;
 }
 
 .qna-title{
-    width:43%;
+    width:38%;
     text-align: center;
 }
 
 .qna-status{
-    width:15%;
+    width:10%;
     text-align:center;
 }
 
 .qna-title2{
+    padding-left: 60px;
     cursor: pointer;
 }
-
-.qna-combobox{
-    display:flex;
-    margin-top: 20px;
-    float:right;
-}
-
-
 
 /*문의답변모달창*/
 .modal-head{
@@ -288,7 +380,7 @@ div.mypage-basic div.mp-user div.main-box div.date-search div.period{
 
 
 .modal-buttons{
-    margin-top:30px;
+    margin-top:250px;
     margin-bottom:20px;
     text-align: center;
 }
@@ -318,6 +410,7 @@ div.mypage-basic div.mp-user div.main-box div.date-search div.period{
     font-size:13px;
     width:100%;
     justify-content: center;
+    height:auto;
     
 }
 
@@ -329,22 +422,58 @@ div.mypage-basic div.mp-user div.main-box div.date-search div.period{
     margin-left:0px;
 }
 
-.qna-modal-row1,.qna-modal-row2,.qna-modal-row3,.qna-modal-row4{
+.qna-modal-row,.qna-modal-row1,.qna-modal-row2,.qna-modal-row3{
     border-bottom:#d9d9d9 0.5px solid;
-    height: 40px;
+    height: 35px;
     border-width: 100%;
+    display: flex;
+    align-items : center;
 
 }
 
-.writer-name-modal,.qna-date-title-modal,.qna-title-modal,.qna-content-modal,.seller-answer-t{
-    width:80px;
+.qna-modal-row4{
+    border-bottom:#d9d9d9 0.5px solid;
+    height: auto;
+    border-width: 100%;
+}
+.qna-modal-row5{
+    display: flex;
+    align-items : center;
+}
+
+.writer-name-modal,.qna-date-title-modal,.qna-title-modal,.num-title-modal{
     text-align: center;
     font-weight: 600;
     background-color: rgba(227, 238, 221, 0.096);   
+    width:12%;
+    padding: 8px;
+}
+
+.seller-answer-t{
+    width:12%;
+    padding: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.qna-content-modal{
+    text-align: center;
+    font-weight: 600;
+    width:12%;
+}
+
+.img-box{
+    margin-left: 100px;
+}
+
+#qnaMainImg{
+    width:100px;
+    height:100px;
+    margin-bottom: 20px;
 }
 
 
-.user-name-modal,.qna-date-modal,.qna-title-user-modal{
+.user-name-modal,.qna-date-modal,.qna-title-user-modal,.qna-num-modal{
     width:700px;
     padding-left: 10px;
 }
@@ -353,13 +482,11 @@ div.mypage-basic div.mp-user div.main-box div.date-search div.period{
     width:700px;
     padding-left: 10px;
     height:auto;
-    padding-bottom: 50px;
-    padding-top: 10px;
+    margin-bottom: 100px;
+    margin-top:10px;
 }
-
-.table-answer-modal{
-    display:flex;
-    margin-bottom:10px;
+.seller-answer-c{
+    margin-top:10px;
 }
 
 .table{
@@ -367,7 +494,10 @@ div.mypage-basic div.mp-user div.main-box div.date-search div.period{
     height:auto;
 }
 
-
+.seller-answer-modal{
+    height: 30px;
+    /* margin-top: 15px; */
+}
 
 .qna-a{
     margin-top: 30px;
@@ -463,3 +593,6 @@ div.mypage-basic div.mp-user div.main-box div.date-search div.period{
     height: 90vh; overflow-y: auto; 
 
   }
+
+
+
