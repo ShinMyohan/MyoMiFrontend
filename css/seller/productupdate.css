@@ -1,0 +1,129 @@
+section .mp-seller-update {
+    width: 80%;
+    margin: 100px auto 100px auto;
+}
+
+.mp-seller-update h5.add-title {
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.mp-seller-update h6 {
+    font-size: 20px;
+    margin-left: 2.5%;
+    margin-top: 2em;
+
+}
+/* 상품 판매상태 */
+.mp-seller-update div.prod-status{
+    padding: 20px 0 20px 2%;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.mp-seller-update div.prod-status div{
+    margin-left: 20px;
+}
+
+.mp-seller-update div.prod-status div label.form-check-label{
+    font-size: 18px;
+}
+/* -------- */
+
+table {
+    font-size: 17px;
+    width: 100%;
+    margin: 1em auto;
+    text-align: left;
+}
+
+table tbody tr {
+    height: 60px;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+table tbody tr th {
+    width: 20%;
+    padding-left: 1em;
+    background-color: #079c3b0f;
+}
+
+table tbody tr td {
+    padding-left: 0.5em;
+}
+
+td small {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+
+#addProdname, #prodCate, #prodWeek, #prodPercentage, #originalPrice{
+    outline: none;
+    border:none;
+}
+
+#afterDC, #finalPricePerOne{
+    font-size: 16px;
+    border:none;
+    outline: none;
+}
+
+.mp-seller-update .add-prodinfo textarea {
+    width: 85%;
+    height: 120px;
+    resize: none;
+    outline: none;
+    /* border: 2px solid #d9d9d9; */
+    border: none;
+}
+
+.seller-file-uploader {
+    width: 85%;
+}
+
+.uploader label {
+    float: left;
+    clear: both;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: #fff;
+    transition: all 0.2s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.uploader input[type=file] {
+    display: none;
+}
+
+/* 등록/취소 버튼 */
+div.prod-add-form-btn {
+    margin-top: 3em;
+    text-align: center;
+}
+
+.prod-add-form-btn button.prod-add-btn {
+    background-color: #079c3b;
+    color: #fff;
+}
+
+button.prod-add-btn:hover {
+    background-color: #079c3bdb;
+    color: #fff;
+}
+
+button.prod-cancel-btn {
+    background-color: #b1b1b1;
+    color: #fff;
+}
+
+button.prod-cancel-btn:hover {
+    background-color: rgba(177, 177, 177, 0.8);
+    color: #fff;
+}

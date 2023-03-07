@@ -1,21 +1,33 @@
-/* ------ 롤링배너 ------ */
-.carousel {
-    width: 100%;
-    margin: 100px 0px 100px 0px;
+section {
+    margin: 200px auto 100px auto;
+    width: 90%;
+    height: 1000px;
 }
 
-div.carousel-item>img {
-    height: 400px;
+.prod-search-cont .prod-search-title input {
+    width: 80px;
+    border: none;
+    outline: none;
 }
 
-div.menunav {
-    width: 85%;
-    margin: auto;
+.prod-search-cont .dropdown {
+    float: right;
 }
 
-/*  */
+.prod-search-cont .dropdown button.dropdown-toggle {
+    font-size: 12px;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #5b5b5b;
+}
+
+.prod-search-cont .dropdown ul.dropdown-menu li {
+    font-size: 12px;
+}
+
 div.prod {
     cursor: pointer;
+    width: 20%;
 }
 
 div.card-body {
@@ -65,18 +77,4 @@ div.list {
 
 div.card-footer {
     padding: 0px;
-}
-
-/* 이미지 */
-#productMainImg {
-    width: 100%;
-    /* height: 25%; */
-}
-
-#prodStars {
-    margin-left: 5px;
-}
-
-#prodReviews {
-    margin-right: 5px;
 }

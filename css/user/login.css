@@ -1,26 +1,29 @@
-div.user-login-page{
+div.user-login-page {
     width: 620px;
     height: 850px;
     margin: 200px auto 100px auto;
     border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    /* border-top: 3px solid#079c3be7 */
     border-top: 3px solid #5F6CAF;
 }
 
-div.user-login-page div.login-content{
+div.user-login-page div.login-content {
     padding: 0 auto;
 }
 
-div.user-login-page div.login-content h2{
+div.user-login-page div.login-content h2 {
     margin: 20px 0 60px 0;
     text-align: center;
 }
 
-div.login-content div.login-form-cont form.login-form-element{
+div.login-content div.login-form-cont form.login-form-element {
     width: 500px;
     margin: 0 auto;
 }
 
-div.user-login-page div.login-content input.login-user-id, input.login-user-pwd{
+div.user-login-page div.login-content input.login-user-id,
+input.login-user-pwd {
     display: block;
     width: 500px;
     height: 60px;
@@ -36,7 +39,7 @@ div.user-login-page div.login-content input.login-user-id, input.login-user-pwd{
     line-height: 16px;
 } */
 
-form.login-form-element input.save-user-id{
+form.login-form-element input.save-user-id {
     position: absolute;
     top: 3px;
     left: 1px;
@@ -45,7 +48,7 @@ form.login-form-element input.save-user-id{
     visibility: hidden;
 }
 
-form.login-form-element label.save-user-checkbox{
+form.login-form-element label.save-user-checkbox {
     position: relative;
     top: 0;
     left: 0;
@@ -66,27 +69,27 @@ form.login-form-element label.save-user-checkbox{
 } */
 
 /* 확인용 */
-form.login-form-element label.save-user-checkbox:hover{
+form.login-form-element label.save-user-checkbox:hover {
     background: url('../../images/common/check_on.png') no-repeat 0px 50%;
 }
 
 /* ------ 아이디/비밀번호 찾기 ------ */
-form.login-form-element ul.find-id-pwd{
+form.login-form-element ul.find-id-pwd {
     /* list-style:none; */
     float: right;
 }
 
-form.login-form-element ul.find-id-pwd li{
-    float:left;
+form.login-form-element ul.find-id-pwd li {
+    float: left;
 }
 
-form.login-form-element ul.find-id-pwd li button{
+form.login-form-element ul.find-id-pwd li button {
     font-size: 15px;
     padding-top: 0px;
 }
 
 /* ---- 로그인 / 회원가입 버튼 ----*/
-form.login-form-element div.login-signup-button button{
+form.login-form-element div.login-signup-button button {
     width: 100%;
     height: 64px;
     font-size: 22px;
@@ -94,20 +97,19 @@ form.login-form-element div.login-signup-button button{
     border-radius: 12px;
 }
 
-form.login-form-element div.login-signup-button button.btn-login{
-    background-color: #5F6CAF;
-    color:#ffffff;
+form.login-form-element div.login-signup-button button.btn-login {
+    background-color: #079c3b;
+    color: #ffffff;
 }
 
-form.login-form-element div.login-signup-button button.btn-signup{
-    border: 1px solid #5F6CAF;
-    color: #5F6CAF;
+form.login-form-element div.login-signup-button button.btn-signup {
+    border: 1px solid #079c3b;
+    color: #079c3b;
 }
-
 
 /* ------ OAuth ------ */
-form.login-form-element div.oauth-sns-login-in{
-    margin-top:40px;
+form.login-form-element div.oauth-sns-login-in {
+    margin-top: 40px;
 }
 
 form.login-form-element div.oauth-sns-login-in ul {
@@ -116,7 +118,7 @@ form.login-form-element div.oauth-sns-login-in ul {
     align-items: flex-end;
 }
 
-form.login-form-element div.oauth-sns-login-in ul li{
+form.login-form-element div.oauth-sns-login-in ul li {
     display: flex;
     align-items: center;
     width: 107%;
@@ -125,23 +127,23 @@ form.login-form-element div.oauth-sns-login-in ul li{
     border-radius: 12px;
 }
 
-form.login-form-element div.oauth-sns-login-in li.btn-kakao-login{
+form.login-form-element div.oauth-sns-login-in li.btn-kakao-login {
     /* background: url("../../images/oauth/ico_login_kakao.png")no-repeat left 13px center #fee500; */
     background: url("../../images/oauth/ico_login_kakao.png")no-repeat left 13px center #fee500;
     background-size: 24px;
 }
 
-form.login-form-element div.oauth-sns-login-in li.btn-naver-login{
+form.login-form-element div.oauth-sns-login-in li.btn-naver-login {
     background: url("../../images/oauth/ico_login_naver.png")no-repeat 13px #06be34;
     background-size: 26px;
 }
 
-form.login-form-element div.oauth-sns-login-in li.btn-google-login{
+form.login-form-element div.oauth-sns-login-in li.btn-google-login {
     background: url("../../images/oauth/ico_login_google.png")no-repeat 17px #3873d3;
     background-size: 20px;
 }
 
-form.login-form-element div.oauth-sns-login-in ul li a{
+form.login-form-element div.oauth-sns-login-in ul li a {
     width: 100%;
     text-align: center;
     font-family: 'Noto Sans KR', sans-serif;
@@ -149,6 +151,6 @@ form.login-form-element div.oauth-sns-login-in ul li a{
     font-weight: 700;
 }
 
-form.login-form-element div.oauth-sns-login-in ul li span.oauth-font-color{
+form.login-form-element div.oauth-sns-login-in ul li span.oauth-font-color {
     color: #ffffff;
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!-- basic.css 는 모든 페이지에 들어갈 공통 부분이다. -->
     <link rel="stylesheet" href="../../css/basic.css">
-    <link rel="stylesheet" href="../../css/seller/productadd.css">
+    <link rel="stylesheet" href="../../css/seller/productupdate.css">
     <!-- 구글폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script src="../../js/basic.js"></script>
-    <script src="../../js/seller/productadd.js"></script>
+    <script src="../../js/seller/productupdate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 </head>
 
@@ -71,33 +71,40 @@
     </header>
     <!-- header end -->
     <section>
-        <div class="mp-seller-add">
-            <h5 class="add-title">상품 등록</h5>
-            <form id="file-upload-form" class="uploader">
+        <div class="mp-seller-update">
+            <h5 class="add-title">상품 수정</h5>
+            <form id="file-upload-form">
+                <h6>상품 상태</h6>
+                <div class="prod-status">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="onSale" value="0">
+                        <label class="form-check-label" for="onSale">판매중</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="outOfStock"
+                            value="1">
+                        <label class="form-check-label" for="outOfStock">일시품절</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="soldOut" value="2">
+                        <label class="form-check-label" for="soldOut">품절/판매중지</label>
+                    </div>
+                </div>
                 <h6>상품 정보</h6>
                 <div class="add-prodinfo">
                     <table>
                         <tbody>
                             <tr>
                                 <th scope="row">상품명</th>
-                                <td style="width:100%;"><input type="text" required class="add-prodname"
-                                        id="addProdname" name="add-prodname" placeholder="상품명을 입력하세요." maxlength="30">
-                                    <span id="textLengthCheck">(0 / 30)</span>
-                                    <div class="prod-name-ex">
-                                        최종 상품명은 상품 배송주 + 상품명으로 표시됩니다. 예) 2주 묘미네 도시락
-                                    </div>
+                                <td style="width:100%;"><input type="text" id="addProdname">
+                                    <input type="number" id="updateProdNum" style="display: none;" readonly>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">상품 카테고리</th>
                                 <td>
                                     <div class="wrap seller-wrap-cate">
-                                        <select name="category" class="seller-wrap" id="categorySelect">
-                                            <!-- <option value="" disabled selected hidden>카테고리</option> -->
-                                            <option value="샐러드">샐러드</option>
-                                            <option value="도시락">도시락</option>
-                                            <option value="밀키트">밀키트</option>
-                                        </select>
+                                        <input type="text" value="" id="prodCate" readonly>
                                     </div>
                                 </td>
                             </tr>
@@ -105,39 +112,26 @@
                                 <th scope="row">상품 배송주</th>
                                 <td>
                                     <div class="wrap seller-wrap-week">
-                                        <select name="category" class="seller-wrap" id="weekSelect">
-                                            <!-- <option value="" disabled selected hidden>배송단위</option> -->
-                                            <option value=1>1주</option>
-                                            <option value=2>2주</option>
-                                            <option value=3>3주</option>
-                                            <option value=4>4주</option>
-                                            <option value=5>5주+</option>
-                                        </select>
+                                        <input type="text" value="" id="prodWeek" readonly>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">할인율</th>
-                                <td><input type="number" id="percentage" placeholder="할인율"
-                                        pattern="/[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;" maxlength="2" oninput="maxLengthCheck(this)">%
-                                </td>
+                                <td><input type="text" id="prodPercentage" readonly></td>
                             </tr>
                             <tr>
                                 <th scope="row">상품가격</th>
-                                <td><input type="text" class="prod-original-price" id="originalPrice"
-                                        placeholder="원가(할인 전 금액)" onkeyup="inputNumberFormat(this)">원
-                                    <div>할인 후 상품가격: <input type="text" id="afterDC" disabled
-                                            onkeyup="inputNumberFormat(this)"></div><small>✓ 상품 상세 페이지에 할인 후 상품가격이
-                                        표시됩니다.</small>
+                                <td><input type="text" id="originalPrice" readonly>
+                                    <div>할인 후 상품가격: <input type="text" id="afterDC" readonly></div>
+                                    <small>✓ 상품 상세 페이지에 할인 후 상품가격이 표시됩니다.</small>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">정산가격</th>
                                 <td>
-                                    <div>계산식</div>
-                                    <div>상품한개당 정산가<input type="text" id="finalPricePerOne" disabled
-                                            onkeyup="inputNumberFormat(this)"></div><small>✓ 상품 한개당 정산가입니다. 수수료는 할인가격의
-                                        9%입니다.</small>
+                                    <div>상품한개당 정산가: <input type="text" id="finalPricePerOne" readonly></div>
+                                    <small>✓ 상품 한개당 정산가입니다.</small>
                                 </td>
                             </tr>
                             <tr>
@@ -149,29 +143,19 @@
                                 <th scope="row">대표이미지</th>
                                 <td style="width:100%;">
                                     <div class="seller-file-uploader">
-                                        <!-- Upload  -->
-                                        <label for="formFileLg" class="form-label">
-                                            <svg xmlns="http://www.w3.org/2000/svg" id="uploaderIcon" width="40"
-                                                height="40" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
-                                                <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                                                <path
-                                                    d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
-                                            </svg>
-                                            <div id="imgPreview"></div>
-                                        </label>
-                                        <input class="form-control form-control-lg" id="formFileLg" name="f" type="file"
-                                            accept=".png, .jpg, .jpeg" onchange="readUrl(event)">
-                                        <!-- <img id="preview" /> -->
-                                        <p>크기: 최소 100 ~ 최대 500 (권장 크기 500x500)</p>
-                                        <p>용량: 5MB 이하, 파일 형식 JPG, PNG</p>
+                                        <img id="preview" style="width:300px; height:300px;" />
+                                        <p>
+                                            <small>크기: 최소 100 ~ 최대 500 (권장 크기 500x500)</small>
+                                            <small>용량: 5MB 이하, 파일 형식 JPG, PNG</small>
+                                        </p>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="d-grid gap-2 d-md-block prod-add-form-btn">
-                        <button class="btn prod-add-btn" id="prodAddBtn" type="submit">상품 등록</button>
-                        <button class="btn prod-cancel-btn" type="button">등록 취소</button>
+                        <button class="btn prod-add-btn" id="prodUpdateBtn" type="submit">수정 완료</button>
+                        <button class="btn prod-cancel-btn" type="button">수정 취소</button>
                     </div>
                 </div>
             </form>

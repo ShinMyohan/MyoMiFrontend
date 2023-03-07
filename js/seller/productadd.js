@@ -1,6 +1,76 @@
+let regex = /[^0-9]/g; //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
 $(()=>{
+  // function addProduct() {
+  $('#prodAddBtn').click(function(){
+    let prodName = $('#addProdname').val()
+    let prodCate = $('#categorySelect option:selected').val();
+    let prodWeek = $('#weekSelect option:selected').val();
+    let prodPercent = $('#percentage').val();
+    let inputPrice = $('#originalPrice').val();
+
+    let originPrice = inputPrice.replace(regex,"");
+    let detail = $('#prodDetail').val();
+    let imgFile = $('input[name="f"]').get(0).files[0];
+    // let prodImages = "";
+    // for(var i=0; i < imgFile.length; i++) {
+    //   if(i == imgFile.length-1) {
+    //     prodImages += imgFile[i]
+    //   }
+    //   prodImages += imgFile[i] + ",";
+    // }
+
+    let data = {
+      "name":prodName,
+      "category":prodCate,
+      "week":prodWeek,
+      "percentage":prodPercent,
+      "originPrice":originPrice,
+      "detail":detail
+    }
+
+    let formData = new FormData();
+
+    formData.append('name', prodName);
+    formData.append('category', prodCate);
+    formData.append('week', prodWeek);
+    formData.append('percentage', prodPercent);
+    formData.append('originPrice', originPrice);
+    formData.append('detail', detail);
+    formData.append('file', imgFile)
+    formData.append('productSaveDto',JSON.stringify(data));
+    console.log(formData)
+    let url = backURL+'product/add'
+
+    let token = Cookies.get('token')
+    $.ajax({
+      url: url,
+      type: 'POST',
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      },
+      contentType: false,
+      processData: false,
+      enctype: 'multipart/form-data',
+      data: formData,
+      success: function () {
+        alert("상품 등록 완료.");
+        window.location.reload;
+      },
+      error: function(xhr){
+        // alert(xhr.status)
+        alert('상품등록실패'+xhr.status)
+        // JSON.parse(xhr.responseText). 예) .msg 어드바이스가 응답할 내용 -> json형태로 응답을받으니
+      }
+    })
+    // alert(formData.get('file'));
+    alert(originPrice);
+  })
+
+// }
+
+
   // ---------- 상품명 글자수 제한 ----------
-  $("#add-prodname").keyup(function(e) {
+  $("#addProdname").keyup(function(e) {
     //console.log("키업!");
     var content = $(this).val();
     $("#textLengthCheck").text("(" + content.length + " / 30)"); //실시간 글자수 카운팅
@@ -56,146 +126,58 @@ $(()=>{
 
   });
 
-  // ---------- 할인률, 원가 입력시 할인가 자동 계산 ---------- 
+  // ---------- 할인률, 원가 입력시 할인가 자동 계산 ----------
+  // ---------- 상품가격 계산 ----------
+  $("#originalPrice").keyup(function(e) {
+    //console.log("키업!");
+    var content = $("#originalPrice").val();
+    let originPrice = content.replace(regex,'');
+    let percentage = $('#percentage').val()
+    let price = Math.round(originPrice - originPrice*(percentage/100))
+    $('#afterDC').val(price.toLocaleString()+"원")
+    let finalPrice = Math.round((price*0.91))
+    $('#finalPricePerOne').val(finalPrice.toLocaleString()+"원")
+  });
 
-
-  // ---------- 파일업로더 ---------- 
-  function ekUpload(){
-    function Init() {
-
-      console.log("Upload Initialised");
-
-      var fileSelect    = document.getElementById('file-upload'),
-          fileDrag      = document.getElementById('file-drag'),
-          submitButton  = document.getElementById('submit-button');
-
-      fileSelect.addEventListener('change', fileSelectHandler, false);
-
-      // XHR2 가능한지
-      var xhr = new XMLHttpRequest();
-      if (xhr.upload) {
-        // 파일 드랍
-        fileDrag.addEventListener('dragover', fileDragHover, false);
-        fileDrag.addEventListener('dragleave', fileDragHover, false);
-        fileDrag.addEventListener('drop', fileSelectHandler, false);
-      }
-    }
-
-    function fileDragHover(e) {
-      var fileDrag = document.getElementById('file-drag');
-
-      e.stopPropagation();
-      e.preventDefault();
-
-      fileDrag.className = (e.type === 'dragover' ? 'hover' : 'modal-body file-upload');
-    }
-
-    function fileSelectHandler(e) {
-      // Fetch FileList object
-      var files = e.target.files || e.dataTransfer.files;
-
-      // Cancel event and hover styling
-      fileDragHover(e);
-
-      // Process all File objects
-      for (var i = 0, f; f = files[i]; i++) {
-        parseFile(f);
-        uploadFile(f);
-      }
-    }
-
-    // output
-    function output(msg) {
-      // 응답
-      var m = document.getElementById('messages');
-      m.innerHTML = msg;
-    }
-
-    function parseFile(file) {
-
-      console.log(file.name);
-      output(
-        '<strong>' + encodeURI(file.name) + '</strong>'
-      );
-      
-      // var fileType = file.type;
-      // console.log(fileType);
-      var imageName = file.name;
-
-      var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
-      if (isGood) {
-        document.getElementById('start').classList.add("hidden");
-        document.getElementById('response').classList.remove("hidden");
-        document.getElementById('notimage').classList.add("hidden");
-        // 올린 파일 썸네일 미리보기!
-        document.getElementById('file-image').classList.remove("hidden");
-        document.getElementById('file-image').src = URL.createObjectURL(file);
-      }
-      else {
-        document.getElementById('file-image').classList.add("hidden");
-        document.getElementById('notimage').classList.remove("hidden");
-        document.getElementById('start').classList.remove("hidden");
-        document.getElementById('response').classList.add("hidden");
-        document.getElementById("file-upload-form").reset();
-      }
-    }
-
-    function setProgressMaxValue(e) {
-      var pBar = document.getElementById('file-progress');
-
-      if (e.lengthComputable) {
-        pBar.max = e.total;
-      }
-    }
-
-    function updateFileProgress(e) {
-      var pBar = document.getElementById('file-progress');
-
-      if (e.lengthComputable) {
-        pBar.value = e.loaded;
-      }
-    }
-
-    function uploadFile(file) {
-
-      var xhr = new XMLHttpRequest(),
-        fileInput = document.getElementById('class-roster-file'),
-        pBar = document.getElementById('file-progress'),
-        fileSizeLimit = 1024; // 리미트 MB
-      if (xhr.upload) {
-        // 파일 사이즈 체크!
-        if (file.size <= fileSizeLimit * 1024 * 1024) {
-          // 진행 바
-          pBar.style.display = 'inline';
-          xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
-          xhr.upload.addEventListener('progress', updateFileProgress, false);
-
-          // 파일 받는거 실패시
-          xhr.onreadystatechange = function(e) {
-            if (xhr.readyState == 4) {
-              // progress.className = (xhr.status == 200 ? "success" : "failure");
-              // document.location.reload(true);
-            }
-          };
-
-          // 업로드 시작
-          xhr.open('POST', document.getElementById('file-upload-form').action, true);
-          xhr.setRequestHeader('X-File-Name', file.name);
-          xhr.setRequestHeader('X-File-Size', file.size);
-          xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-          xhr.send(file);
-        } else {
-          output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
-        }
-      }
-    }
-
-    // 다양한 파일 api 지원 체크체크
-    if (window.File && window.FileList && window.FileReader) {
-      Init();
-    } else {
-      document.getElementById('file-drag').style.display = 'none';
-    }
-  }
-  ekUpload();
+  // ---------- 파일업로더 ----------
 })
+
+function readUrl(event) {
+  let divTag = document.querySelector('#imgPreview');
+  $('#uploaderIcon').attr('display', 'none')
+  for (var image of event.target.files) {
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+      var img = document.createElement("img");
+      img.setAttribute("src", event.target.result);
+      img.setAttribute("width", '200');
+      divTag.appendChild(img);
+    };
+
+    console.log(image);
+    reader.readAsDataURL(image);
+  }
+}
+
+// 할인률 2자릿수만 입력가능하게
+function maxLengthCheck(object){
+  if(object.value.length > object.maxLength){
+    object.value = object.value.slice(0, object.maxLength);
+  }
+}
+
+// 가격입력시 자동으로 , 찍히게
+function inputNumberFormat(obj) {
+  obj.value = comma(uncomma(obj.value));
+}
+
+function comma(str) {
+  str = String(str);
+  return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
+
+function uncomma(str) {
+  str = String(str);
+  return str.replace(/[^\d]+/g, '');
+}
