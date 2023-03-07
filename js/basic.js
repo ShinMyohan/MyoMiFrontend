@@ -1,5 +1,4 @@
-let backURL = 'http://172.30.1.1:8888/myomi/'
-let frontURL = 'http://172.30.1.1:5500/html/'
+
 
 $(()=>{
     // -- 메뉴가 클릭되었을 대 일어날 일 START --

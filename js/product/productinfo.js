@@ -11,10 +11,10 @@ $(()=>{
         data: data,
         success: function(jsonObj){
             let product = jsonObj['body'];
-            console.log(product["qnas"]);
+            // console.log(product);
             $('#prodMainImg').attr('src', product["productImgUrl"])
             $('div.prodNum').html(product['prodNum']);
-            $('div.prodName>h3').html(product['name'])
+            $('div.prodName>h4').html(product['name'])
             $('div.sellerName>h6').html(product['sellerName'])
             $('div.percentage b').html(product['percentage']+"%")
             $('div.originPrice').html(product['originPrice'].toLocaleString()+"원")
@@ -28,19 +28,70 @@ $(()=>{
 
             $('div.to-cart div.prodName h5').html(product['name'])
 
+            // 베스트 리뷰
+            let $originBR = $('div.br-child');
+            let $parentBR = $('div.br-parent');
+            $parentBR.empty()
+
+            // 상품 리뷰
+            let $originR = $('div.pr-review');
+            let $parentR = $('div.pr-reviews');
+            $parentR.empty();
+            let reviewList = product['reviews']
+            let reviewCnt = reviewList.length;
+            let prodNameR = jsonObj['body']['name']
+
+            if(reviewCnt == 0) {
+                $('div.r-non-list').css('display','block')
+                $('div.br-non-list').css('display','block')
+            }
+            console.log(reviewList)
+            $('div.review-cnt').html(reviewCnt+"건")
+            reviewList.forEach(review=>{
+                console.log(review)
+
+                let content = review['content'];
+                let stars = review['stars'];
+                let title = review['title'];
+                let $copyR = $originR.clone()
+                let $copyBR = $originBR.clone()
+                //베스트리뷰라면,
+                if(review['bestReview'] == '') {
+                    $('div.br-non-list').css('display','block')
+                }
+
+                $copyBR.show()
+                $copyBR.find('div.b-id').html(review['userId'])
+                $copyBR.find('div.b-date').html('2022-03-06')
+                $copyBR.find('div.b-title').html(title)
+                $copyBR.find('p.b-pr-review-content-body').html(content)
+                // $copyBR.find('#brImg').attr('src', )
+                $parentBR.append($copyBR)
+
+
+                $copyR.show()
+                $copyR.find('p.spr-review-content-body').html(content)
+                $copyR.find('div.star-num').html(stars)
+                $copyR.find('strong.title').html(title)
+                $copyR.find('#prodNameR').html(prodNameR)
+
+                $parentR.append($copyR);
+            })
+
+
             // 상품 문의
             let $origin = $('div.qna-list');
             let $parent = $('div.qna-parent-list');
             $parent.empty()
             let qnaList = product["qnas"]
-            console.log(qnaList)
+            // console.log(qnaList)
             //배열의 길이 만큼 qna도 존재하므로 qnaList.length = qna의 가장 최신글 표시 넘버
             let qnum = qnaList.length
             if(qnaList.length == 0) {
                 $('div.qna-non-list').css('display','block')
             }
             qnaList.forEach(qna=>{
-                console.log(qna)
+                // console.log(qna)
                 let queTitle = qna['queTitle']
                 let queContent = qna['queContent']
                 let queCreatedDate = qna['queCreatedDate']

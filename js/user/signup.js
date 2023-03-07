@@ -71,6 +71,8 @@ $(()=>{
         }
     })
 
+
+
 })
 
 
@@ -95,7 +97,7 @@ function getTel(){
         $('#signupId').attr('placeholder','아이디를 입력해주세요.');
     }
 
-    if(pwd == '') {
+    if(pwd == '' || !isPassword(pwd)) {
         $('#signupPwd').addClass('is-invalid');
         $('#signupPwd').focus();
         $('#signupPwd').attr('placeholder','비밀번호를 입력해주세요.');
@@ -105,6 +107,12 @@ function getTel(){
         $('#checkPwd').addClass('is-invalid');
         $('#checkPwd').focus();
         $('#checkPwd').attr('placeholder','비밀번호 체크를 위해 입력해주세요.');
+    }
+
+    if(pwd != checkpwd) {
+        $('#checkPwd').addClass('is-invalid');
+        alert('비밀번호를 다시 확인해주세요')
+        $('#checkPwd').focus();
     }
 
     if(name == '') {
@@ -118,16 +126,16 @@ function getTel(){
     }
 }
 
-//이메일 규칙
-// function isEmail(asValue) {
-//     const regExp = /^(?=.*[a-zA-Z0-9]*@[a-zA-Z0-9]*.[a-zA-Z0-9])[0-9a-zA-Z@.]{10,30}$/;
-//     return regExp.test(asValue);
-// }
+// 이메일 규칙
+function isEmail(asValue) {
+    const regExp = /^(?=.*[a-zA-Z0-9]*@[a-zA-Z0-9]*.[a-zA-Z0-9])[0-9a-zA-Z@.]{10,30}$/;
+    return regExp.test(asValue);
+}
 
-// // 비밀번호 규칙
-// // a~z 특수문자, 8~20자
-// function isPassword(asValue) {
-//     const regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*]{8,20}$/;
-//     return regExp.test(asValue);
-// }
+// 비밀번호 규칙
+// a~z 특수문자, 8~20자
+function isPassword(asValue) {
+    const regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*]{8,16}$/;
+    return regExp.test(asValue);
+}
 

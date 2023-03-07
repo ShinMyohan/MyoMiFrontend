@@ -7,6 +7,7 @@
         <!-- <link rel="stylesheet" href="../../css/index.css"> -->
         <link rel="stylesheet" href="../../css/product/productinfo.css">
         <link rel="stylesheet" href="../../css/qna/qnalist.css">
+        <link rel="stylesheet" href="../../css/review/reviewlist.css">
         <!-- 구글폰트 -->
         <!-- 구글폰트 -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +67,7 @@
                     <div class="prodbox">
                         <div class="prodNum">상품번호</div>
                         <div class="prod-name-seller">
-                            <div class="prodName"><h3>상품이름</h3></div>
+                            <div class="prodName"><h4>상품이름</h4></div>
                             <form>
                                 <div class="sellerName">
                                     <h6>판매자 상호명</h6><input type="text" id="sellerId" style="display:none">
@@ -152,6 +153,115 @@
                 <img src="../../images/product/salad_detail04.jpeg">
             </div>
 
+            <!-- 상품리뷰 -->
+            <a name="review"></a>
+            <div id="b-product-review">
+                <div class="b-pr-container">
+                    <div class="b-pr-header">
+                        <div class="b-pr-basic">
+                            베스트 후기
+                        </div>
+                        <hr color="black">
+                        <div class="br-non-list" style="display: none;">매달 베스트 리뷰가 선정됩니다.</div>
+                        <div class="best-review-parent">
+                            <div class="row row-cols-2 br-parent">
+                                <div class="col br-child">
+                                    <div class="b-pr-review">
+                                        <div class="b-pr-review-header">
+                                            <div class="num" style="display: none;">번호</div>
+                                            <div class="b-prod-review" style="justify-content: space-between">
+                                                <div class="b-user-content" style="display:flex">
+                                                    <div class="b-id" style="float:left">임**</div>
+                                                    <div style="margin:0 10px">|</div>
+                                                    <div class="b-date" style="float:left">
+                                                        2023-02-01
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="b-title">진짜 최고였어요</div>
+                                            <div class="br-prod-img">
+                                                <div class="br-content">
+                                                    <p class="b-pr-review-content-body">지금 거의 8주째 시켜먹고 있는데 일주일 뒤에 먹어도 상하지 않고 항상 너무너무
+                                                    편하고 맛있게 먹고있어요. 이제 포켓샐러드 없으면 안돼요</p>
+                                                </div>
+                                                <div class="br-img"><img src="../../images/product/IMG_4728.JPG" alt="상품사진" id="brImg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-info-point">
+                        <div style="float:left">
+                            <div class="explain">
+                                텍스트 후기 <strong>200원</strong>, 포토후기 <strong>500원</strong> 적립금 적립
+                            </div>
+                            <div class="explain">
+                                매월 베스트 후기 선정 시 <strong>3,000원</strong> 적립금 지급
+                            </div>
+                        </div>
+                        <div class="bt-wrap" style="float:right">
+                            <button type="button" class="review-write-btn">리뷰작성</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="pr-review">
+                    <div class="pr-container">
+                        <div class="pr-header">
+                            <div class="pr-intro">
+                                <div class="review-count">
+                                    후기
+                                </div>
+                                <div class="review-count review-cnt" style="margin-left:5px">0건</div>
+                                <div class="slash">/</div>
+                                <div class="total-starrating">
+                                    3.5점
+                                </div>
+                            </div>
+                            <div class="order-review">
+                                <div class="latest-order-review">최신순</div>
+                                <div style="margin:0 10px;">|</div>
+                                <div class="star-order-review">별점순</div>
+                            </div>
+                        </div>
+                        <hr color="black">
+                        <div class="r-non-list" style="display: none;">등록된 리뷰가 없습니다.</div>
+                        <div class="pr-reviews">
+                            <div class="pr-review">
+                                <div class="pr-review-header">
+                                    <div class="num" style="display: none;">번호</div>
+                                    <div class="prod-review">
+                                        <div style="display:flex">
+                                            <div class="b-id"  style="float:left">임**</div>
+                                            <div style="margin:0 10px">|</div>
+                                            <div class="b-date" style="float:left">
+                                                2023-02-01
+                                            </div>
+                                        </div>
+                                        <div class="prod-name" id="prodNameR">훈제오리샐러드</div>
+                                        <div class="star-rating">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffe000cf" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                            </svg>
+                                            <small class="prod-stars"></small>
+                                        </div>
+                                        <div class="star-num">ddd</div>
+                                    </div>
+                                    <div class="review-img"><img src="../../images/product/IMG_4728.JPG" alt="상품사진"></div>
+                                    <strong class="title">진짜 최고였어요</strong>
+                                    <div class="review-content">
+                                        <p class="spr-review-content-body">지금 거의 8주째 시켜먹고 있는데 일주일 뒤에 먹어도 상하지 않고 항상 너무너무 편하고 맛있게 먹고있어요. 이제 묘미 없으면 안돼요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 문의 -->
+            <a name="qna"></a>
             <div class="qna">
                 <div class="qna-text">상품 Q&A</div>
                 <div class="qna-non-list" style="display: none;">등록된 상품문의가 없습니다.</div>
@@ -197,9 +307,6 @@
 
             <!--상품문의 모달창-->
             <form>
-                <a name="review"></a>
-
-                <a name="qna"></a>
                 <div class="qna-write">
                     <div class ="qna-group">
                         <div class="modal-head">
@@ -207,7 +314,7 @@
                         <div class="close-btn" id="close-btn">X</div>
                         </div>
                         <div class="modal-prod-info">
-                            <div class="prod-img"><img src="../../imgs/prod01.png"></div>
+                            <div class="prod-img"><img src="../../images/product/prod01.png"></div>
                             <div class="prod-info-text">
                             <div class="seller-name"></div>
                             <div class="prod-name"></div>

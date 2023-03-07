@@ -1,6 +1,6 @@
 $(()=>{
     let queryStr = location.search.substring(1)
-    // console.log(queryStr);
+    console.log(queryStr);
     let arr = queryStr.split('=')
     // console.log(arr)
     if(arr[0] == 'menu'){
@@ -11,21 +11,21 @@ $(()=>{
         }
     }
 
-    $.ajax({
-        url: url,
-        method: 'get',
-        contentType: 'application/json; charset=utf-8',
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function(jsonObj){
-            let list = jsonObj['body'];
-            // console.log(jsonObj['body']);
-            data = [...jsonObj['body']]; //spread sheets , ...은 [] 벗겨줌
-            dataList(list);
-        },
-        error: function(xhr){
-            alert(xhr.status)
-        }
-    })
+    // $.ajax({
+    //     url: url,
+    //     method: 'get',
+    //     contentType: 'application/json; charset=utf-8',
+    //     xhrFields: {
+    //         withCredentials: true
+    //     },
+    //     success: function(jsonObj){
+    //         let list = jsonObj['body'];
+    //         // console.log(jsonObj['body']);
+    //         data = [...jsonObj['body']]; //spread sheets , ...은 [] 벗겨줌
+    //         dataList(list);
+    //     },
+    //     error: function(xhr){
+    //         alert(xhr.status)
+    //     }
+    // })
 })

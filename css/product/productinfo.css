@@ -8,7 +8,7 @@ body{
 }
 
 div.productinfo{
-    width: 1220px;
+    width: 1100px;
     height: 650px;
     margin: 200px auto 0 auto;
     /* display: inline-block;
@@ -21,12 +21,12 @@ div.prodmainimg{
 }
 
 div.prodmainimg > img{
-    width: 570px;
-    height: 570px;
+    width: 420px;
+    height: 420px;
 }
 
 div.product-content{
-    width: 570px;
+    width: 460px;
     float: left;
     height: 650px;
     margin-left: 80px;
@@ -53,12 +53,12 @@ div.prodprice-cont{
     /* margin-left: 40px; */
     width: 100%;
     float: left;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 div.prodName{
     float: left;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
 }
 
@@ -76,7 +76,7 @@ div.prodprice-cont> div.percentage{
     margin-right:10px;
     color: #f5634b;
     font-family: 'Roboto', sans-serif;
-    font-size: 34px;
+    font-size: 30px;
     min-width: 98px;
     font-weight: 700;
 }
@@ -85,7 +85,7 @@ div.prodprice-cont>div.prodPrice{
     float: left;
     margin-right: 10px;
     font-family: 'Roboto', sans-serif;
-    font-size: 34px;
+    font-size: 30px;
     min-width: 98px;
     font-weight: 700;
 }
@@ -95,6 +95,8 @@ div.prodprice-cont>div.originPrice{
     color: #afafaf;
     text-decoration: line-through;
 }
+
+
 
 div.productinfo> div.product-content > div.prodbox > div.prodNum{
     display: none;
@@ -113,7 +115,7 @@ div.cnt-box{
 div.to-cart{
     width: 100%;
     height: 60px;
-    margin: 30px 0px 20px 0px;
+    margin: 46px 0px 20px 0px;
     padding: 0px 20px;
     background-color: #f8f8f8;
     border-bottom: 1px solid #afafaf;
@@ -164,19 +166,19 @@ div.total-price-cont{
 
 div.total-price{
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 500;
 }
 
 div.total-sum{
     color: #f5634b;
     font-family: 'Roboto', sans-serif;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
 }
 
 div.nav-menu-bar{
-    width: 1220px;
+    width: 1100px;
     margin: 0 auto 30px auto;
     /* margin-bottom: 100px; */
     font-family: 'Noto Sans KR', sans-serif;
@@ -248,5 +250,13 @@ div.qna-non-list{
     padding:30px 0;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    border-bottom: 0.5px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
 }
+
+.r-non-list, .br-non-list{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 20px 0 30px 0;
+}
+
