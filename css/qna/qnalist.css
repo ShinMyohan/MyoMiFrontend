@@ -8,8 +8,6 @@ div.qna{
     width: 1000px;
     margin: 0 auto 30px auto;
     font:'Noto Sans KR', sans-serif;
-    /* border-bottom: 0.8px solid #d9d9d9; */
-
 }
 
 div.qna-text{
@@ -206,63 +204,15 @@ div.qna-row{
     height: 230px;
     border:#d9d9d9 0.3px solid;
     outline:none;
+    resize: none;
 }
-
- .modal-file .upload-name,.upload-name-2 {
-    display: inline-block;
-    height: 30px;
-    padding: 0 10px;
-    vertical-align: middle;
-    border: 1px solid #dddddd;
-    width: 100%;
-    color: #999999;
-    border-radius: 4px;
-    border:#d9d9d9 0.3px solid;
-    outline:none;
-}
-
-.modal-file label {
-    display: inline-block;
-    padding: 5px 5x;
-    padding:5px;
-    color: rgb(0, 175, 133);
-    border: rgb(0, 175, 133) 0.7px solid;
-    vertical-align: middle;
-    background-color: white;
-    cursor: pointer;
-    height: 30px;
-    margin-left: 5px;
-    width:60px;
-    font-size: 13px;
-}
-
-.modal-file input[type="file"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-} 
 
 .modal-file-row, .modal-file-row-2{
     display:flex;
 }
 
-.upload-file-add,.upload-file-del{
-    background-color:white;
-    color:black;
-    border:#d9d9d9 0.3px solid;
-    margin-left:3px;
-    font-size:13px;
-    display: inline-block;
-    padding: 5px 13px;
-    width:60px;
-}
-
 .modal-file-row-2{
     margin-top: 3px;
-    /* display:none; */
 }
 
 .modal-buttons{
@@ -315,9 +265,10 @@ div.qna-row{
     border-radius: 5px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
     transform: translateX(-50%) translateY(-50%);
-    height: 90vh; overflow-y: auto; 
+    height: 75vh; overflow-y: auto; 
 
   }
 
-
-  
+#formfile{
+    font-size: 13px;
+}
