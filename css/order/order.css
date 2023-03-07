@@ -3,203 +3,225 @@
 }
 
 /* 주문 상품 목록 보여주기 START */
-div.container {
+.order-page div.container {
     width: 80%;
     margin-top: 3%;
 }
 
-#mainContainer {
+.order-page #mainContainer {
     margin-top: 10%;
 }
 
-#hr1 {
+.order-page #hr1 {
     border: 0;
-    border-top: 1px dashed #666666;
-    border-bottom: 1px dashed #fff;
+    border-top: 6px solid #079c3b;
 }
 
-#hr2 {
-    width: 80%;
+.order-page #hr2 {
+    width: 78%;
     padding: 0;
     border: none;
-    border-top: medium double #2e2e2e;
+    border-top: 2px solid #2e2e2e;
     color: #303030;
     text-align: center;
-    margin-left: 10%;
+    margin-left: 11%;
 }
 
-#productContainer {
+.order-page #productContainer {
     margin-top: 2%;
     /* display: block; */
 }
 
-#discountPrice, #totalPrice {
-    background-color: #fff;
-    color: #00af85;
-    border: 1px solid #00af85;
-}
-
-#payPrice {
-    background-color: rgba(0, 175, 133, 0.9);
-    color: #fff;
-    border: 1px solid #00af85;
-}
-
-#orderProduct {
+.order-page #orderProduct {
     display: flex;
     align-items: center;
 }
 
-#img {
+.order-page #orderProduct h5{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.order-page #img {
     padding-top : -10%;
+    margin-left: 15px;
     width: 100px;
     height: 100px;
 }
 
-#productDetail {
+.order-page #productDetail {
     margin-left: 5%;
-}
-
-#options {
-    /* 아이템들 가운데 정렬 */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.btn-light {
-    border-radius: 100%;
-    border: #2e2e2e;
-    height: 30px;
-    width: 30px;
-    margin-top: 3%;
-    margin-left: 7%;
-    margin-right: 7%;
-}
-
-#amountContainer {
+.order-page #amountContainer {
     width:50%;
-    margin-bottom: 3%;
+    margin-top: 0%;
+    margin-bottom: 2%;
     display: flex;
-
+    align-items: center;
 }
 
-#productAmount {
+.order-page #productAmount {
     padding: 0;
     /* 글자 가운데 정렬 */
     text-align: center;
+    font-size: 17px;
 }
 
-div.btn-success {
-    padding: 10% 10%;
-    height: 10px;
+.order-page #productAmount .btn-success{
+font-size: 18px;
+background-color: #f6c762;
+color:#ffffff;
+border-radius: 0;
+border:none;
+border-radius: 10px;
+margin-top: 3px;
 }
 
-/* 주문 상품 목록 보여주기 END */
+.order-page .amountInput {
+    padding: 15% 7%;
+    height: 20px;
+    width: 90%;
+}
 
-/* 주문 작성탭 보여주기 START */
-#oneInputSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.order-page .order-li {
+    display: grid;
+    grid-template-columns: 110px 300px 200px;
     align-items: center;
+    width: 40%;
+    margin: 1%;
 }
 
-#inputBox {
-    display: flex;
-    flex-direction: column;
-}
-
-#title {
-    width: 130%;
+.order-page .order-title {
     font-weight: bold;
-    margin: 18% 0 9% 0;
+    float:left;
+    margin: 1% 0;
+}
+.order-page .order-content {
+    font-weight: 450;
+    letter-spacing: 0.5px;
+    width: 300px;
 }
 
-.inputForm {
-    width: 100%;
-    margin-top: 5%;
-    margin-left: 10%;
-    background-color: #e4e4e4;
+.order-page .form-control {
+    background-color: #f8f7f7a7;
 }
 
-#postNum {
-    margin-top: -60px;
-    margin-left: 30%;
-    width: 100%;
+.order-page #searchPostNum {
+    /* margin-top: -89px; */
+    margin-left: 10px;
+    width: 130px;
+    height: 36px;
     border: #fff;
+    background-color: #079c3b;
 }
 
-#receiveDate {
-    width: 150px;
+.order-page #roadAddress, #extraAddress{
+    margin-top: 4%;
+}
+
+.order-page #selectRecieveDate {
+    width: 160px;
     height: 35px;
-    padding: 5px 30px 5px 10px;
-    margin: -30px 0 0 20px;
+    padding: 5px 5px 5px 10px;
+    /* margin: 10px 0 0 0px; */
     border-radius: 4px;
     outline: 0 none;
 }
 
-#dayInfo {
-    margin: -45px 0 0 -20px;
+.order-page #dayInfo {
+    margin-left: -120px;
 }
 
-div.dropdown {
+.order-page div.dropdown {
     margin: 4% 0 0 10%;
     border: #fff;
 }
 
-#payment {
+.order-page #payment {
     padding: 220px;
 }
 
-#coupon {
-    margin: 5% 0 0 10%;
-    width: 45%;
+.order-page .coupon-button {
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.order-page #coupon {
+    width: 95px;
     border: #fff;
-    background-color: rgba(0, 175, 133, 0.9);
+    background-color: #079c3b;
+    color: #fff;
+    margin-left: 20px;
+}
+
+.order-page .coupon-display {
+    margin: 22px 0 0 10px;
+}
+
+
+.order-page #usedPoint, #totalProdPrice, #totalPayPrice, #savePoint {
+    width: 110px;
+    margin-left: 20px;
+}
+
+.order-page #point1 {
+    margin-left: 7px;
+    width: 55px;
+    border: #fff;
+    background-color: #ff6d02;
     color: #fff;
 }
 
-#getcouponAmount {
-    margin: -85px 0 0 -70px;
-}
-
-#point1 {
-    margin: 10px 0 0 30%;
-    width: 100%;
+.order-page #point2 {
+    margin-left: 3px;
+    width: 135px;
     border: #fff;
-    background-color: #f5634b;
-}
-
-#point2 {
-    margin: 10px 0% 0 20%;
-    width: 100%;
-    border: #fff;
-    background-color: rgba(0, 175, 133, 0.9);
+    background-color: #079c3b;
     color: #fff;
 }
 
-#radio {
-    margin: 10px 0 0 0;
+.order-page .payMethod {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-div.alert-primary {
+.order-page #radio {
+    margin: 5px 0 0 -5px;
+}
+
+.order-page div.alert-primary {
+    background-color: #f0f0f0b6;
     margin-top: 40px;
     text-align: center;
     width: 70%;
+    border: #fff;
 }
 
-div.payment {
+.order-page div.payment {
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#paymentBtn {
-    background-color: #00a37d;
+.order-page #paymentBtn {
+    background-color: #079c3b;
+    font-size: large;
     border: #fff;
     color: #fff;
+}
+
+.order-page #paymentBtn:hover {
+    background-color: #015eff;
 }
 /* 주문 작성탭 보여주기 END */
 
@@ -213,18 +235,19 @@ div.payment {
 
 div.modalTitle {
     display: flex;
-    margin-left: 13%;
+    margin-left: 9%;
+    justify-content: center;
 }
 
 #couponList {
     display: flex;
-    margin: 0 45px 0 14%;
+    justify-content: center;
+    /* margin: 0 45px 0 14%; */
 }
-
 #couponName {
-    margin-left: -2%;
+    margin-left: -3%;
 }
 
 #couponPercentage {
-    margin-left: 11%;
+    /* margin-left: 11%; */
 }

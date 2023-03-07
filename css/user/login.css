@@ -5,6 +5,7 @@ div.user-login-page {
     border: 1px solid #e2e2e2;
     border-radius: 10px;
     /* border-top: 3px solid#079c3be7 */
+    border-top: 3px solid #5F6CAF;
 }
 
 div.user-login-page div.login-content {
@@ -105,7 +106,6 @@ form.login-form-element div.login-signup-button button.btn-signup {
     border: 1px solid #079c3b;
     color: #079c3b;
 }
-
 
 /* ------ OAuth ------ */
 form.login-form-element div.oauth-sns-login-in {

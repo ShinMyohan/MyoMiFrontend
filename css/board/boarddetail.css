@@ -1,43 +1,30 @@
-*{
+/* *{
     margin: 0px;
     padding: 0px;
-  }
+  } */
 
-  .board-wrap {
-      width: 1000px;
-      box-sizing: border-box;
-      margin: 100px auto;
-  } 
+.board-wrap {
+    width: 70%;
+    height: auto;
+    box-sizing: border-box;
+    margin: 100px auto;
+}
 
 .board-view .info dl {
     width: 50%;
     padding: 0;
 }
 
-.board-view .info dl:nth-child(-n+2) {
-    margin-bottom: 5px;
-}
-
-.board-view .info dl::before {
-    display: none;
-}
-
-.board-view .info dl dt,
-.board-view .info dl dd {
-    font-size: 1.2rem;
-}
-
 .board-view {
     width: 100%;
     border-top: 2px solid #000;
-  
 }
 
 .board-view .title {
     padding: 20px 15px;
     border-bottom: 1px dashed #ddd;
     font-size: 2rem;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
 .board-view .info {
@@ -57,7 +44,6 @@
 }
 
 .board-view .info dl::before {
-    content: "";
     position: absolute;
     top: 1px;
     left: 0;
@@ -82,187 +68,199 @@
     color: #777;
 }
 
-.board-view .cont {
+.cont {
+    height: auto;
     padding: 15px;
     border-bottom: 1px solid #000;
     line-height: 160%;
     font-size: 1.4rem;
-}
-.writer{
-   font-size: 20px;
-   padding-left: 15px;
+    margin-top: 30px;
+    border-top: 1px solid #999;
 }
 
-.hits{
-    float:right;
-    font-size: 20px;
-    padding-left:15px;
-}
-.createdDate{
-    display:inline-block;
+.writer {
     font-size: 20px;
     padding-left: 15px;
 }
-.cont{
-    margin-top:30px;
-    border-top: 1px solid #999;
-    height: 300px;
+
+.hits {
+    float: right;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.createdDate {
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 15px;
 }
 
 .bt-wrap-add {
-    margin-top : 10px;
+    margin-top: 10px;
     float: right;
 }
 
-.back{
+.back {
     margin: 0 auto;
     float: right;
     padding-top: 10px;
     padding-right: 5px;
- } 
- .edit{
+}
+
+.edit {
     margin: 0 auto;
-    margin-right:5px;
+    margin-right: 5px;
     float: right;
     padding-top: 10px;
- }
- .del{
+}
+
+.del {
     margin: 0 auto;
-    margin-right:5px;
+    margin-right: 5px;
     float: right;
     padding-top: 10px;
 }
 
 .board-rep {
-    margin-top : 80px;
-    margin-bottom : 10px;
-    clear : both;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    clear: both;
 }
 
 .board-rep-count {
-    margin-top : 10px;
-    margin-bottom : 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .rep-add {
     float: right;
-    margin-top : 10px;
-    margin-bottom : 10px;
-
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .board-rep-list {
-    margin-top : 25px;
-    
+    margin-top: 25px;
+
 }
 
 .rep-line {
     border-top: 1px solid #999;
-    margin-top :40px;
+    margin-top: 40px;
 }
 
-.rwriter {
-    margin : 0 auto;
-    float : left;
-    margin-right : 10px;
+
+.rep-list {
+    border: 3px solid green;
 }
 
-.rdate {
-    margin : 0 auto;
-    float : left;
-    width : 88%
+.parent-div {
+    /* border :3px solid aqua; */
+    float: left;
+    width: 85%;
+    height: 100px;
+    margin-left: 10px;
+    border-bottom: 1px solid lightgrey;
 }
 
-.rcontent {
-    margin-top : 10px;
-    float : left;
-    height : 40px;
-    width : 84%;
-    padding : 7px;
+.prwriter {
+    width: 100px;
+    display: inline-block;
 }
 
-/* .rep-list {
-    border-bottom : 1px solid black;
-} */
+.prdate {
+    margin-top: 5px;
+    width: 100px;
+    display: inline-block;
+}
+
+.pcontent {
+    height: 60px;
+    margin-top: 5px;
+}
 
 #rep-edit {
     float: right;
-    clear : both;
+    clear: both;
 }
 
 .rep-menu {
-    margin-top : 15px;
-    margin-bottom : 60px;
-    float : right;
-    
+    margin-top: 15px;
+    margin-bottom: 60px;
+    float: right;
 }
 
 .rep-list button {
-    margin-left : 10px;
-    margin-top : 33px;
+    margin-left: 10px;
+    margin-top: 33px;
 }
 
 .rep-edit-btn {
     text-align: center;
     margin-bottom: 2px;
-    
 }
 
 .rep-del-btn {
     text-align: center;
     margin-bottom: 2px;
 }
+
 .rep-second-btn {
     text-align: center;
 }
 
-#rep-content {
-    width : 100%;
-    height : 70px;
-    border : 0;
-    /* border-bottom : 1px solid lightgrey; */
-    /* border : 2px solid black; */
-    float :right;
-   
+#prep-content {
+    width: 100%;
+    height: 70px;
+    border: 0;
+    float: right;
+}
+
+#re-rep-content {
+    width: 100%;
+    height: 70px;
+    border: 0;
+    float: right;
+}
+
+.re-rep-writer {
+    margin-top: 10px;
 }
 
 .re-rep {
-    clear:both;
-    /* border : 1px solid black; */
-    width : 80%;
-    margin-left : 50px;
-    height : 70px;
+    /* clear:both; */
+    border: 3px solid orange;
+    width: 80%;
+    margin-left: 50px;
+    height: 70px;
 }
 
 .hidden-rep-btn {
-    float : right;
-    margin-top : 15px;
+    float: right;
+    margin-top: 60px;
 }
 
 .re-rep-write {
-    /* border : 1px solid black; */
-    margin-top : 10px;
-    width :100%;
-    height : 90px;
+    margin-top: 10px;
+    width: 100%;
+    height: 90px;
     display: inline-table;
 }
-#re-rep-content{
-    margin-left : 50px;
-    
+
+#re-rep-content {
+    margin-left: 50px;
 }
+
 .re-rep-btns {
-    width : 15%;
-    display : inline-flex;
+    width: 15%;
+    display: inline-flex;
     float: right;
-    margin-top : 30px;
+    margin-top: 30px;
 
 }
 
 #re-rep-add-btn {
-    margin-right : 7px;
-    margin-left : 25px;
+    margin-right: 7px;
+    margin-left: 25px;
 }
-
-
 
 /*-----------------------------------------*/
