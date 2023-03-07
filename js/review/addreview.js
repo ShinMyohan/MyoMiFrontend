@@ -1,59 +1,60 @@
 $(() => {
-  $("'div.submit>#submit'").click(function () {
+  $('div.submit>#submit').click(function () {
+    
+  //내 주문목록 페이지랑 합치고 나서 product,regex,order,orderNum 쓸 예정  
+  //let product = location.search.substring(1);
+   // let regex = /[^0-9]/g;
+    //let order = location.search.substring(2);
+   // let orderNum = order.replace(regex, "");
     let title = $("#title").val();
-    let order_num = $("#order-num").val();
-    let id = $("#id").val();
-    let sort = $("#sort option:checked").val();
     let star = $('input[name="review-star"]:checked').val();
     let content = $("div.cont>#content").val();
-
+    let imgfile = $('input[name="f2"]').get(0).files[0];
+    
     if (title == "") {
       alert("제목이 입력되지 않았습니다");
       return;
     }
-    if (id == "") {
-      alert("아이디가 입력되지 않았습니다");
+    if (content == "") {
+      alert("내용이 입력되지 않았습니다");
       return;
     }
-
-    if (order_num == "") {
-      alert("주문번호가 입력되지 않았습니다");
-      return;
-    }
-
     if (star == "") {
       alert("평점이 선택되지 않았습니다");
       return;
     }
-
-    if (content == "") {
-      alert("제목이 입력되지 않았습니다");
-      return;
-    }
-
-    let data = {
-      "num": order_num,
-      "id": id,
-      "sort": sort,
-      "stars": star,
-      "title": title,
-      "content": content,
-    }
-    console.log(data);
+    let formData = new FormData();
+    
+    formData.append('content', content)
+    formData.append('orderNum',7)
+    formData.append('prodNum',1)
+    formData.append('stars',star)
+    formData.append('title',title)
+    formData.append('file', imgfile)
+    //console.log(formData);
     $.ajax({
       type: "POST",
-      url: url,
-      data: JSON.stringify(data),
+      url: backURL + "mypage/review/add",
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      },
+      contentType: false,
+      processData: false,
+      enctype: 'multipart/form-data',
+      data: formData,
       success: function () {
-        console.log(data);
         alert("리뷰작성이 완료되었습니다!");
-        window.location.href = "";
+        window.location.href = './reviewmypage.html';
       },
       error: function (response) {
         alert("리뷰작성 실패!");
       },
     });
   });
+  //--취소 클릭시 START --
+  $('div.cancel>#review-write-cancel').click(() => {
+    window.location.href = './reviewmypage.html';
+  });
+//--취소 클릭시 END --
+  
 });
-
-let url = backURL + "/review/addreview";

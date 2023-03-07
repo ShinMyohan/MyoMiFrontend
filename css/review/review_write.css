@@ -1,20 +1,7 @@
-
-html {
-    font-size: 10px;
-}
-
-ul, li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .review-wrap {
     width: 1000px;
     margin: 100px auto;
+   
 }
 
 .review-title {
@@ -30,66 +17,60 @@ a {
     font-size: 1.4rem;
 }
 
-.bt-wrap {
+ .bt-wrap {
     margin-top: 30px;
-    text-align: center;
     font-size: 0;
     display:flex;
-    position: relative;
-    left:380px;
+    justify-content:center;
+    
 }
 .submit{
-margin-left: 20px;
+    float:left;
 }
-.review-write-cancel{
-text-align: center;
-border-radius: 5px;
-font-size: 15px;
-    background: black;
-color: #fff;
-cursor:pointer;
-width: 120px;
+.cancel{
+    float:right;
+}
+.review-write-submit {
+    margin-left: 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    background: #ff6d02;
+    color: black;
+    cursor: pointer;
+    width: 120px;
     height: 48px;
 }
-.review-write-submit{
-text-align: center;
-border-radius: 5px;
-font-size: 15px;
-    background: black;
-color: #fff;
-cursor:pointer;
-width: 120px;
+
+ .review-write-cancel{
+    margin-left: 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    background: #ff6d02;
+    color: black;
+    cursor:pointer;
+    width: 120px;
     height: 48px;
 }
+
 .review-write {
     border-top: 2px solid #000;
 }
 
-.review-write .title,
-.review-write .info {
+.review-write .title
+{
     padding: 15px;
-}
-
-.review-write .info {
-    border-top: 1px dashed #ddd;
-    border-bottom: 1px solid #000;
-    font-size: 0;
+    border-bottom: 1px dashed #ddd;
 }
 
 .review-write .title dl {
     font-size: 0;
 }
 
-.review-write .info dl {
-    display: inline-block;
-    width: 50%;
-    vertical-align: middle;
-}
-
 .review-write .title dt,
-.review-write .title dd,
-.review-write .info dt,
-.review-write .info dd {
+.review-write .title dd
+{
     display: inline-block;
     vertical-align: middle;
     font-size: 1.4rem;
@@ -105,7 +86,7 @@ width: 120px;
 }
 .review-write .info dd {
     position: relative;
-    right:70px;
+    right:45px;
 }
 
 .review-write .title input[type="text"],
@@ -117,7 +98,8 @@ width: 120px;
 .review-write .title input[type="text"] {
     width: 80%;
 position:relative;
-    bottom: 17px;
+    bottom: 27px;
+    left: 7px;
 }
 
 .review-write .cont {
@@ -135,19 +117,19 @@ position:relative;
 }
 
 .upload-review-img{
-display:flex;
+    display:flex;
 }
 
 .show-review-img img{
-height:100px;
-width:100px;
-border: 2px solid black;
-position:relative;
-top: 4px;
-right:5px;
+    height:100px;
+    width:100px;
+    border: 2px solid black;
+    position:relative;
+    top: 4px;
+    right:5px;
 }
 
 .review-img-upload{
-margin-top:13px;
+    margin-top:13px;
 
 }

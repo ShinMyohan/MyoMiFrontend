@@ -1,0 +1,62 @@
+div.notice-section{
+    width:1000px; 
+    box-sizing: border-box;
+    margin:100px auto;
+    border: 0;
+    border-spacing: 0;
+}
+div.notice-section div.notice-table{
+    text-align : center;
+}
+
+div.notice-section div.notice-table table{
+    width: 100%;
+    border-collapse: collapse;
+}
+div.notice-section div.notice-table table thead  {
+    background-color: lightgray; 
+    height: 3em;
+    border-top: 1px solid #777777;
+    border-bottom:  1px solid #777777;
+}
+div.notice-add{
+
+ padding-bottom: 60px;
+
+}
+div.notice-section div.notice-table table tbody tr  {
+  border-bottom:  1px solid #777777;
+}
+
+div.notice-section div.notice-table table tbody tr td {
+  padding: 15px 0;
+}
+
+div .notice-head{
+    font-size:30px;
+}
+
+div .notice-search{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.bt-write {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.notice-write-btn{
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    background: white;
+    color: gray;
+    cursor:pointer;
+    width: 120px;
+    height: 48px;
+}

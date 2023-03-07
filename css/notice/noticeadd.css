@@ -1,0 +1,43 @@
+.notice-write-wrap{
+    width : 1000px;
+    margin: 100px auto;
+    border: 1px solid #999;
+}
+
+.title {
+    padding : 10px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1px;
+}
+
+.info {
+    padding : 10px 20px;
+}
+
+.content-textarea{
+    padding : 10px 20px;
+}
+
+.notice-textarea{
+    height:400px;
+    width:950px;
+    font-size: 20px;
+}
+.notice-head{
+    font-size: xx-large;
+}
+.submit {
+    margin: 0 auto;
+    float: right;
+    padding-top: 10px;
+    padding-right: 5px;
+}
+
+.cancel {
+    margin: 0 auto;
+    float: right;
+    padding-top: 10px;
+}
+
+

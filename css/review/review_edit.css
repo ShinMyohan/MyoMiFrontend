@@ -1,17 +1,3 @@
-
-html {
-    font-size: 10px;
-}
-
-ul, li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .review-wrap {
     width: 1000px;
     margin: 100px auto;
@@ -39,28 +25,31 @@ a {
     left:380px;
 }
 .submit{
-margin-left: 20px;
+    margin-left: 20px;
 }
+
 .review-write-cancel{
-text-align: center;
-border-radius: 5px;
-font-size: 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
     background: black;
-color: #fff;
-cursor:pointer;
-width: 120px;
+    color: #fff;
+    cursor:pointer;
+    width: 120px;
     height: 48px;
 }
+
 .review-write-submit{
-text-align: center;
-border-radius: 5px;
-font-size: 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
     background: black;
-color: #fff;
-cursor:pointer;
-width: 120px;
+    color: #fff;
+    cursor:pointer;
+    width: 120px;
     height: 48px;
 }
+
 .review-write {
     border-top: 2px solid #000;
 }
@@ -80,12 +69,6 @@ width: 120px;
     font-size: 0;
 }
 
-.review-write .info dl {
-    display: inline-block;
-    width: 50%;
-    vertical-align: middle;
-}
-
 .review-write .title dt,
 .review-write .title dd,
 .review-write .info dt,
@@ -103,10 +86,7 @@ width: 120px;
 .review-write .title dd {
     width: calc(100% - 100px);
 }
-.review-write .info dd {
-    position: relative;
-    right:70px;
-}
+
 .review-write .title input[type="text"],
 .review-write .info input[type="text"],
 .review-write .info input[type="password"] {
@@ -117,9 +97,11 @@ width: 120px;
 .review-write .title input[type="text"] {
     width: 80%;
     position:relative;
-    bottom: 17px;
+    left: 7px;
 }
-
+dd.prod-name{
+    margin-bottom: initial;
+}
 .review-write .cont {
     border-bottom: 1px solid #000;
 }
