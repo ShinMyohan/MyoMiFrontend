@@ -1,30 +1,32 @@
 $(() => {
-  
-    let list = JSON.parse(localStorage.getItem("list"));
-    console.log(list);
-    // console.log(list[0]["CONTENT"]);
 
-    let num = list[0]["NUM"];
-    let title = list[0]["TITLE"];
-    let writer = list[0]["NAME"];
-    let content = list[0]["CONTENT"];
-    let category = list[0]["CATEGORY"];
-    // console.log(title, content, category, writer);
+  let list = JSON.parse(localStorage.getItem("list"));
+  // console.log(list);
 
-    $('input[name=board-num').attr('value', num);
-    $('input[name=board-title]').attr('value', title);
-    $('input[name=board-writer]').attr('value', writer);
-    $('#select').val(category).prop("selected",true);
-    $('textarea#content').html(content);
-})
+  let num = list["boardNum"];
+  let title = list["title"];
+  let writer = list["userName"];
+  let content = list["content"];
+  let category = list["category"];
+  let image = list["boardImgUrl"]
 
-function updateBoard() {
-    let num = $('input[name=board-num').val();
-    let title = $('input[name=board-title]').val();
-    let writer = $('input[name=board-writer]').val();
-    let category = $('#select').val();
-    let content = $('textarea#content').val();
-    console.log(title,writer,category,content)
+  $('input[name=board-num]').attr('value', num)
+  $('input[name=board-title]').attr('value', title);
+  $('input[name=board-writer]').attr('value', writer);
+  $('#select').val(category).prop("selected", true);
+  $('#exampleFormControlTextarea1').val(content);
+  $('input[name="boardFile"]').get(0).files[0];
+
+  $('div.submit>#submit').click(function () {
+    num = $('input[name=board-num]').val();
+    title = $('input[name=board-title]').val();
+    // writer = $('input[name=board-writer]').val();
+    category = $('#select').val();
+    content = $('#exampleFormControlTextarea1').val();
+    image = $('input[name="boardFile"]').get(0).files[0];
+    // console.log("2번 : " +num,title,writer,category,content)
+
+    // console.log("정보 : "+ num, title, content, category, image)
 
     if (title == "") {
       alert("제목을 입력하세요.");
@@ -43,30 +45,37 @@ function updateBoard() {
 
       return;
     }
+    
+    let formData = new FormData();
 
-    // let 
-    let data = {
-      //"name": writer,
-      "num":num,
-      "category": category,
-      "title": title,
-      "content": content
-    }
-    // console.log(data);
+    // formData.append('id', writer);
+    formData.append('boardNum', num);
+    formData.append('category', category);
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('file', image)
+
+    // console.log(formData)
 
     $.ajax({
-      type: "POST",
-      url: url + "board/modify",
-      data: JSON.stringify(data),
-
+      type: "PUT",
+      url: url + num,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      },
+      contentType: false,
+      processData: false,
+      enctype: 'multipart/form-data',
+      data: formData,
       success: function (response) {
         alert("글 수정이 완료되었습니다.");
-        window.location.href = "./boardList.html";
+        window.location.href = "./detail.html?" + num
       },
       error: function (xhr) {
         alert(xhr.status);
       },
     });
-  };
+  });
+})
 
-  let url = backURL;
+let url = backURL + 'board/';
