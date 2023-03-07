@@ -14,30 +14,32 @@
   overflow: hidden;
 }
 
-.b-pr-header{
+.b-pr-header {
   border-bottom: 1px solid #d9d9d9;
 }
 
-.b-user-content, .prod-review{
+.b-user-content,
+.prod-review {
   font-family: 'Noto Sans KR,sans-serif';
 }
 
 /* 최신순, 별점순 */
-.latest-order-review, .star-order-review{
+.latest-order-review,
+.star-order-review {
   cursor: pointer;
   font-size: 18px;
 }
 
-.latest-order-review:hover{
+.latest-order-review:hover {
   color: #079c3bc9;
 }
 
-.star-order-review:hover{
+.star-order-review:hover {
   color: #079c3bc9;
 }
 
-.pr-header{
-  display:flex;
+.pr-header {
+  display: flex;
   justify-content: space-between;
 }
 
@@ -123,7 +125,7 @@
   /* top: 60px; */
 }
 
-.slash{
+.slash {
   font-weight: 700;
   font-size: 20px;
   margin: 0 10px;
@@ -139,7 +141,7 @@
 
 }
 
-div.r-info-point{
+div.r-info-point {
   /* padding-top: 40px; */
   width: 1000px;
   height: 50px;
@@ -147,14 +149,14 @@ div.r-info-point{
   font-size: 17px;
 }
 
-div.r-info-point strong{
+div.r-info-point strong {
   color: #079c3b;
 }
 
 .review-write-btn {
   text-align: center;
   border-radius: 5px;
-  border:none;
+  border: none;
   font-size: 15px;
   background: #079c3b;
   color: #fff;
@@ -462,22 +464,23 @@ div.mystar {
 }
 
 /* 성언 추가 */
-.b-pr-basic{
+.b-pr-basic {
   font-weight: 700;
   font-size: 20px;
 }
 
-.review-count, .total-starrating{
+.review-count,
+.total-starrating {
   font-weight: 700;
   font-size: 20px;
 }
 
 
-.b-title{
+.b-title {
   font-weight: 500;
   font-size: 20px;
 }
 
-.explain{
+.explain {
   width: 400px;
 }

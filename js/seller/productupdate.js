@@ -1,13 +1,9 @@
 let regex = /[^0-9]/g;
 $(()=>{
-    // let data = location.search.substring(1) //prodNum=1
-
-    // let regex = /[^0-9]/g; //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
     let token = Cookies.get('token')
     $.ajax({
         url: backURL + 'product/seller/' + 12,
         method: 'GET',
-        // data: data,
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -17,8 +13,7 @@ $(()=>{
         },
         success: function(jsonObj){
             let product = jsonObj['body']
-            console.log(product);
-            // alert('ㅎㅎ');
+            // console.log(product);
             let prodName = product['name']
             let category = product['category']
             let week = product['week']
@@ -36,14 +31,18 @@ $(()=>{
             $('#prodPercentage').val(percentage + '%')
             $('#originalPrice').val(originPrice + '원')
             $('#updateProdNum').val(prodNum);
+
             let p1 = originPrice.replace(regex,'');
             let p2 = Math.round(p1);
             let p3 = Math.round(p1 - p1*(percentage/100));
+
             $('#afterDC').val(p2.toLocaleString()+'원');
             $('#finalPricePerOne').val(Math.round(p3*0.91).toLocaleString()+'원')
+
             if(detail == 'null') {
                 $('#prodDetail').val('')
             }
+
             $('#preview').attr('src',imgUrl)
 
             if(status == 1) {
@@ -86,5 +85,4 @@ $(()=>{
         })
         alert(statusRadio);
     })
-
 })

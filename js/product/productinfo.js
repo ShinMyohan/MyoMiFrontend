@@ -45,10 +45,10 @@ $(()=>{
                 $('div.r-non-list').css('display','block')
                 $('div.br-non-list').css('display','block')
             }
-            console.log(reviewList)
+            // console.log(reviewList)
             $('div.review-cnt').html(reviewCnt+"건")
             reviewList.forEach(review=>{
-                console.log(review)
+                // console.log(review)
 
                 let content = review['content'];
                 let stars = review['stars'];
@@ -68,7 +68,6 @@ $(()=>{
                 // $copyBR.find('#brImg').attr('src', )
                 $parentBR.append($copyBR)
 
-
                 $copyR.show()
                 $copyR.find('p.spr-review-content-body').html(content)
                 $copyR.find('div.star-num').html(stars)
@@ -77,7 +76,6 @@ $(()=>{
 
                 $parentR.append($copyR);
             })
-
 
             // 상품 문의
             let $origin = $('div.qna-list');
@@ -118,7 +116,6 @@ $(()=>{
 
                 $parent.append($copy);
             })
-
         },
         error: function(xhr){
             alert(xhr.status)
@@ -162,11 +159,6 @@ $(()=>{
         let totalPrice = price*qtt;
         $('#tt-price').html(totalPrice.toLocaleString()+"원")
     })
-
-    // $('#sellerStore').click(function(){
-    //     let seller = $('#sellerId').val()
-    //     location.href='../../html/product/sellerstore.html/'+seller;
-    // })
 })
 
 // 수량 조절 + , - 버튼
@@ -191,22 +183,8 @@ function count(type)  {
     resultElement.innerText = number;
 }
 
-// // $('#sellerStore').click(function(){
+// 셀러 스토어로 이동
 function getSellerStore() {
     let seller = $('#sellerId').val()
     location.href='../../html/product/sellerstore.html?seller='+seller;
-    // $.ajax({
-    //     url: backURL + 'product/list/seller/' + seller,
-    //     method: 'get',
-    //     success: function(jsonObj){
-    //         // let list = jsonObj['body'];
-    //         console.log(jsonObj);
-    //         alert('눌렀다');
-            
-    //     },
-    //     error: function(xhr){
-    //         alert(xhr.status)
-    //     }
-    // })
 }
-

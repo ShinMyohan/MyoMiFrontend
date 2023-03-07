@@ -142,9 +142,6 @@ $(()=>{
   // ---------- 파일업로더 ----------
 })
 
-
-
-//--------됨
 function readUrl(event) {
   let divTag = document.querySelector('#imgPreview');
   $('#uploaderIcon').attr('display', 'none')
@@ -184,6 +181,3 @@ function uncomma(str) {
   str = String(str);
   return str.replace(/[^\d]+/g, '');
 }
-
-
-

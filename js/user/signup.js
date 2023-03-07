@@ -1,31 +1,3 @@
-
-// var basicmail = $('#userEmailBasic option:selected').val();
-// $('#userEmailAddr').val(basicmail);
-
-//@뒤 메일 선택시 바로 input 박스에 넣어주기
-// $(function(){
-//     $('#userEmailBasic').change(function(){
-//         var basicmail = $('#userEmailBasic option:selected').val();
-//         $('#userEmailAddr').val(basicmail);
-//     })
-// })
-// function getTel(){
-//     let id = $('#signupId').val();
-//     let pwd = $('#signupPwd').val();
-//     let checkpwd = $('#checkPwd').val();
-//     let name = $('#signupName').val();
-    
-//     let tel1 = $('#signupTel1 option:selected').val();
-//     let tel2 = $('#signupTel2').val();
-//     let tel3 = $('#signupTel3').val();
-//     let tel = tel1 + '-' + tel2 + '-' + tel3;
-
-//     let email1 = $('#signupEmail').val();
-//     let email2 = $('#userEmailBasic option:selected').val();
-//     let email = email1 + '@' + email2;
-//     alert(email);
-// }
-
 $(()=>{
     $('#userEmailBasic').change(function(){
         var basicmail = $('#userEmailBasic option:selected').val();
@@ -70,13 +42,34 @@ $(()=>{
             $('#agreementPersonal').prop("checked", false);
         }
     })
-
-
-
 })
 
+let isIdChecked = false;
+let isTelChecked = false;
 
-function getTel(){
+// 회원가입 ajax
+function signup(data) {
+    $.ajax({
+        url: backURL + 'user/signup',
+        type: 'POST',
+        contentType : 'application/json',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Content-type', 'application/json');
+        },
+        data: JSON.stringify(data),
+        success: function (response) {
+            alert('회원가입성공!')
+
+            location.href=frontURL
+        },
+        error: function (xhr) {
+            alert(xhr.status)
+        }
+    })
+}
+
+// 회원가입 버튼 눌렀을 때 먼저 체크해야할 필수 입력 사항들
+window.getSignupInfo = () => {
     let id = $('#signupId').val();
     let pwd = $('#signupPwd').val();
     let checkpwd = $('#checkPwd').val();
@@ -89,41 +82,78 @@ function getTel(){
     let email1 = $('#signupEmail').val();
     let email2 = $('#userEmailBasic option:selected').val();
     let email = email1 + '@' + email2;
-    // alert(email);
+
+    let postCode = $('#postcode').val();
+    let roadAddress = $('#roadAddress').val();
+    // let jibunAddress = $('#jibunAddress').val();
+    let detailAddress = $('#detailAddress').val();
+    let extraAddress = $('#extraAddress').val();
+    let address = postCode + '/' + roadAddress + '/' + detailAddress + '/' + extraAddress;
+
+    let data = {
+        "addr": address,
+        "email": email,
+        "id": id,
+        "name": name,
+        "pwd": pwd,
+        "tel": tel
+    }
 
     if(id == '') {
         $('#signupId').addClass('is-invalid');
         $('#signupId').focus();
         $('#signupId').attr('placeholder','아이디를 입력해주세요.');
+
+        return;
+    }
+
+    if(isIdChecked == false) {
+        $('#information p').html('아이디 중복확인을 해주세요.')
+        $('#agreementModal').modal("show");
+
+        return;
     }
 
     if(pwd == '' || !isPassword(pwd)) {
         $('#signupPwd').addClass('is-invalid');
         $('#signupPwd').focus();
         $('#signupPwd').attr('placeholder','비밀번호를 입력해주세요.');
+
+        return;
     }
 
     if(checkpwd == '') {
         $('#checkPwd').addClass('is-invalid');
         $('#checkPwd').focus();
         $('#checkPwd').attr('placeholder','비밀번호 체크를 위해 입력해주세요.');
+
+        return;
     }
 
     if(pwd != checkpwd) {
         $('#checkPwd').addClass('is-invalid');
         alert('비밀번호를 다시 확인해주세요')
         $('#checkPwd').focus();
+
+        return;
     }
 
     if(name == '') {
         $('#signupName').addClass('is-invalid');
         $('#signupName').focus();
         $('#signupName').attr('placeholder','이름을 입력해주세요.');
+
+        return;
     }
 
     if($('#agreementAll').is(':checked') == false || $('#agreementTnc').is(':checked') == false || $('#agreementPersonal').is(':checked') == false) {
+        $('#information p').html('약관을 읽어보시고 동의해주세요.')
         $('#agreementModal').modal("show");
+
+        return;
     }
+
+    signup(data);
 }
 
 // 이메일 규칙
@@ -139,3 +169,22 @@ function isPassword(asValue) {
     return regExp.test(asValue);
 }
 
+// 회원아이디 중복체크
+// function idDupCheck(){
+//     let id = $('#signupId').val();
+    
+//     $.ajax({
+//         type: 'POST',
+//         contentType : 'application/json',
+//         beforeSend: function (xhr) {
+//             xhr.setRequestHeader('Content-type', 'application/json');
+//         },
+//         data: JSON.stringify(id),
+//         success: function (response) {
+//             re
+//         },
+//         error: function (xhr) {
+//             alert(xhr.status)
+//         }
+//     })
+// }

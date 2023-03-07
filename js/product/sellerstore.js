@@ -15,7 +15,7 @@ $(()=>{
             // console.log(list);
 
             list.forEach(item => {
-                console.log(item)
+                // console.log(item)
                 let prodNum = item["prodNum"];
                 let prodName = item["week"] + "주 " + item["name"];
                 let originPrice = item["originPrice"];

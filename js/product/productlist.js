@@ -64,7 +64,7 @@ function dataList(list){
     let $origin = $('.menunav .card');
     let $parent = $('div.productlist');
     list.forEach(item=>{
-        console.log(item);
+        // console.log(item);
         let prodNum = item["prodNum"];
         let prodName = item["week"] + "주 " + item["name"];
         let originPrice = item["originPrice"];
