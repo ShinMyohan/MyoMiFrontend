@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="../../css/basic.css">
     <!-- <link rel="stylesheet" href="../../css/mypage/mypage.css"> -->
@@ -21,22 +22,23 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/qna/mypage-qna-detail.js"></script>
-     <!-- DatePicker -->
-     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <!-- DatePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 </head>
+
 <body>
     <header>
         <div id="header">
-            <div class="h1_logo">
+            <div class="h1-logo">
                 <!-- 로고 -->
-                <div class="logo_main">
+                <div class="logo-main">
                     <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
                 </div>
                 <!-- 검색 input 박스 -->
-                <div class="search">
+                <div class="main-search">
                     <form class="d-flex">
                         <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
                         <div class="search-icon">
@@ -50,18 +52,23 @@
                 </div>
                 <!-- 메뉴바 -->
                 <nav class="menulist">
-                    <ul>
-                    <!-- <div id="horizontal-underline"></div> -->
-                        <li><a href="#">회원가입</a></li>
-                        <li><a href="#">로그인</a></li>
+                    <ul class="main-menu-bar">
+                        <!-- <div id="horizontal-underline"></div> -->
+                        <li><a href="../../html/user/signup.html">회원가입</a></li>
+                        <li><a href="../../html/user/login.html">로그인</a></li>
                         <li><a href="#">공지사항</a></li>
                         <li><a href="#">커뮤니티 </a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="36" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                        </svg></a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                        </svg></a></li>
+                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+                                    height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                </svg></a></li>
+                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg></a></li>
                     </ul>
                 </nav>
             </div>
@@ -118,7 +125,7 @@
                     </div>
                 </div>
                 <!-- 유저정보 박스 END -->
-                
+
                 <!------------ 회원 활동 표시 창 START -------------->
                 <div class="mp-activity">
                     <div class="mp-user-activity">
@@ -126,8 +133,10 @@
                             <div class="row">
                                 <div class="col mp-border">
                                     <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-p-circle" viewBox="0 0 16 16">
-                                            <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5V4.002Zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97H8.27Z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            fill="currentColor" class="bi bi-p-circle" viewBox="0 0 16 16">
+                                            <path
+                                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5V4.002Zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97H8.27Z" />
                                         </svg> 적립금
                                     </div>
                                     <span class="mp-user-point">얼마
@@ -136,9 +145,12 @@
                                 </div>
                                 <div class="col mp-border">
                                     <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
-                                        <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z"/>
-                                        <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z" />
+                                            <path
+                                                d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z" />
                                         </svg> 쿠폰
                                     </div>
                                     <span class="mp-user-coupon">몇
@@ -147,8 +159,10 @@
                                 </div>
                                 <div class="col">
                                     <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
-                                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
+                                            <path
+                                                d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z" />
                                         </svg> 팔로우
                                     </div>
                                     <span class="mp-user-follow">몇
@@ -173,41 +187,43 @@
                                     <div class="mpdt-qna-date"></div>
                                 </div>
                             </div>
-                                <div class="mpdt-prod-info">
-                                    <div class="prod-img"><img src="../../imgs/prod01.png"></div>
-        
-                                    <div class="mpdt-prod-info-text">
-                                        <div class="seller-name"></div>
-                                        <div class="prod-name"></div>
-                                        <div class="prod-price" style="color:rgb(17, 195, 154)">판매금액 <span id ="price"></span></div>
-                                    </div>
-                                </div>   
-                                <div class="mpdt-qna-q">
-                                    <div class="mpdt-form">
-                                        <div class="q-icon">Q.</div>
-                                        <div class="mpdt-q-content"></div>
-                                    </div>
-                                    <div class="img-box"><img src="" id="qnaMainImg" alt="..."></div>
+                            <div class="mpdt-prod-info">
+                                <div class="prod-img"><img src="../../imgs/prod01.png"></div>
+
+                                <div class="mpdt-prod-info-text">
+                                    <div class="seller-name"></div>
+                                    <div class="prod-name"></div>
+                                    <div class="prod-price" style="color:rgb(17, 195, 154)">판매금액 <span
+                                            id="price"></span></div>
                                 </div>
-                                <div class="mpdt-qna-a">
-                                    <div class="a-icon">A.</div>
-                                    <div class="mpdt-answer-title">안녕하세요. 건강한 식단 <span id="seller-name"></span> 입니다.</div>
-                                        <div class="mpdt-answer-info">
-                                            <div class="qna-admin">관리자</div>
-                                            <div class="mpdt-answer-date"></div>
-                                        </div>
-                                        <div class="mpdt-answer-content"></div>
+                            </div>
+                            <div class="mpdt-qna-q">
+                                <div class="mpdt-form">
+                                    <div class="q-icon">Q.</div>
+                                    <div class="mpdt-q-content"></div>
                                 </div>
+                                <div class="img-box"><img src="" id="qnaMainImg" alt="..."></div>
+                            </div>
+                            <div class="mpdt-qna-a">
+                                <div class="a-icon">A.</div>
+                                <div class="mpdt-answer-title">안녕하세요. 건강한 식단 <span id="seller-name"></span> 입니다.</div>
+                                <div class="mpdt-answer-info">
+                                    <div class="qna-admin">관리자</div>
+                                    <div class="mpdt-answer-date"></div>
+                                </div>
+                                <div class="mpdt-answer-content"></div>
+                            </div>
                             <div>
-                                <input type="button" class ="mpdt-button mp-qna-list" value="목록" onclick="location.href='../qna/my-qnalist.html'">
-                                <input type="button" class ="mpdt-button mpdt-edit" id ="edit-button" value="수정">
-                                <input type="button" class ="mpdt-button mpdt-delete" id = "del-button" value="삭제">
-                            </div> 
+                                <input type="button" class="mpdt-button mp-qna-list" value="목록"
+                                    onclick="location.href='../qna/my-qnalist.html'">
+                                <input type="button" class="mpdt-button mpdt-edit" id="edit-button" value="수정">
+                                <input type="button" class="mpdt-button mpdt-delete" id="del-button" value="삭제">
+                            </div>
                         </div>
-                </div>   
+                    </div>
+                </div>
+                <!------------ 마이페이지 END -------------->
             </div>
-            <!------------ 마이페이지 END -------------->
-        </div>
     </section>
     <!-- section end -->
 
@@ -215,8 +231,8 @@
     <footer>
         <div id="footer_wrap">
             <div id="footer">
-                <div class="foot_list">
-                    <div class="foot_list_in">
+                <div class="foot-list">
+                    <div class="foot-list_in">
                         <ul>
                             <li>
                                 <a href="#">묘미소개</a>
@@ -233,12 +249,12 @@
                         </ul>
                     </div>
                 </div>
-                <div class="foot_cont">
-                    <div class="foot_logo">
+                <div class="foot-cont">
+                    <div class="foot-logo">
                         <img src="../../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
                     </div>
-                    <div class="foot_info">
-                        <div class="foot_info_list">
+                    <div class="foot-info">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>법인명(상호):</dt>
                                 <dt>주식회사 신묘한컴퍼니</dt>
@@ -254,7 +270,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="foot_info_list">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>사업자등록번호:</dt>
                                 <dt> 220-10-250316</dt>
@@ -266,7 +282,7 @@
                                 </dd>
                             </dl>
                         </div>
-                        <div class="foot_info_list">
+                        <div class="foot-info-list">
                             <dl class="dl">
                                 <dt>주소:</dt>
                                 <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
@@ -289,59 +305,60 @@
                         </p>
                     </div>
                 </div>
-                <div class="foot_certify">
+                <div class="foot-certify">
                     <span></span>
                     <span></span>
                 </div>
             </div>
         </div>
     </footer>
-               <!--상품문의 수정모달창-->
-               <form>
-                <div class="modal-qna-edit">
-                    <div class ="qna-group">
-                        <div class="modal-head">
-                        <div class="qna-top">상품문의 수정</div>
-                        <div class="close-btn" id="close-btn">X</div>
-                        </div>
-                        <div class="prod-info-modal">
-                            <div class="prod-img"><img src="../../imgs/prod01.png"></div>
-                            <div class="prod-info-text">
-                            <div class="seller-name"></div>
-                            <div class="prod-name"></div>
-                            </div>
-                        </div> 
-                        <div class="qna-box">
-                            <div class="modal-qna-writer">
-                                <div class="modal-col-1">작성자</div>
-                                <div class="modal-col-2" id="modal-qna-writer"></div>
-                            </div>
-                            <div class="modal-qna-title">
-                                <div class="modal-col-1">제목</div>
-                                <div class="modal-col-2"><input type ="text" name="modal-qna-title" placeholder="제목 입력"></div>
-                            </div>
-                            <div class="modal-qna-content">
-                                <div class="modal-col-1">내용</div>
-                                <div class="modal-col-2"><textarea id="modal-qna-content" placeholder="해당글은 비밀글로만 작성이 됩니다."></textarea></div>
-                            </div>
-                            <div class="modal-file">
-                                <div class="modal-col-1">파일</div>
-                                    <div class="modal-file-row">
-                                        <div class="file-button">
-                                            <div class="mb-3">
-                                                <input class="form-control" type="file" name="q-detail-file" id="detail-formfile" >
-                                              </div>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="modal-buttons">
-                                <input type="button" class="modal-cancel" id="close-btn" value="취소">
-                                <input type="button" class="modal-submit" value="수정">
+    <!--상품문의 수정모달창-->
+    <form>
+        <div class="modal-qna-edit">
+            <div class="qna-group">
+                <div class="modal-head">
+                    <div class="qna-top">상품문의 수정</div>
+                    <div class="close-btn" id="close-btn">X</div>
+                </div>
+                <div class="prod-info-modal">
+                    <div class="prod-img"><img src="../../imgs/prod01.png"></div>
+                    <div class="prod-info-text">
+                        <div class="seller-name"></div>
+                        <div class="prod-name"></div>
+                    </div>
+                </div>
+                <div class="qna-box">
+                    <div class="modal-qna-writer">
+                        <div class="modal-col-1">작성자</div>
+                        <div class="modal-col-2" id="modal-qna-writer"></div>
+                    </div>
+                    <div class="modal-qna-title">
+                        <div class="modal-col-1">제목</div>
+                        <div class="modal-col-2"><input type="text" name="modal-qna-title" placeholder="제목 입력"></div>
+                    </div>
+                    <div class="modal-qna-content">
+                        <div class="modal-col-1">내용</div>
+                        <div class="modal-col-2"><textarea id="modal-qna-content"
+                                placeholder="해당글은 비밀글로만 작성이 됩니다."></textarea></div>
+                    </div>
+                    <div class="modal-file">
+                        <div class="modal-col-1">파일</div>
+                        <div class="modal-file-row">
+                            <div class="file-button">
+                                <div class="mb-3">
+                                    <input class="form-control" type="file" name="q-detail-file" id="detail-formfile">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="modal-buttons">
+                        <input type="button" class="modal-cancel" id="close-btn" value="취소">
+                        <input type="button" class="modal-submit" value="수정">
+                    </div>
                 </div>
-            </form>
+            </div>
+        </div>
+    </form>
 </body>
 
 </html>

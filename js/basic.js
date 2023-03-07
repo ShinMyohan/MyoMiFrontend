@@ -8,7 +8,7 @@ $(()=>{
     // -- 메뉴가 클릭되었을 대 일어날 일 END --
 
     // -- 로고가 클릭되었을 때 할 일 START --
-    $('div.logo_main').click(()=>{
+    $('div.logo-main').click(()=>{
         location.href=frontURL
         //5500/html/이지만 알아서 웰컴페이지를 찾아가는데 웰컴페이지 인식을 알아서 index.html을 불러온다
     })

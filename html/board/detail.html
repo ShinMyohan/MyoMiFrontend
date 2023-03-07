@@ -37,48 +37,41 @@
 
 <body>
   <header>
-    <div id="header">
-      <div class="h1_logo">
-        <!-- 로고 -->
-        <div class="logo_main">
-          <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고" />
-        </div>
-        <!-- 검색 input 박스 -->
-        <div class="search">
-          <form class="d-flex">
-            <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search" />
-            <div class="search-icon">
-              <button class="btn" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-              </button>
+        <div id="header">
+            <div class="h1-logo">
+                <!-- 로고 -->
+                <div class="logo-main">
+                    <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
+                </div>
+                <!-- 검색 input 박스 -->
+                <div class="main-search">
+                    <form class="d-flex">
+                        <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
+                        <div class="search-icon">
+                        <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg></button></div>
+                    </form>
+                </div>
+                <!-- 메뉴바 -->
+                <nav class="menulist">
+                    <ul class="main-menu-bar">
+                    <!-- <div id="horizontal-underline"></div> -->
+                        <li><a href="../../html/user/signup.html">회원가입</a></li>
+                        <li><a href="../../html/user/login.html">로그인</a></li>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="boardList.html">커뮤니티 </a></li>
+                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                        </svg></a></li>
+                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg></a></li>
+                    </ul>
+                </nav>
             </div>
-          </form>
         </div>
-        <!-- 메뉴바 -->
-        <nav class="menulist">
-          <ul>
-            <!-- <div id="horizontal-underline"></div> -->
-            <li><a href="#">회원가입</a></li>
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">공지사항</a></li>
-            <li><a href="boardList.html">커뮤니티 </a></li>
-            <li>
-              <a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                  fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                  <path
-                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
+    </header>
 
   <div class="board-wrap">
     <div class="board-view-wrap">
@@ -188,90 +181,91 @@
   </div>
   <!--board wrap-->
   <!-- <section></section>
-  <footer>
-      <div id="footer_wrap">
-          <div id="footer">
-              <div class="foot_list">
-                  <div class="foot_list_in">
-                      <ul>
-                          <li>
-                              <a href="#">묘미소개</a>
-                          </li>
-                          <li>
-                              <a href="#">이용약관</a>
-                          </li>
-                          <li>
-                              <a href="#">개인정보처리방침</a>
-                          </li>
-                          <li>
-                              <a href="#">이용안내</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-              <div class="foot_cont">
-                  <div class="foot_logo">
-                      <img src="../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
-                  </div>
-                  <div class="foot_info">
-                      <div class="foot_info_list">
-                          <dl class="dl">
-                              <dt>법인명(상호):</dt>
-                              <dt>주식회사 신묘한컴퍼니</dt>
-                          </dl>
-                          <dl class="dl">
-                              <dt>대표:</dt>
-                              <dt>신묘한</dt>
-                          </dl>
-                          <dl>
-                              <dt>TEL:</dt>
-                              <dd>
-                                  <strong>1522-0125</strong>
-                              </dd>
-                          </dl>
-                      </div>
-                      <div class="foot_info_list">
-                          <dl class="dl">
-                              <dt>사업자등록번호:</dt>
-                              <dt> 220-10-250316</dt>
-                          </dl>
-                          <dl class="ts">
-                              <dt>통신판매업신고번호:</dt>
-                              <dd>" 제 2022-분당오리-0316호 "
-                                  <a href="#">사업자정보확인</a>
-                              </dd>
-                          </dl>
-                      </div>
-                      <div class="foot_info_list">
-                          <dl class="dl">
-                              <dt>주소:</dt>
-                              <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
-                          </dl>
-                          <dl class="dl">
-                              <dt>개인정보관리책임자:</dt>
-                              <dd>세리 성언</dd>
-                          </dl>
-                          <dl>
-                              <dt>E-Mail:</dt>
-                              <dd>
-                                  <a href="#">taetaetae@myomi.co.kosta</a>
-                              </dd>
-                          </dl>
-                      </div>
-                      <p class="copyright">
-                          Copyright©
-                          <strong>myomi.co.kr</strong>
-                          All rights reserved.
-                      </p>
-                  </div>
-              </div>
-              <div class="foot_certify">
-                  <span></span>
-                  <span></span>
-              </div>
-          </div>
-      </div>
-  </footer> -->
+  ----footer 시작 ----  -->
+  <!-- <footer>
+    <div id="footer_wrap">
+        <div id="footer">
+            <div class="foot-list">
+                <div class="foot-list_in">
+                    <ul>
+                        <li>
+                            <a href="#">묘미소개</a>
+                        </li>
+                        <li>
+                            <a href="#">이용약관</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보처리방침</a>
+                        </li>
+                        <li>
+                            <a href="#">이용안내</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foot-cont">
+                <div class="foot-logo">
+                    <img src="../../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
+                </div>
+                <div class="foot-info">
+                    <div class="foot-info-list">
+                        <dl class="dl">
+                            <dt>법인명(상호):</dt>
+                            <dt>주식회사 신묘한컴퍼니</dt>
+                        </dl>
+                        <dl class="dl">
+                            <dt>대표:</dt>
+                            <dt>신묘한</dt>
+                        </dl>
+                        <dl>
+                            <dt>TEL:</dt>
+                            <dd>
+                                <strong>1522-0125</strong>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="foot-info-list">
+                        <dl class="dl">
+                            <dt>사업자등록번호:</dt>
+                            <dt> 220-10-250316</dt>
+                        </dl>
+                        <dl class="ts">
+                            <dt>통신판매업신고번호:</dt>
+                            <dd>" 제 2022-분당오리-0316호 "
+                                <a href="#">사업자정보확인</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="foot-info-list">
+                        <dl class="dl">
+                            <dt>주소:</dt>
+                            <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
+                        </dl>
+                        <dl class="dl">
+                            <dt>개인정보관리책임자:</dt>
+                            <dd>세리 성언</dd>
+                        </dl>
+                        <dl>
+                            <dt>E-Mail:</dt>
+                            <dd>
+                                <a href="#">taetaetae@myomi.co.kosta</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <p class="copyright">
+                        Copyright©
+                        <strong>myomi.co.kr</strong>
+                        All rights reserved.
+                    </p>
+                </div>
+            </div>
+            <div class="foot-certify">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</footer> -->
 </body>
 
 </html>
