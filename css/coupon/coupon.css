@@ -128,7 +128,7 @@
     align-items : center;
     justify-content: space-between;
     text-align: center;
-    border-bottom:1.7px solid grey;
+    border-bottom:1.7px solid lightgrey;
     font-size : 13px;
 }
 .exp-coupon-name {
@@ -173,6 +173,17 @@
     display: grid;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.empty-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
 }
 
 /* ------ Date Picker CSS  ------- */

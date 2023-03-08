@@ -13,259 +13,258 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
-  <!-- 구글폰트 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap"
-    rel="stylesheet" />
   <!-- JQuery CDN HOST-->
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <!-- LocaleString  -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
 
   <script src="../../js/basic.js"></script>
   <script src="../../js/board/detail.js"></script>
-  <script src="../../js/board/boardList.js"></script>
 
 </head>
 
 <body>
   <header>
-        <div id="header">
-            <div class="h1-logo">
-                <!-- 로고 -->
-                <div class="logo-main">
-                    <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
-                </div>
-                <!-- 검색 input 박스 -->
-                <div class="main-search">
-                    <form class="d-flex">
-                        <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
-                        <div class="search-icon">
-                        <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg></button></div>
-                    </form>
-                </div>
-                <!-- 메뉴바 -->
-                <nav class="menulist">
-                    <ul class="main-menu-bar">
-                    <!-- <div id="horizontal-underline"></div> -->
-                        <li><a href="../../html/user/signup.html">회원가입</a></li>
-                        <li><a href="../../html/user/login.html">로그인</a></li>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="boardList.html">커뮤니티 </a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                        </svg></a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                        </svg></a></li>
-                    </ul>
-                </nav>
+    <div id="header">
+      <div class="h1-logo">
+        <!-- 로고 -->
+        <div class="logo-main">
+          <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
+        </div>
+        <!-- 검색 input 박스 -->
+        <div class="main-search">
+          <form class="d-flex">
+            <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
+            <div class="search-icon">
+              <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg></button>
             </div>
+          </form>
         </div>
-    </header>
-
-  <div class="board-wrap">
-    <div class="board-view-wrap">
-      <div class="board-view">
-        <div class="title"></div>
-        <!-- <div class="info"> -->
-        <div class="num" style="display: none"></div>
-        <div class="writer"></div>
-        <div class="createdDate"></div>
-        <div class="hits"></div>
-        <!--    </div>info-->
-        <div class="cont">
-          <div class="content">글</div>
-          <div class="imgArea">
-              <img src="" class="rounded mx-auto d-block" id="boardImg" alt="...">
-            </div>
-        </div>
-        <!--board view-->
-
-        <div class="bt-wrap-add">
-          <div class="back">
-            <button type="button" class="btn btn-outline-success" id="back">
-              목록으로
-            </button>
-          </div>
-          <div class="del">
-            <button type="button" class="btn btn-outline-success" id="del">
-              삭제
-            </button>
-          </div>
-          <div class="edit">
-            <button type="button" class="btn btn-outline-success" id="edit">
-              수정
-            </button>
-          </div>
-        </div> <!-- bt wrap add-->
-      </div>
-    </div> <!-- board view wrap-->
-    <!-- 댓글 시작 -->
-
-    <div class="board-rep">
-      <div class="board-rep-count">댓글 <i>n</i> 개</div>
-      <!--댓글 갯수-->
-
-      <div class="board-rep-add">
-        <!--댓글 작성 -->
-        <textarea class="form-control" placeholder="댓글 내용을 입력해주세요" id="content" name="content2"
-          style="height: 100px; resize: none;"></textarea>
-        <label for="floatingTextarea2"></label>
-        <div class="rep-add">
-          <button type="button" class="btn btn-outline-success" id="rep-add">
-            작성
-          </button>
-        </div>
+        <!-- 메뉴바 -->
+        <nav class="menulist">
+          <ul class="main-menu-bar">
+            <!-- <div id="horizontal-underline"></div> -->
+            <li><a href="../../html/user/signup.html">회원가입</a></li>
+            <li><a href="../../html/user/login.html">로그인</a></li>
+            <li><a href="../notice/noticelist.html">공지사항</a></li>
+            <li><a href="boardList.html">커뮤니티 </a></li>
+            <li><a href="../mypage/mypage.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32"
+                  fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                  <path
+                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                </svg></a></li>
+            <li><a href="../cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                  fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg></a></li>
+          </ul>
+        </nav>
       </div>
     </div>
-    <!-- board-rep -->
+  </header>
 
-    <!--댓글 목록-->
-    <div class="rep-line"></div>
-    <div class="board-rep-list">
-      <div class="parent-clone">
-        <div class="parent-div">
-          <div class="prnum" style="display:none"></div>
-          <div class="prwriter"></div>
-          <div class="prdate"></div>
-          <div class="prcontent">
-            <input type="text" id="prep-content" name="prep-content" readonly>
+  <section>
+    <div class="board-wrap">
+      <div class="board-view-wrap">
+        <div class="board-view">
+          <div class="title"></div>
+          <!-- <div class="info"> -->
+          <div class="num" style="display: none"></div>
+          <div class="writer"></div>
+          <div class="createdDate"></div>
+          <div class="hits"></div>
+          <!--    </div>info-->
+          <div class="cont">
+            <div class="content">글</div>
+            <div class="imgArea">
+              <img src="" class="rounded mx-auto d-block" id="boardImg" alt="..." width=100%>
+            </div>
           </div>
+          <!--board view-->
+
+          <div class="bt-wrap-add">
+            <div class="back">
+              <button type="button" class="btn btn-outline-success" id="back">
+                목록으로
+              </button>
+            </div>
+            <div class="del">
+              <button type="button" class="btn btn-outline-success" id="del">
+                삭제
+              </button>
+            </div>
+            <div class="edit">
+              <button type="button" class="btn btn-outline-success" id="edit">
+                수정
+              </button>
+            </div>
+          </div> <!-- bt wrap add-->
         </div>
+      </div> <!-- board view wrap-->
+      <!-- 댓글 시작 -->
 
-        <div class="rep-menu">
-          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-              <path
-                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-            </svg>
-          </a>
+      <div class="board-rep">
+        <div class="board-rep-count">댓글 <i>n</i> 개</div>
+        <!--댓글 갯수-->
 
-          <ul class="dropdown-menu">
-            <li class="rep-edit-btn">수정 </li>
-            <li class="rep-del-btn">삭제 </li>
-            <li class="rep-second-btn">답글쓰기 </li>
-          </ul>
-        </div>
-
-        <div class="hidden-rep-btn">
-          <button type="button" class="btn btn-outline-success" id="hid-edit-btn">수정완료</button>
-          <button type="button" class="btn btn-outline-success" id="hid-cancle-btn">취소</button>
-        </div>
-
-        <!-- 대댓글 작성 폼-->
-        <div class="re-rep-write">
-          <textarea placeholder="댓글 내용을 입력해주세요" id="re-rep-content" style="height: 70px; width: 800px"></textarea>
-          <div class="re-rep-btns">
-            <button type="button" class="btn btn-outline-success" id="re-rep-add-btn">
+        <div class="board-rep-add">
+          <!--댓글 작성 -->
+          <textarea class="form-control" placeholder="댓글 내용을 입력해주세요" id="content" name="content2"
+            style="height: 100px; resize: none;"></textarea>
+          <label for="floatingTextarea2"></label>
+          <div class="rep-add">
+            <button type="button" class="btn btn-outline-success" id="rep-add">
               작성
             </button>
-            <button type="button" class="btn btn-outline-success" id="re-rep-cancle-btn">
-              취소
-            </button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!--board wrap-->
-  <!-- <section></section>
-  ----footer 시작 ----  -->
-  <!-- <footer>
-    <div id="footer_wrap">
-        <div id="footer">
-            <div class="foot-list">
-                <div class="foot-list_in">
-                    <ul>
-                        <li>
-                            <a href="#">묘미소개</a>
-                        </li>
-                        <li>
-                            <a href="#">이용약관</a>
-                        </li>
-                        <li>
-                            <a href="#">개인정보처리방침</a>
-                        </li>
-                        <li>
-                            <a href="#">이용안내</a>
-                        </li>
-                    </ul>
-                </div>
+      <!-- board-rep -->
+      
+      <!--댓글 목록-->
+      <div class="rep-line"></div>
+      <div class="empty-list">작성된 댓글이 없습니다.</div>
+      <div class="board-rep-list">
+        <div class="parent-clone">
+
+          <div class="parent-div">
+            <div class="prnum" style="display:none"></div>
+            <div class="prwriter"></div>
+            <div class="prdate"></div>
+            <div class="prcontent">
+              <input type="text" id="prep-content" name="prep-content" readonly>
             </div>
-            <div class="foot-cont">
-                <div class="foot-logo">
-                    <img src="../../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
-                </div>
-                <div class="foot-info">
-                    <div class="foot-info-list">
-                        <dl class="dl">
-                            <dt>법인명(상호):</dt>
-                            <dt>주식회사 신묘한컴퍼니</dt>
-                        </dl>
-                        <dl class="dl">
-                            <dt>대표:</dt>
-                            <dt>신묘한</dt>
-                        </dl>
-                        <dl>
-                            <dt>TEL:</dt>
-                            <dd>
-                                <strong>1522-0125</strong>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="foot-info-list">
-                        <dl class="dl">
-                            <dt>사업자등록번호:</dt>
-                            <dt> 220-10-250316</dt>
-                        </dl>
-                        <dl class="ts">
-                            <dt>통신판매업신고번호:</dt>
-                            <dd>" 제 2022-분당오리-0316호 "
-                                <a href="#">사업자정보확인</a>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="foot-info-list">
-                        <dl class="dl">
-                            <dt>주소:</dt>
-                            <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
-                        </dl>
-                        <dl class="dl">
-                            <dt>개인정보관리책임자:</dt>
-                            <dd>세리 성언</dd>
-                        </dl>
-                        <dl>
-                            <dt>E-Mail:</dt>
-                            <dd>
-                                <a href="#">taetaetae@myomi.co.kosta</a>
-                            </dd>
-                        </dl>
-                    </div>
-                    <p class="copyright">
-                        Copyright©
-                        <strong>myomi.co.kr</strong>
-                        All rights reserved.
-                    </p>
-                </div>
+          </div>
+
+          <div class="rep-menu">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                <path
+                  d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+              </svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="rep-edit-btn">수정 </li>
+              <li class="rep-del-btn">삭제 </li>
+              <li class="rep-second-btn">답글쓰기 </li>
+            </ul>
+          </div>
+
+
+          <div class="hidden-rep-btn">
+            <button type="button" class="btn btn-outline-success" id="hid-edit-btn">수정완료</button>
+            <button type="button" class="btn btn-outline-success" id="hid-cancle-btn">취소</button>
+          </div>
+
+          <div class="just-space"></div>
+
+          <!-- 대댓글 작성 폼-->
+          <!-- <div class="re-rep-write">
+            <textarea placeholder="댓글 내용을 입력해주세요" id="re-rep-content" style="height: 70px; width: 800px"></textarea>
+            <div class="re-rep-btns">
+              <button type="button" class="btn btn-outline-success" id="re-rep-add-btn">
+                작성
+              </button>
+              <button type="button" class="btn btn-outline-success" id="re-rep-cancle-btn">
+                취소
+              </button>
             </div>
-            <div class="foot-certify">
-                <span></span>
-                <span></span>
-            </div>
+          </div> -->
         </div>
+      </div>
     </div>
-</footer> -->
+    <!--board wrap-->
+ </section>
+  <footer>
+    <div id="footer_wrap">
+      <div id="footer">
+        <div class="foot-list">
+          <div class="foot-list_in">
+            <ul>
+              <li>
+                <a href="#">묘미소개</a>
+              </li>
+              <li>
+                <a href="#">이용약관</a>
+              </li>
+              <li>
+                <a href="#">개인정보처리방침</a>
+              </li>
+              <li>
+                <a href="#">이용안내</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-cont">
+          <div class="foot-logo">
+            <img src="../../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
+          </div>
+          <div class="foot-info">
+            <div class="foot-info-list">
+              <dl class="dl">
+                <dt>법인명(상호):</dt>
+                <dt>주식회사 신묘한컴퍼니</dt>
+              </dl>
+              <dl class="dl">
+                <dt>대표:</dt>
+                <dt>신묘한</dt>
+              </dl>
+              <dl>
+                <dt>TEL:</dt>
+                <dd>
+                  <strong>1522-0125</strong>
+                </dd>
+              </dl>
+            </div>
+            <div class="foot-info-list">
+              <dl class="dl">
+                <dt>사업자등록번호:</dt>
+                <dt> 220-10-250316</dt>
+              </dl>
+              <dl class="ts">
+                <dt>통신판매업신고번호:</dt>
+                <dd>" 제 2022-분당오리-0316호 "
+                  <a href="#">사업자정보확인</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="foot-info-list">
+              <dl class="dl">
+                <dt>주소:</dt>
+                <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
+              </dl>
+              <dl class="dl">
+                <dt>개인정보관리책임자:</dt>
+                <dd>세리 성언</dd>
+              </dl>
+              <dl>
+                <dt>E-Mail:</dt>
+                <dd>
+                  <a href="#">taetaetae@myomi.co.kosta</a>
+                </dd>
+              </dl>
+            </div>
+            <p class="copyright">
+              Copyright©
+              <strong>myomi.co.kr</strong>
+              All rights reserved.
+            </p>
+          </div>
+        </div>
+        <div class="foot-certify">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>

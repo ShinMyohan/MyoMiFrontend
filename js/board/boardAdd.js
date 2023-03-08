@@ -1,5 +1,6 @@
 $(() => {
-     
+    let token = Cookies.get('token')
+    
     $('div.submit>#submit').click(function () {
         let title = $('#title').val();
         // let writer = $('#writer').val();
@@ -32,6 +33,7 @@ $(() => {
         formData.append('file', imgFile)
 
         // console.log(formData)
+        console.log(imgFile)
 
         $.ajax({
             method: "POST",

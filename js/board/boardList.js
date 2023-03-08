@@ -1,5 +1,5 @@
 $(() => {
-
+$('div.empty-list').hide();
   //-----------------글 리스트 출력하기 START----------------
   function showList(url,page) {
     // let url = backURL + 'board/list'
@@ -13,11 +13,15 @@ $(() => {
     
       success: function (jsonObj) {
         let list = jsonObj;
-   
         let $origin = $("div.list").first();
         let $parent = $("div.boardlist");
-        // console.log(jsonObj);
-        $(list).each((p) => {
+       
+        // console.log(list);
+        let arrNum = list.length;
+        if(list == 0){
+          $('div.empty-list').show();
+        }else{
+          $(list).each((p) => { 
           let num = list[p]["boardNum"];
           let category = list[p]["category"];
           let title = list[p]["title"];
@@ -28,6 +32,7 @@ $(() => {
           let $copy = $origin.clone();
 
           $copy.find("div.bnum").html(num);
+          $copy.find("div.board-num").html(arrNum--);
           $copy.find("div.bcategory").html(category);
           $copy.find("div.btitle").html(title);
           $copy.find("div.bdate").html(moment(createdDate).format("YYYY-MM-DD"));
@@ -36,13 +41,13 @@ $(() => {
 
           $parent.append($copy);
         });
+      }
         $origin.hide();
       },
       error: function (xhr) {
         alert(xhr.status);
       },
     });
-
   }
   //-----------------글 리스트 출력하기 END----------------
 
@@ -51,9 +56,15 @@ $(() => {
     let category = $('div.searchselect>#searchselect option:checked').val();
     let title = $('#searchbox').val();
 
+    if (category == '--카테고리를 선택하세요.--'){
+      category = '';
+    }
+
     let $origin = $("div.list").first();
     $("div.list").not(":first-child").remove();
     $origin.show();
+
+    let url = backURL+'board/list'
 
     let data = {
       "category": category,
@@ -63,14 +74,14 @@ $(() => {
 
     $.ajax({
       method: "get",
-      url: url + 'board/list/' + category + '/' + title,
+      url: url + category + '/' + title,
       data: data,
 
       success: function (jsonObj) {
         let list = jsonObj;
         let $origin = $("div.list").first();
         let $parent = $("div.boardlist");
-        
+        let arrNum = list.length;
         $(list).each((p) => {
           //console.log(list[p]["num"]);
           let num = list[p]["boardNum"];
@@ -82,6 +93,7 @@ $(() => {
           let $copy = $origin.clone();
 
           $copy.find("div.bnum").html(num);
+          $copy.find("div.board-num").html(arrNum--);
           $copy.find("div.bcategory").html(category);
           $copy.find("div.btitle").html(title);
           $copy.find("div.bdate").html(moment(createdDate).format("YYYY-MM-DD"));
@@ -107,8 +119,17 @@ $(() => {
 
   //--글작성 클릭시 START --
   $("div.add").click(() => {
-
-    location.href = "./boardadd.html"
+    let token = Cookies.get('token')
+    if (token == null){
+      if(confirm('로그인 한 사용자만 이용 가능합니다. 로그인 하시겠습니까?')){
+        location.href = "../user/login.html"
+      }else{
+        location.href = "./boardList.html"
+      }
+    }
+    if (token != null){
+      location.href ="./boardadd.html"
+    }
   });
   //--글작성 클릭시 END --
 

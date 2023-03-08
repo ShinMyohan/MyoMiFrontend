@@ -1,4 +1,6 @@
 $(() => {
+    let token = Cookies.get('token')
+    
     function pointList(page) {
         let $origin = $('div.list-body').first();
         $("div.list.body").not(":first-child").remove();

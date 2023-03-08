@@ -1,4 +1,6 @@
 $(()=>{
+    let token = Cookies.get('token')
+
     $('div.my-rep-list').hide();
 
     //내가 쓴 글 
@@ -82,6 +84,7 @@ showList();
 
 //댓글 목록 
 function showCommentList() {
+    let token = Cookies.get('token')
     let $origin = $('div.list-rep-body').first();
      $("div.list-rep-body").not(":first-child").remove();
      $origin.show();

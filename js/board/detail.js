@@ -1,26 +1,28 @@
 $(() => {
+  let token = Cookies.get('token')
   $('.hidden-rep-btn').hide();
-  $('.re-rep-write').hide();
+  // $('.re-rep-write').hide();
+  $('div.empty-list').hide();
   // $('.re-hidden-rep-btn').hide();
 
   function viewBoard() {
     let url = backURL;
     // ------글 상세내용 START------
     let data = location.search.substring(1);
-    // console.log(data)
+  console.log(data)
     $.ajax({
       method: "get",
-      url: url + 'board/' + data,
+      url: url + 'board/detail/' + data,
       data: data,
       beforeSend: function (xhr) {
-        //  xhr.setRequestHeader('Content-type', 'application/json');
+       //  xhr.setRequestHeader('Content-type', 'application/json');
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
       },
 
       success: function (jsonObj) {
         let list = jsonObj;
         localStorage.setItem("list", JSON.stringify(list));
-        // console.log(list);
+         console.log(list);
 
         let hits = list["hits"];
         let createdDate = list["created_date"];
@@ -60,6 +62,9 @@ $(() => {
         $origin.show();
         let $parent = $("div.board-rep-list")
 
+        if(comments.length == 0){
+          $('div.empty-list').show();
+        }else{
         $(comments).each((p) => {
           // console.log(comments)
           let parent = comments[p]["parent"]
@@ -81,12 +86,13 @@ $(() => {
             $parent.append($copy);
           }
           if (enableUpdate == false) {
-            $('#hid-edit-btn').attr('div.dropdown-menu', 'li').hide();
+            $('li.rep-edit-btn').attr('div.dropdown-menu', 'li').hide();
           }
           if (enableDelete == false) {
-            $('#rep-del-btn').attr('div.dropdown-menu', 'li').hide();
+            $('li.rep-del-btn').attr('div.dropdown-menu', 'li').hide();
           }
         });
+      }
         $origin.hide();
 
         let length = $('div.parent-clone').length;

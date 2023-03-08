@@ -5,11 +5,11 @@
 }
 
 .board-wrap {
-    width: 80%;
+    width: 65%;
     box-sizing: border-box;
     margin: 100px auto;
     align-items: center;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #999;
 }
 
 .board-title strong {
@@ -22,7 +22,7 @@
 
 .board-list {
     width: 100%;
-    border-top: 2px solid #000;
+    border-top: 2px solid #999;
 }
 
 .board-list>div.top {
@@ -116,14 +116,10 @@
 }
 
 .searcharea {
-    width: 25%;
-    margin-bottom: 20px;
+    width:20%;
+    margin-bottom:20px;
     display: flex;
-    margin-left: 50%;
-}
-
-.searchselect {
-    margin-right: 50px;
+    margin-left: 47%;
 }
 
 .bt-wrap {
@@ -133,19 +129,13 @@
 .search {
     width: 20%;
     float: right;
-
-}
-
-.searchselect {
-    width: 200px;
 }
 
 .list {
     width: 100%;
 }
 
-
-.list .bnum {
+.list .board-num {
     width: 10%;
     text-align: center;
     font-size: 15px;
@@ -205,6 +195,18 @@
     font-size: 20px;
 }
 
+.empty-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
+}
+
+/*---페이징---*/
 .pagination {
     /* 바닥에 붙이기 */
     /* position: absolute; */

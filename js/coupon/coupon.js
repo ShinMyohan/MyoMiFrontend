@@ -1,6 +1,9 @@
 $(() => {
+    let token = Cookies.get('token')
     $('div.expired-coupon-list').hide();
-
+    $('div.empty-list').hide();
+    $('div.exp-empty-list').hide();
+    
     function couponList() {
         let $origin = $('div.list-body');
         $("div.list.body").not(":first-child").remove();
@@ -39,19 +42,19 @@ $(() => {
                                 limit = "일부 품목 제외"
                                 break;
                             case 1:
-                                sort = "골드레벨 달성 축하 3% 할인쿠폰!"
+                                sort = "골드 레벨 달성 축하 3% 할인쿠폰!"
                                 benefit = "3% 상품 할인 쿠폰"
                                 condition = "2만원 이상 주문시 사용가능"
                                 limit = "일부 품목 제외"
                                 break;
                             case 2:
-                                sort = "플래티넘레벨 달성 축하 5% 할인쿠폰!"
+                                sort = "플래티넘 레벨 달성 축하 5% 할인쿠폰!"
                                 benefit = "5% 상품 할인 쿠폰"
                                 condition = "2만원 이상 주문시 사용가능"
                                 limit = "일부 품목 제외"
                                 break;
                             case 3:
-                                sort = "다이아몬드레벨 달성 축하 7% 할인쿠폰!"
+                                sort = "다이아몬드 레벨 달성 축하 7% 할인쿠폰!"
                                 benefit = "7% 상품 할인 쿠폰"
                                 condition = "2만원 이상 주문시 사용가능"
                                 limit = "일부 품목 제외"
@@ -69,7 +72,9 @@ $(() => {
 
                     $parent.append($copy);
 
-                    }
+                }else{
+                    $('div.empty-list').show();
+                }
                 })
                 $origin.hide();
             },
@@ -100,6 +105,7 @@ $(() => {
                 
                 $(list).each((p)=>{
                     // console.log(list);
+                  
                     let cdate = list[p]["createdDate"];
                     let date = new Date('20'+cdate); 
                     //db에서 받아오는 날짜포맷은 yy-MM-dd 이고 Date 함수의 포맷은 yyyy-MM-dd라서 
@@ -109,9 +115,9 @@ $(() => {
                     let status = list[p]["status"]; //사용여부 
                     let benefit; //혜택
                     let condition; //사용조건 
-                    let limit; //제한조건
+                    let limit; //제한조건6
                     
-                    if (status != 1) {
+                    if (status != 0) {
                         switch (sort) {
                             case 0:
                                 sort = "회원가입 축하 5% 할인쿠폰!"
@@ -150,6 +156,8 @@ $(() => {
 
                     $parent.append($copy);
 
+                    }else{
+                        $('div.exp-empty-list').show();
                     }
                 })
                 $origin.hide();

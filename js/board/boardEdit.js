@@ -1,7 +1,8 @@
 $(() => {
-
+  let token = Cookies.get('token')
+  
   let list = JSON.parse(localStorage.getItem("list"));
-  // console.log(list);
+  console.log(list);
 
   let num = list["boardNum"];
   let title = list["title"];
@@ -15,7 +16,7 @@ $(() => {
   $('input[name=board-writer]').attr('value', writer);
   $('#select').val(category).prop("selected", true);
   $('#exampleFormControlTextarea1').val(content);
-  $('input[name="boardFile"]').get(0).files[0];
+  $('input[name="boardFile"]').attr('src',image);
 
   $('div.submit>#submit').click(function () {
     num = $('input[name=board-num]').val();
