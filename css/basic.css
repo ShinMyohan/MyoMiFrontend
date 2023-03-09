@@ -131,7 +131,7 @@ nav.menulist > ul > li > a:hover {
 }
 
 /* 클릭시 전체메뉴 박스 */
-#menubar{
+#menubarListMenu{
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -140,10 +140,10 @@ nav.menulist > ul > li > a:hover {
     margin-top: -4px;
 }
 
-section{
+/* section{
     position: relative;
     z-index: -2;
-}
+} */
 
 .allmenu{
     background-color: #ffffff;

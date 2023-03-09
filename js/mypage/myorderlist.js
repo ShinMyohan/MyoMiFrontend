@@ -1,4 +1,11 @@
+window.mypageOrderDetail = (orderNum) => {
+    localStorage.setItem('orderNum', orderNum)
+    location.replace('../mypage/myorderdetail.html')
+}
+
 $(()=>{
+    let token = Cookies.get('token')
+
     $(function() {
         $('input[name="daterange"]').daterangepicker({
             "startDate": "2023/02/10",
@@ -23,16 +30,20 @@ function getOrderList() {
         },
         success: function (jsonObj) {
             let orderList= jsonObj
-            // console.log(orderList)
-            // console.log(orderList[61])
-            // console.log(orderList.entries())
-            // console.log(orderList.values())
             let keys = Object.keys(orderList);
             let values = Object.values(orderList);
-            console.log(Object.values(values[0]))
-            console.log(Object.values(values[1])[0]['orderNum'])
-            console.log(values.length)
-            console.log(values[1].length)
+            // console.log(Object.values(values[0]))
+            // console.log(Object.values(values[1])[0]['orderNum'])
+
+            // console.log(values[1].length)
+            if(keys.length == 0) {
+                let emptyHTML = `<div class="emptyOrderList">
+                                    <h6>최근에 주문한 상품이 없습니다.</h6>
+                                </div><hr>`;
+                $('#mypageOrderList').append(emptyHTML);
+                $('#mypageOrderList').css('display','table-caption');
+                $('#mypageOrderList').css('padding','20px');
+            }
             for(let i=0; i<= values.length-1; i++) {
                 for(let j=0; j<= values[i].length-1; j++) {
                 let orderNum = Object.values(values[i])[j]['orderNum'];
@@ -44,8 +55,8 @@ function getOrderList() {
                 let pname = Object.values(values[i])[j]['pname'];
                 let payStatus = 0
                 let reviewStatus = 0
+                let disabled = ''
                 let oneOrderLength = values[i].length
-                console.log(pname)
 
                 if(canceledDate != null) {
                     payStatus = '주문 취소'
@@ -65,11 +76,13 @@ function getOrderList() {
                 } else {
                     reviewCss = 'hide'
                     reviewStatus= '리뷰 완료'
+                    disabled = 'disabled'
                 }
 
                 if( j == 0) {
                     let orderHTML = `<tr>
-                                        <td rowspan="${oneOrderLength}" class="order-date">${createdDate}<div class="order-num">${orderNum}</div>
+                                        <td rowspan="${oneOrderLength}" class="order-date" onclick="mypageOrderDetail(${orderNum})">
+                                            ${createdDate}<div class="order-num">${orderNum}</div>
                                         <td>
                                             <div
                                                 style="display: flex; margin: 0 13px 0 13px; align-items: center;">
@@ -85,7 +98,7 @@ function getOrderList() {
                                         </td>
                                         <td rowspan="${oneOrderLength}">
                                         <div class="${payCss}">${payStatus}</div>
-                                        <td><button type="button" class="btn btn-light review-${reviewCss}">${reviewStatus}</button></td>
+                                        <td><button type="button" class="btn btn-light review-${reviewCss}" ${disabled}>${reviewStatus}</button></td>
                                     </tr>`
                     $('#mypageOrderList').append(orderHTML);
                 }

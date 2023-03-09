@@ -51,15 +51,27 @@ div#cartTitle{
     justify-content: space-between
 }
 
-div#cartTitle h4{
-    margin-bottom: 20px;
-    /* float:left; */
-    width: 50%;
+#allCheckCart {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+}
+
+#allCheckCart:hover{
+    background-color: none;
+    color: #FFA000;
+}
+
+.bi-check2-circle {
+    margin-right: 5px;
 }
 
 #removeCart{
-    width:200px;
+    width:150px;
     font-size: 17px;
+    font-weight: 500;
     float: right;
     display: flex;
     align-items: center;
@@ -67,16 +79,12 @@ div#cartTitle h4{
 
 #removeCart:hover{
     background-color: none;
-}
-
-.bi-trash3 {
-    margin-right: 6px;
-}
-
-.bi-trash3:hover {
     color: #FFA000;
 }
 
+.bi-trash3 {
+    margin-right: 5px;
+}
 
 div.cart-box{
     width: 100%;
@@ -167,8 +175,8 @@ div.cart-box-detail #updateProdCnt {
 
 #amountContainer button.btn-success{
     font-size: 18px;
-    background-color: #f6c762;
-    color:#2e2e2e;
+    background-color: #FFEBB4;
+    color:#3c3c3c;
     border-radius: 0;
     border:none;
     border-radius: 10px;

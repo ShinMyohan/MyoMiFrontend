@@ -1,4 +1,6 @@
 $(()=>{
+    let token = Cookies.get('token')
+
     // -- 상품 보여주기 START --
     let data = location.search.substring(1) //prodNum=1
 
@@ -11,7 +13,8 @@ $(()=>{
         data: data,
         success: function(jsonObj){
             let product = jsonObj['body'];
-            // console.log(product);
+            localStorage.setItem('cartList', JSON.stringify(product))
+            console.log(product)
             $('#prodMainImg').attr('src', product["productImgUrl"])
             $('div.prodNum').html(product['prodNum']);
             $('div.prodName>h4').html(product['name'])

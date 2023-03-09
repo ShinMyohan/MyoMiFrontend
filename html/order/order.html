@@ -12,6 +12,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/index.js"></script>
     <script src="../../js/cart/cartinfo.js"></script>
@@ -170,7 +171,7 @@
                     </li>
                     <li class="order-li">
                         <div class="order-title">휴대폰 번호</div><input type="text"
-                            class="form-control  order-content" id="tel" placeholder="휴대폰 번호 입력">
+                            class="form-control  order-content" id="tel" placeholder="휴대폰 번호 입력" oninput="telHyphen(this)" maxlength="13">
                     </li>
                 </ul>
             </div>
@@ -217,7 +218,7 @@
             <ul id="inputBox">
                 <li class="order-li">
                     <div class="order-title">총 결제 예정금액</div>
-                    <input type="text" class="form-control order-content" id="totalProdPrice" placeholder="총 결제예정금액" readonly>
+                    <input type="text" class="form-control order-content" id="totalProdPrice" placeholder="결제예정금액" readonly>
                 </li>
                 <li class="order-li">
                     <div class="order-title">쿠폰 사용</div>
@@ -359,7 +360,7 @@
 
 <!-- 쿠폰 조회 모달 -->
 <div class="modal fade" id="open-coupon-modal">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -369,21 +370,12 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="modalTitle">
-                    <span class="col">선택</span>
-                    <span class="col-3">이름</span>
-                    <span class="col-3">할인율</span>
-                    <span class="col-3">사용만료</span>
+                    <span >선택</span>
+                    <span >이름</span>
+                    <span >할인율</span>
+                    <span >사용만료</span>
                 </div>
-                <hr>
                 <div class="couponParent"></div>
-                <!-- <div id="couponList">
-                라디오 버튼 1개만 눌리게 하기 위해선 name이 있어야함
-                <span class="col"><input type="radio" class="form-check-input" name="radio" id="couponCheck" unchecked></span>
-                <span class="col"><input class="form-check-input" type="checkbox" id="couponCheck" onclick="clickOnlyOne(this)" unchecked></span>
-                <span class="col" id="couponName"></span>
-                <span class="col" id="couponPercentage"></span>
-                <span class="col" id="couponDate"></span>
-            </div> -->
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">

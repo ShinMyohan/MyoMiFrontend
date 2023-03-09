@@ -15,9 +15,9 @@ $(()=>{
     // ------ 메뉴 클릭시 상세 메뉴 보이기 START ------
 
     $(document).ready(function() {
-        $('#menubar').hide();
+        $('#menubarListMenu').hide();
         $('div.gnb>div.gnb-in>div.gnb-menu-box').click(function() {
-            $('#menubar').slideToggle(500)
+            $('#menubarListMenu').slideToggle(500)
         });
     });
     // ------ 메뉴 클릭시 상세 메뉴 보이기 END ------

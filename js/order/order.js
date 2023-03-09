@@ -1,3 +1,15 @@
+let token = Cookies.get('token')
+
+// window.buyProduct = () => {
+//     let prodCnt = $('#result').html()
+//     let cartList = localStorage.getItem('cartList');
+//     var prodInfo = JSON.parse(localStorage.getItem('cartList'));
+//     prodInfo.push('prodCnt', prodCnt);
+//     localStorage.setItem('cartList', JSON.Stringify(prodInfo));
+
+//     location.replace('../order/payment.html')
+// }
+
 window.getMyPoint = () => {
     getTotalPoint()
 }
@@ -10,14 +22,23 @@ window.createOrderButton = () => {
     confirmPayment()
 }
 
+// 전화번호 하이픈(-)
+const telHyphen = (target) => {
+    target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+}
+
 function confirmPayment() {
     if (window.confirm("결제 하시겠습니까?")) {
         createOrder(); // 주문서 작성
     } else {
-        console.log("결제를 취소하였습니다.");
+        alert("결제를 취소하였습니다.");
     }
 }
 $(()=>{
+    let token = Cookies.get('token')
+
     localStorage.setItem('coupon', 0);
     let totalPrice = 0
     let discountPrice = 0
@@ -32,13 +53,12 @@ $(()=>{
                 let prodCnt = orderList[i].prodCnt;
                 let originPrice = orderList[i].originPrice
                 let percentage = orderList[i].percentage;
-                let prodPrice = ((originPrice - originPrice*(percentage/100))*prodCnt).toLocaleString();
+                let prodPrice = ((originPrice - originPrice*(percentage/100))*prodCnt).toLocaleString().split(".")[0];
 
                 // 상품 목록 아래에 나올 금액들
                 totalPrice += (originPrice * prodCnt)
                 discountPrice += originPrice * (percentage/100) * prodCnt
                 payPrice += (originPrice - originPrice*(percentage/100)) * prodCnt
-                console.log('totalPrice1 : ' + totalPrice)
                 let productHTML = `<div id="orderProduct">
                                         <img src="../../imgs/shin.png" class="rounded" id="img">
                                         <div id="productDetail" class="col">
@@ -60,9 +80,9 @@ $(()=>{
                                     </div><hr>`;
                 $('#orderProductList').append(productHTML);
         }
-        $('#totalPrice').html(totalPrice.toLocaleString() + '원')
-        $('#discountPrice').html(discountPrice.toLocaleString() + '원')
-        $('#payPrice').html(payPrice.toLocaleString() + '원')
+        $('#totalPrice').html(totalPrice.toLocaleString().split(".")[0] + '원')
+        $('#discountPrice').html(discountPrice.toLocaleString().split(".")[0] + '원')
+        $('#payPrice').html(payPrice.toLocaleString().split(".")[0] + '원')
         $('#totalProdPrice').val(payPrice.toLocaleString().split(".")[0])
         $('#totalPayPrice').val(payPrice.toLocaleString().split(".")[0])
         $('#totalPay').html(payPrice.toLocaleString().split(".")[0] + '원')
@@ -131,8 +151,7 @@ $("#selectRecieveDate").each(function() {
 
 //----------------------------------------- 쿠폰 ----------------------------------------------
 window.couponModal = () => {
-    userId = 'user2'
-    getCouponList(userId)
+    getCouponList()
 }
 
 // 내 쿠폰 목록 조회하기
@@ -153,8 +172,14 @@ function getCouponList() {
         },
         success: function (jsonObj) {
             let couponList = jsonObj;
-            console.log(couponList)
-            // couponList(list)
+
+            if(couponList.length == 0) {
+                let emptyHTML = `<div class="emptyCoupon">
+                                    <h6>사용가능한 쿠폰이 없습니다.</h5>
+                                </div>`;
+                // $('div.cart-box-detail').first().hide();
+                $('div.couponParent').append(emptyHTML);
+            }
 
             for (let i = 0; i < couponList.length; i++) {
                 let num = couponList[i]['couponNum'];
@@ -167,25 +192,25 @@ function getCouponList() {
                 let couponName;
                 switch(sort) {
                     case 0 :
-                        couponName = '회원가입 쿠폰';
+                        couponName = '회원가입 축하 할인쿠폰!';
                         break;
                     case 1 :
-                        couponName = '등급업 쿠폰 (골드)';
+                        couponName = '골드 레벨 달성 축하 할인쿠폰!';
                         break;
                     case 2 :
-                        couponName = '등급업 쿠폰 (플래티넘)';
+                        couponName = '플래티넘 레벨 달성 축하 할인쿠폰!';
                         break;
                     case 3 :
-                        couponName = '등급업 쿠폰 (다이아몬드)';
+                        couponName = '다이아몬드 레벨 달성 축하 할인쿠폰!';
                         break;
                 }
                 if(usedDate == null) {
-                let couponHTML = `<div id="couponList">
-                                    <span class="col-2"><input type="radio" class="form-check-input" name="radio" id=${num} onclick="couponApply(${num}, ${percentage})" unchecked></span>
-                                    <span class="col-4" id="couponName">${couponName}</span>
-                                    <span class="col-2" id="couponPercentage">${percentage}%</span>
-                                    <span class="col-2" id="couponDate">${expiredDate}</span>
-                                </div>`;
+                let couponHTML = `<ul id="couponList">
+                                    <li><input type="radio" class="form-check-input" name="radio" id=${num} onclick="couponApply(${num}, ${percentage})" unchecked></span>
+                                    <li id="couponName">${couponName}</li>
+                                    <li id="couponPercentage">${percentage}%</li>
+                                    <li id="couponDate">${expiredDate}</li>
+                                </ul>`;
                 $('div.couponParent').append(couponHTML);
             }
                 if( couponNum != 0) {$(`input[id=${couponNum}]`).attr("checked", true)}
@@ -245,7 +270,6 @@ function getTotalPoint() {
         },
         success: function (jsonObj) {
             let point = jsonObj;
-            console.log(point)
 
             let totalPoint = point['totalPoint'];
             $('#usedPoint').css('display', 'flex');
@@ -264,7 +288,7 @@ function maxPointCheck(object){
 
     } else if(object.value > myPoint){
         alert(myPoint +'원 이하로 사용 가능합니다.')
-        $('#usedPoint').val(myPoint.toLocaleString())
+        $('#usedPoint').val(myPoint.toLocaleString().split(".")[0])
     }
 }
 
@@ -297,7 +321,6 @@ function pointApplyAmount() {
 // ----------------------------------- 주문 -----------------------------------
 // 결제하기 버튼누르면 실행
 function createOrder() {
-    console.log('createOrder들어옴')
     // 수신자 정보
     let msg = $('input[id=orderMsg]').val();
     // 할인혜택
@@ -309,7 +332,7 @@ function createOrder() {
 
     // 상품 정보
     let orderDetails = JSON.parse(localStorage.getItem('orderList'));
-    console.log(orderDetails)
+
     // 배송정보
     let name = $('input[id=name]').val();
     let tel = $('input[id=tel]').val();
@@ -318,7 +341,7 @@ function createOrder() {
     let receiveDate = $('#selectRecieveDate option:selected').text();
 
 
-    if (name == '') { alert('받는 사람 닉네임을 입력해주세요!');return;}
+    if (name == '') { alert('받는 사람 이름을 입력해주세요!');return;}
     if (tel == '') {alert('수신자 핸드폰 번호를 입력해주세요!');return;}
     if (addr == '') {alert('주소를 입력해주세요!');return;}
     if (receiveDate == '') {alert('수령일을 선택해주세요!');return;}
@@ -337,7 +360,6 @@ function createOrder() {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         success: function (response) {
-            console.log('orderNum: ' + response);
             localStorage.setItem('coupon', 0);
             payment(response) // 주문 번호
         },
@@ -351,7 +373,6 @@ function createOrder() {
 
 //---------------------------------------- 아임포트 결제 -------------------------------------------------
 function payment(orderNum) {
-    console.log('payment 들어왔다')
     let data = {
         orderNum : orderNum,
         name : $('input[id=orderName]').val(),
@@ -366,8 +387,6 @@ function payment(orderNum) {
 
 // 카드 결제
 function paymentCard(data) {
-    console.log('카드결제 들어왔다')
-    console.log('주문 번호 : ' + data.orderNum)
     var IMP = window.IMP;
 
 	IMP.init("imp48531312");  // 가맹점 식별 코드
@@ -388,7 +407,6 @@ function paymentCard(data) {
         // m_redirect_url: "/payment",
 },
 	function (rsp) { // callback
-        alert('성공?')
 		if (rsp.success) {
          // 결제 성공 시 로직,
         data.impUid = rsp.imp_uid; // 고유 id
@@ -401,14 +419,12 @@ function paymentCard(data) {
           // 결제 실패 시 로직,
             var msg = '결제에 실패하였습니다.';
             msg += '에러내용 : ' + rsp.error_msg
-            alert(msg);
 		}
 	});
 }
 
 // 계산 완료
 function paymentComplete(data) {
-    alert('결제완료 들어왔다')
     $.ajax({
         url: backURL + "payment",
         method: "PUT",
@@ -422,27 +438,15 @@ function paymentComplete(data) {
         },
     })
     .done(function(result) {
-        // if(rsp.paid_amount == data.response.amount)
-        // messageSend();
-        // swal({
-        //     text: result,
-        //     closeOnClickOutside : false
-        // })
-        // .then(function(){
-            alert('결제 완료')
-            alert(result)
-            // location.replace("/orderList");
             localStorage.removeItem('cartList');
             localStorage.removeItem('orderList');
             localStorage.removeItem('coupon');
-
             localStorage.setItem('orderNum', result)
-            window.location.href = frontURL + 'order/payment.html';
+
+            location.replace('../order/payment.html')
             Afterpayment(result)
-        // })
     }) // done
     .fail(function() {
-        alert("에러"); // --> 아임포트에서 결제 취소되도록
-        // location.replace("/");
+        alert("에러");
     })
 }
