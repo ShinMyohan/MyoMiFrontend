@@ -1,5 +1,6 @@
 
 $(() => {
+    let token = Cookies.get('token')
     let review = JSON.parse(localStorage.getItem("review"));
     let reviewNum = review["reviewNum"];
     let title = review["title"];
@@ -9,7 +10,6 @@ $(() => {
     $('input[name=review-title]').attr('value', title);
     $('input[name=review-prod]').attr('value', prodName);
     $('textarea#content').val(content);
-    //console.log("1번 : " + reviewNum, title, content, prodName)
     
     $('div.submit>#submit').click(function () {
         title = $('input[name=review-title]').val();

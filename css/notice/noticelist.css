@@ -36,6 +36,10 @@ div .notice-head{
     font-size:30px;
 }
 
+div.notice-search-btn-wrap{
+    margin-left: 10px;
+}
+
 div .notice-search{
     display: flex;
     justify-content: flex-end;

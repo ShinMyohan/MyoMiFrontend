@@ -1,0 +1,89 @@
+div.mp-activity-main-frame{
+    width:100%;
+    background:aqua;
+}
+
+.col-sm-2 col-form-label{
+    width: 200px;
+}
+
+.mypage-basic{
+    margin: 80px auto;
+    padding-top: 40px;
+    background-color: white;
+    position: relative;
+}
+.mp-user{
+    width:80%;
+    margin:0 auto;
+    display: flex;
+}
+    
+.mp-user-name{
+    margin-left: 10px;
+    margin-right: 10px;
+ }
+
+.mp-activity-main-frame{
+    width:60%;
+}
+
+.mp-user-name-level{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border-bottom: 1px solid #d9d9d9;
+}
+
+.mp-user-info{
+    background-color: black;
+    color:white;
+    width:20%;
+    margin-right: 20px;
+}
+
+div.mp-sub-menu li{
+     list-style: none; 
+}
+#seller-internetimg{
+    width: 601px;
+    height: 518px;
+    object-fit: cover;
+}
+#seller-companyimg{
+    width: 601px;
+    height: 518px;
+    object-fit: cover;
+}
+
+div.company-img-url{
+    margin-top:20px;
+}
+div.internet-img-url {
+    margin-top: 20px;
+}
+
+
+li.mp-sub-menu a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+label.col-form-label{
+    width:175px;
+}
+
+.col-sm-10 input.seller-info-input {
+    width:400px;
+    height: 40px;
+    outline:none;
+    border: none;
+    background-color: #d9d9d989;
+    cursor: default;
+    border-radius: 5px;
+}
+
+

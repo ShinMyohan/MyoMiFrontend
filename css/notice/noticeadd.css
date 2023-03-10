@@ -1,18 +1,28 @@
+.notice-add{
+width: 1000px;
+    margin: 100px auto;
+}
 .notice-write-wrap{
     width : 1000px;
-    margin: 100px auto;
     border: 1px solid #999;
+    border-radius: 5px
 }
-
+#notice-title{
+    height: 32px;
+    width: 950px;
+}
 .title {
-    padding : 10px 20px;
+    padding-top:20px;
+    padding-bottom:13px;
+    padding-right:20px;
+    padding-left:20px;
     display: flex;
     flex-direction: column;
     border-radius: 1px;
 }
 
 .info {
-    padding : 10px 20px;
+    padding-top : 10px; 
 }
 
 .content-textarea{
@@ -27,17 +37,20 @@
 .notice-head{
     font-size: xx-large;
 }
-.submit {
-    margin: 0 auto;
-    float: right;
-    padding-top: 10px;
-    padding-right: 5px;
+.bt-wrap-add{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.submit{
+    padding-bottom:10px;
+    padding-right: 10px;
 }
 
-.cancel {
-    margin: 0 auto;
-    float: right;
-    padding-top: 10px;
+ .cancel {
+    padding-right: 10px;
+    padding-bottom: 10px;
+    
 }
 
 

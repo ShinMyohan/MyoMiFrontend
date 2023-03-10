@@ -1,5 +1,5 @@
 $(()=>{
-   
+    let token = Cookies.get('token')
     $('div.submit>#submit').click(function () {
 
         let title = $('#notice-title').val();
