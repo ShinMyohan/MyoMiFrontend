@@ -1,4 +1,8 @@
 $(()=>{
+  let token = Cookies.get('token')
+  
+  $("div.signup-empty").show();
+  $("div.signup-list-row").hide();
   $('.sl-signup-btn').show();
   $('.sl-store-btn').hide();
 
@@ -60,9 +64,13 @@ $(()=>{
         }else if(mStatus == 3){
           $("#modal-company-status").html("탈퇴신청");
         }
+        if(list != ''){
+          $("div.signup-empty").hide();
+          $("div.signup-list-row").show();
+      }
       },
       error: function(xhr){
-          alert("신청내역이 없습니다")
+        console.log(xhr)
        },
     });
 
@@ -71,7 +79,7 @@ $(()=>{
 
   //--내스토어 방문하기 클릭시 할 일 START--
   $(".mp-sl-headbox").on("click",".sl-store-btn",(e)=>{
-    location.href="../sellerpage/productlist.html"
+    location.href="../sellerpage/sellerproductlist.html"
 })
   //--내스토어 방문하기 클릭시 할 일 END--
 
