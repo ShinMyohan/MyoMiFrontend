@@ -27,7 +27,12 @@ function addCart() {
             $('#exampleModal').modal('show');
 
         }, error: function (xhr) {
-            console.log(xhr.status);
+            console.log(xhr.responseJSON)
+            if(xhr.responseJSON.details == 'PRODUCT_STATUS_ERROR') {
+                alert('품절인 상품은 장바구니에 담으실 수 없습니다.')
+            } else if(xhr.responseJSON.status == 401) {
+                alert(xhr.responseJSON.details)
+            }
         }
     })
 }

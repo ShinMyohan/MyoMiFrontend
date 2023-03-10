@@ -16,7 +16,8 @@ function Afterpayment(orderNum) {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         success: function (response) {
-            let orderInfo = response;
+            let orderInfo = response.data;
+            console.log(orderInfo)
 
             // 주문자 정보 보여주기
             let orderNum = orderInfo['orderNum'];
@@ -33,7 +34,7 @@ function Afterpayment(orderNum) {
             let payCreatedDate = orderInfo['payCreatedDate'];
             let orderDetails = orderInfo['orderDetails'];
 
-            let orderDetailsLength = orderDetails.length/4; // 외 *건 때문에 -1
+            let orderDetailsLength = orderDetails.length/5; // 외 *건 때문에 -1
             let originPrice = 0
             if(deliveryMsg = 'null') {
                 deliveryMsg = '없음'
@@ -41,8 +42,8 @@ function Afterpayment(orderNum) {
 
             // 상품 원래 금액
             for(let i=0; i<= orderDetailsLength-1; i++) {
-                let prodCnt = orderDetails[i * 4 + 2]
-                let originPricePerOne = orderDetails[i * 4 + 3]
+                let prodCnt = orderDetails[i * 5 + 2]
+                let originPricePerOne = orderDetails[i * 5 + 3]
                 originPrice += originPricePerOne * prodCnt
             }
 

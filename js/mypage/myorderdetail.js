@@ -24,8 +24,7 @@ function getMyOrderDetail() {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         success: function (response) {
-            let orderInfo = response;
-
+            let orderInfo = response.data;
             // 주문자 정보 보여주기
             let orderNum = orderInfo['orderNum'];
             let userName = orderInfo['userName'];
@@ -41,7 +40,7 @@ function getMyOrderDetail() {
             let payCreatedDate = orderInfo['payCreatedDate'];
             let canceledDate = orderInfo['canceledDate'];
             let orderDetails = orderInfo['orderDetails'];
-            let length = orderDetails.length/4
+            let length = orderDetails.length/5
 
             let cancelPrice = '' // 환불 금액
             let cancelMethod = '' // 환불 수단
@@ -64,7 +63,7 @@ function getMyOrderDetail() {
             if(canceledDate != null) {
                 cancelPrice = totalPrice.toLocaleString().split(".")[0]+' 원'
                 cancelMethod = '카카오페이: ' + totalPrice.toLocaleString().split(".")[0]
-                $('#detailCancelPrice').html(cancelPrice.toLocaleString().split(".")[0]+' 원')
+                $('#detailCancelPrice').html(cancelPrice.toLocaleString().split(".")[0])
             }
 
             // 수령일로 부터 3일 전에만 버튼 보임
@@ -101,20 +100,21 @@ function getMyOrderDetail() {
 
 
             for(let i=0; i<= length-1; i++) {
-                let prodNum = orderDetails[i * 4]
-                let prodName = orderDetails[i * 4 + 1]
-                let prodCnt = orderDetails[i * 4 + 2]
-                let originPricePerOne = orderDetails[i * 4 + 3]
+                let prodNum = orderDetails[i * 5]
+                let prodName = orderDetails[i * 5 + 1]
+                let prodImg = orderDetails[i * 5 + 2]
+                let prodCnt = orderDetails[i * 5 + 3]
+                let originPricePerOne = orderDetails[i * 5 + 4]
                 let originPricePerOneShow = originPricePerOne.toLocaleString().split(".")[0]
                 pricePerProd  = originPricePerOne * prodCnt
                 let pricePerProdShow = pricePerProd.toLocaleString().split(".")[0]
                 totalOriginPrice += pricePerProd
+                $('.order-prod-name img').attr('src', prodImg);
 
                 let orderHTML = `<tr>
                                     <td>
                                         <div class="order-prod-name">
-                                            <span><a href="#"><img src="../../images/shin.png"
-                                                        style="width:3.5em; height:3.5em; margin-right: 15px;"></a></span>
+                                            <span><img src="/" style="width:3.5em; height:3.5em; margin-right: 15px;"></span>
                                             <div>
                                                 <a href="#">
                                                     ${prodName}

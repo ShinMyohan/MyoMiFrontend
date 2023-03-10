@@ -10,11 +10,17 @@ window.updatePlusProdCnt = (value) => {
     modifyPlusProdCnt(value)
 }
 
+// 전체 선택
 window.allCheckCart = () => {
     $("input:checkbox[name=cart-check]").each(function() {
-        $("input:checkbox[name=cart-check]").prop('checked', true)
+        // console.log(!$("input:checkbox[name=cart-check]:disabled").attr('disabled'))
+        // if($("input:checkbox[name=cart-check]").prop('disabled') == 'false') {
+            $("input:checkbox[name=cart-check]").prop('checked', true)
+        // } else if ($("input:checkbox[name=cart-check]").attr('disabled')){
+        //     $("input:checkbox[name=cart-check]").prop("checked", true);
     })
 }
+
 
 
 $(()=>{
@@ -36,7 +42,7 @@ $(()=>{
                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             },
             success: function (jsonObj) {
-                let list = jsonObj;
+                let list = jsonObj.data;
                 if(list.length == 0) {
                     let emptyHTML = `<div class="emptyCart">
                                         <h3>장바구니가 비었습니다.</h3>
@@ -47,7 +53,6 @@ $(()=>{
 
                 localStorage.setItem('cartList', JSON.stringify(list));
                 // console.log(list.length)
-                console.log(list)
                 // 총 금액들 선언
                 let allProdPrice = 0;
                 let allDcPrice = 0;
@@ -59,9 +64,11 @@ $(()=>{
                 list.forEach(item => {
                     let prodNum = item["prodNum"];
                     let prodName = item["name"];
+                    let prodImg = item["productImgUrl"]
                     let prodCnt = item["prodCnt"];
                     let originPrice = item["originPrice"];
                     let percentage = item["percentage"];
+                    let status = item["status"]
                     let totalPriceByOne = originPrice - originPrice*(percentage/100);
                     let totalPrice = totalPriceByOne * prodCnt;
                     allProdPrice += originPrice * prodCnt;
@@ -72,12 +79,20 @@ $(()=>{
                     $copy.show()
                     $copy.find('input[name=cart-check]').val(prodNum)
                     $copy.find('button#updateProdCnt').val(prodNum)
+                    $copy.find('#img').attr('src', prodImg)
                     $copy.find('div#options h5').html(prodCnt)
                     $copy.find('div#productDetail h5').html(prodName)
                     $copy.find('div#percentage h5').html(percentage + '%')
                     $copy.find('div#cart-price h5').html(totalPrice.toLocaleString().split(".")[0] + '원')
+                    $copy.find('input[name=cart-check]').attr('disabled', false);
+                    if(status != 0) {
+                        $copy.css({
+                            "background-color": "#efefef",
+                            "color": "rgb(190 189 189)",
+                        })
+                        $copy.find('input[name=cart-check]').attr('disabled', true);
+                    }
                     $parent.append($copy);
-
                 })
                 $origin.hide();
 

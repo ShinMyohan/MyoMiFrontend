@@ -30,13 +30,20 @@ function getOrderList() {
         },
         success: function (jsonObj) {
             let orderList= jsonObj
+            console.log(orderList)
+
+            // console.log([...jsonObj['data']])
             let keys = Object.keys(orderList);
             let values = Object.values(orderList);
             // console.log(Object.values(values[0]))
-            // console.log(Object.values(values[1])[0]['orderNum'])
+            // console.log(keys)
+            console.log(values)
+            console.log(Object.values(values[1]).length)
+            // console.log(Object.values(values[1])[0])
+            // console.log(Object.values(values[1]).length)
+            console.log(Object.values(values[1][0]).length)
 
-            // console.log(values[1].length)
-            if(keys.length == 0) {
+            if(values[1].length == 0) {
                 let emptyHTML = `<div class="emptyOrderList">
                                     <h6>최근에 주문한 상품이 없습니다.</h6>
                                 </div><hr>`;
@@ -44,19 +51,20 @@ function getOrderList() {
                 $('#mypageOrderList').css('display','table-caption');
                 $('#mypageOrderList').css('padding','20px');
             }
-            for(let i=0; i<= values.length-1; i++) {
-                for(let j=0; j<= values[i].length-1; j++) {
-                let orderNum = Object.values(values[i])[j]['orderNum'];
-                let totalPrice = Object.values(values[i])[j]['totalPrice'].toLocaleString().split(".")[0];
-                let createdDate = Object.values(values[i])[j]['createdDate'];
-                let payCreatedDate = Object.values(values[i])[j]['payCreatedDate'];
-                let canceledDate = Object.values(values[i])[j]['canceledDate'];
-                let reviewNum = Object.values(values[i])[j]['reviewNum'];
-                let pname = Object.values(values[i])[j]['pname'];
+            for(let i=1; i<= Object.values(values[1]).length-1; i++) { // 1부터 시작
+                for(let j=0; j<= Object.values(values[1][i]).length-1; j++) {
+                let orderNum = Object.values(values[1][i])[j]['orderNum'];
+                let totalPrice = Object.values(values[1][i])[j]['totalPrice'].toLocaleString().split(".")[0];
+                let createdDate = Object.values(values[1][i])[j]['createdDate'];
+                let payCreatedDate = Object.values(values[1][i])[j]['payCreatedDate'];
+                let canceledDate = Object.values(values[1][i])[j]['canceledDate'];
+                let reviewNum = Object.values(values[1][i])[j]['reviewNum'];
+                let pname = Object.values(values[1][i])[j]['pname'];
+                let prodNum = Object.values(values[1][i])[j]['prodNum'];
                 let payStatus = 0
                 let reviewStatus = 0
                 let disabled = ''
-                let oneOrderLength = values[i].length
+                let oneOrderLength = values[1][i].length
 
                 if(canceledDate != null) {
                     payStatus = '주문 취소'
@@ -90,6 +98,7 @@ function getOrderList() {
                                                     <a id="pName" onclick="mypageOrderDetail(${orderNum})">
                                                     ${pname}
                                                     </a>
+                                                    <div class="prod-num" style="display : none">${prodNum}</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -111,6 +120,8 @@ function getOrderList() {
                                                         <a id="pName" onclick="mypageOrderDetail(${orderNum})">
                                                         ${pname}
                                                         </a>
+                                                        <div class="order-num" style="display : none">${orderNum}</div>
+                                                        <div class="prod-num" style="display : none">${prodNum}</div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -118,6 +129,18 @@ function getOrderList() {
                                         </tr>`
                     $('#mypageOrderList').append(addOrderHTML);
                 }
-}}}})
-    }
+            }}
+        }, error : function(xhr) {
+                        console.log(xhr.responseJSON)
+                    }
+                })
+            }
+
+    $('#mypageOrderList').on('click', 'button.review-show', (e) => {
+        let orderNum = $(e.target).parents("#mypageOrderList>tr").find("div.order-num").html();
+        let prodNum = $(e.target).parents("#mypageOrderList>tr").find("div.prod-num").html();
+        location.href = '../../html/review/addreview.html?ordernum='+orderNum+'&prodnum='+prodNum
+    })
 })
+
+

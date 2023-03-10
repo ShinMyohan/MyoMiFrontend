@@ -361,11 +361,14 @@ function createOrder() {
         },
         success: function (response) {
             localStorage.setItem('coupon', 0);
-            payment(response) // 주문 번호
+            console.log(response)
+            payment(response.data) // 주문 번호
         },
         error: function (xhr) {
-            alert('입력 항목을 확인해주세요!');
-            console.log(xhr.status);
+            console.log(xhr.responseJSON);
+            if(xhr.responseJSON.status == 401) {
+                alert(xhr.responseJSON.details)
+            }
         }
     });
 }
@@ -373,6 +376,7 @@ function createOrder() {
 
 //---------------------------------------- 아임포트 결제 -------------------------------------------------
 function payment(orderNum) {
+    console.log(orderNum)
     let data = {
         orderNum : orderNum,
         name : $('input[id=orderName]').val(),
@@ -387,6 +391,7 @@ function payment(orderNum) {
 
 // 카드 결제
 function paymentCard(data) {
+    console.log(data)
     var IMP = window.IMP;
 
 	IMP.init("imp48531312");  // 가맹점 식별 코드
@@ -407,6 +412,10 @@ function paymentCard(data) {
         // m_redirect_url: "/payment",
 },
 	function (rsp) { // callback
+        console.log(rsp)
+        if(rsp.error_code == 'F1002' && rsp.success == 'false') {
+            alert('문제가 발생했습니다. 처음부터 다시 주문해 주세요')
+        }
 		if (rsp.success) {
          // 결제 성공 시 로직,
         data.impUid = rsp.imp_uid; // 고유 id

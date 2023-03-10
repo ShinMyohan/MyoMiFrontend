@@ -97,10 +97,10 @@ div.cart-box-detail {
 }
 
 #productContainer {
-    margin-top: 2%;
+    /* margin-top: 2%; */
     padding-left: 4%;
     display: flex;
-    padding-bottom: 2%;
+    padding: 2%;
     border-bottom: 1px solid #eeeeee;
 }
 
