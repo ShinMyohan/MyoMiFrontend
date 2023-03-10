@@ -1,5 +1,10 @@
 $(()=>{
+  let token = Cookies.get('token')
+
   let url = backURL+'product/qna/'
+  let data = location.search.substring(1)
+  let regex = 'prodNum=';
+  let prodNum = data.replace(regex,'');
 //--모달 닫기
 $(document).on('click', '#close-btn', function (e) {
 $('.qna-write').removeClass('show');
@@ -12,7 +17,7 @@ function showList(){
   $("div.qna-list").not(":first-child").remove();
   $origin.show();
   $.ajax({
-      url:url+1,  //임시 상품번호
+      url:url + prodNum,
       method:"get",
       beforeSend: function (xhr) {
           xhr.setRequestHeader('Content-type', 'application/json');
@@ -80,6 +85,7 @@ $(document).on('click', '.qna-add-button', function (e) {
   
   //--모달창 등록버튼 눌렀을 때 할 일 START--
   $(document).on('click','.modal-submit', function(e){
+    // let userId = 
     let qnaTitle = $('input[name=modal-qna-title]').val();
     let qnaContent = $('#modal-qna-content').val();
     let imgFile = $('input[name="qnafile"]').get(0).files[0];
@@ -103,7 +109,7 @@ $(document).on('click', '.qna-add-button', function (e) {
 
     $.ajax({
       type: "POST",
-      url: url+1, //임시 상품번호
+      url: url+prodNum, //임시 상품번호
       data: formData,
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -114,7 +120,7 @@ $(document).on('click', '.qna-add-button', function (e) {
       data: formData,
       success: function (response) {
         alert("등록이 완료되었습니다.");
-        window.location.href = "./qnalist.html";
+        window.location.href = "../product/productinfo.html?prodNum="+prodNum;
       },
       error: function (xhr) {
         alert(xhr.status);

@@ -1,4 +1,7 @@
 $(()=>{
+  let token = Cookies.get('token')
+  
+  $("div.order-list-empty").hide();
     //--주문상세보기 START--
     function showList(){
         let $origin = $("div.order-list-row").first();
@@ -33,6 +36,9 @@ $(()=>{
                     $copy.find("div.order-user").html(userId);
                     $parent.append($copy);
                 });
+                if(list == ''){
+                  $("div.order-list-empty").show();
+                }
                 $origin.hide();
             },
             error: function(xhr){
@@ -64,7 +70,7 @@ $(()=>{
             $("#modal-prod-num").html(jsonObj.orderNum);
             $("#modal-prod-cnt").html(jsonObj.prodCnt);
             $("#modal-created-date").html(jsonObj.createdDate);
-            $("#modal-total-price").html(jsonObj.totalPrice);
+            $("#modal-total-price").html(jsonObj.totalPrice.toLocaleString()+"원");
             $("#modal-msg").html(jsonObj.msg);
             $("#modal-week").html(jsonObj.week);
             $("#modal-d-date").html(jsonObj.receiveDate);

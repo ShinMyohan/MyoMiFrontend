@@ -261,9 +261,12 @@ tbody tr td {
 }
 
 .order-list-title{
-    border-bottom: #817f7f solid 0.5px;
+    border-bottom: #817f7f solid 1px;
+    border-top:#888787 solid 0.3px;
+    background-color:#d0d7d015;
+    padding: 7px;
     width:100%;
-    height: 30px;
+    height: 40px;
     display: flex;
 }
 
@@ -467,5 +470,12 @@ tbody tr td {
 
   }
 
-
-
+  /*주문목록이 없을떄*/
+  .order-list-empty{
+    height:40px;
+    color:#888787;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom:#d9d9d9 solid 0.3px;
+  }

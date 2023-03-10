@@ -15,12 +15,15 @@
     <!-- JQuery CDN HOST-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/follow/mypage-followlist.js"></script>
+    <script src="../../js/mypage/userinfo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 </head>
 
 <body>
@@ -47,8 +50,8 @@
                     <!-- <div id="horizontal-underline"></div> -->
                         <li><a href="../../html/user/signup.html">회원가입</a></li>
                         <li><a href="../../html/user/login.html">로그인</a></li>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">커뮤니티 </a></li>
+                        <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
+                        <li><a href="../../html/board/boardList.html">커뮤니티 </a></li>
                         <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                         </svg></a></li>
@@ -73,40 +76,38 @@
                         <span class="mp-user-name">[회원이름]<i>님</i></span>
                         <span class="mp-user-level">회원등급은 [등급]입니다.</span>
                     </div>
-                    <!-- <span class="mp-user-name">[회원이름]<i>님</i></span>
-                    <span class="mp-user-level">[등급]회원</span> -->
                     <div class="mp-user-menu">
-                        <!-- <span>주문정보</span> -->
                         <ul>
-                            <li class="mp-sub-menu"> 주문정보
-                                <ul>
-                                    <li>주문목록</li>
-                                    <li>배송조회</li>
-                                </ul>
-                            </li>
-                            <li class="mp-sub-menu"> 혜택관리
-                                <ul>
-                                    <li>나의 적립금</li>
-                                    <li>나의 쿠폰</li>
-                                </ul>
-                            </li>
-                            <li class="mp-sub-menu"> 회원정보
-                                <ul>
+                            <li class="mp-sub-menu"> | 회원정보
+                                <ul class="mp-sub-side-menu">
                                     <li>회원 정보 변경</li>
                                     <li>회원 탈퇴</li>
-                                    <li>팔로우 목록</li>
+                                    <li><a href="../../html/follow/mypage-followlist.html">팔로우 목록</a></li>
+                                    <li><a href="../../html/partner/seller-signup.html">파트너</a></li>
                                 </ul>
                             </li>
-                            <li class="mp-sub-menu"> 나의 문의/리뷰
-                                <ul>
-                                    <li>상품 문의</li>
-                                    <li>상품 리뷰</li>
+                            <li class="mp-sub-menu"> | 주문정보
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/mypage/myorderlist.html">주문목록</a></li>
                                 </ul>
                             </li>
-                            <li class="mp-sub-menu"> 나의 활동
-                                <ul>
-                                    <li>내가 쓴 글</li>
-                                    <li>내가 쓴 리뷰</li>
+                            <li class="mp-sub-menu"> | 혜택관리
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/point/pointlist.html">나의 적립금</a></li>
+                                    <li><a href="../../html/coupon/couponlist.html">나의 쿠폰</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="mp-sub-menu"> | 나의 문의/리뷰
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/qna/my-qnalist.html">상품 문의</a></li>
+                                    <li><a href="../../html/review/reviewmypage.html">상품 리뷰</a></li>
+                                </ul>
+                            </li>
+                            <li class="mp-sub-menu"> | 나의 활동
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/myboardlist/myboardlist.html">내가 쓴 글</a></li>
+                                    <li><a href="../../html/review/reviewmypage.html">내가 쓴 리뷰</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -162,30 +163,30 @@
                     <div class="mp-follow-list">
                         <div class="mp-follow-h">팔로우 리스트</div>
                         <div class="mp-follow-h2">관심있는 스토어를 팔로우하고 목록으로 관리해보세요.</div>
-                        <div class="mp-unfollow-bt"><input type="button" class="mp-unfollow-btn" value="선택 스토어 팔로우 해제">
-                        </div>
                         <div class="mp-follow-t">
-                            <div class="mp-follow-col-1"></div>
                             <div class="mp-follow-col-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
                                     class="bi bi-shop-window" viewBox="0 0 16 16">
                                     <path
                                         d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z" />
-                                </svg>&nbsp;스토어정보
+                                </svg>&nbsp;스토어 정보
                             </div>
                             <div class="mp-follow-col-3">팔로우 수</div>
                             <div class="mp-follow-col-4">바로가기</div>
-                            <div class="seller-id"></div>
+                            <div class="seller-id">셀러아이디</div>
+                            <div class="mp-unfollow-bt">팔로잉</div>
                         </div>
                         <div class="mp-follow-body">
                             <div class="mp-follow-r" id="follow">
-                                <div class="mp-follow-col-1"><input type="radio" name="cbox" id="checkbox1" value="사과"></div>
                                 <div class="mp-follow-col-2" id="store-name"></div>
                                 <div class="mp-follow-col-3" id="follow-cnt"></div>
-                                <div class="mp-follow-col-4"><button type="button" class="visitbtn" id="visitbtnn"
-                                        onclick="visitBtn(this.value)">방문하기</div>
+                                <div class="mp-follow-col-4"><button type="button" class="visitbtn" id="visitbtnn">스토어 방문하기</div>
                                 <div class="seller-id" id="seller-id"></div>
+                                <div class="mp-unfollow-bt"><button type="button" class="mp-unfollow-btn">언팔로우 하기</div>
                             </div>
+                        </div>
+                        <div class="mp-follow-empty" id="follow-empty">
+                            <div>팔로우 목록이 없습니다.</div>
                         </div>
                     </div>
                 </div>

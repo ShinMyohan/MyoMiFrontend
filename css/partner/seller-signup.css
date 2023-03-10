@@ -184,11 +184,15 @@ div.mypage-basic div.mp-user div.main-box{
 }
 
 .signup-title{
-    border-bottom: #817f7f solid 1px;
+    border-bottom:#d9d9d9 solid 0.3px;
+    border-top:#888787 solid 0.3px;
+    text-align: center;
     width:100%;
-    height: 30px;
+    height: 40px;
     display:flex;
-    font-weight: 600;
+    font-weight: 500;
+    padding: 7px;
+    background-color:#d0d7d015;
 }
 
 
@@ -300,6 +304,15 @@ div.mypage-basic div.mp-user div.main-box{
     height: 50vh; overflow-y: auto; 
   }
 
+  /*신청내역이 없는 경우*/
+  .signup-empty{
+    height:40px;
+    color:#888787;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom:#d9d9d9 solid 0.3px;
+}
 
 
 

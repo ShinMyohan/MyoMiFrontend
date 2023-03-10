@@ -22,6 +22,10 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/partner/seller-addform.js"></script>
+    <script src="../../js/mypage/userinfo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <!-- 우편 -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <!-- DatePicker -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -55,8 +59,8 @@
                     <!-- <div id="horizontal-underline"></div> -->
                         <li><a href="../../html/user/signup.html">회원가입</a></li>
                         <li><a href="../../html/user/login.html">로그인</a></li>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">커뮤니티 </a></li>
+                        <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
+                        <li><a href="../../html/board/boardList.html">커뮤니티 </a></li>
                         <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                         </svg></a></li>
@@ -84,35 +88,36 @@
                     </div>
                     <div class="mp-user-menu">
                         <ul>
-                            <li class="mp-sub-menu"> | 주문정보
-                                <ul class="mp-sub-side-menu">
-                                    <li>주문목록</li>
-                                    <li>배송조회</li>
-                                </ul>
-                            </li>
-                            <li class="mp-sub-menu"> | 혜택관리
-                                <ul class="mp-sub-side-menu">
-                                    <li>나의 적립금</li>
-                                    <li>나의 쿠폰</li>
-                                </ul>
-                            </li>
                             <li class="mp-sub-menu"> | 회원정보
                                 <ul class="mp-sub-side-menu">
                                     <li>회원 정보 변경</li>
                                     <li>회원 탈퇴</li>
-                                    <li>팔로우 목록</li>
+                                    <li><a href="../../html/follow/mypage-followlist.html">팔로우 목록</a></li>
+                                    <li><a href="../../html/partner/seller-signup.html">파트너</a></li>
                                 </ul>
                             </li>
+                            <li class="mp-sub-menu"> | 주문정보
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/mypage/myorderlist.html">주문목록</a></li>
+                                </ul>
+                            </li>
+                            <li class="mp-sub-menu"> | 혜택관리
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/point/pointlist.html">나의 적립금</a></li>
+                                    <li><a href="../../html/coupon/couponlist.html">나의 쿠폰</a></li>
+                                </ul>
+                            </li>
+
                             <li class="mp-sub-menu"> | 나의 문의/리뷰
                                 <ul class="mp-sub-side-menu">
-                                    <li>상품 문의</li>
-                                    <li>상품 리뷰</li>
+                                    <li><a href="../../html/qna/my-qnalist.html">상품 문의</a></li>
+                                    <li><a href="../../html/review/reviewmypage.html">상품 리뷰</a></li>
                                 </ul>
                             </li>
                             <li class="mp-sub-menu"> | 나의 활동
                                 <ul class="mp-sub-side-menu">
-                                    <li>내가 쓴 글</li>
-                                    <li>내가 쓴 리뷰</li>
+                                    <li><a href="../../html/myboardlist/myboardlist.html">내가 쓴 글</a></li>
+                                    <li><a href="../../html/review/reviewmypage.html">내가 쓴 리뷰</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -194,13 +199,13 @@
                                             <input type="number" maxlength="10" oninput="maxLengthCheck(this)"
                                                 class="form-col-2" id="input-sl-number" placeholder="'-'없이 입력">
                                             <div class="sl-num-btn"><input type=button class="sl-num-button"
-                                                    id="sl-num-button" value="인증하기"></div>
+                                                    id="sl-num-button" value="인증하기" onclick="button_onclick()"></div>
                                             <div class="sl-num-warn"><svg xmlns="http://www.w3.org/2000/svg" width="12"
                                                     height="12" fill="currentColor" class="bi bi-info-circle-fill"
                                                     viewBox="0 0 16 16">
                                                     <path
                                                         d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-                                                </svg> 인증해주세요.
+                                                </svg> 인증 해 주세요.
                                             </div>
                                         </div>
                                         <div class="sl-ceo-name">
@@ -215,18 +220,19 @@
                                         </div>
                                         <div class="sl-store-addr">
                                             <label for="input-sl-store-addr" class="form-col-1">사업장 주소</label>
-                                            <input type="text" class="form-col-2" id="input-sl-store-addr-1"
-                                                placeholder="우편번호">
-                                            <div class="sl-search-addr"><input type=button class="sl-searchadd-button"
-                                                    value="주소검색"></div>
-                                            <div class="input-store-addr2">
-                                                <label class="form-col-1"></label>
-                                                <input type="text" class="form-col-2" id="input-sl-store-addr-2"
-                                                    placeholder="기본주소">
+                                                <input type="text" class="form-col-2" id="postcode" placeholder="우편번호" readonly>
+                                                <div class="sl-search-addr">
+                                                    <button type="button" class="btn btn-search" id="searchPostNum" onclick="execDaumPostcode()">주소검색</button>
+                                                </div>
                                                 <div class="input-store-addr2">
                                                     <label class="form-col-1"></label>
-                                                    <input type="text" class="form-col-2" id="input-sl-store-addr-3"
-                                                        placeholder="상세주소">
+                                                    <input type="text" class="form-col-2" id="roadAddress" placeholder="기본주소" readonly>
+                                                    <input type="text" class="form-control  order-content" id="jibunAddress"
+                                                        placeholder="지번주소" style="display: none;" readonly>
+                                                        <span id="guide" style="color:#999; display:none"></span>
+                                                <div class="input-store-addr2">
+                                                    <label class="form-col-1"></label>
+                                                    <input type="text" class="form-col-2" id="input-sl-store-addr-3" placeholder="상세주소를 입력해 주세요">
                                                 </div>
                                             </div>
                                             <div class="sl-store-addr-warn"><svg xmlns="http://www.w3.org/2000/svg"
@@ -237,9 +243,13 @@
                                                 </svg> 통신판매업신고증 내 동일한 주소를 입력해주세요.</div>
                                         </div>
                                         <div class="sl-itn-num">
-                                            <label for="input-sl-itn-num" class="form-col-1">통신판매업신고번호</label>
-                                            <input type="number" maxlength="12" oninput="maxLengthCheck(this)"
-                                                class="form-col-2" id="input-sl-itn-num" placeholder="통신판매업신고번호">
+                                            <label class="form-col-1">통신판매업신고번호</label>
+                                            <input type="number" maxlength="4" oninput="maxLengthCheck(this)"
+                                                class="form-col-2" id="int-num-1" placeholder="4자릿수 입력"> -
+                                            <input type="text" maxlength="4" oninput="maxLengthCheck(this)"
+                                                class="form-col-2" id="int-num-2" placeholder="4자 입력"> -
+                                            <input type="number" maxlength="4" oninput="maxLengthCheck(this)"
+                                                class="form-col-2" id="int-num-3" placeholder="4자릿수 입력">
                                         </div>
                                         <div class="sl-store-manager">
                                             <label for="input-sl-manager" class="form-col-1">입점 담당자 명</label>
@@ -263,7 +273,7 @@
                                                     <label for="input-account-uname" class="form-col-1"></label>
                                                     <input type="text" class="form-col-2" id="input-account-uname"
                                                         placeholder="예금주">
-                                                    <input type="number" maxlength="14" oninput="maxLengthCheck(this)"
+                                                    <input type="number" maxlength="14" oninput="maxLengthCheck(this)" minlength="10" oninput="minLengthCheck(this)"
                                                         class="form-col-2" id="input-account-num"
                                                         placeholder="'-'없이 계좌번호 입력">
                                                 </div>
@@ -281,16 +291,19 @@
                                         <div class="signup-file-upload">
                                             <div class="sl-upload-num">
                                                 <label for="input-image-num" class="form-col-1">사업자등록증</label>
-                                                <input class="upload-name" placeholder="첨부파일">
-                                                <div class="upload-button"><label for="file">찾아보기</label>
-                                                    <input type="file" id="file">
+                                                <div class="file-button">
+                                                    <div class="mb-3">
+                                                        <input class="form-control" type="file" name="file1" id="detail-formfile1">
+                                                    </div>
                                                 </div>
+                                                
                                             </div>
                                             <div class="sl-upload-num">
                                                 <label for="input-image-inum" class="form-col-1">통신판매업신고증</label>
-                                                <input class="upload-name" placeholder="첨부파일">
-                                                <div class="upload-button"><label for="file">찾아보기</label>
-                                                    <input type="file" id="file">
+                                                <div class="file-button">
+                                                    <div class="mb-3">
+                                                        <input class="form-control" type="file" name="file2" id="detail-formfile2">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

@@ -128,15 +128,15 @@ div.mypage-basic div.mp-user div.main-box{
 }
 
 .mp-unfollow-btn{
-    float:right;
-    margin-top:30px;
+    padding: 4px;
     font-size: 13px;
     background-color: white;
     color:rgb(0, 175, 133);
     border-radius: 5px;
     border:rgb(0, 175, 133) solid 1px;
-    height: 30px;
 }
+
+
 
 .mp-follow-t{
     display:flex;
@@ -149,14 +149,8 @@ div.mypage-basic div.mp-user div.main-box{
     font-weight: 500;
 }
 
-
-.mp-follow-col-1{
-    width:5%;
-    text-align: center;
-}
-
 .mp-follow-col-2{
-    width:65%;
+    width:45%;
     text-align: center;
 }
 
@@ -166,8 +160,18 @@ div.mypage-basic div.mp-user div.main-box{
 }
 
 .mp-follow-col-4{
-    width:15%;
+    width:20%;
     text-align: center;
+}
+
+.seller-id{
+    width:10%;
+    display:none;
+}
+
+.mp-unfollow-bt{
+    width:15%;
+    text-align:center;
 }
 
 .mp-follow-r{
@@ -189,6 +193,16 @@ div.mypage-basic div.mp-user div.main-box{
     font-weight: 400;
 }
 
+
+/*리스트가 없는경우*/
+.mp-follow-empty{
+    height:40px;
+    color:#888787;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom:#d9d9d9 solid 0.3px;
+}
 
 
 

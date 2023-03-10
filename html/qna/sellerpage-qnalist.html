@@ -22,6 +22,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/qna/seller-mypage-qnalist.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="../../js/sellerpage/sellerinfo.js"></script>
     <!-- DatePicker -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -56,8 +58,8 @@
                         <!-- <div id="horizontal-underline"></div> -->
                         <li><a href="../../html/user/signup.html">회원가입</a></li>
                         <li><a href="../../html/user/login.html">로그인</a></li>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">커뮤니티 </a></li>
+                        <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
+                        <li><a href="../../html/board/boardList.html">커뮤니티 </a></li>
                         <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30"
                                     height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                     <path
@@ -86,25 +88,32 @@
                 <div class="mp-user-info">
                     <div class="mp-user-name-level">
                         <span class="mp-user-hi">안녕하세요!</span>
-                        <span class="mp-user-name">[셀러상호명]<i>님</i></span>
-
+                        <div class="mp-store-name">
+                            <span class="mp-user-name"></span><i>&nbsp님</i>
+                        </div>
                     </div>
                     <div class="mp-user-menu">
                         <ul>
+                            <li class="mp-sub-menu"> | 상품관리
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/sellerpage/sellerproductlist.html">상품목록</a></li>
+                                    <li><a href="../../html/seller/productadd.html">상품등록</a></li>
+                                </ul>
+                            </li>
                             <li class="mp-sub-menu"> | 주문정보
                                 <ul class="mp-sub-side-menu">
-                                    <li>주문목록</li>
+                                    <li><a href="../../html/sellerpage/orderlist.html">주문목록</a></li>
                                 </ul>
                             </li>
                             <li class="mp-sub-menu"> | 스토어 문의/리뷰
                                 <ul class="mp-sub-side-menu">
-                                    <li>상품 문의</li>
-                                    <li>상품 리뷰</li>
+                                    <li><a href="../../html/qna/sellerpage-qnalist.html">상품 문의</a></li>
+                                    <li><a href="../../html/review/seller-reviewlist.html">상품 리뷰</a></li>
                                 </ul>
                             </li>
                             <li class="mp-sub-menu"> | 회원정보
                                 <ul class="mp-sub-side-menu">
-                                    <li>파트너 탈퇴</li>
+                                    <li><a href="../../html/sellerpage/seller-signout.html">파트너 탈퇴</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -214,8 +223,8 @@
                             <form>
                                 <select id="qna-combo-status">
                                     <option value="none">==문의현황==</option>
-                                    <option value="qna-Y">답변완료</option>
-                                    <option value="qna-N">미답변</option>
+                                    <option value="답변완료">답변완료</option>
+                                    <option value="미답변">미답변</option>
                                 </select>
                             </form>
                         </div>
@@ -239,6 +248,9 @@
                                         <div class="qna-writer col"></div>
                                         <div class="qna-status col"></div>
                                     </div>
+                                </div>
+                                <div class="qna-list-empty">
+                                    <div>상품문의가 없습니다.</div>
                                 </div>
                             </div>
                         </div>
