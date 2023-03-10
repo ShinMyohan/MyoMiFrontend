@@ -19,9 +19,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/index.js"></script>
     <!-- <script src="../../js/board/basic.js"></script> -->
+    <script src="../../js/mypage/userinfo.js"></script>
     <script src="../../js/mypage/myorderlist.js"></script>
     <!-- <script src="../../js/mypage/myorderdetail.js"></script> -->
     <!-- DatePicker -->
@@ -44,23 +46,26 @@
                     <form class="d-flex">
                         <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
                         <div class="search-icon">
-                        <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg></button></div>
+                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                    height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg></button>
+                        </div>
                     </form>
                 </div>
                 <!-- 메뉴바 -->
                 <nav class="menulist">
                     <ul class="main-menu-bar">
-                    <!-- <div id="horizontal-underline"></div> -->
-                        <li><a href="../../html/user/signup.html">회원가입</a></li>
-                        <li><a href="../../html/user/login.html">로그인</a></li>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">커뮤니티 </a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <!-- <div id="horizontal-underline"></div> -->
+                        <li><a href="../user/signup.html">회원가입</a></li>
+                        <li><a href="../user/login.html">로그인</a></li>
+                        <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
+                        <li><a href="../../html/board/boardList.html">커뮤니티 </a></li>
+                        <li><a href="../mypage/mypage.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                         </svg></a></li>
-                        <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
+                        <li><a href="../cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                         </svg></a></li>
                     </ul>
@@ -77,174 +82,174 @@
             <!------------ 마이페이지 START -------------->
             <div class="mp-user">
                 <!-- 유저정보 박스 START -->
-                <div class="mp-user-info">
-                    <div class="mp-user-name-level">
-                        <span class="mp-user-name">[회원이름]<i>님</i></span>
-                        <span class="mp-user-level">회원등급은 [등급]입니다.</span>
+                <div class="mp-user">
+                    <!-- 유저정보 박스 START -->
+                    <div class="mp-user-info">
+                        <div class="mp-user-name-level">
+                            <span class="mp-user-name">[회원이름]<i>님</i></span>
+                            <span class="mp-user-level">회원등급은 [등급]입니다.</span>
+                        </div>
+                        <div class="mp-user-menu">
+                            <ul>
+                                <li class="mp-sub-menu"> | 주문정보
+                                    <ul class="mp-sub-side-menu">
+                                        <li><a href="../mypage/myorderlist.html">주문목록</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mp-sub-menu"> | 혜택관리
+                                    <ul class="mp-sub-side-menu">
+                                        <li><a href="../point/pointlist.html">나의 적립금</a></li>
+                                        <li><a href="../coupon/couponlist.html">나의 쿠폰</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mp-sub-menu"> | 회원정보
+                                    <ul class="mp-sub-side-menu">
+                                        <li>회원 정보 변경</li>
+                                        <li>회원 탈퇴</li>
+                                        <li>팔로우 목록</li>
+                                    </ul>
+                                </li>
+                                <li class="mp-sub-menu"> | 나의 문의/리뷰
+                                    <ul class="mp-sub-side-menu">
+                                        <li><a href="../qna/my-qnalist.html">상품 문의</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mp-sub-menu"> | 나의 활동
+                                    <ul class="mp-sub-side-menu">
+                                        <li><a href="../board/boardList.html">내가 쓴 글</a></li>
+                                        <li><a href="../review/reviewmypage.html">내가 쓴 리뷰</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="mp-user-menu">
-                        <ul>
-                            <li class="mp-sub-menu"> | 주문정보
-                                <ul class="mp-sub-side-menu">
-                                    <li>주문목록</li>
-                                    <li>배송조회</li>
-                                </ul>
-                            </li>
-                            <li class="mp-sub-menu"> | 혜택관리
-                                <ul class="mp-sub-side-menu">
-                                    <li>나의 적립금</li>
-                                    <li>나의 쿠폰</li>
-                                </ul>
-                            </li>
-                            <li class="mp-sub-menu"> | 회원정보
-                                <ul class="mp-sub-side-menu">
-                                    <li>회원 정보 변경</li>
-                                    <li>회원 탈퇴</li>
-                                    <li>팔로우 목록</li>
-                                </ul>
-                            </li>
-                            <li class="mp-sub-menu"> | 나의 문의/리뷰
-                                <ul class="mp-sub-side-menu">
-                                    <li>상품 문의</li>
-                                    <li>상품 리뷰</li>
-                                </ul>
-                            </li>
-                            <li class="mp-sub-menu"> | 나의 활동
-                                <ul class="mp-sub-side-menu">
-                                    <li>내가 쓴 글</li>
-                                    <li>내가 쓴 리뷰</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- 유저정보 박스 END -->
+                    <!-- 유저정보 박스 END -->
 
-                <!------------ 회원 활동 표시 창 START -------------->
-                <div class="mp-activity">
-                    <div class="mp-user-activity">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col mp-border">
-                                    <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            fill="currentColor" class="bi bi-p-circle" viewBox="0 0 16 16">
-                                            <path
-                                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5V4.002Zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97H8.27Z" />
-                                        </svg> 적립금
-                                    </div>
-                                    <span class="mp-user-point">얼마
-                                        <i>원</i>
-                                    </span>
-                                </div>
-                                <div class="col mp-border">
-                                    <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
-                                            <path
-                                                d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z" />
-                                            <path
-                                                d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z" />
-                                        </svg> 쿠폰
-                                    </div>
-                                    <span class="mp-user-coupon">몇
-                                        <i>장</i>
-                                    </span>
-                                </div>
-                                <div class="col">
-                                    <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
-                                            <path
-                                                d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z" />
-                                        </svg> 팔로우
-                                    </div>
-                                    <span class="mp-user-follow">몇
-                                        <i>명</i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 주문리스트 메인 페이지 -->
-                    <div class="mp-order-list-form">
-                        <div class="mp-order-list-title">
-                            <h5>주문목록/ 배송조회</h5>
-                        </div>
-                        <div class="mp-order-list-main">
-                            <div class="period">
-                                <span class="search-period">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
-                                        class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
-                                    </svg> 조회기간</span>
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">7일</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">15일</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">1개월</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">3개월</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">6개월</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">1년</a>
-                                    </li>
-                                </ul>
-                                <!-- Date Picker -->
-                                <div class="datepicker">
-                                    <form autocomplete="off">
-                                        <div class="flex-row d-flex justify-content-center">
-                                            <div class="input-group input-daterange">
-                                                <input type="text" name="daterange" value="02/10/2023 - 01/15/2018"
-                                                    readonly />
-                                            </div>
+                    <!------------ 회원 활동 표시 창 START -------------->
+                    <div class="mp-activity">
+                        <div class="mp-user-activity">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col mp-border">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                fill="currentColor" class="bi bi-p-circle" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5V4.002Zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97H8.27Z" />
+                                            </svg> 적립금
                                         </div>
-                                    </form>
+                                        <span class="mp-user-point">얼마
+                                            <i>원</i>
+                                        </span>
+                                    </div>
+                                    <div class="col mp-border">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z" />
+                                                <path
+                                                    d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z" />
+                                            </svg> 쿠폰
+                                        </div>
+                                        <span class="mp-user-coupon">몇
+                                            <i>장</i>
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z" />
+                                            </svg> 팔로우
+                                        </div>
+                                        <span class="mp-user-follow">몇
+                                            <i>명</i>
+                                        </span>
+                                    </div>
                                 </div>
-                                <span>
-                                    <button class="btn" type="submit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                            <path
-                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                        </svg></button></span>
                             </div>
-                            <!-- 주문정보 테이블 START -->
-                            <div class="mp-order-list-table">
-                                <table>
-                                    <colgroup>
-                                        <!-- 날짜/주문번호 -->
-                                        <col style="width:15%">
-                                        <!-- 상품명/옵션 -->
-                                        <col>
-                                        <!-- 상품금액/수량 -->
-                                        <col style="width:15%">
-                                        <!-- 주문상태 -->
-                                        <col style="width:15%">
-                                        <!-- 확인/리뷰 -->
-                                        <col style="width:18%">
-                                    </colgroup>
-                                    <thead>
-                                        <!-- tr>th*5 -->
-                                        <tr class="order-title">
-                                            <th>날짜 / 주문번호</th>
-                                            <th>상품명</th>
-                                            <th>주문 금액</th>
-                                            <th>주문 상태</th>
-                                            <th>리뷰</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="mypageOrderList">
-                                        <!-- <tr>
+                        </div>
+                        <!-- 주문리스트 메인 페이지 -->
+                        <div class="mp-order-list-form">
+                            <div class="mp-order-list-title">
+                                <h5>주문목록/ 배송조회</h5>
+                            </div>
+                            <div class="mp-order-list-main">
+                                <div class="period">
+                                    <span class="search-period">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                            fill="currentColor" class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                                        </svg> 조회기간</span>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">7일</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">15일</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">1개월</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">3개월</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">6개월</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">1년</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Date Picker -->
+                                    <div class="datepicker">
+                                        <form autocomplete="off">
+                                            <div class="flex-row d-flex justify-content-center">
+                                                <div class="input-group input-daterange">
+                                                    <input type="text" name="daterange" value="02/10/2023 - 01/15/2018"
+                                                        readonly />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <span>
+                                        <button class="btn" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                            </svg></button></span>
+                                </div>
+                                <!-- 주문정보 테이블 START -->
+                                <div class="mp-order-list-table">
+                                    <table>
+                                        <colgroup>
+                                            <!-- 날짜/주문번호 -->
+                                            <col style="width:15%">
+                                            <!-- 상품명/옵션 -->
+                                            <col>
+                                            <!-- 상품금액/수량 -->
+                                            <col style="width:15%">
+                                            <!-- 주문상태 -->
+                                            <col style="width:15%">
+                                            <!-- 확인/리뷰 -->
+                                            <col style="width:18%">
+                                        </colgroup>
+                                        <thead>
+                                            <!-- tr>th*5 -->
+                                            <tr class="order-title">
+                                                <th>날짜 / 주문번호</th>
+                                                <th>상품명</th>
+                                                <th>주문 금액</th>
+                                                <th>주문 상태</th>
+                                                <th>리뷰</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="mypageOrderList">
+                                            <!-- <tr>
                                             <td class="order-num">2023/01/07
                                                 <div>주문번호</div>
                                             </td>
@@ -270,26 +275,26 @@
 
 
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <div class="pagination">
-                        <a href="#">&laquo;</a>
-                        <a href="#">1</a>
-                        <a class="active" href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">&raquo;</a>
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a href="#">1</a>
+                            <a class="active" href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">&raquo;</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
     </section>
     <!-- ----footer 시작 ---- -->

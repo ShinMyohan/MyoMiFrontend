@@ -74,8 +74,8 @@
 
 .order-page #productAmount .btn-success{
 font-size: 18px;
-background-color: #f6c762;
-color:#ffffff;
+background-color: #FFEBB4;
+color:#3c3c3c;
 border-radius: 0;
 border:none;
 border-radius: 10px;
@@ -93,7 +93,7 @@ margin-top: 3px;
     grid-template-columns: 110px 300px 200px;
     align-items: center;
     width: 40%;
-    margin: 1%;
+    margin: 2%;
 }
 
 .order-page .order-title {
@@ -167,7 +167,7 @@ margin-top: 3px;
 
 
 .order-page #usedPoint, #totalProdPrice, #totalPayPrice, #savePoint {
-    width: 110px;
+    width: 140px;
     margin-left: 20px;
 }
 
@@ -229,25 +229,66 @@ margin-top: 3px;
 
 
 /* 쿠폰 목록 조회 모달 보여주기 END */
-#couponCheck {
-    padding-right: -10px;
+div.modal .modal-header  {
+    display: none;
+}
+
+div.modal .modal-footer {
+    background-color: #fff;
+    padding-top:5px;
+    padding-bottom:5px;
+    /* height: 30px; */
 }
 
 div.modalTitle {
-    display: flex;
-    margin-left: 9%;
-    justify-content: center;
+    font-weight: 600;
+    display: grid;
+    grid-template-columns: 17% 38% 20% 20%;
+    justify-items: center;
+    background-color: #edecec7f;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.modal-body {
+    padding: 0px !important;
 }
 
 #couponList {
-    display: flex;
-    justify-content: center;
-    /* margin: 0 45px 0 14%; */
+    display: grid;
+    grid-template-columns: 17% 38% 20% 20%;
+    justify-items: center;
+    padding-left: 0px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #d0d0d0;
 }
-#couponName {
-    margin-left: -3%;
+
+#couponList:last-child {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 0px;
 }
 
 #couponPercentage {
-    /* margin-left: 11%; */
+    font-weight: 600;
+}
+
+.modal .btn-danger {
+    background-color: #ff6b02d4;
+    border-color: #fff;
+}
+
+.modal .btn-secondary {
+    background-color: #b6b6b6d6;
+    border-color: #fff;
+    margin-right: 15px;
+}
+
+/* 사용가능한 쿠폰이 없습니다 */
+.emptyCoupon {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    color: #3c3c3c;
 }

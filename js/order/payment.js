@@ -1,4 +1,6 @@
 $(()=>{
+    let token = Cookies.get('token')
+
     let orderNum = JSON.parse(localStorage.getItem('orderNum'));
     Afterpayment(orderNum)
 // 결제 완료 페이지로 이동
@@ -14,7 +16,7 @@ function Afterpayment(orderNum) {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         success: function (response) {
-            let orderInfo = response;
+            let orderInfo = response.data;
             console.log(orderInfo)
 
             // 주문자 정보 보여주기
@@ -32,7 +34,7 @@ function Afterpayment(orderNum) {
             let payCreatedDate = orderInfo['payCreatedDate'];
             let orderDetails = orderInfo['orderDetails'];
 
-            let orderDetailsLength = orderDetails.length/4; // 외 *건 때문에 -1
+            let orderDetailsLength = orderDetails.length/5; // 외 *건 때문에 -1
             let originPrice = 0
             if(deliveryMsg = 'null') {
                 deliveryMsg = '없음'
@@ -40,8 +42,8 @@ function Afterpayment(orderNum) {
 
             // 상품 원래 금액
             for(let i=0; i<= orderDetailsLength-1; i++) {
-                let prodCnt = orderDetails[i * 4 + 2]
-                let originPricePerOne = orderDetails[i * 4 + 3]
+                let prodCnt = orderDetails[i * 5 + 2]
+                let originPricePerOne = orderDetails[i * 5 + 3]
                 originPrice += originPricePerOne * prodCnt
             }
 
@@ -49,7 +51,11 @@ function Afterpayment(orderNum) {
             $('#paymentUserInfo').html(userName + ' / ' + tel + '<br>' + addr)
             $('#paymentRecieveDate').html(' ' + receiveDate)
             $('#paymentDeliveryMsg').html(' ' + deliveryMsg)
-            $('#paymentProdName').html(orderDetails[1]+ ' 외 ' + (orderDetailsLength-1) + '건' )
+            if(orderDetailsLength > 1) {
+                $('#paymentProdName').html(orderDetails[1]+ ' 외 ' + (orderDetailsLength-1) + '건' )
+            } else {
+                $('#paymentProdName').html(orderDetails[1])
+            }
             $('#paymentPayCreatedDate').html(payCreatedDate)
             $('#paymentOriginPrice').html(originPrice.toLocaleString().split(".")[0]+'원')
             $('#paymentCoupon').html((originPrice-usedPoint-totalPrice).toLocaleString().split(".")[0]+'원')
@@ -66,5 +72,5 @@ function Afterpayment(orderNum) {
 })
 
 window.paymentOk = () => {
-    location.replace("/html/index.html")
+    location.replace("../index.html")
 }
