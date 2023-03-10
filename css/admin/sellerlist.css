@@ -14,6 +14,7 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-admin-table table{
     width: 100%;
 }
 div.mypage-basic div.mp-user div.mp-activity div.mp-admin-table table thead{
+    background-color: #EAEAEA;;
     height: 3em;
     border-top: 1px solid #777777;
     border-bottom:  1px solid #777777;
@@ -45,13 +46,7 @@ div.admin-search-btn-wrap button{
 div.my-admin-search{
     display: flex;
     float:right;
-}
-
-div.my-admin-search input{
-    width:250px;
-    height:100%;
-    margin-bottom:15px;
-    margin-right: 10px;
+    margin-bottom:10px;
 }
 
 div.admin-approve-category{
@@ -59,7 +54,13 @@ div.admin-approve-category{
 }
 
 div.mp-admin-tit{
+    padding-top: 10px;
     display: flex;
-    justify-content: center;
+    margin-bottom: 10px;
+
+
+}
+
+
 
 }

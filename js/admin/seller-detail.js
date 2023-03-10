@@ -1,5 +1,7 @@
+let token = Cookies.get('token')
 $(() => {
-
+  $("input[name=sign-out-date]").css('display', 'none');
+  $('#sign-out-date').hide();
   function viewSeller() {
     // ------글 상세내용 START------
     let data = location.search.substring(1);
@@ -27,11 +29,12 @@ $(() => {
         let manager = seller["manager"];
         let bankAccount = seller["bankAccount"];
         let status = seller["status"];
-        let followCnt = seller["followCnt"];
         let signoutDate = seller["signoutDate"];
         let createdDate = seller["createdDate"];
         let sellerName = seller["sellerName"];
         let email = seller["email"]
+        let companyImgUrl = seller["companyImgUrl"]
+        let internetImgUrl = seller["internetImgUrl"]
         if (status == 0) {
           status = "승인대기";
         }
@@ -45,6 +48,8 @@ $(() => {
           status = "승인거절";
         } else {
           $('div.seller-approve').hide();
+          $('#sign-out-date').show();
+          $("input[name=sign-out-date]").css('display', '');
           status = "탈퇴";
         }
         if (signoutDate == null) {
@@ -52,21 +57,21 @@ $(() => {
         } else {
           signoutDate = seller["signoutDate"];
         }
-        $("td#seller-name").html(sellerName);
-        $("td#seller-company-num").html(companyNum);
-        $("td#store-name").html(companyName);
-        $("td#seller-addr").html(addr);
-        $("td#internet-num").html(internetNum);
-        $("td#seller-email").html(email);
-        $("td#store-manager").html(manager);
-        $("td#created-date").html(createdDate);
-        $("td#approve-status").html(status);
-        $("td#follow-cnt").html(followCnt);
-        $("td#sign-out-date").html(signoutDate);
-        $("td#bank-account").html(bankAccount);
-        $("td#seller-id").html(sellerId);
-        $("h3#seller-id-title").html("판매자" + sellerId);
-      },
+        $("input[name=seller-name]").val(sellerName);
+        $("input[name=company-num]").val(companyNum);
+        $("input[name=companyName]").val(companyName);
+        $("input[name=seller-addr]").val(addr);
+        $("input[name=internet-num]").val(internetNum);
+        $("input[name=seller-email]").val(email);
+        $("input[name=manager]").val(manager);
+        $("input[name=created-date]").val(createdDate);
+        $("input[name=approve-status]").val(status);
+        $("input[name=bank-account]").val(bankAccount);
+        $("input[name=seller-id]").val(sellerId);
+        $("input[name=sign-out-date]").val(signoutDate);
+        $('#seller-companyimg').attr('src', companyImgUrl);
+        $('#seller-internetimg').attr('src', internetImgUrl);
+      }, 
       error: function (xhr) {
         alert(xhr.status);
       },
@@ -75,13 +80,6 @@ $(() => {
   }
 
   viewSeller()
-
-  //---------------글 목록으로 돌아가기 START ----------------
-  $('div.review-list').click(() => {
-    location.href = "./reviewmypage.html"
-  })
-
-  //-------------글 목록으로 돌아가기 END ----------------------
 
   //---------판매자 승인 혹은 거절 START ----------------------------
   
@@ -117,11 +115,5 @@ $(() => {
   });
   //--------판매자 승인혹은 거절 END---------------------------
 
-  //-------판매자목록으로 이동 START--------
-  $("button.sellerlist-btn").click((e) => {
-    location.href = "./sellerinfolist.html";
-  });
-
-  //-------수정폼으로 이동 END--------
 
 });

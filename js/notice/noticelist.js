@@ -63,8 +63,8 @@ $(() => {
     $('#submit').click(function () {
         let title = $('#searchbox').val();
         
-        let $origin = $("tbody.notice-origin").first();
-        $("tbody.notice-origin").not(":first-child").remove();
+        let $origin = $("tr#notice-org").first();
+        $("tr#notice-org").not(":first-child").remove();
         $origin.show();
         let data = {
             "title": title,
@@ -76,8 +76,8 @@ $(() => {
 
             success: function (jsonObj) {
                 let list = jsonObj;
-                let $origin = $("tbody.notice-origin").first();
-                let $parent = $("div.notice-parent");      
+                let $origin = $("tr#notice-org").first();
+                let $parent = $("tbody#notice-parent");      
           
                 $(list).each(p => {
                     //console.log(list[p]["num"]);
@@ -90,7 +90,7 @@ $(() => {
 
                     $copy.find("td#notice-writer").html(id);
                     $copy.find("td#notice-num").html(num);
-                    $copy.find("td#notice-created-date").html(moment(date).format("|" + "YYYY-MM-DD"));
+                    $copy.find("td#notice-created-date").html(date);
                     $copy.find("td#notice-title").html(title);
                     $parent.append($copy);
                 });

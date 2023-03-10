@@ -1,4 +1,5 @@
 $(() => {
+  let token = Cookies.get('token')
   // $('.re-hidden-rep-btn').hide();
   function viewReview() {
     let url = backURL;
@@ -23,13 +24,14 @@ $(() => {
         //console.log(review);
         //console.log("viewReview() 불려와짐");
         // console.log(jsonObj[0]);
-        let id = review['userId'];
+        let id = review['userName'];
         let prodname = review['prodName'];
         let num = review["reviewNum"];
         let content = review["content"];
         let title = review["title"];
         let date = review["createdDate"];
         let stars = review["stars"];  
+        let reviewImg = review["file"]
 
         $("div.id").html("작성자 | " + id);
         $("div.prodname").html("상품명 | "+prodname);
@@ -37,7 +39,8 @@ $(() => {
         $("div.cont").html(content);
         $("div.title").html(title);
         $("div.date").html("작성일 | " + date);
-        $("div.star-rating").html(stars);      
+        $("div.star-rating").html(stars);
+        $("#review-img").attr('src', reviewImg);        
         },
       error: function (xhr) {
         alert(xhr.status);

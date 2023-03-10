@@ -9,13 +9,10 @@
   overflow: hidden;
 }
 .pr-review{
-  display: flex;
-  border: 1px solid black;
-  height: 31%;
   width:95%;
   margin-left: 0 1% !important;
   margin-right: 40px;
-  min-height: 250px;
+  min-height: 210px;
   display: inline-block;
   padding: 20px 25px !important;
   margin-top:1.5%;
@@ -24,7 +21,24 @@
 }
 .prod-review{
   display:flex;
+  margin-bottom: 12px;
 }
+.review-id{
+  margin-right: 10px;
+}
+.date{
+  margin-right: 30px;
+}
+.prod-name{
+  margin-right: 30px;
+  font-weight: 900;
+  font-size: 17px;
+}
+.review-title{
+  font-weight: 900;
+  font-size: 17px;
+}
+
 .review-img img{
  width:70px;
  height:70px;
