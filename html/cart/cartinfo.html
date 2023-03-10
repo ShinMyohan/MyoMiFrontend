@@ -1,81 +1,107 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <!-- basic.css 는 모든 페이지에 들어갈 공통 부분이다. -->
-        <link rel="stylesheet" href="../../css/basic.css">
-        <link rel="stylesheet" href="../../css/cart/cartinfo.css">
-        <!-- <link rel="stylesheet" href="../../css/index.css"> -->
-        <!-- 구글폰트 -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap" rel="stylesheet">
-        <!-- 부트스트랩 -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <!-- JQuery CDN HOST-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <!-- JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <script src="../../js/basic.js"></script>
-        <!-- <script src="../../js/index.js"></script> -->
-        <script src="../../js/cart/cartinfo.js"></script>
-    </head>
-    <body>
-        <header>
-            <div id="header">
-                <div class="h1-logo">
-                    <!-- 로고 -->
-                    <div class="logo-main">
-                        <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
-                    </div>
-                    <!-- 검색 input 박스 -->
-                    <div class="main-search">
-                        <form class="d-flex">
-                            <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
-                            <div class="search-icon">
-                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg></button></div>
-                        </form>
-                    </div>
-                    <!-- 메뉴바 -->
-                    <nav class="menulist">
-                        <ul class="main-menu-bar">
-                        <!-- <div id="horizontal-underline"></div> -->
-                            <li><a href="../../html/user/signup.html">회원가입</a></li>
-                            <li><a href="../../html/user/login.html">로그인</a></li>
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">커뮤니티 </a></li>
-                            <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                            </svg></a></li>
-                            <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg></a></li>
-                        </ul>
-                    </nav>
+
+<head>
+    <meta charset="utf-8">
+    <!-- basic.css 는 모든 페이지에 들어갈 공통 부분이다. -->
+    <link rel="stylesheet" href="../../css/basic.css">
+    <link rel="stylesheet" href="../../css/cart/cartinfo.css">
+    <!-- <link rel="stylesheet" href="../../css/index.css"> -->
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- JQuery CDN HOST-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="../../js/basic.js"></script>
+    <!-- <script src="../../js/index.js"></script> -->
+    <script src="../../js/cart/cartinfo.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <div class="h1-logo">
+                <!-- 로고 -->
+                <div class="logo-main">
+                    <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
                 </div>
+                <!-- 검색 input 박스 -->
+                <div class="main-search">
+                    <form class="d-flex">
+                        <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
+                        <div class="search-icon">
+                            <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                    height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg></button>
+                        </div>
+                    </form>
+                </div>
+                <!-- 메뉴바 -->
+                <nav class="menulist">
+                    <ul class="main-menu-bar">
+                        <!-- <div id="horizontal-underline"></div> -->
+                        <li><a href="../user/signup.html">회원가입</a></li>
+                        <li><a href="../user/login.html">로그인</a></li>
+                        <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
+                        <li><a href="../../html/board/boardList.html">커뮤니티 </a></li>
+                        <li><a href="../mypage/mypage.html"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+                                    height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                </svg></a></li>
+                        <li><a href="../cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg></a></li>
+                    </ul>
+                </nav>
             </div>
-        </header>
-        <section>
-            <!-- 주문 상품 목록 보여주기 START -->
-            <div class="cart-page">
-                <h2>장바구니</h2>
-                <hr id="hr1">
+        </div>
+    </header>
+    <section>
+        <!-- 주문 상품 목록 보여주기 START -->
+        <div class="cart-page">
+            <h2>장바구니</h2>
+            <hr id="hr1">
             <div class="container" id="cartTitle">
-                <h4>장바구니 목록</h4>
+                <button type="button" class="btn" id="allCheckCart" onclick="allCheckCart()"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                        class="bi bi-check2-circle" viewBox="0 0 16 16">
+                        <path
+                            d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                        <path
+                            d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                    </svg> 전체선택</button>
                 <div>
-                <button type="button" class="btn" id="removeCart" onclick="removeCart()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/></svg>
-                선택 삭제</button></div>
+                    <button type="button" class="btn" id="removeCart" onclick="removeCart()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path
+                                d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                        </svg>
+                        삭제</button>
+                </div>
             </div>
             <!-- <hr id="hr2"> -->
             <div class="cart-box">
                 <!-- 상품 상세 1 -->
                 <div class="container cart-box-detail" id="productContainer">
                     <div class="checkbox">
-                        <input class="form-check-input cart-checkbox" type="checkbox" name="del-cart-check" value="gg" aria-label="...">
+                        <input class="form-check-input cart-checkbox" type="checkbox" name="cart-check" value="">
                     </div>
                     <img src="../../images/product/salad01.png" class="rounded" id="img">
                     <div id="productDetail" class="col">
@@ -89,10 +115,12 @@
                     <div id="options" class="col-2">
                         <h6>수량</h6>
                         <span class="cnt-update">
-                            <button type="button plus" class="btn btn-info" id="updateProdCnt" onclick="updateMinusProdCnt(this.value)">-</button>
+                            <button type="button plus" class="btn btn-info" id="updateProdCnt"
+                                onclick="updateMinusProdCnt(this.value)">-</button>
                             <h5></h5>
-                            <button type="button minus" class="btn btn-info" id="updateProdCnt" onclick="updatePlusProdCnt(this.value)">+</button>
-                            </span>
+                            <button type="button minus" class="btn btn-info" id="updateProdCnt"
+                                onclick="updatePlusProdCnt(this.value)">+</button>
+                        </span>
                     </div>
                     <div id="cart-price" class="col-2">
                         <h6>금액</h6>
@@ -107,9 +135,11 @@
                     <button type="button" class="btn btn-success" id="all-prod-price">상품금액</button>
                 </div>
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                        class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path
+                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                     </svg>
                 </div>
                 <div id="productAmount" class="col-4">
@@ -118,8 +148,10 @@
                     <button type="button" class="btn btn-success" id="all-dc-price">할인금액</button>
                 </div>
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-forward" viewBox="0 0 16 16">
-                        <path d="M9.502 5.513a.144.144 0 0 0-.202.134V6.65a.5.5 0 0 1-.5.5H2.5v2.9h6.3a.5.5 0 0 1 .5.5v1.003c0 .108.11.176.202.134l3.984-2.933a.51.51 0 0 1 .042-.028.147.147 0 0 0 0-.252.51.51 0 0 1-.042-.028L9.502 5.513zM8.3 5.647a1.144 1.144 0 0 1 1.767-.96l3.994 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a1.144 1.144 0 0 1-1.767-.96v-.503H2a.5.5 0 0 1-.5-.5v-3.9a.5.5 0 0 1 .5-.5h6.3v-.503z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-forward" viewBox="0 0 16 16">
+                        <path
+                            d="M9.502 5.513a.144.144 0 0 0-.202.134V6.65a.5.5 0 0 1-.5.5H2.5v2.9h6.3a.5.5 0 0 1 .5.5v1.003c0 .108.11.176.202.134l3.984-2.933a.51.51 0 0 1 .042-.028.147.147 0 0 0 0-.252.51.51 0 0 1-.042-.028L9.502 5.513zM8.3 5.647a1.144 1.144 0 0 1 1.767-.96l3.994 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a1.144 1.144 0 0 1-1.767-.96v-.503H2a.5.5 0 0 1-.5-.5v-3.9a.5.5 0 0 1 .5-.5h6.3v-.503z" />
                     </svg>
                 </div>
                 <div id="productAmount" class="col-4">
@@ -129,10 +161,11 @@
                 </div>
             </div>
             <!-- 주문 상품 목록 보여주기 END -->
-            <div class="cart-to-order"><button type="button" class="btn btn-primary" onclick="cartToOrderPage()">주문하기</button></div>
+            <div class="cart-to-order"><button type="button" class="btn btn-primary"
+                    onclick="cartToOrderPage()">주문하기</button></div>
         </div>
-        </section>
-        <!-- ----footer 시작 ---- -->
+    </section>
+    <!-- ----footer 시작 ---- -->
     <footer>
         <div id="footer_wrap">
             <div id="footer">
@@ -217,5 +250,6 @@
             </div>
         </div>
     </footer>
-    </body>
+</body>
+
 </html>

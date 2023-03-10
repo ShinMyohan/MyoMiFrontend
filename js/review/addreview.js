@@ -1,33 +1,47 @@
+let token = Cookies.get('token')
 $(() => {
   $('div.submit>#submit').click(function () {
+  
+    let string = location.href.split('?');
+    //console.log(string[1])
+    let params = string[1].split('&');
+    //console.log(params[0])
+    let regex = /[^0-9]/g;
+    let prodNum = params[0].replace(regex, "");
+    let orderNum = params[1].replace(regex, "");
     
-  //내 주문목록 페이지랑 합치고 나서 product,regex,order,orderNum 쓸 예정  
-  //let product = location.search.substring(1);
-   // let regex = /[^0-9]/g;
-    //let order = location.search.substring(2);
-   // let orderNum = order.replace(regex, "");
-    let title = $("#title").val();
-    let star = $('input[name="review-star"]:checked').val();
-    let content = $("div.cont>#content").val();
+    
+    let title = $('input[name="title"]').val();
+    let star = $('#my-star option:checked').val();
+    let content = $("#content").val();
     let imgfile = $('input[name="f2"]').get(0).files[0];
+    if (imgfile == null) {
+      sort = 3;
+    } else {
+      sort = 4;
+    }
+   
+    if (title =='') {
+      alert('제목을 입력하세요.');
+      return;
+    }
+    if (star == '--1~5점--') {
+      alert('평점을 선택하세요.')
+      return;
+    }
+    if (content == '') {
+      alert('내용을 입력하세요.');
+      return;
+    }
     
-    if (title == "") {
-      alert("제목이 입력되지 않았습니다");
-      return;
-    }
-    if (content == "") {
-      alert("내용이 입력되지 않았습니다");
-      return;
-    }
-    if (star == "") {
-      alert("평점이 선택되지 않았습니다");
-      return;
-    }
+   
+    
     let formData = new FormData();
     
     formData.append('content', content)
-    formData.append('orderNum',7)
-    formData.append('prodNum',1)
+    formData.append('orderNum',orderNum)
+    formData.append('prodNum', prodNum)
+    formData.append('sort',sort)
     formData.append('stars',star)
     formData.append('title',title)
     formData.append('file', imgfile)
@@ -42,18 +56,19 @@ $(() => {
       processData: false,
       enctype: 'multipart/form-data',
       data: formData,
-      success: function () {
+      success: function (response) {
         alert("리뷰작성이 완료되었습니다!");
         window.location.href = './reviewmypage.html';
       },
-      error: function (response) {
+      error: function (xhr) {
         alert("리뷰작성 실패!");
       },
     });
   });
   //--취소 클릭시 START --
   $('div.cancel>#review-write-cancel').click(() => {
-    window.location.href = './reviewmypage.html';
+    window.location.href = '../../html/mypage/myorderlist.html';
+
   });
 //--취소 클릭시 END --
   

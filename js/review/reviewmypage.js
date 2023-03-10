@@ -1,4 +1,5 @@
 $(() => {
+    let token = Cookies.get('token')
     function showList() {
         let $origin = $("tr#review-my-org").first();
         $("tr#review-my-org").not(":first-child").remove();

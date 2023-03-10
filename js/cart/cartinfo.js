@@ -10,12 +10,22 @@ window.updatePlusProdCnt = (value) => {
     modifyPlusProdCnt(value)
 }
 
-// $('#updateProdCnt').on('click', (e) => {
-//   console.log(e.target.value);
-// })
+// 전체 선택
+window.allCheckCart = () => {
+    $("input:checkbox[name=cart-check]").each(function() {
+        // console.log(!$("input:checkbox[name=cart-check]:disabled").attr('disabled'))
+        // if($("input:checkbox[name=cart-check]").prop('disabled') == 'false') {
+            $("input:checkbox[name=cart-check]").prop('checked', true)
+        // } else if ($("input:checkbox[name=cart-check]").attr('disabled')){
+        //     $("input:checkbox[name=cart-check]").prop("checked", true);
+    })
+}
+
 
 
 $(()=>{
+    let token = Cookies.get('token')
+
     function infoCart() {
         let $origin = $('div.cart-box-detail').first()
 
@@ -32,7 +42,7 @@ $(()=>{
                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
             },
             success: function (jsonObj) {
-                let list = jsonObj;
+                let list = jsonObj.data;
                 if(list.length == 0) {
                     let emptyHTML = `<div class="emptyCart">
                                         <h3>장바구니가 비었습니다.</h3>
@@ -43,7 +53,6 @@ $(()=>{
 
                 localStorage.setItem('cartList', JSON.stringify(list));
                 // console.log(list.length)
-                console.log(list)
                 // 총 금액들 선언
                 let allProdPrice = 0;
                 let allDcPrice = 0;
@@ -55,9 +64,11 @@ $(()=>{
                 list.forEach(item => {
                     let prodNum = item["prodNum"];
                     let prodName = item["name"];
+                    let prodImg = item["productImgUrl"]
                     let prodCnt = item["prodCnt"];
                     let originPrice = item["originPrice"];
                     let percentage = item["percentage"];
+                    let status = item["status"]
                     let totalPriceByOne = originPrice - originPrice*(percentage/100);
                     let totalPrice = totalPriceByOne * prodCnt;
                     allProdPrice += originPrice * prodCnt;
@@ -66,22 +77,35 @@ $(()=>{
 
                     let $copy = $origin.clone()
                     $copy.show()
-                    $copy.find('input[name=del-cart-check]').val(prodNum)
+                    $copy.find('input[name=cart-check]').val(prodNum)
                     $copy.find('button#updateProdCnt').val(prodNum)
+                    $copy.find('#img').attr('src', prodImg)
                     $copy.find('div#options h5').html(prodCnt)
                     $copy.find('div#productDetail h5').html(prodName)
                     $copy.find('div#percentage h5').html(percentage + '%')
-                    $copy.find('div#cart-price h5').html(totalPrice.toLocaleString() + '원')
+                    $copy.find('div#cart-price h5').html(totalPrice.toLocaleString().split(".")[0] + '원')
+                    $copy.find('input[name=cart-check]').attr('disabled', false);
+                    if(status != 0) {
+                        $copy.css({
+                            "background-color": "#efefef",
+                            "color": "rgb(190 189 189)",
+                        })
+                        $copy.find('input[name=cart-check]').attr('disabled', true);
+                    }
                     $parent.append($copy);
-
                 })
                 $origin.hide();
 
-                $('button#all-prod-price').html(allProdPrice.toLocaleString() + '원')
-                $('button#all-dc-price').html(allDcPrice.toLocaleString() + '원')
-                $('button#total-prod-price').html(allTotalProdPrice.toLocaleString() + '원')
+                $('button#all-prod-price').html(allProdPrice.toLocaleString().split(".")[0] + '원')
+                $('button#all-dc-price').html(allDcPrice.toLocaleString().split(".")[0] + '원')
+                $('button#total-prod-price').html(allTotalProdPrice.toLocaleString().split(".")[0] + '원')
             },
             error: function(xhr){
+                let emptyHTML = `<div class="emptyCart">
+                                        <h3>로그인이 필요한 서비스입니다.</h3>
+                                    </div><hr>`;
+                    $('div.cart-box-detail').first().hide();
+                    $('div.cart-box').append(emptyHTML);
             }
         })
     }
@@ -150,7 +174,7 @@ function modifyPlusProdCnt(prodNum) {
 // 장바구니 선택 삭제
 function removeCartList() {
 let removeList = []
-$("input:checkbox[name=del-cart-check]:checked").each(function() {
+$("input:checkbox[name=cart-check]:checked").each(function() {
     let prodNum = {'prodNum' : this.value}
     removeList.push(prodNum)
 })
@@ -170,7 +194,7 @@ console.log(removeList)
             window.location.reload();
             // for(i=0; i<= removeList-1; i++) {
             //     let removeNum = removeList[i].prodNum;
-            //     if($("input:checkbox[name=del-cart-check]:checked").val() == removeNum) {
+            //     if($("input:checkbox[name=cart-check]:checked").val() == removeNum) {
             //         $('#productContainer > .checkbox > .cart-checkbox').hide()//.css('display', 'none');
             //     }
             // }
@@ -182,7 +206,7 @@ console.log(removeList)
 window.cartToOrderPage = () => {
     let orderProdNum = []
     let cartItem = JSON.parse(localStorage.getItem('cartList'));
-    $("input:checkbox[name=del-cart-check]:checked").each(function() {
+    $("input:checkbox[name=cart-check]:checked").each(function() {
         for(i=0; i<= cartItem.length-1; i++) {
         if(cartItem[i].prodNum == this.value) {
             orderProdNum.push(cartItem[i])
@@ -193,7 +217,8 @@ window.cartToOrderPage = () => {
         alert('주문할 상품을 선택해주세요')
     } else {
     localStorage.setItem('orderList', JSON.stringify(orderProdNum));
-    window.location.href = frontURL + 'order/order.html';
+    // window.location.href = frontURL + 'order/order.html';
+    location.replace('../order/order.html')
     getUserInfo()
     }
 }

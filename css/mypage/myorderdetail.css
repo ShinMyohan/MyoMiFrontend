@@ -19,7 +19,17 @@ div.mp-order-detail-title span {
     font-size: 16px;
     font-weight: 600;
     color: #ff6d02;
-    margin: 1em;
+    margin-left: 10px;
+}
+
+span.mp-order-detail-cancel {
+    float: right;
+}
+
+span.mp-order-detail-cancel .btn-light {
+    background-color: #5b19f4b8;
+    color: #fff;
+    border-radius: 20px;
 }
 
 
@@ -79,6 +89,11 @@ div.mp-order-detail-table .price-per-prod{
 div.mp-order-detail-table .pay-complete {
     font-weight: 500;
     color: #656565;
+}
+
+#detailTotalPrice {
+    color: #ff6d02;
+    font-weight: 600;
 }
 
 /* 주문 취소 */

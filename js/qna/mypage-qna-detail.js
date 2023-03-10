@@ -1,4 +1,6 @@
 $(()=>{  
+  let token = Cookies.get('token')
+  
 //--수정모달창 닫기 START--
   $(document).on('click', '#close-btn', function (e) {
     $('.modal-qna-edit').removeClass('show');
@@ -63,7 +65,6 @@ $(document).on('click', '.mpdt-edit', function (e) {
 $(document).on('click','.modal-submit', function(e){
   let qnaTitle = $('input[name=modal-qna-title]').val();
   let qnaContent = $('#modal-qna-content').val();
-  // console.log(qnaTitle,qnaContent)
 
   if(qnaTitle == ''){
     alert("제목이 입력되지 않았습니다.");
@@ -80,7 +81,6 @@ $(document).on('click','.modal-submit', function(e){
     "queContent": qnaContent,
   }
 
-  // console.log(data);
   let url = backURL + "mypage/qna/detail/";
   let num = location.search.substring(1);
 
@@ -94,14 +94,13 @@ $(document).on('click','.modal-submit', function(e){
     },
     success: function (response) {
       alert("수정이 완료되었습니다.");
-      window.location.href = "./mypage-qna.html";
+      window.location.href = "../qna/my-qnalist.html";
     },
     error: function (xhr) {
       alert(xhr.status);
     },
   });
-}
-)
+})
 //--모달수정버튼 눌렀을 때 할일 END--
 
 //--삭제버튼 눌렀을 때 할일 START--
@@ -119,7 +118,7 @@ $(document).on('click','#del-button',function(e){
     },
     success: function(response){
       alert("삭제가 완료되었습니다.");
-      window.location.href = "./mypage-qna.html";
+      window.location.href = "../qna/my-qnalist.html";
     }
 
   })

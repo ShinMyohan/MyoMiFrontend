@@ -1,4 +1,6 @@
 $(()=>{
+    let token = Cookies.get('token')
+    
     let data = location.search.substring(1)
     let regex = 'seller=';
 

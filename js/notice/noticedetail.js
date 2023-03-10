@@ -1,4 +1,5 @@
 $(() => {
+  let token = Cookies.get('token')
   $('.notice-edit').hide();
 
   // $('.re-hidden-rep-btn').hide();

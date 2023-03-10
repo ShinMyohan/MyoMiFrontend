@@ -35,11 +35,8 @@
     text-align: center;
     border-radius: 5px;
     font-size: 15px;
-    background: #ff6d02;
-    color: black;
     cursor: pointer;
-    width: 120px;
-    height: 48px;
+
 }
 
  .review-write-cancel{
@@ -47,43 +44,36 @@
     text-align: center;
     border-radius: 5px;
     font-size: 15px;
-    background: #ff6d02;
-    color: black;
     cursor:pointer;
-    width: 120px;
-    height: 48px;
+
 }
 
 .review-write {
     border-top: 2px solid #000;
 }
 
-.review-write .title
-{
-    padding: 15px;
+.mb-3{
     border-bottom: 1px dashed #ddd;
+    padding-bottom:15px;
+}
+.col-form-label{
+    font-weight: inherit;
+    font-size: x-large;
+    text-align: center;
 }
 
-.review-write .title dl {
-    font-size: 0;
+.review-write .title {
+    padding: 15px;
+}
+.mystar{
+    padding-bottom: 10px;
 }
 
-.review-write .title dt,
-.review-write .title dd
-{
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 1.4rem;
-}
 
-.review-write .title dt,
 .review-write .info dt {
     width: 100px;
 }
 
-.review-write .title dd {
-    width: calc(100% - 100px);
-}
 .review-write .info dd {
     position: relative;
     right:45px;
@@ -96,14 +86,11 @@
 }
 
 .review-write .title input[type="text"] {
-    width: 80%;
-position:relative;
-    bottom: 27px;
-    left: 7px;
+    width: 100%;
 }
 
 .review-write .cont {
-    border-bottom: 1px solid #000;
+    border-bottom: 2px solid #000;
 }
 
 .review-write .cont textarea {
@@ -120,16 +107,9 @@ position:relative;
     display:flex;
 }
 
-.show-review-img img{
-    height:100px;
-    width:100px;
-    border: 2px solid black;
-    position:relative;
-    top: 4px;
-    right:5px;
-}
 
 .review-img-upload{
     margin-top:13px;
+    margin-bottom: 13px;
 
 }

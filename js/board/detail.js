@@ -1,6 +1,8 @@
 $(() => {
+  let token = Cookies.get('token')
   $('.hidden-rep-btn').hide();
-  $('.re-rep-write').hide();
+  // $('.re-rep-write').hide();
+  $('div.empty-list').hide();
   // $('.re-hidden-rep-btn').hide();
 
   function viewBoard() {
@@ -10,7 +12,7 @@ $(() => {
     // console.log(data)
     $.ajax({
       method: "get",
-      url: url + 'board/' + data,
+      url: url + 'board/detail/' + data,
       data: data,
       beforeSend: function (xhr) {
         //  xhr.setRequestHeader('Content-type', 'application/json');
@@ -60,33 +62,37 @@ $(() => {
         $origin.show();
         let $parent = $("div.board-rep-list")
 
-        $(comments).each((p) => {
-          // console.log(comments)
-          let parent = comments[p]["parent"]
-          let rnum = comments[p]["commentNum"]
-          let rwriter = comments[p]["userName"]
-          let userName = rwriter.replace(/(?<=.{1})./gi, "*")
-          let rdate = comments[p]["createdDate"]
-          let rcontent = comments[p]["content"]
-          let enableUpdate = comments[p]["enableUpdate"]
-          let enableDelete = comments[p]["enableDelete"]
+        if (comments.length == 0) {
+          $('div.empty-list').show();
+        } else {
+          $(comments).each((p) => {
+            // console.log(comments)
+            let parent = comments[p]["parent"]
+            let rnum = comments[p]["commentNum"]
+            let rwriter = comments[p]["userName"]
+            let userName = rwriter.replace(/(?<=.{1})./gi, "*")
+            let rdate = comments[p]["createdDate"]
+            let rcontent = comments[p]["content"]
+            let enableUpdate = comments[p]["enableUpdate"]
+            let enableDelete = comments[p]["enableDelete"]
 
-          let $copy = $origin.clone();
+            let $copy = $origin.clone();
 
-          if (parent == 0) {
-            $copy.find("div.prnum").html(rnum);
-            $copy.find("div.prwriter").html(userName);
-            $copy.find("div.prdate").html(rdate);
-            $copy.find("input[name=prep-content").val(rcontent);
-            $parent.append($copy);
-          }
-          if (enableUpdate == false) {
-            $('#hid-edit-btn').attr('div.dropdown-menu', 'li').hide();
-          }
-          if (enableDelete == false) {
-            $('#rep-del-btn').attr('div.dropdown-menu', 'li').hide();
-          }
-        });
+            if (parent == 0) {
+              $copy.find("div.prnum").html(rnum);
+              $copy.find("div.prwriter").html(userName);
+              $copy.find("div.prdate").html(rdate);
+              $copy.find("input[name=prep-content").val(rcontent);
+              $parent.append($copy);
+            }
+            if (enableUpdate == false) {
+              $('li.rep-edit-btn').attr('div.dropdown-menu', 'li').hide();
+            }
+            if (enableDelete == false) {
+              $('li.rep-del-btn').attr('div.dropdown-menu', 'li').hide();
+            }
+          });
+        }
         $origin.hide();
 
         let length = $('div.parent-clone').length;
@@ -106,7 +112,7 @@ $(() => {
       let data = location.search.substring(1);
 
       $.ajax({
-        method: "delete",
+        method: "DELETE",
         url: backURL + "board/" + data,
         data: data,
         beforeSend: function (xhr) {
@@ -148,7 +154,17 @@ $(() => {
   //댓글----------------------------------------------------
   //댓글 작성
   $('div.rep-add>#rep-add').click(function () {
+
+    let token = Cookies.get('token')
+    if (token == null) {
+      if (confirm('로그인 한 사용자만 이용 가능합니다. 로그인 하시겠습니까?')) {
+        location.href = "../user/login.html"
+      } else {
+        location.reload();
+      }
+    }
     let num = $('div.num').html();
+    // console.log(num)
     let content = $('#content').val();
     if (content == '') {
       alert('내용을 입력하세요.');
@@ -227,6 +243,14 @@ $(() => {
     }
   };
 
+  //댓글 작성 글자수초과시 alert
+  $('#content').keyup(function () {
+    let content = $('#content').val();
+    if (content.length > 250) {
+      alert("최대 250자까지 입력 가능합니다.")
+    }
+  });
+
   //댓글 수정 버튼 클릭 
   $('div.board-rep-list').on('click', 'div.parent-clone>div.rep-menu>ul.dropdown-menu>li.rep-edit-btn', (e) => {
     $(e.target).parents('div.parent-clone').find('div.hidden-rep-btn').show()
@@ -252,16 +276,10 @@ $(() => {
   })
 
   //댓글 삭제 콜 
-  $('div.board-rep-list').on('click', 'div.parent-clone>div.rep-menu>ul.dropdown-menu>li.rep-del-btn', (e) => {
-    let commentNum = $(e.target).parents('div.parent-clone').find('div.prnum').val();
+  $('div.board-rep-list').on('click', 'div.rep-menu>ul.dropdown-menu>li.rep-del-btn', (e) => {
+    let commentNum = $(e.target).parents('div.parent-clone').find('div.prnum').html();
+    // console.log(commentNum)
     delComment(commentNum);
   })
 
 });
-
-$("div.rep-menu").click(() => {
-  alert("클릭")
-});
-
-
-

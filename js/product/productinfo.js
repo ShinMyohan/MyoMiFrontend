@@ -1,4 +1,6 @@
 $(()=>{
+    let token = Cookies.get('token')
+
     // -- 상품 보여주기 START --
     let data = location.search.substring(1) //prodNum=1
 

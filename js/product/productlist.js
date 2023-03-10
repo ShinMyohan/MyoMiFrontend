@@ -1,6 +1,8 @@
 let data = []; //이게 전체상품 리스트 다 들어오는 배열
 
 $(()=>{
+    // let token = Cookies.get('token')
+
     $('section').load('../../html/product/productlist.html') //index.html의 section 태그에 product.list 포함
     function showList(url){
         let $origin = $('.menunav .card');

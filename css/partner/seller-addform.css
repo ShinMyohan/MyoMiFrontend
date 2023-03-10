@@ -191,14 +191,14 @@ div.mypage-basic div.mp-user div.main-box{
     margin:15px 0 15px 0;
 }
 
-#input-sl-number, #input-sl-ceo-name, #input-sl-store-addr-1,#input-sl-itn-num,#input-sl-manager{
+#input-sl-number, #input-sl-ceo-name, #postcode,#input-sl-itn-num,#input-sl-manager{
     border-radius: 5px;
     border:#acacac solid 0.5px;
     padding: 5px;
     width:30%;
 }
 
-#input-sl-store-name, #input-sl-store-addr-2, #input-sl-store-addr-3{
+#input-sl-store-name, #roadAddress, #input-sl-store-addr-3{
     border-radius: 5px;
     border:#acacac solid 0.5px;
     padding: 5px;
@@ -213,12 +213,13 @@ div.mypage-basic div.mp-user div.main-box{
     display: contents;
 }
 
-.sl-num-button, .sl-searchadd-button{
+.sl-num-button, #searchPostNum{
     color:rgb(0, 175, 133);
     background-color: white;
     border: rgb(0, 175, 133) solid 0.5px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 3px;
+    font-size: 14px;
 }
 
 .sl-store-addr-warn{
@@ -233,6 +234,13 @@ div.mypage-basic div.mp-user div.main-box{
     border:#acacac solid 0.5px;
     padding: 5px;
     width:20%;
+}
+
+#int-num-1,#int-num-2,#int-num-3{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:15%;
 }
 
 #input-account-num{
@@ -270,24 +278,10 @@ div.mypage-basic div.mp-user div.main-box{
     margin-top: 8px;
 }
 
-.upload-button label {
-    color:rgb(0, 175, 133);
-    background-color: white;
-    border: rgb(0, 175, 133) solid 0.5px;
-    border-radius: 5px;
-    padding: 5px;
-    margin-left: 5px;
-    margin-top: 8px;
+#detail-formfile1,#detail-formfile2{
+    font-size: 13px;
+    margin-top: 5px;
 }
-
-.upload-button input[type="file"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-} 
 
 .sl-upload-num{
     display:flex;

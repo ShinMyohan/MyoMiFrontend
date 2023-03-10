@@ -28,28 +28,6 @@
     margin-left: 20px;
 }
 
-.review-write-cancel{
-    text-align: center;
-    border-radius: 5px;
-    font-size: 15px;
-    background: black;
-    color: #fff;
-    cursor:pointer;
-    width: 120px;
-    height: 48px;
-}
-
-.review-write-submit{
-    text-align: center;
-    border-radius: 5px;
-    font-size: 15px;
-    background: black;
-    color: #fff;
-    cursor:pointer;
-    width: 120px;
-    height: 48px;
-}
-
 .review-write {
     border-top: 2px solid #000;
 }
@@ -116,3 +94,6 @@ dd.prod-name{
     resize: vertical;
 }
 
+.review-write-submit{
+    margin-right: 10px;
+}

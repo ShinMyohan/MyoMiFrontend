@@ -263,7 +263,6 @@ tbody tr td {
     height: auto;
     margin-bottom: 400px;
 
-
 }
 
 .mpq-qna-table{
@@ -271,11 +270,14 @@ tbody tr td {
 }
 
 .qna-list-title{
-    border-bottom: #817f7f solid 1.5px;
+    border-bottom: #817f7f solid 1px;
+    border-top:#888787 solid 0.3px;
+    background-color:#d0d7d015;
+    padding: 7px;
     width:100%;
-    height: 30px;
+    height: 40px;
     display: flex;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .qna-list-row{
@@ -564,6 +566,7 @@ tbody tr td {
     height: 230px;
     border:#d9d9d9 0.3px solid;
     outline:none;
+    resize: none;
 }
 
 /* 모달창효과 */
@@ -592,6 +595,26 @@ tbody tr td {
     transform: translateX(-50%) translateY(-50%);
     height: 90vh; overflow-y: auto; 
 
+  }
+
+  #qna-combo-status{
+    font-size: 15px;
+    padding: 3px;
+    border:#888787 0.3px solid;
+    border-radius: 5px;
+    color:#777777;
+    text-align: center;
+    
+  }
+
+  /*문의목록이 없을경우*/
+  .qna-list-empty{
+    height:40px;
+    color:#888787;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom:#d9d9d9 solid 0.3px;
   }
 
 

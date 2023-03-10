@@ -12,6 +12,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/index.js"></script>
     <script src="../../js/cart/cartinfo.js"></script>
@@ -37,25 +38,28 @@
                 <form class="d-flex">
                     <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search">
                     <div class="search-icon">
-                    <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg></button></div>
+                        <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg></button>
+                    </div>
                 </form>
             </div>
             <!-- 메뉴바 -->
             <nav class="menulist">
                 <ul class="main-menu-bar">
-                <!-- <div id="horizontal-underline"></div> -->
-                    <li><a href="../../html/user/signup.html">회원가입</a></li>
-                    <li><a href="../../html/user/login.html">로그인</a></li>
-                    <li><a href="#">공지사항</a></li>
-                    <li><a href="#">커뮤니티 </a></li>
-                    <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                    </svg></a></li>
-                    <li><a href="../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
-                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                    </svg></a></li>
+                    <!-- <div id="horizontal-underline"></div> -->
+                    <li><a href="../user/signup.html">회원가입</a></li>
+                        <li><a href="../user/login.html">로그인</a></li>
+                        <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
+                        <li><a href="../../html/board/boardList.html">커뮤니티 </a></li>
+                        <li><a href="../mypage/mypage.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                        </svg></a></li>
+                        <li><a href="../cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg></a></li>
                 </ul>
             </nav>
         </div>
@@ -123,20 +127,20 @@
             <div id="oneInputSection">
                 <ul id="inputBox">
                     <li class="order-li">
-                        <div class="order-title"> 주문하시는 분</div><input type="text"
-                            class="form-control  order-content" id="orderName" readonly>
+                        <div class="order-title"> 주문하시는 분</div><input type="text" class="form-control  order-content"
+                            id="orderName" readonly>
                     </li>
                     <li class="order-li">
-                        <div class="order-title">휴대폰 번호</div><input type="text"
-                            class="form-control  order-content" id="orderTel" readonly>
+                        <div class="order-title">휴대폰 번호</div><input type="text" class="form-control  order-content"
+                            id="orderTel" readonly>
                     </li>
                     <li class="order-li">
-                        <div class="order-title">이메일</div><input type="text"
-                            class="form-control  order-content" id="orderEmail" readonly>
+                        <div class="order-title">이메일</div><input type="text" class="form-control  order-content"
+                            id="orderEmail" readonly>
                     </li>
                     <li class="order-li">
-                        <div class="order-title">주문 요청사항</div><input type="text"
-                            class="form-control  order-content" id="orderMsg" placeholder="요청사항을 입력해주세요">
+                        <div class="order-title">주문 요청사항</div><input type="text" class="form-control  order-content"
+                            id="orderMsg" placeholder="요청사항을 입력해주세요">
                     </li>
                 </ul>
             </div>
@@ -152,25 +156,27 @@
             <div id="oneInputSection">
                 <ul id="inputBox">
                     <li class="order-li">
-                        <div class="order-title">받으실 분</div><input type="text"
-                            class="form-control  order-content" id="name" placeholder="수령자 이름">
+                        <div class="order-title">받으실 분</div><input type="text" class="form-control  order-content"
+                            id="name" placeholder="수령자 이름">
                     </li>
                     <li class="order-li">
                         <div class="order-title">받으실 곳</div>
                         <div class="order-content">
-                            <input type="text" class="form-control"  id="postcode" placeholder="우편번호" readonly>
-                            <input type="text" class="form-control order-content" id="roadAddress"
-                                placeholder="도로명주소" readonly>
-                            <input type="text" class="form-control  order-content" id="jibunAddress"
-                                placeholder="지번주소" style="display: none;" readonly>
-                        <span id="guide" style="color:#999; display:none"></span>
-                        <input type="text" class="form-control order-content" id="extraAddress"
-                            placeholder="상세주소를 입력해주세요"></div>
-                    <button type="button" class="btn btn-primary" id="searchPostNum" onclick="execDaumPostcode()">우편번호 검색</button>
+                            <input type="text" class="form-control" id="postcode" placeholder="우편번호" readonly>
+                            <input type="text" class="form-control order-content" id="roadAddress" placeholder="도로명주소"
+                                readonly>
+                            <input type="text" class="form-control  order-content" id="jibunAddress" placeholder="지번주소"
+                                style="display: none;" readonly>
+                            <span id="guide" style="color:#999; display:none"></span>
+                            <input type="text" class="form-control order-content" id="extraAddress"
+                                placeholder="상세주소를 입력해주세요">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="searchPostNum"
+                            onclick="execDaumPostcode()">우편번호 검색</button>
                     </li>
                     <li class="order-li">
-                        <div class="order-title">휴대폰 번호</div><input type="text"
-                            class="form-control  order-content" id="tel" placeholder="휴대폰 번호 입력">
+                        <div class="order-title">휴대폰 번호</div><input type="text" class="form-control  order-content"
+                            id="tel" placeholder="휴대폰 번호 입력" oninput="telHyphen(this)" maxlength="13">
                     </li>
                 </ul>
             </div>
@@ -204,11 +210,12 @@
                         <strong>매주 같은 요일</strong>에 배송됩니다.</button>
                 </li>
                 <li class="order-li">
-                    <div class="order-title">배송 요청사항</div><input type="text" class="form-control order-content" id="deliveryMsg" placeholder="배송 요청사항 입력">
+                    <div class="order-title">배송 요청사항</div><input type="text" class="form-control order-content"
+                        id="deliveryMsg" placeholder="배송 요청사항 입력">
                 </li>
-                </div>
-            </ul>
         </div>
+        </ul>
+    </div>
     <br><br><br><br>
     <div class="container">
         <h4>할인 혜택</h4>
@@ -217,40 +224,45 @@
             <ul id="inputBox">
                 <li class="order-li">
                     <div class="order-title">총 결제 예정금액</div>
-                    <input type="text" class="form-control order-content" id="totalProdPrice" placeholder="총 결제예정금액" readonly>
+                    <input type="text" class="form-control order-content" id="totalProdPrice" placeholder="결제예정금액"
+                        readonly>
                 </li>
                 <li class="order-li">
                     <div class="order-title">쿠폰 사용</div>
                     <div class="order-content">
-                        <button type="button" class="btn btn-success" id="coupon" onclick="couponModal()" data-bs-toggle="modal" data-bs-target="#open-coupon-modal">쿠폰조회</button>
+                        <button type="button" class="btn btn-success" id="coupon" onclick="couponModal()"
+                            data-bs-toggle="modal" data-bs-target="#open-coupon-modal">쿠폰조회</button>
                         <span class="coupon-display">쿠폰할인액: <span id="couponAmount"></span></span>
                     </div>
                 </li>
                 <li class="order-li">
                     <div class="order-title">포인트 사용</div>
                     <div class="order-content" style="display: -webkit-inline-box;">
-                        <input type="text" class="form-control" id="usedPoint" placeholder="사용액(입력)" min="0" oninput="maxPointCheck(this)">
-                            <div><button type="button" class="btn btn-danger" id="point1" onclick="applyPoint()">적용</button>
-                            <button type="button" class="btn btn-danger" id="point2" onclick="getMyPoint()">보유 포인트 확인</button></div>
+                        <input type="text" class="form-control" id="usedPoint" placeholder="사용액(입력)" min="0"
+                            oninput="maxPointCheck(this)">
+                        <div><button type="button" class="btn btn-danger" id="point1" onclick="applyPoint()">적용</button>
+                            <button type="button" class="btn btn-danger" id="point2" onclick="getMyPoint()">보유 포인트
+                                확인</button>
+                        </div>
                     </div>
                 </li>
                 <li class="order-li">
-                    <div class="order-title">최종 결제 금액</div><input type="text"
-                        class="form-control  order-content" id="totalPayPrice" readonly>
+                    <div class="order-title">최종 결제 금액</div><input type="text" class="form-control  order-content"
+                        id="totalPayPrice" readonly>
                 </li>
                 <li class="order-li">
-                    <div class="order-title">적립 예정 포인트</div><input type="text"
-                        class="form-control  order-content" id="savePoint" readonly>
+                    <div class="order-title">적립 예정 포인트</div><input type="text" class="form-control  order-content"
+                        id="savePoint" readonly>
                 </li>
             </ul>
         </div>
     </div>
 
 
-<br><br><br><br>
-<div class="container">
-    <h4>결제 정보 선택 / 결제</h4>
-    <hr>
+    <br><br><br><br>
+    <div class="container">
+        <h4>결제 정보 선택 / 결제</h4>
+        <hr>
         <ul id="inputBox">
             <div class="payMethod">
                 카카오페이
@@ -359,7 +371,7 @@
 
 <!-- 쿠폰 조회 모달 -->
 <div class="modal fade" id="open-coupon-modal">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -369,21 +381,12 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="modalTitle">
-                    <span class="col">선택</span>
-                    <span class="col-3">이름</span>
-                    <span class="col-3">할인율</span>
-                    <span class="col-3">사용만료</span>
+                    <span>선택</span>
+                    <span>이름</span>
+                    <span>할인율</span>
+                    <span>사용만료</span>
                 </div>
-                <hr>
                 <div class="couponParent"></div>
-                <!-- <div id="couponList">
-                라디오 버튼 1개만 눌리게 하기 위해선 name이 있어야함
-                <span class="col"><input type="radio" class="form-check-input" name="radio" id="couponCheck" unchecked></span>
-                <span class="col"><input class="form-check-input" type="checkbox" id="couponCheck" onclick="clickOnlyOne(this)" unchecked></span>
-                <span class="col" id="couponName"></span>
-                <span class="col" id="couponPercentage"></span>
-                <span class="col" id="couponDate"></span>
-            </div> -->
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">

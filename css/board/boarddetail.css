@@ -1,97 +1,69 @@
-/* *{
-    margin: 0px;
-    padding: 0px;
-  } */
-
-.board-wrap {
-    width: 70%;
-    height: auto;
-    box-sizing: border-box;
-    margin: 100px auto;
+section.board{
+    margin-top: 80px;
+    width: 100%;
 }
 
-.board-view .info dl {
-    width: 50%;
-    padding: 0;
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
+}
+
+.board-wrap {
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
 }
 
 .board-view {
+    clear : both;
     width: 100%;
-    border-top: 2px solid #000;
+    /* border-top: 2px solid #000; */
 }
 
 .board-view .title {
     padding: 20px 15px;
     border-bottom: 1px dashed #ddd;
-    font-size: 2rem;
+    font-size: 25px;
     margin-bottom: 10px;
 }
 
 .board-view .info {
     padding: 15px;
     border-bottom: 1px solid #999;
-    font-size: 0;
-}
-
-.board-view .info dl {
-    position: relative;
-    display: inline-block;
-    padding: 0 20px;
-}
-
-.board-view .info dl:first-child {
-    padding-left: 0;
-}
-
-.board-view .info dl::before {
-    position: absolute;
-    top: 1px;
-    left: 0;
-    display: block;
-    width: 1px;
-    height: 13px;
-    background: #ddd;
-}
-
-.board-view .info dl:first-child::before {
-    display: none;
-}
-
-.board-view .info dl dt,
-.board-view .info dl dd {
-    display: inline-block;
-    font-size: 1.4rem;
-}
-
-.board-view .info dl dd {
-    margin-left: 10px;
-    color: #777;
 }
 
 .cont {
     height: auto;
+    min-height: 300px;
     padding: 15px;
-    border-bottom: 1px solid #000;
-    line-height: 160%;
-    font-size: 1.4rem;
+    border-bottom: 1px solid #999;
+    font-size: 18px;
     margin-top: 30px;
     border-top: 1px solid #999;
 }
 
 .writer {
-    font-size: 20px;
+    font-size: 15px;
     padding-left: 15px;
 }
 
 .hits {
     float: right;
-    font-size: 20px;
+    font-size: 15px;
     padding-left: 15px;
 }
 
 .createdDate {
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
     padding-left: 15px;
 }
 
@@ -124,23 +96,22 @@
 .board-rep {
     margin-top: 80px;
     margin-bottom: 10px;
-    clear: both;
+    clear:both;
 }
 
 .board-rep-count {
-    margin-top: 10px;
-    margin-bottom: 10px;
+   margin: 0 10px;
 }
 
 .rep-add {
     float: right;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 10px;
+    clear:both;
 }
 
 .board-rep-list {
     margin-top: 25px;
-
+    clear:both;
 }
 
 .rep-line {
@@ -148,18 +119,35 @@
     margin-top: 40px;
 }
 
+.empty-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
+}
+
+.just-space {
+    height : 100px;
+}
 
 .rep-list {
     border: 3px solid green;
 }
 
 .parent-div {
-    /* border :3px solid aqua; */
     float: left;
-    width: 85%;
+    width: 80%;
     height: 100px;
     margin-left: 10px;
-    border-bottom: 1px solid lightgrey;
+    clear : both;
+}
+
+.parent-clone{
+    border-bottom : 1px solid lightgrey;
 }
 
 .prwriter {
@@ -180,7 +168,6 @@
 
 #rep-edit {
     float: right;
-    clear: both;
 }
 
 .rep-menu {
@@ -214,8 +201,13 @@
     border: 0;
     float: right;
 }
+.hidden-rep-btn {
+    width : auto;
+    float : right;
+    margin-top: 62px;
+}
 
-#re-rep-content {
+/* #re-rep-content {
     width: 100%;
     height: 70px;
     border: 0;
@@ -228,7 +220,7 @@
 
 .re-rep {
     /* clear:both; */
-    border: 3px solid orange;
+    /* border: 3px solid orange;
     width: 80%;
     margin-left: 50px;
     height: 70px;
@@ -261,6 +253,6 @@
 #re-rep-add-btn {
     margin-right: 7px;
     margin-left: 25px;
-}
+} */ 
 
 /*-----------------------------------------*/
