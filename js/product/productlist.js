@@ -34,32 +34,6 @@ $(()=>{
 
 })
 
-function listByCategory(event) {
-    //console.log(event.target.value); //도시락, 샐러드, 밀키트
-    let $origin = $('.menunav .card');
-    let $parent = $('div.productlist');
-    let cate = event.target.value;
-    $parent.empty()
-    switch(cate) {
-        case '전체상품':
-            dataList(data);
-            break;
-        case '도시락':
-            let dosirak = data.filter(item=>item.category === '도시락')
-            // console.log(d); //앞에 ""+ 문자열주면 Object 로 타입이 바뀌어서 값 안찍힘 주의~
-            dataList(dosirak);
-            break;
-        case '샐러드':
-            let salad = data.filter(item=>item.category === '샐러드')
-            dataList(salad);
-            break;
-        case '밀키트':
-            let mealkit = data.filter(item=>item.category === '밀키트')
-            dataList(mealkit);
-            break;
-    }
-}
-
 function dataList(list){
     let $origin = $('.menunav .card');
     let $parent = $('div.productlist');
@@ -102,4 +76,30 @@ function dataList(list){
 
         location.href='../../html/product/productinfo.html?prodNum=' + prodNum
     })
+}
+
+function listByCategory(event) {
+    //console.log(event.target.value); //도시락, 샐러드, 밀키트
+    let $origin = $('.menunav .card');
+    let $parent = $('div.productlist');
+    let cate = event.target.value;
+    $parent.empty()
+    switch(cate) {
+        case '전체상품':
+            dataList(data);
+            break;
+        case '도시락':
+            let dosirak = data.filter(item=>item.category === '도시락')
+            // console.log(d); //앞에 ""+ 문자열주면 Object 로 타입이 바뀌어서 값 안찍힘 주의~
+            dataList(dosirak);
+            break;
+        case '샐러드':
+            let salad = data.filter(item=>item.category === '샐러드')
+            dataList(salad);
+            break;
+        case '밀키트':
+            let mealkit = data.filter(item=>item.category === '밀키트')
+            dataList(mealkit);
+            break;
+    }
 }

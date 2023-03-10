@@ -1,4 +1,3 @@
-/* 마이페이지 전체 적용 속성 */
 section.mp-page{
     margin-top: 80px;
     width: 100%;
@@ -136,7 +135,7 @@ div.mypage-basic div.mp-user-activity div.row div.col span:hover{
 /* 세부 내용 기본 form */
 div.mypage-basic div.mp-user div.mp-activity div.mp-section-form{
     margin-top: 40px;
-    height: 700px;
+    height: 120%;
 }
 
 div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit {
@@ -163,7 +162,7 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
 /*셀러주문현황 리스트*/
 
 .sp-prod-list{
-    margin-top:100px;
+    margin-top:60px;
     font-size:15px;
     justify-content: center;
 
@@ -257,3 +256,21 @@ margin-top: 20px;
     color:rgb(0, 175, 133);
 }
 
+/* 상품 판매 상태 클릭 버튼 */
+.mp-section-form .prod-status-btns{
+    width:100%
+}
+
+.mp-section-form .prod-status-btns label.prod-status-btn{
+    width:33%;
+}
+
+/*등록된 상품이 없을떄*/
+.prod-list-empty{
+    height:40px;
+    color:#888787;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom:#d9d9d9 solid 0.3px;
+}

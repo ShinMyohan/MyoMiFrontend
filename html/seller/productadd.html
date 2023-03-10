@@ -22,6 +22,7 @@
         crossorigin="anonymous"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/seller/productadd.js"></script>
+    <!-- Cookies -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 </head>
 
@@ -164,7 +165,7 @@
                     </table>
                     <div class="d-grid gap-2 d-md-block prod-add-form-btn">
                         <button class="btn prod-add-btn" id="prodAddBtn" type="submit">상품 등록</button>
-                        <button class="btn prod-cancel-btn" type="button">등록 취소</button>
+                        <button class="btn prod-cancel-btn" type="button" onclick=history.back()>등록 취소</button>
                     </div>
                 </div>
             </form>

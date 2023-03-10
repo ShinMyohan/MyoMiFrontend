@@ -11,7 +11,8 @@ $(()=>{
         data: data,
         success: function(jsonObj){
             let product = jsonObj['body'];
-            // console.log(product);
+            localStorage.setItem('cartList', JSON.stringify(product))
+            console.log(product);
             $('#prodMainImg').attr('src', product["productImgUrl"])
             $('div.prodNum').html(product['prodNum']);
             $('div.prodName>h4').html(product['name'])
@@ -84,7 +85,7 @@ $(()=>{
             let qnaList = product["qnas"]
             // console.log(qnaList)
             //배열의 길이 만큼 qna도 존재하므로 qnaList.length = qna의 가장 최신글 표시 넘버
-            let qnum = qnaList.length
+            let qnum = qnaList.length //12개 존재하면 12.
             if(qnaList.length == 0) {
                 $('div.qna-non-list').css('display','block')
             }

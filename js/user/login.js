@@ -31,15 +31,21 @@ $(()=>{
                 password : pwd
             }),
             success: function (response) {
-                let date = new Date();
-                date.setTime(date.getTime()+360000);
-                alert('로그인성공!')
-                Cookies.set('token', response['accessToken'], { expires: date });
-
+                console.log(response)
+                // let date = new Date();
+                // date.setTime(date.getTime()+360000);
+                // alert('로그인성공!')
+                Cookies.set('token', response.token.accessToken);
+                Cookies.set('role', response.userRole);
+                // let userNameVal = UrlEncoder.encode(respone.userName)
+                Cookies.set('userName', response.userName);
                 location.href=frontURL
             },
             error: function (xhr) {
-                alert(xhr.status)
+                console.log(xhr.responseJSON)
+                if(xhr.responseJSON.details == 'NOT_FOUND_USER' || xhr.responseJSON.details == 'DISCORD_PASSWORD') {
+                    $('#loginFailModal').modal("show");
+                }
             }
         })
     })
@@ -49,5 +55,16 @@ $(()=>{
         if(event.which === 13) {
             $('#loginBtn').click()
         }
+    })
+
+    $('#loginFailModal').keyup(function(event) {
+        if(event.which === 13) {
+            $('#loginFailModal').modal("hide");
+        }
+    })
+
+
+    $('#goToSignUp').click((e)=>{
+        location.href="../../html/user/signup.html"
     })
 })

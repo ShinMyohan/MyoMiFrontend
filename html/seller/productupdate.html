@@ -22,7 +22,8 @@
         crossorigin="anonymous"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/seller/productupdate.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+     <!-- Cookies -->
+     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 </head>
 
 <body>
@@ -148,7 +149,7 @@
                     </table>
                     <div class="d-grid gap-2 d-md-block prod-add-form-btn">
                         <button class="btn prod-add-btn" id="prodUpdateBtn" type="submit">수정 완료</button>
-                        <button class="btn prod-cancel-btn" type="button">수정 취소</button>
+                        <button class="btn prod-cancel-btn" type="button" onclick=history.back()>수정 취소</button>
                     </div>
                 </div>
             </form>

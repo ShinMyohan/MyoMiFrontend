@@ -9,10 +9,16 @@ div.carousel-item>img {
 }
 
 div.menunav {
-    width: 85%;
+    width: 80%;
     margin: auto;
 }
 
+div.menunav button.prod-menu-list-btns{
+    border-radius: 0;
+    height: 70px;
+    border: 1px solid #f5f5f5b7;
+    background-color: #f5f5f58b;
+}
 /*  */
 div.prod {
     cursor: pointer;
@@ -32,14 +38,14 @@ div.card-body>div.percentage {
     float: left;
     margin-right: 10px;
     color: #f5634b;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 }
 
 div.card-body>div.prodPrice {
     float: left;
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
