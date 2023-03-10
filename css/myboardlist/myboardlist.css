@@ -19,7 +19,7 @@
 }
 
 .list-header { 
-    background-color : rgba(242, 238, 238, 0.341);
+    background-color:#d0d7d015;
     height : 40px;
     display : flex;
     align-items : center;
@@ -91,7 +91,7 @@
 }
 
 .list-rep-header { 
-    background-color : rgba(242, 238, 238, 0.341);
+    background-color:#d0d7d015;
     height : 40px;
     display : flex;
     align-items : center;
