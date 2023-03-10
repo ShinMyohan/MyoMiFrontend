@@ -142,11 +142,12 @@
 }
 
 div.r-info-point {
-  /* padding-top: 40px; */
   width: 1000px;
-  height: 50px;
-  background-color: #efefef;
+  height: 70px;
+  background-color: #f0efef9f;
+  padding-top: 10px;
   font-size: 17px;
+  margin: 40px 0;
 }
 
 div.r-info-point strong {
@@ -483,4 +484,10 @@ div.mystar {
 
 .explain {
   width: 400px;
+  margin-left: 10px;
+}
+
+div.r-info-point div.bt-wrap button.review-write-btn{
+  border-radius: 0;
+  margin-right: 10px;
 }

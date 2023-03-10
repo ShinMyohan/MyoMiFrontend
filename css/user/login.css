@@ -4,8 +4,7 @@ div.user-login-page {
     margin: 200px auto 100px auto;
     border: 1px solid #e2e2e2;
     border-radius: 10px;
-    /* border-top: 3px solid#079c3be7 */
-    border-top: 3px solid #5F6CAF;
+    border-top: 3px solid#079c3be7
 }
 
 div.user-login-page div.login-content {

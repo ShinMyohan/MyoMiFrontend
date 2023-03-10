@@ -45,6 +45,9 @@ $(()=>{
     $.ajax({
       url: url,
       type: 'POST',
+      xhrFields: {
+        withCredentials: true
+      },
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
       },
@@ -52,18 +55,17 @@ $(()=>{
       processData: false,
       enctype: 'multipart/form-data',
       data: formData,
-      success: function () {
+      success: function (response) {
+        console.log(response)
         alert("상품 등록 완료.");
-        window.location.reload;
+        // location.href="../../html/sellerpage/productlist.html"
       },
-      error: function(xhr){
-        // alert(xhr.status)
-        alert('상품등록실패'+xhr.status)
-        // JSON.parse(xhr.responseText). 예) .msg 어드바이스가 응답할 내용 -> json형태로 응답을받으니
+      error: function(response){
+        alert(response.responseJSON)
+        
+        //JSON.parse(xhr.responseText) //. 예) .msg 어드바이스가 응답할 내용 -> json형태로 응답을받으니
       }
     })
-    // alert(formData.get('file'));
-    alert(originPrice);
   })
 
 // }

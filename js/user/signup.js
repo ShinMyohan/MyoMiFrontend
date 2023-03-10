@@ -44,9 +44,6 @@ $(()=>{
     })
 })
 
-let isIdChecked = false;
-let isTelChecked = false;
-
 // 회원가입 ajax
 function signup(data) {
     $.ajax({
@@ -68,8 +65,12 @@ function signup(data) {
     })
 }
 
+let isTelChecked = false;
+let isIdChecked = false;
+
 // 회원가입 버튼 눌렀을 때 먼저 체크해야할 필수 입력 사항들
 window.getSignupInfo = () => {
+// function getSignupInfo() {
     let id = $('#signupId').val();
     let pwd = $('#signupPwd').val();
     let checkpwd = $('#checkPwd').val();
@@ -114,6 +115,10 @@ window.getSignupInfo = () => {
         return;
     }
 
+    if(isIdChecked == true) {
+        $('#userIdDupCheck').css('color','#079c3b')
+    }
+
     if(pwd == '' || !isPassword(pwd)) {
         $('#signupPwd').addClass('is-invalid');
         $('#signupPwd').focus();
@@ -155,7 +160,6 @@ window.getSignupInfo = () => {
 
     signup(data);
 }
-
 // 이메일 규칙
 function isEmail(asValue) {
     const regExp = /^(?=.*[a-zA-Z0-9]*@[a-zA-Z0-9]*.[a-zA-Z0-9])[0-9a-zA-Z@.]{10,30}$/;
@@ -170,21 +174,34 @@ function isPassword(asValue) {
 }
 
 // 회원아이디 중복체크
-// function idDupCheck(){
-//     let id = $('#signupId').val();
-    
-//     $.ajax({
-//         type: 'POST',
-//         contentType : 'application/json',
-//         beforeSend: function (xhr) {
-//             xhr.setRequestHeader('Content-type', 'application/json');
-//         },
-//         data: JSON.stringify(id),
-//         success: function (response) {
-//             re
-//         },
-//         error: function (xhr) {
-//             alert(xhr.status)
-//         }
-//     })
-// }
+function idDupCheck(){
+// window.idDupCheck = () => {
+    let id = $('#signupId').val();
+    $.ajax({
+        url: backURL + 'user/signup/check/'+id,
+        type: 'POST',
+        contentType : 'application/json',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Content-type', 'application/json');
+        },
+        data: JSON.stringify(id),
+        success: function (response) {
+            // alert('아이디 중복체크!')
+            if(response == true) {
+                alert('중복된 아이디 있음')
+                $('#signupId').addClass('is-invalid');
+                $('#signupId').focus();
+                $('#signupId').attr('placeholder','중복된 아이디가 존재합니다.');
+                isIdChecked = false
+                return;
+            }
+            $('#signupId').removeClass('is-invalid');
+            $('#signupId').focus();
+            $('#IdCheckDupModal').modal('show');
+            isIdChecked = true;
+        },
+        error: function (xhr) {
+            alert(xhr.status)
+        }
+    })
+}

@@ -1,8 +1,22 @@
-let backURL = 'http://192.168.0.16:8888/myomi/'
-let frontURL = 'http://192.168.0.16:5500/html/index.html'
-
 
 $(()=>{
+    let token = Cookies.get('token')
+    let cookieUserName = Cookies.get('userName')
+    let userName = decodeURI(cookieUserName)
+    let userRole = Cookies.get('role')
+    console.log(userName)
+    if(token != null) {
+        $('#userNameIs').css('display','')
+        $('#userNameIs').html(userName)
+        $('#logInUserName').css('display','')
+        $('#logInUserName').html('님 환영합니다.')
+        $('#signUpLi').css('display','none')
+        $('#logInLi').css('display','none')
+    } else {
+        $('#logInUserName').css('display','none')
+        $('#logoutLi').css('display','none')
+        $('#userNameIs').css('display','none')
+    }
     // -- 메뉴가 클릭되었을 대 일어날 일 START --
     $('section>nav>ul>li').click((e)=>{
     })
@@ -11,7 +25,6 @@ $(()=>{
     // -- 로고가 클릭되었을 때 할 일 START --
     $('div.logo-main').click(()=>{
         location.href=frontURL
-        //5500/html/이지만 알아서 웰컴페이지를 찾아가는데 웰컴페이지 인식을 알아서 index.html을 불러온다
     })
     // -- 로고가 클릭되었을 때 할 일 END --
 
@@ -34,6 +47,36 @@ $(()=>{
                 }
             });
     });
+
+    // ------ 메뉴 클릭시 상세 메뉴 보이기 START ------
+    $(document).ready( function() {
+        $('#menubarListMenu').hide();
+        $('#gnbMenuBox').click(function() {
+        $('#menubarListMenu').slideToggle();
+        } );
+    } );
+
+    // 키워드 검색 돋보기 클릭!
+    $('#prodKeywordSearch').click(() => {
+        let keyword = $('#searchBox').val();
+        //제가 따로 정리할 내용이라 잠깐 둘게요!
+        // let originUri = encodeURI('../html/product/productsearch.html?keyword=' + keyword);
+        // console.log(originUri);
+        // let decode = decodeURI(originUri);
+        // console.log(decode);
+        location.href = '../html/product/productsearch.html?keyword=' + keyword;
+    })
+
+    // 마이페이지 아이콘 클릭시 마이페이지 이동
+    $('#goToMyPageBtn').click(() => {
+        if(userRole == 0) {
+            // alert(userRole);
+            location.href = '../html/mypage/mypage.html';
+        } else if(userRole == 1) {
+            // alert(userRole);
+            location.href = '../html/sellerpage/sellerproductlist.html'
+        }
+    })
 })
 
 function execDaumPostcode() {
@@ -84,4 +127,10 @@ function execDaumPostcode() {
             }
         }
     }).open();
+}
+
+function logout() {
+    alert('로그아웃 되었습니다')
+    Cookies.remove('token')
+    location.href=frontURL
 }

@@ -87,7 +87,7 @@
                         </div>
                         <div class="login-signup-button">
                             <button type="button" class="btn btn-login" id="loginBtn">로그인</button>
-                            <button type="button" class="btn btn-signup">회원가입</button>
+                            <button type="button" class="btn btn-signup" id="goToSignUp">회원가입</button>
                         </div>
                         <!-- </form> -->
                         <div>
@@ -117,6 +117,19 @@
             </div>
         </div>
     </section>
+    <!-- 모달 -->
+    <div class="modal" tabindex="-1" id="loginFailModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>아이디와 비밀번호를 확인해주세요.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="loginFailModalClose">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ------ 로그인 페이지 END ------ -->
     <!-- ----footer 시작 ---- -->
     <footer>

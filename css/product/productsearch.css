@@ -4,14 +4,24 @@ section {
     height: 1000px;
 }
 
-.prod-search-cont .prod-search-title input {
-    width: 80px;
-    border: none;
-    outline: none;
+#whatIsKeyword{
+    color:#079c3b;
+    margin-right: 10px;
 }
 
+#whatIsKeyword, #howMany {
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
 .prod-search-cont .dropdown {
+    width: 100%;
     float: right;
+    margin-bottom: 20px;
 }
 
 .prod-search-cont .dropdown button.dropdown-toggle {
@@ -19,6 +29,7 @@ section {
     width: 100px;
     border-radius: 5px;
     border: 1px solid #5b5b5b;
+    float: right;
 }
 
 .prod-search-cont .dropdown ul.dropdown-menu li {
