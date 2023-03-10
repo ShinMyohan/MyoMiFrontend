@@ -1,13 +1,31 @@
+section.board{
+    margin-top: 80px;
+    width: 100%;
+}
+
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
+}
 
 .board-wrap {
-    width: 65%;
-    margin: 100px auto;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
 }
 
 .board-view {
     clear : both;
     width: 100%;
-    border-top: 2px solid #000;
+    /* border-top: 2px solid #000; */
 }
 
 .board-view .title {

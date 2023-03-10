@@ -2,21 +2,23 @@ $(() => {
   let token = Cookies.get('token')
   
   let list = JSON.parse(localStorage.getItem("list"));
-  console.log(list);
+  // console.log(list);
 
   let num = list["boardNum"];
   let title = list["title"];
   let writer = list["userName"];
   let content = list["content"];
   let category = list["category"];
-  let image = list["boardImgUrl"]
+  let image = list["boardImgUrl"];
+  
+  // console.log(">>>>>>"+image)
 
   $('input[name=board-num]').attr('value', num)
   $('input[name=board-title]').attr('value', title);
   $('input[name=board-writer]').attr('value', writer);
   $('#select').val(category).prop("selected", true);
   $('#exampleFormControlTextarea1').val(content);
-  $('input[name="boardFile"]').attr('src',image);
+  $('input[name=boardFile]').attr('src',image)
 
   $('div.submit>#submit').click(function () {
     num = $('input[name=board-num]').val();
@@ -25,9 +27,6 @@ $(() => {
     category = $('#select').val();
     content = $('#exampleFormControlTextarea1').val();
     image = $('input[name="boardFile"]').get(0).files[0];
-    // console.log("2번 : " +num,title,writer,category,content)
-
-    // console.log("정보 : "+ num, title, content, category, image)
 
     if (title == "") {
       alert("제목을 입력하세요.");
@@ -77,6 +76,10 @@ $(() => {
       },
     });
   });
+
+  $('div.cancle>button').click(()=>{
+    history.back();
+  })
 })
 
 let url = backURL + 'board/';

@@ -1,4 +1,5 @@
 $(()=>{
+  let token = Cookies.get('token')
   
     //유저 적립금, 쿠폰, 팔로우 정보  
     function  myPageHeaderInfo() {
@@ -11,7 +12,7 @@ $(()=>{
           },
 
           success : function(data){
-           console.log(data)
+           //console.log(data)
             let totalPoint = data["totalPoint"];
             let coupon = data["couponCount"]
             let follow = data["followCount"]

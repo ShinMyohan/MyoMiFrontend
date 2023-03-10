@@ -3,7 +3,7 @@ $(() => {
     $('div.expired-coupon-list').hide();
     $('div.empty-list').hide();
     $('div.exp-empty-list').hide();
-    
+
     function couponList() {
         let $origin = $('div.list-body');
         $("div.list.body").not(":first-child").remove();
@@ -20,10 +20,10 @@ $(() => {
                 let list = jsonObj;
                 let $origin = $('div.list-body').first();
                 let $parent = $('div.coupon-list');
-                
-                $(list).each((p)=>{
+
+                $(list).each((p) => {
                     let cdate = list[p]["createdDate"];
-                    let date = new Date('20'+cdate); 
+                    let date = new Date('20' + cdate);
                     //db에서 받아오는 날짜포맷은 yy-MM-dd 이고 Date 함수의 포맷은 yyyy-MM-dd라서 
                     //앞에 '20'을 붙여주어 동일한 포맷으로 만들어 줌
                     let expdate = date.setDate(date.getDate() + 30);
@@ -32,7 +32,7 @@ $(() => {
                     let benefit; //혜택
                     let condition; //사용조건 
                     let limit; //제한조건
-                    
+
                     if (status == 0) {
                         switch (sort) {
                             case 0:
@@ -60,21 +60,21 @@ $(() => {
                                 limit = "일부 품목 제외"
                                 break;
                         }
-                    let $copy = $origin.clone();
+                        let $copy = $origin.clone();
 
-                    $copy.find('div.c-name').html('<img src="../../images/coupon/coupon.png"> <br />'+sort);
-                    $copy.find('div.c-benefit').html(benefit);
-                    $copy.find('div.c-condition').html(condition);
-                    $copy.find('div.c-limit').html(limit);
-                    $copy.find('div.c-avaliable').html("20"+cdate+" ~ <br />"+moment(expdate).format("YYYY-MM-DD")
-                    +'<span class="c-notice">사용가능</span>');
-                    $copy.find('div.c-date').html("20"+cdate);
+                        $copy.find('div.c-name').html('<img src="../../images/coupon/coupon.png"> <br />' + sort);
+                        $copy.find('div.c-benefit').html(benefit);
+                        $copy.find('div.c-condition').html(condition);
+                        $copy.find('div.c-limit').html(limit);
+                        $copy.find('div.c-avaliable').html("20" + cdate + " ~ <br />" + moment(expdate).format("YYYY-MM-DD")
+                            + '<span class="c-notice">사용가능</span>');
+                        $copy.find('div.c-date').html("20" + cdate);
 
-                    $parent.append($copy);
+                        $parent.append($copy);
 
-                }else{
-                    $('div.empty-list').show();
-                }
+                    } else {
+                        $('div.empty-list').show();
+                    }
                 })
                 $origin.hide();
             },
@@ -85,7 +85,7 @@ $(() => {
     }
     couponList()
 
-   //만료, 사용된 쿠폰 (합치고싶었으나 실패..)
+    //만료, 사용된 쿠폰 (합치고싶었으나 실패..)
     function expCouponList() {
         let $origin = $('div.expired-list-body');
         $("div.expired-list.body").not(":first-child").remove();
@@ -102,12 +102,12 @@ $(() => {
                 let list = jsonObj;
                 let $origin = $('div.expired-list-body').first();
                 let $parent = $('div.expired-coupon-list');
-                
-                $(list).each((p)=>{
+
+                $(list).each((p) => {
                     // console.log(list);
-                  
+
                     let cdate = list[p]["createdDate"];
-                    let date = new Date('20'+cdate); 
+                    let date = new Date('20' + cdate);
                     //db에서 받아오는 날짜포맷은 yy-MM-dd 이고 Date 함수의 포맷은 yyyy-MM-dd라서 
                     //앞에 '20'을 붙여주어 동일한 포맷으로 만들어 줌
                     let expdate = date.setDate(date.getDate() + 30);
@@ -116,7 +116,7 @@ $(() => {
                     let benefit; //혜택
                     let condition; //사용조건 
                     let limit; //제한조건6
-                    
+
                     if (status != 0) {
                         switch (sort) {
                             case 0:
@@ -144,19 +144,19 @@ $(() => {
                                 limit = "일부 품목 제외"
                                 break;
                         }
-                    let $copy = $origin.clone();
+                        let $copy = $origin.clone();
 
-                    $copy.find('div.exp-c-name').html('<img src="../../images/coupon/exp_coupon.png"> <br />'+sort);
-                    $copy.find('div.exp-c-benefit').html(benefit);
-                    $copy.find('div.exp-c-condition').html(condition);
-                    $copy.find('div.exp-c-limit').html(limit);
-                    $copy.find('div.exp-c-avaliable').html("20"+cdate +" ~ <br />"+moment(expdate).format("YYYY-MM-DD")
-                    +'<span class="exp-c-notice">사용불가</span>');
-                    $copy.find('div.exp-c-date').html("20"+cdate);
+                        $copy.find('div.exp-c-name').html('<img src="../../images/coupon/exp_coupon.png"> <br />' + sort);
+                        $copy.find('div.exp-c-benefit').html(benefit);
+                        $copy.find('div.exp-c-condition').html(condition);
+                        $copy.find('div.exp-c-limit').html(limit);
+                        $copy.find('div.exp-c-avaliable').html("20" + cdate + " ~ <br />" + moment(expdate).format("YYYY-MM-DD")
+                            + '<span class="exp-c-notice">사용불가</span>');
+                        $copy.find('div.exp-c-date').html("20" + cdate);
 
-                    $parent.append($copy);
+                        $parent.append($copy);
 
-                    }else{
+                    } else {
                         $('div.exp-empty-list').show();
                     }
                 })

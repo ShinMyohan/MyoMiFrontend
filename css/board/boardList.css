@@ -1,15 +1,33 @@
 
-* {
+/* * {
     margin: 0px;
     padding: 0px;
+} */
+section.board{
+    margin-top: 80px;
+    width: 100%;
+}
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
 }
 
 .board-wrap {
-    width: 65%;
-    box-sizing: border-box;
-    margin: 100px auto;
-    align-items: center;
-    border-bottom: 2px solid #999;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
+}
+
+.board-list-wrap{
+    border-bottom : 2px solid #999;
 }
 
 .board-title strong {
@@ -18,6 +36,7 @@
 
 .board-title {
     margin-bottom: 30px;
+    margin-left : 30px;
 }
 
 .board-list {
@@ -27,6 +46,7 @@
 
 .board-list>div.top {
     border-bottom: 1px solid #999;
+    -webkit-text-stroke: thin
 }
 
 .board-list>div>div {
@@ -82,44 +102,46 @@
 .board-detail .b_num {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .board-detail .b_category {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .board-detail .b_title {
     width: 45%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .board-detail .b_date {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .board-detail .b_writer {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .board-detail .b_hits {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .searcharea {
+    position:relative;
     width:20%;
     margin-bottom:20px;
     display: flex;
-    margin-left: 47%;
+    margin-left: 59%;
+    
 }
 
 .bt-wrap {
@@ -138,37 +160,37 @@
 .list .board-num {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .list .bcategory {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .list .btitle {
     width: 45%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .list .bdate {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .list .bwriter {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .list .bhits {
     width: 10%;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .boardlist>div>div {
@@ -190,11 +212,6 @@
     display: none;
 }
 
-.board-view .info dl dt,
-.board-view .info dl dd {
-    font-size: 20px;
-}
-
 .empty-list {
     height : 100px;
     display : flex;
@@ -206,39 +223,18 @@
     margin :0 auto;
 }
 
-/*---페이징---*/
-.pagination {
-    /* 바닥에 붙이기 */
-    /* position: absolute; */
-    bottom: 0;
-   
+.pagenation{
+    clear: both;
+    justify-content : center;
+    display: flex;
 }
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 4px 12px;
-    text-decoration: none;
-    border: 1px solid #ddd;
-    font-size: 14px;
-}
-
-.pagination a.active {
-    background-color: #FFA000;
-    color: white;
-    border: 1px solid #FFA000;
-}
-
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
-}
-
-.pagination a:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-.pagination a:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+.empty-search-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
 }

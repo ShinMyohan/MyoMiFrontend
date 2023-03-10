@@ -50,9 +50,9 @@
             <!-- <div id="horizontal-underline"></div> -->
             <li><a href="../../html/user/signup.html">회원가입</a></li>
             <li><a href="../../html/user/login.html">로그인</a></li>
-            <li><a href="../notice/noticelist.html">공지사항</a></li>
+            <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
             <li><a href="boardList.html">커뮤니티 </a></li>
-            <li><a href="../mypage/mypage.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32"
+            <li><a href="../../html/mypage/mypage.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32"
                   fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                   <path
                     d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
@@ -68,7 +68,8 @@
     </div>
   </header>
 
-  <section>
+  <section class="board">
+    <div class="mp-background"></div>
     <div class="board-wrap">
       <div class="board-view-wrap">
         <div class="board-view">
@@ -82,7 +83,7 @@
           <div class="cont">
             <div class="content">글</div>
             <div class="imgArea">
-              <img src="" class="rounded mx-auto d-block" id="boardImg" alt="..." width=100%>
+              <img src="" class="rounded mx-auto d-block" id="boardImg" alt="..." width=50%>
             </div>
           </div>
           <!--board view-->
@@ -115,7 +116,7 @@
         <div class="board-rep-add">
           <!--댓글 작성 -->
           <textarea class="form-control" placeholder="댓글 내용을 입력해주세요" id="content" name="content2"
-            style="height: 100px; resize: none;"></textarea>
+            style="height: 100px; resize: none;" maxlength="250"></textarea>
           <label for="floatingTextarea2"></label>
           <div class="rep-add">
             <button type="button" class="btn btn-outline-success" id="rep-add">
@@ -125,7 +126,7 @@
         </div>
       </div>
       <!-- board-rep -->
-      
+
       <!--댓글 목록-->
       <div class="rep-line"></div>
       <div class="empty-list">작성된 댓글이 없습니다.</div>
@@ -180,7 +181,7 @@
       </div>
     </div>
     <!--board wrap-->
- </section>
+  </section>
   <footer>
     <div id="footer_wrap">
       <div id="footer">

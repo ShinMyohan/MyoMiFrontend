@@ -1,6 +1,6 @@
 $(() => {
     let token = Cookies.get('token')
-    
+
     function pointList(page) {
         let $origin = $('div.list-body').first();
         $("div.list.body").not(":first-child").remove();
@@ -19,12 +19,12 @@ $(() => {
                 let $origin = $('div.list-body').first();
                 let $parent = $('div.point-list');
                 let size = list.length
-                let arr =  new Array(size)  //  잔여 적립금용 배열 생성. 배열의 길이 
+                let arr = new Array(size)  //  잔여 적립금용 배열 생성. 배열의 길이 
                 arr.fill(0) //0으로 초기화
-                arr[size-1] = list[size-1]["amount"] //마지막배열의 잔여 적립금은 amount로 대입
-                
-                for(let i= list.length-2; i >=0; i--){ //각 배열의 현재잔여 적립금은 현재 amount + 이전 잔여적립금로 계산 
-                    arr[i] = list[i]["amount"] + arr[i+1] 
+                arr[size - 1] = list[size - 1]["amount"] //마지막배열의 잔여 적립금은 amount로 대입
+
+                for (let i = list.length - 2; i >= 0; i--) { //각 배열의 현재잔여 적립금은 현재 amount + 이전 잔여적립금로 계산 
+                    arr[i] = list[i]["amount"] + arr[i + 1]
                 }
 
                 $(list).each((p) => {
@@ -32,7 +32,7 @@ $(() => {
                     let sort = list[p]["sort"];
                     let amount = list[p]["amount"];
                     let detail;
-                
+
                     switch (sort) {
                         case 0:
                             sort = "회원가입",
@@ -71,9 +71,9 @@ $(() => {
                     $copy.find("div.p-content").html(detail);
                     $copy.find("div.p-amount").html(amount.toLocaleString());
                     $copy.find("div.p-total").html(arr[p].toLocaleString());
-                   
+
                     $parent.append($copy);
-                    
+
                 })
                 $origin.hide();
 
