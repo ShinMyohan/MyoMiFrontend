@@ -3,7 +3,6 @@ let data = []
 $("div.prod-list-empty").hide();
 
 $(()=>{
-    let token = Cookies.get('token')
     let uu = backURL + 'sellerpage/productlist';
     //--상품목록 가져오기 START--
     function showProdList(uu){
@@ -25,15 +24,18 @@ $(()=>{
             success: function(jsonObj){
                 console.log(jsonObj)
                 let list = jsonObj;
+                console.log(list.length)
                 data = [...jsonObj];
-                // console.log(data)
-                prodList(list);
-                if(list == ''){
-                    $("div.prod-list-empty").show();
-                }
+                    prodList(list);
             },
             error: function(xhr){
-                alert(xhr.status);
+                console.log(xhr.responseJSON);
+                if(xhr.responseJSON.details == "NOT_FOUND_PRODUCT") {
+                    // if(list.length == ''){
+                        $origin.hide();
+                        $("div.prod-list-empty").show();
+                    // }
+                }
             },
 
         });
@@ -61,9 +63,9 @@ function prodList(list){
     let $parent = $("div.prod-list-body");
     let viewNum = 1;
     $parent.empty();
+
     list.forEach(p=>{
         let $copy = $origin.clone();
-
         $copy.find('#hiddenProdNum').val(p.prodNum)
         $copy.find("div.prod-num").html(viewNum++);
         $copy.find("div.prod-name").html(p.prodName);

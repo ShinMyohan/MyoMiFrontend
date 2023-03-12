@@ -103,12 +103,21 @@ table tbody tr td {
 /* 휴대폰번호 S */
 .mp-signup select.user-tel-number {
     width: 80px;
-    height: 38px;
+    height: 36px;
 }
 
 .mp-signup input.tel-number {
     margin-top: 10px;
-    width: 100px;
+    padding-left: 10px;
+    width: 60px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.mp-signup input.tel-certificate {
+    width: 70px;
+    font-size: 15px;
+    margin-left: 10px;
 }
 
 .mp-signup small.user-tel-num {
@@ -121,6 +130,28 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.mp-signup button.btn-certification-check{
+    border: 1px solid #888888;
+    border-radius: 0px;
+    color: #888888;
+    margin-left: 10px;
+    font-size: 12px;
+    height: 36px;
+}
+
+.mp-signup button.btn-certification-check:hover{
+    border-radius: 0px;
+    background-color: #5b5b5b90;
+    color: white;
+    margin-left: 10px;
+    font-size: 12px;
+    border: 1px solid #5b5b5b44;
+}
+
+#telSmsCheck, #afterCheck{
+    border-radius:0;
+    margin-left: 5px;
+}
 /* 휴대폰번호 E */
 
 /* 이메일 S */

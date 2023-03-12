@@ -30,7 +30,6 @@ function getOrderList() {
         },
         success: function (jsonObj) {
             let orderList= jsonObj
-            console.log(orderList)
 
             // Object 객체 배열로 반환
             let array = Object.keys(orderList.data).reverse().map(item => orderList.data[item]);
