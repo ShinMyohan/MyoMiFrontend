@@ -64,8 +64,9 @@ $(()=>{
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
           },
           success: function(jsonObj){
-            // console.log(jsonObj);
+            console.log(jsonObj);
             $("#prod-name").html(jsonObj.name);
+            $("#prodImg").attr('src',jsonObj.prodImg)
             $("#modal-user-name").html(jsonObj.user);
             $("#modal-prod-num").html(jsonObj.orderNum);
             $("#modal-prod-cnt").html(jsonObj.prodCnt);
@@ -87,7 +88,7 @@ $(()=>{
       });
     
     // 상세모달창 닫기
-      $(document).on('click', '.modal-submit', function (e) {
+      $(document).on('click', '#close-btn', function (e) {
         $('.sl-order-modal').removeClass('show');
       
       });

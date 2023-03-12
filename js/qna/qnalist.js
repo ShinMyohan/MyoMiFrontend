@@ -39,7 +39,6 @@ function showList(){
               let ansName = list[p]["companyName"];
               let prodName = list[p]["pname"]
               let ansContent = list[p]["ansContent"];
-              let user = list[p]["userId"];
               let $copy = $origin.clone();  
               $copy.find("div.qna-num").html(num);
               $copy.find("div.qna-user-name").html(writer);
@@ -60,7 +59,7 @@ function showList(){
               //모달창 기본 정보
               $("div.seller-name").html(ansName);
               $("div.prod-name").html(prodName);
-              $("#user-id").html(user);
+              // $("#qnaProdImg").attr('src',prodImg);
 
           });
           $origin.hide();
@@ -78,9 +77,19 @@ function showList(){
 } showList()
 //--상품별 문의보기 END--
 
-//--모달 열기 
-$(document).on('click', '.qna-add-button', function (e) {
-  $('.qna-write').addClass('show');
+//--문의작성 모달 열기 START-- 
+  $(document).on('click', '.qna-add-button', function (e) {
+    let token = Cookies.get('token')
+    if (token == null) {
+      if (confirm('로그인 후 이용 가능합니다. 로그인 하시겠습니까?')) {
+        location.href = "../user/login.html"
+      } else {
+        location.href = "../product/productinfo.html?prodNum=" + prodNum;
+      }
+    }
+    if (token != null) {
+      $('.qna-write').addClass('show');
+    }
   });
   
   //--모달창 등록버튼 눌렀을 때 할 일 START--
@@ -89,7 +98,6 @@ $(document).on('click', '.qna-add-button', function (e) {
     let qnaTitle = $('input[name=modal-qna-title]').val();
     let qnaContent = $('#modal-qna-content').val();
     let imgFile = $('input[name="qnafile"]').get(0).files[0];
-    // console.log(qnaTitle,qnaContent)
   
     if(qnaTitle == ''){
       alert("제목이 입력되지 않았습니다.");
@@ -105,11 +113,11 @@ $(document).on('click', '.qna-add-button', function (e) {
     formData.append('queTitle', qnaTitle);
     formData.append('queContent', qnaContent);
     formData.append('file', imgFile)
-    // console.log(formData)
+    console.log(formData)
 
     $.ajax({
       type: "POST",
-      url: url+prodNum, //임시 상품번호
+      url: url+prodNum,
       data: formData,
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -126,9 +134,26 @@ $(document).on('click', '.qna-add-button', function (e) {
         alert(xhr.status);
       },
     });
-  }
-  )
-  //--모달창 등록버튼 눌렀을 때 할 일 END--
+  })
+//--모달창 등록버튼 눌렀을 때 할 일 END--
+
+//--글 제목 글자수 초과시 alert START--
+  $('#modal-qna-title').keyup(function () {
+    let title = $('#modal-qna-title').val();
+    if (title.length > 50) {
+        alert("최대 50자까지 입력 가능합니다.")
+    }
+})
+//--글 제목 글자수 초과시 alert END--
+
+//글 본문 글자수 초과시 alert START--
+$('#modal-qna-content').keyup(function () {
+    let content = $('#modal-qna-content').val();
+    if (content.length > 1000) {
+        alert("최대 1000자까지 입력 가능합니다.")
+    }
+});
+//글 본문 글자수 초과시 alert START--
 
 })
 

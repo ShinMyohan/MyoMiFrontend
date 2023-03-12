@@ -43,6 +43,9 @@
                         </div>
                         <div class="qna-question-bottom">
                             <div class="qna-content"></div>
+                            <div class="qna-content-imgbox">
+                                <img src="" id="qnaMainImg" alt="..." class="qna-content-img">
+                            </div>
                         </div>
                         <div class="qna-answer">
                             <div class="qna-answer-top">
@@ -68,7 +71,7 @@
                         <div class="close-btn" id="close-btn">X</div>
                         </div>
                         <div class="modal-prod-info">
-                            <div class="prod-img"><img src="../../imgs/prod01.png"></div>
+                            <!-- <div class="prod-img"><img src="" id="qnaProdImg" alt="..."></div> -->
                             <div class="prod-info-text">
                             <div class="seller-name"></div>
                             <div class="prod-name"></div>
@@ -77,11 +80,11 @@
                         <div class="qna-box">
                             <div class="modal-qna-title">
                                 <div class="modal-col-1">제목</div>
-                                <div class="modal-col-2"><input type ="text" id="modal-qna-title" name="modal-qna-title" placeholder="제목 입력"></div>
+                                <div class="modal-col-2"><input type ="text" id="modal-qna-title" name="modal-qna-title" placeholder="제목 입력" maxlength="50"></div>
                             </div>
                             <div class="modal-qna-content">
                                 <div class="modal-col-1">내용</div>
-                                <div class="modal-col-2"><textarea id="modal-qna-content" placeholder="해당글은 비밀글로만 작성이 됩니다."></textarea></div>
+                                <div class="modal-col-2"><textarea id="modal-qna-content" placeholder="문의글을 작성해 주세요." maxlength="1000"></textarea></div>
                             </div>
                             <div class="modal-file">
                                 <div class="modal-col-1">파일</div>

@@ -3,15 +3,9 @@ function maxLengthCheck(object){
       object.value = object.value.slice(0, object.maxLength);
     }    
   }
+
+let isNumChecked = false;
   
-// function minLengthCheck(object){
-//     if(object.value.length < object.minLength){
-        
-//     }
-// }
-
-
-
 $(()=>{
     let token = Cookies.get('token')
 
@@ -44,10 +38,14 @@ $(()=>{
             success: function(response){
                 if(response == 1){
                     alert("등록 가능한 사업자번호 입니다.")
+                    $('#num-check').css('color','#079c3b')
+                    $("#num-check").text("인증완료!");
+                    isNumChecked = true;
                 }
             },
             error:function(xhr){
                 alert("이미 등록된 사업자번호 입니다.")
+                isNumChecked = false;
             },
         })
     });
@@ -68,6 +66,11 @@ $(()=>{
 
     if(slNumber == ''){
         alert("사업자 등록번호를 입력하세요");
+        return;
+    }
+
+    if(isNumChecked == false) {
+        alert("사업자등록번호 중복확인을 해주세요")
         return;
     }
 

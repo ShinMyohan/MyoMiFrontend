@@ -6,15 +6,15 @@ body{
 
 div.qna{
     width: 1000px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 200px auto;
     font:'Noto Sans KR', sans-serif;
 }
 
 div.qna-text{
     font-weight: 700;
-    font-size:large;
+    font-size:20px;
     border-bottom: 0.8px solid #d9d9d9;
-    padding:20px;
+    padding:20px 0;
 }
 
 div.qna-row{
@@ -42,12 +42,6 @@ div.qna-row{
     width:20%;
 }
 
-.qna-question-top, .qna-question-bottom ,.qna-answer-top, .qna-answer-bottom{
-    margin-left:13%;
-    margin-top:10px;
-    font-size:15px;
-    display:flex;
-}
 
 .q-icon{
     font-weight: 600;
@@ -76,7 +70,7 @@ div.qna-row{
     border:1px solid;
     padding:7px 15px;
     margin-right:5px;
-    margin-top:100px;
+    margin-top:50px;
     font-weight: 400;
     font-size:15px;
     border-radius: 5px;
@@ -271,4 +265,24 @@ div.qna-row{
 
 #formfile{
     font-size: 13px;
+}
+
+/*문의 이미지 슬라이딩 영역*/
+.qna-content-img{
+    width:100px;
+    height:100px;
+    margin-top: 20px;
+}
+
+.qna-question-top,.qna-answer-top, .qna-answer-bottom{
+    margin-left:13%;
+    margin-top:10px;
+    font-size:15px;
+    display:flex;
+}
+
+.qna-question-bottom {
+    margin-left:13%;
+    margin-top:10px;
+    font-size:15px;
 }
