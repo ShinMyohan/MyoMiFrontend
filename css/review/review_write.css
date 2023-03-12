@@ -1,11 +1,12 @@
 .review-wrap {
     width: 1000px;
     margin: 100px auto;
-   
+
 }
 
 .review-title {
     margin-bottom: 30px;
+    padding-top: 66px;
 }
 
 .review-title strong {
@@ -17,19 +18,22 @@
     font-size: 1.4rem;
 }
 
- .bt-wrap {
+.bt-wrap {
     margin-top: 30px;
     font-size: 0;
-    display:flex;
-    justify-content:center;
-    
+    display: flex;
+    justify-content: center;
+
 }
-.submit{
-    float:left;
+
+.submit {
+    float: left;
 }
-.cancel{
-    float:right;
+
+.cancel {
+    float: right;
 }
+
 .review-write-submit {
     margin-left: 15px;
     text-align: center;
@@ -39,12 +43,12 @@
 
 }
 
- .review-write-cancel{
+.review-write-cancel {
     margin-left: 15px;
     text-align: center;
     border-radius: 5px;
     font-size: 15px;
-    cursor:pointer;
+    cursor: pointer;
 
 }
 
@@ -52,11 +56,12 @@
     border-top: 2px solid #000;
 }
 
-.mb-3{
+.mb-3 {
     border-bottom: 1px dashed #ddd;
-    padding-bottom:15px;
+    padding-bottom: 15px;
 }
-.col-form-label{
+
+.col-form-label {
     font-weight: inherit;
     font-size: x-large;
     text-align: center;
@@ -65,7 +70,8 @@
 .review-write .title {
     padding: 15px;
 }
-.mystar{
+
+.mystar {
     padding-bottom: 10px;
 }
 
@@ -76,11 +82,11 @@
 
 .review-write .info dd {
     position: relative;
-    right:45px;
+    right: 45px;
 }
 
 .review-write .title input[type="text"],
-.review-write .info input[type="text"]{
+.review-write .info input[type="text"] {
     padding: 10px;
     box-sizing: border-box;
 }
@@ -103,13 +109,13 @@
     resize: vertical;
 }
 
-.upload-review-img{
-    display:flex;
+.upload-review-img {
+    display: flex;
 }
 
 
-.review-img-upload{
-    margin-top:13px;
+.review-img-upload {
+    margin-top: 13px;
     margin-bottom: 13px;
 
 }

@@ -6,69 +6,37 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-review-table {
   border-collapse: collapse;
   text-align: center;
 }
+
 div.mypage-basic div.mp-user div.mp-activity div.mp-review-table table {
   width: 100%;
 }
+
 div.mypage-basic div.mp-user div.mp-activity div.mp-review-table table thead {
   height: 3em;
   border-top: 1px solid #777777;
   border-bottom: 1px solid #777777;
 }
 
-div.mypage-basic
-  div.mp-user
-  div.mp-activity
-  div.mp-review-table
-  table
-  tbody
-  tr {
+div.mypage-basic div.mp-user div.mp-activity div.mp-review-table table tbody tr {
   border-bottom: 1px solid #777777;
 }
 
-div.mypage-basic
-  div.mp-user
-  div.mp-activity
-  div.mp-review-table
-  table
-  thead
-  tr
-  th {
+div.mypage-basic div.mp-user div.mp-activity div.mp-review-table table thead tr th {
   font-weight: 500;
 }
 
-div.mypage-basic
-  div.mp-user
-  div.mp-activity
-  div.mp-review-table
-  table
-  tbody
-  tr
-  td {
+div.mypage-basic div.mp-user div.mp-activity div.mp-review-table table tbody tr td {
   padding: 15px 0;
 }
 
-div.mypage-basic
-  div.mp-user
-  div.mp-activity
-  div.mp-review-table
-  table
-  thead
-  tr
-  th.th-review-title {
+div.mypage-basic div.mp-user div.mp-activity div.mp-review-table table thead tr th.th-review-title {
   text-align: left;
 }
 
-div.mypage-basic
-  div.mp-user
-  div.mp-activity
-  div.mp-review-table
-  table
-  tbody
-  tr
-  td
-  div.review-title {
+div.mypage-basic div.mp-user div.mp-activity div.mp-review-table table tbody tr td div.review-title {
   text-align: left;
 }
+
 div.mypage-basic div.mp-user div.mp-activity div.mp-review-table table thead {
   background: lightgray;
 }
@@ -81,12 +49,14 @@ div.review-search-btn-wrap button {
   width: 50px;
   height: 27px;
 }
+
 div.mp-review-banner img {
   width: 100%;
   height: 175px;
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
 div.my-review-search {
   display: flex;
   float: right;
@@ -97,4 +67,8 @@ div.my-review-search input {
   height: 100%;
   margin-bottom: 15px;
   margin-right: 10px;
+}
+
+header {
+  padding-bottom: 63px;
 }

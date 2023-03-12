@@ -1,7 +1,7 @@
 let token = Cookies.get('token')
 $(() => {
   $('div.submit>#submit').click(function () {
-  
+
     let string = location.href.split('?');
     //console.log(string[1])
     let params = string[1].split('&');
@@ -9,8 +9,8 @@ $(() => {
     let regex = /[^0-9]/g;
     let prodNum = params[0].replace(regex, "");
     let orderNum = params[1].replace(regex, "");
-    
-    
+
+
     let title = $('input[name="title"]').val();
     let star = $('#my-star option:checked').val();
     let content = $("#content").val();
@@ -20,8 +20,8 @@ $(() => {
     } else {
       sort = 4;
     }
-   
-    if (title =='') {
+
+    if (title == '') {
       alert('제목을 입력하세요.');
       return;
     }
@@ -33,17 +33,16 @@ $(() => {
       alert('내용을 입력하세요.');
       return;
     }
-    
-   
-    
+
+
     let formData = new FormData();
-    
+
     formData.append('content', content)
-    formData.append('orderNum',orderNum)
+    formData.append('orderNum', orderNum)
     formData.append('prodNum', prodNum)
-    formData.append('sort',sort)
-    formData.append('stars',star)
-    formData.append('title',title)
+    formData.append('sort', sort)
+    formData.append('stars', star)
+    formData.append('title', title)
     formData.append('file', imgfile)
     //console.log(formData);
     $.ajax({
@@ -58,18 +57,31 @@ $(() => {
       data: formData,
       success: function (response) {
         alert("리뷰작성이 완료되었습니다!");
-        window.location.href = './reviewmypage.html';
+        window.location.href = '../../html/mypage/reviewmypage.html';
       },
       error: function (xhr) {
-        alert("리뷰작성 실패!");
+        if (xhr.responseJSON.details == 'EXCEED_FILE_SIZE') {
+          alert('이미지 용량은 20MB를 초과할 수 없습니다.')
+        }
       },
     });
   });
+  // ---------- 리뷰 글자수 제한 ----------
+  $("#content").keyup(function (e) {
+    var reviewContent = $(this).val();
+    $("#textLengthCheck").text("(" + reviewContent.length + " / 200)"); //실시간 글자수 카운팅
+    if (reviewContent.length > 200) {
+      alert("최대 200자까지 입력 가능합니다.");
+      $(this).val(reviewContent.substring(0, 200));
+      $('#textLengthCheck').text("(200 / 200)");
+    }
+  });
+
   //--취소 클릭시 START --
   $('div.cancel>#review-write-cancel').click(() => {
     window.location.href = '../../html/mypage/myorderlist.html';
 
   });
-//--취소 클릭시 END --
-  
+  //--취소 클릭시 END --
+
 });
