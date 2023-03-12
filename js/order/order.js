@@ -37,8 +37,6 @@ function confirmPayment() {
     }
 }
 $(()=>{
-    let token = Cookies.get('token')
-
     localStorage.setItem('coupon', 0);
     let totalPrice = 0
     let discountPrice = 0
@@ -53,6 +51,7 @@ $(()=>{
                 let prodCnt = orderList[i].prodCnt;
                 let originPrice = orderList[i].originPrice
                 let percentage = orderList[i].percentage;
+                let prodImg = orderList[i].productImgUrl;
                 let prodPrice = ((originPrice - originPrice*(percentage/100))*prodCnt).toLocaleString().split(".")[0];
 
                 // 상품 목록 아래에 나올 금액들
@@ -60,7 +59,7 @@ $(()=>{
                 discountPrice += originPrice * (percentage/100) * prodCnt
                 payPrice += (originPrice - originPrice*(percentage/100)) * prodCnt
                 let productHTML = `<div id="orderProduct">
-                                        <img src="../../imgs/shin.png" class="rounded" id="img">
+                                        <img src="${prodImg}" class="rounded" id="img">
                                         <div id="productDetail" class="col">
                                             <h6>상품명</h6>
                                             <h5 id="orderProductName">${prodName}</h5>
@@ -314,7 +313,7 @@ function pointApplyAmount() {
         total = afterUsedPointTotal
     }
     $('#totalPayPrice').val(total.toLocaleString().split(".")[0])
-    $('#savePoint').val(Math.round(total / 100).split(".")[0].toLocaleString())
+    $('#savePoint').val((total / 100).toLocaleString().split(".")[0])
     $('#totalPay').html(total.toLocaleString().split(".")[0]+'원')
 }
 
@@ -397,7 +396,7 @@ function paymentCard(data) {
 	IMP.init("imp48531312");  // 가맹점 식별 코드
 
 	IMP.request_pay({ // param
-        pg: "kakaopay.TC0ONETIME",
+        pg: "html5_inicis.INIpayTest", //"kakaopay.TC0ONETIME", //
         pay_method: "card",
         merchant_uid: 'orderNum_' + data.orderNum,
         name: 'Myomi(묘미)', // 상호명
@@ -408,20 +407,16 @@ function paymentCard(data) {
         buyer_postcode: data.postNum,
         buyer_addr: data.addr,
         vat_amount: 9, // 부가세
-        customer_uid : 'orderNum_' + data.orderNum // 0원 결제시 필요
-        // m_redirect_url: "/payment",
+        m_redirect_url: '../order/payment.html'
 },
 	function (rsp) { // callback
         console.log(rsp)
-        if(rsp.error_code == 'F1002' && rsp.success == 'false') {
-            alert('문제가 발생했습니다. 처음부터 다시 주문해 주세요')
-        }
 		if (rsp.success) {
          // 결제 성공 시 로직,
         data.impUid = rsp.imp_uid; // 고유 id
         data.merchant_uid = rsp.merchant_uid; // 상점 거래 id
-        // data.totalPrice = rsp.paid_amount // 결제 금액
-        data.payCreatedDate = rsp.paid_at // 1677823984
+        data.payCreatedDate = rsp.paid_at
+        // location.replace('../order/payment.html')
         paymentComplete(data);
 
 		} else {
@@ -435,7 +430,7 @@ function paymentCard(data) {
 // 계산 완료
 function paymentComplete(data) {
     $.ajax({
-        url: backURL + "payment",
+        url: backURL + "payments",
         method: "PUT",
         data: JSON.stringify(data),
         xhrFields: {
@@ -447,15 +442,17 @@ function paymentComplete(data) {
         },
     })
     .done(function(result) {
+        console.log(result)
             localStorage.removeItem('cartList');
             localStorage.removeItem('orderList');
             localStorage.removeItem('coupon');
-            localStorage.setItem('orderNum', result)
+            localStorage.setItem('orderNum', result.data)
 
             location.replace('../order/payment.html')
             Afterpayment(result)
     }) // done
-    .fail(function() {
+    .fail(function(xhr) {
+        console.log(xhr)
         alert("에러");
     })
 }

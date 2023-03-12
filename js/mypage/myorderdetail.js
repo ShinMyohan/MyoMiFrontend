@@ -109,17 +109,16 @@ function getMyOrderDetail() {
                 pricePerProd  = originPricePerOne * prodCnt
                 let pricePerProdShow = pricePerProd.toLocaleString().split(".")[0]
                 totalOriginPrice += pricePerProd
-                $('.order-prod-name img').attr('src', prodImg);
+
+                let prodHref = "../../html/product/productinfo.html?prodNum=" + prodNum
 
                 let orderHTML = `<tr>
                                     <td>
                                         <div class="order-prod-name">
-                                            <span><img src="/" style="width:3.5em; height:3.5em; margin-right: 15px;"></span>
-                                            <div>
-                                                <a href="#">
+                                            <span><img src="${prodImg}" style="width:3.5em; height:3.5em; margin-right: 15px;"></span>
+                                                <a id="toProdInfo" href="${prodHref}">
                                                     ${prodName}
                                                 </a>
-                                            </div>
                                         </div>
                                     </td>
                                     <td>
@@ -128,6 +127,7 @@ function getMyOrderDetail() {
                                     <td class="price-per-prod">${pricePerProdShow} 원</td>
                                     <td class="${payCss}">${payStatus}</td>
                                 </tr>`;
+
                 $('#mypageOrderDetail').append(orderHTML);
             }
             $('#detailOriginPrice').html(totalOriginPrice.toLocaleString().split(".")[0]+' 원')

@@ -27,9 +27,8 @@ function addCart() {
             $('#exampleModal').modal('show');
 
         }, error: function (xhr) {
-            console.log(xhr.responseJSON)
             if(xhr.responseJSON.details == 'PRODUCT_STATUS_ERROR') {
-                alert('품절인 상품은 장바구니에 담으실 수 없습니다.')
+                alert('품절인 상품은 장바구니에 담을 수 없습니다.')
             } else if(xhr.responseJSON.status == 401) {
                 alert(xhr.responseJSON.details)
             }
@@ -40,9 +39,12 @@ function addCart() {
 // 바로 구매
 window.buyProduct = () => {
     let token = Cookies.get('token')
+    let prodStatus = JSON.parse(localStorage.getItem('cartList')).status
 
     if(token == null) {
         alert('로그인이 필요한 서비스입니다.')
+    } else if(prodStatus == 1) {
+        alert('품절된 상품은 구매할 수 없습니다.')
     } else {
         let cnt = $('#result').html()
         let prodCnt = parseInt(cnt)
