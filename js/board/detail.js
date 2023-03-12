@@ -86,10 +86,10 @@ $(() => {
               $parent.append($copy);
             }
             if (enableUpdate == false) {
-              $('li.rep-edit-btn').attr('div.dropdown-menu', 'li').hide();
+              $('div.rep-menu').hide();
             }
             if (enableDelete == false) {
-              $('li.rep-del-btn').attr('div.dropdown-menu', 'li').hide();
+              $('div.rep-menu').hide();
             }
           });
         }

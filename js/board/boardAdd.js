@@ -2,27 +2,37 @@ $(() => {
     let token = Cookies.get('token')
 
     $('div.submit>#submit').click(function () {
+        if (token == null) {
+            if (confirm('로그인이 필요한 서비스입니다. 로그인 하시겠습니까?')) {
+              location.href = "../user/login.html"
+            } else {
+              location.href = "./boardList.html"
+            }
+          }
         let title = $('#title').val();
-        // let writer = $('#writer').val();
         let category = $('div.select>#select option:checked').val();
         let content = $('#content').val();
         let imgFile = $('input[name="boardFile"]').get(0).files[0];
+        let maxSize = 5 * 1024 * 1024;
+        let fileSize = imgFile.size;
 
         if (title == '') {
             alert('제목을 입력하세요.');
-
             return;
         }
 
         if (category == '--카테고리를 선택하세요.--') {
             alert('카테고리를 선택하세요');
-
             return;
         }
 
         if (content == '') {
             alert('내용을 입력하세요.');
+            return;
+        }
 
+        if (fileSize > maxSize){
+            alert('파일은 5MB까지 첨부 가능합니다.')
             return;
         }
 
@@ -49,8 +59,14 @@ $(() => {
                 window.location.href = './boardList.html';
             },
             error: function (xhr) {
+               console.log(xhr);
                 alert(xhr.status);
-            },
+                if (xhr.responseJSON.status == 500){
+                    alert("잘못된 접근입니다.")
+                }else{
+                    alert(xhr.responseJSON.details);
+                }
+            }
         })
     });
 

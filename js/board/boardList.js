@@ -1,6 +1,5 @@
 $(() => {
   $('div.empty-list').hide();
-  $('div.empty-search-list').hide();
   //-----------------글 리스트 출력하기 START----------------
   function showList(url, page) {
     // let url = backURL + 'board/list'
@@ -121,12 +120,14 @@ $(() => {
         let endPage = jsonObj.endPage;
         let totalCnt = list.length;
         cnt=0;
-        if (list == 0) {
-          $('div.empty-search-list').show();
+        console.log(list.length)
+        if (list.length == 0) {
+          $('div.empty-list').show();
+          $('div.empty-list').html('검색 결과가 없습니다.');
           $('div.pagenation').hide();
         } else {
           $(list).each((p) => {
-            // console.log(list[p])
+            $('div.empty-list').hide();
             let num = list[p]["boardNum"];
             let category = list[p]["category"];
             let title = list[p]["title"];
@@ -166,7 +167,7 @@ $(() => {
             pageGroupStr +=
               '<span class="current ' + i + '">[' + i + "]</span>";
           } else {
-            pageGroupStr += '<span class="' + i + '">[' + i + "]</sapn>";
+            pageGroupStr += '<span class="' + i + '">[' + i + "]</span>";
           }
         }
         if (endPage < totalPage) {
