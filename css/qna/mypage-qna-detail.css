@@ -10,6 +10,7 @@ div.mp-background {
     height: 150px;
     background-color: rgba(0, 175, 133, 0.5);
     position: relative;
+    margin-top: 100px;
 }
 
 /* i 태그 속성주기 */
@@ -375,6 +376,7 @@ div.mp-qna-detail{
     height: 230px;
     border:#d9d9d9 0.3px solid;
     outline:none;
+    resize: none;
 }
 
 
@@ -440,7 +442,7 @@ div.mp-qna-detail{
     border-radius: 5px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
     transform: translateX(-50%) translateY(-50%);
-    height: 85vh; overflow-y: auto; 
+    height: 70vh; overflow-y: auto; 
 
   }
 

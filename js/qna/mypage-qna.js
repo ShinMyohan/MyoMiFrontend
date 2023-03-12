@@ -42,10 +42,7 @@ $(() => {
                         let title = list[p]["queTitle"];
                         let status = list[p]["ansContent"];
                         let $copy = $origin.clone();
-
-                        $copy.find("div.qna-real-num").html(num);
-                        let arrNum = totalCnt - ((page - 1) * 10) - cnt
-                        $copy.find("div.qna-num").html(arrNum);
+                        $copy.find("div.qna-num").html(num);
                         cnt += 1
                         if (cnt == 10) { cnt = 0 };
                         $copy.find("div.qna-date").html(createdDate);

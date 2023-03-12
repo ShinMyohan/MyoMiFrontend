@@ -1,5 +1,5 @@
 /* 마이페이지 전체 적용 속성 */
-section.mp-page {
+section.mp-page{
     margin-top: 80px;
     width: 100%;
 }
@@ -10,10 +10,11 @@ div.mp-background {
     height: 150px;
     background-color: rgba(0, 175, 133, 0.5);
     position: relative;
+    margin-top: 100px;
 }
 
 /* i 태그 속성주기 */
-div.mypage-basic i {
+div.mypage-basic i{
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -21,12 +22,12 @@ div.mypage-basic i {
 }
 
 /* a 태그 속성주기 */
-div.mypage-basic a {
-    color: black;
+div.mypage-basic a{
+    color:black;
     text-decoration: none;
 }
 
-div.mypage-basic {
+div.mypage-basic{
     margin: 0 auto;
     padding-top: 40px;
     border-radius: 20px;
@@ -37,35 +38,40 @@ div.mypage-basic {
 }
 
 /* 마이페이지 박스 속성 */
-div.mypage-basic div.mp-user {
+div.mypage-basic div.mp-user{
     display: flex;
     margin: 0 50px 0 20px;
 }
 
-div.mypage-basic div.mp-user-info div.mp-user-name-level {
-    width: 280px;
+.mp-user-hi{
+    display:contents;
+}
+
+div.mypage-basic div.mp-user-info div.mp-user-name-level{
+    width:280px;
     margin: 0 20px 0 20px;
     padding-left: 20px;
     height: 6em;
     border-bottom: 1px solid #d9d9d9;
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* align-items: flex-start; */
+}
+
+.mp-store-name{
+    display:flex;
 }
 
 /* user 프로필 박스 */
-div.mypage-basic div.mp-user-info span.mp-user-name {
+div.mypage-basic div.mp-user-info span.mp-user-name{
     text-align: center;
     font-size: 18px;
     font-weight: 500;
-    border: 0 solid black;
-    /* input 박스 테두리 지우기*/
-    pointer-events: none;
-    /* input 박스 클릭 이벤트 지우기 */
-    background: transparent;
-    /* input 박스 transparent 효과 지우기*/
+    border:0 solid black; /* input 박스 테두리 지우기*/
+    pointer-events: none; /* input 박스 클릭 이벤트 지우기 */
+    background: transparent; /* input 박스 transparent 효과 지우기*/
+    display:flex;
 }
 
 /* user 이름 아래 menu */
@@ -73,253 +79,119 @@ div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu {
     margin-top: 40px;
 }
 
-div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu {
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu{
     margin-bottom: 40px;
     font-size: 20px;
     font-weight: 600;
 }
 
-div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul {
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul{
     font-size: 16px;
     font-weight: 500;
     margin-left: -20px;
 }
 
-div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul li {
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul li{
     margin: 10px 0 10px 0;
 }
 
 /* user 마이페이지 상단 고정 정보(적립금,쿠폰,팔로우) */
-section.mp-page div.mypage-basic div.mp-user div.mp-activity {
+section.mp-page div.mypage-basic div.mp-user div.mp-activity{
     width: 100%;
 }
 
-div.mypage-basic div.mp-user-activity {
+div.mypage-basic div.mp-user-activity{
     width: 100%;
     height: 6em;
-    display: flex;
+    display:flex;
     align-items: center;
     border: 1px solid #d9d9d9;
     text-align: center;
 }
 
-div.mypage-basic div.mp-user-activity div.row {
+div.mypage-basic div.mp-user-activity div.row{
     border-color: #d9d9d9;
 }
 
-div.mypage-basic div.mp-user-activity div.row div.mp-border {
+div.mypage-basic div.mp-user-activity div.row div.mp-border{
     border-right: 1px solid #d9d9d9;
 }
 
-div.mypage-basic div.mp-user-activity div.row div.col div {
+
+div.mypage-basic div.mp-user-activity div.row div.col div{
     font-weight: 500;
 }
 
-div.mypage-basic div.mp-user-activity div.row div.col span {
+div.mypage-basic div.mp-user-activity div.row div.col span{
     font-size: 20px;
     font-weight: 500;
 }
 
-div.mypage-basic div.mp-user-activity div.row div.col span:hover {
+div.mypage-basic div.mp-user-activity div.row div.col span:hover{
     font-size: 20px;
     font-weight: 500;
     color: rgb(0, 175, 133);
     cursor: pointer;
 }
 
-div.mypage-basic div.mp-user div.main-box {
-    flex: content;
-
+/* 세부 내용 기본 form */
+div.mypage-basic div.mp-user div.mp-activity div.mp-section-form{
+    margin-top: 40px;
+    height: 700px;
 }
 
-/*판매자신청 main*/
-.mp-sl-signup {
-    text-align: center;
+div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit {
+    display: flex;
+    justify-content: space-between
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
+    font-size: 15px;
+    font-weight: 400;
+    color: #777777;
+    margin: 1em;
+}
+
+/*셀러탈퇴 신청 시작*/
+.myomi-head{
     font-size: 30px;
     font-weight: 700;
-    margin-top: 50px;
+    margin-top:30px;
+    margin-bottom: 10px;
 }
 
-.mp-sl-headbox {
+.signout-content{
+    width:100%;
+    background-color: #dfe6ea32;
     margin-top: 10px;
-    border-bottom: #d9d9d9 solid 0.5px;
-    padding-bottom: 25px;
+    height: 400px;
+    color:#777777;
+    padding:10px;
+    font-size: 14px;
+    line-height:1.8em;
 }
 
-.sl-signup-text-1 {
-    text-align: center;
-    font-size: 15px;
-    font-weight: 500;
-    color: #706f6f;
-}
-
-.sl-signup-button {
-    text-align: center;
-    margin-top: 30px;
-
-}
-
-.sl-signup-btn,
-.sl-store-btn {
-    border-radius: 5px;
-    border: rgb(0, 175, 133) solid 1px;
-    background-color: white;
-    color: rgb(0, 175, 133);
-    padding: 5px;
-    font-size: 15px;
-}
-
-.sl-signup {
+.signout-text{
     font-weight: 600;
-    font-size: 20px;
-    margin-top: 40px;
-    text-align: center;
 }
 
-/*상품문의 리스트*/
-.mp-signup-list {
-    margin-top: 80px;
-    font-size: 15px;
-    justify-content: center;
+.signout-b-text{
+    font-size:13px;
+    color:#b5b4b4;
 }
 
-.mp-signup-table {
-    width: 100%;
+#signout-button{
+    border-radius: 3px;
+    padding:4px;
+    border:  rgb(0, 175, 133) solid 0.5px;
+    color:rgb(0, 175, 133);
+    background-color: white;
+    width:20%;
 }
-
-.signup-title {
-    border-bottom: #d9d9d9 solid 0.3px;
-    border-top: #888787 solid 0.3px;
-    text-align: center;
-    width: 100%;
-    height: 40px;
-    display: flex;
-    font-weight: 500;
-    padding: 7px;
-    background-color: #d0d7d015;
+.signout-button{
+    text-align: right;
+    margin-top: 25px;
 }
 
 
-.signup-list-row {
-    width: 100%;
-    border-bottom: #d9d9d9 solid 0.3px;
-    height: 35px;
-    display: flex;
-    padding-top: 5px;
-}
 
-.signup-manager {
-    width: 15%;
-    text-align: center;
-}
-
-.signup-store-name {
-    width: 50%;
-    text-align: center;
-}
-
-.signup-store-num {
-    width: 20%;
-    text-align: center;
-}
-
-.signup-status {
-    width: 15%;
-    text-align: center;
-}
-
-.signup-store-name2 {
-    cursor: pointer;
-    width: 50%;
-    text-align: center;
-}
-
-/*판매자신청 상세모달*/
-.modal-head {
-    display: flex;
-    border-bottom: #d9d9d9 solid 0.5px;
-    margin: 0 10px 0 10px;
-}
-
-.close-btn {
-    margin-top: 5px;
-    margin-left: 85%;
-    font-size: 20px;
-    color: rgb(139, 139, 139);
-    font-weight: 800;
-    cursor: pointer;
-}
-
-.info-top {
-    font-size: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-weight: 500;
-}
-
-.info-content {
-    display: flex;
-    padding: 8px;
-    font-size: 15px;
-}
-
-.info-row {
-    width: 18%;
-    font-weight: 500;
-}
-
-.sl-signup-info {
-    padding: 15px 0px 10px 15px;
-    color: #817f7f
-}
-
-.info-head {
-    display: flex;
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.info-text {
-    font-size: 10px;
-}
-
-/* 모달창효과 */
-.modal-seller-info {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-seller-info.show {
-    display: block;
-}
-
-.info-group {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 800px;
-    height: 600px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-    transform: translateX(-50%) translateY(-50%);
-    height: 50vh;
-    overflow-y: auto;
-}
-
-/*신청내역이 없는 경우*/
-.signup-empty {
-    height: 40px;
-    color: #888787;
-    font-size: 13px;
-    text-align: center;
-    padding-top: 10px;
-    border-bottom: #d9d9d9 solid 0.3px;
-}

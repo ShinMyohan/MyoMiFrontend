@@ -10,6 +10,7 @@ div.mp-background {
     height: 150px;
     background-color: rgba(0, 175, 133, 0.5);
     position: relative;
+    margin-top: 100px;
 }
 
 /* i 태그 속성주기 */
@@ -249,7 +250,7 @@ tbody tr td {
 
 /*상품문의 리스트*/
 .mpq-qna-list{
-    margin-top:50px;
+    margin-top:150px;
     font-size:15px;
     justify-content: center;
 

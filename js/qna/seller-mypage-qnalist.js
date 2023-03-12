@@ -23,7 +23,6 @@ $(()=>{
             },
             success: function(jsonObj){
                 let list = jsonObj;
-                // console.log(list)
                 let $origin = $("div.qna-list-row").first();
                 let $parent = $("div.qna-list-body");
                 $(list).each(p=>{
@@ -50,6 +49,7 @@ $(()=>{
                 if(list == ''){
                   $("div.qna-list-empty").show();
                 }
+
                 $origin.hide();
             },
             error: function (xhr) {
@@ -81,7 +81,7 @@ $(()=>{
           $("div.qna-title-user-modal").html(jsonObj.queTitle);
           $("div.qna-content-user-modal").html(jsonObj.queContent);
           $("#seller-answer-content").html(jsonObj.ansContent);
-          // console.log(jsonObj.file)
+          $("#qnaProdImg").attr('src',jsonObj.prodImg)
           if(jsonObj.file != null){
             $("#qnaMainImg").show();
           }
@@ -134,61 +134,4 @@ $(()=>{
     )
     // --판매자 문의목록 모달 END--
 
-    //--답변현황 필터 눌렀을때 할 일 START--
-    $(document).ready(function(){
-      $('select').change(function(){
-        let status =this.value;
-
-        function showList(){
-          let $origin = $("div.qna-list-row").first();
-          $("div.qna-list-row").not(":first-child").remove();
-          $origin.show();
-          $.ajax({
-              url: backURL+'sellerpage/qna/list',
-              method:"get",
-              beforeSend: function (xhr) {
-                  xhr.setRequestHeader('Content-type', 'application/json');
-                  xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-              },
-              success: function(jsonObj){
-                  let list = jsonObj;
-                  // console.log(list)
-                  let $origin = $("div.qna-list-row").first();
-                  let $parent = $("div.qna-list-body");
-                  $(list).each(p=>{
-                      let num = list[p]["qnaNum"];
-                      let createdDate = list[p]["queCreatedDate"];
-                      let title2 = list[p]["queTitle"];
-                      let writer = list[p]["userName"]
-                      let userName = writer.replace(/(?<=.{1})./gi,"*");
-                      let status = list[p]["ansCreatedDate"];
-                      let $copy = $origin.clone();    
-                      $copy.find("div.qna-num").html(num);
-                      $copy.find("div.qna-date").html(createdDate);
-                      $copy.find("div.qna-title2").html(title2); 
-                      $copy.find("div.qna-writer").html(userName);
-  
-                      if(status == null){
-                          $copy.find("div.qna-status").html('미답변');
-                      }else{
-                          $copy.find("div.qna-status").html('답변완료');
-                      }
-                      $parent.append($copy);
-  
-                  });
-                  if(list == ''){
-                    $("div.qna-list-empty").show();
-                  }
-                  $origin.hide();
-              },
-              error: function (xhr) {
-                  alert(xhr.status);
-              },
-          });
-      } showList()
-
-      });
-    });
-    //--답변현황 필터 눌렀을때 할 일 END--
-
-    })
+  })

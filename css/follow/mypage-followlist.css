@@ -10,12 +10,21 @@ div.mp-background {
     height: 150px;
     background-color: rgba(0, 175, 133, 0.5);
     position: relative;
+    margin-top: 100px;
 }
 
+/* i 태그 속성주기 */
 div.mypage-basic i{
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
+    color: black;
+}
+
+/* a 태그 속성주기 */
+div.mypage-basic a{
+    color:black;
+    text-decoration: none;
 }
 
 div.mypage-basic{

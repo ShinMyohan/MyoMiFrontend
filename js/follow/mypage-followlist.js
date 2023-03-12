@@ -47,7 +47,7 @@ $(() => {
     $('div.mp-follow-body').on('click', 'div.mp-follow-r>div.mp-follow-col-4>button.visitbtn', (e)=>{
        let sellerid =  $(e.target).parents('.mp-follow-r').find('.seller-id').html();
        console.log(sellerid);
-       location.href = "../store/follow.html?"+sellerid
+       location.href = "../product/sellerstore.html?"+sellerid
     })
     //--방문하기 버튼이 클릭되었을 때 할 일 END--
 
@@ -64,7 +64,7 @@ $(() => {
             },
             success: function () {
                 alert("언팔로우 되었습니다.");
-                $("#follow").load(window.location.href + "#follow");
+                window.location.href = "./mypage-followlist.html"
             },
             error: function (xhr) {
                 alert(xhr);

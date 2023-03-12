@@ -19,13 +19,14 @@ $(()=>{
       xhr.setRequestHeader('Authorization', 'Bearer ' + token);
     },
     success: function(jsonObj){
-      // console.log(jsonObj);
+      console.log(jsonObj);
       $("div.mpdt-qna-title").html(jsonObj.queTitle);
       $("div.mpdt-user-name").html(jsonObj.userName);
       $("div.mpdt-qna-date").html(jsonObj.queCreatedDate);
       $("div.seller-name").html(jsonObj.companyName);
       $("div.prod-name").html(jsonObj.pname);
       $("#price").html(jsonObj.originPrice.toLocaleString()+"원");
+      $("#qnaProdImg").attr('src',jsonObj.prodImg)
       $("div.mpdt-q-content").html(jsonObj.queContent);
       $("#seller-name").html(jsonObj.companyName);
       $("div.mpdt-answer-date").html(jsonObj.ansCreatedDate);
@@ -34,6 +35,8 @@ $(()=>{
       $("input[name=modal-qna-title]").val(jsonObj.queTitle)
       $("#modal-qna-content").html(jsonObj.queContent)
       $("#qnaMainImg").attr('src',jsonObj.file)
+      $("#qnaProdImgModal").attr('src',jsonObj.prodImg)
+      
 
     if(jsonObj.ansContent == null){
       $('div.mpdt-qna-a').hide();
@@ -102,6 +105,25 @@ $(document).on('click','.modal-submit', function(e){
   });
 })
 //--모달수정버튼 눌렀을 때 할일 END--
+
+//--글 제목 글자수 초과시 alert START--
+    $('#qna-title').keyup(function () {
+      let title = $('#qna-title').val();
+      if (title.length > 50) {
+          alert("최대 50자까지 입력 가능합니다.")
+      }
+  })
+//--글 제목 글자수 초과시 alert END--
+
+//글 본문 글자수 초과시 alert START--
+  $('#modal-qna-content').keyup(function () {
+      let content = $('#modal-qna-content').val();
+      if (content.length > 1000) {
+          alert("최대 1000자까지 입력 가능합니다.")
+      }
+  });
+//글 본문 글자수 초과시 alert START--
+
 
 //--삭제버튼 눌렀을 때 할일 START--
 $(document).on('click','#del-button',function(e){
