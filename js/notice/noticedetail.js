@@ -1,6 +1,5 @@
 $(() => {
   let token = Cookies.get('token')
-  $('.notice-edit').hide();
 
   // $('.re-hidden-rep-btn').hide();
 
@@ -8,21 +7,19 @@ $(() => {
     let url = backURL;
     // ------글 상세내용 START------
     let data = location.search.substring(1);
-    console.log(data)
-      // 숫자만 뽑고싶다면, 
-    let regex = /[^0-9]/g; 
+    // 숫자만 뽑고싶다면, 
+    let regex = /[^0-9]/g;
     //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
-    let noticeNum = data.replace(regex,"");
-    console.log(noticeNum);
-    //let noticeNum = data.split('=');
-    //console.log(noticeNum[0]);
+    let noticeNum = data.replace(regex, "");
+
     $.ajax({
       method: "get",
-      url: url + "notice/"+noticeNum,
+      url: url + "notice/" + noticeNum,
       data: data,
 
       success: function (jsonObj) {
         let notice = jsonObj;
+        localStorage.setItem("notice", JSON.stringify(notice));
         let id = notice['adminId'];
         let content = notice["content"];
         let date = notice["createdDate"];
@@ -41,15 +38,53 @@ $(() => {
     });
     //-------글 상세 END------
   }
-  
+
   viewNotice()
-  
+
   //---------------글 목록으로 돌아가기 START ----------------
   $('div.notice-list').click(() => {
     location.href = "./noticelist.html"
   })
-  
+
   //-------------글 목록으로 돌아가기 END ----------------------
-  
-  
+
+
+  //-------수정폼으로 이동 START--------
+  $("div.notice-edit").click((e) => {
+    if (token == null) {
+      alert('로그인이 필요한 서비스입니다.')
+    } else {
+      let noticeNum = $(e.target).parents("div.notice-view").find("div.notice-num").html();
+      location.href = "./notice-edit.html?noticenum=" + noticeNum;
+    }
+  });
+
+  //-------수정폼으로 이동 END--------
+
+  //글 삭제
+  $('#notice-delete').click(function () {
+    let data = location.search.substring(1);
+    let regex = /[^0-9]/g;
+    let noticeNum = data.replace(regex, "");
+    $.ajax({
+      method: "DELETE",
+      url: backURL + "notice/" + noticeNum,
+      data: noticeNum,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      },
+      success: function () {
+        alert("삭제되었습니다.");
+        window.location.href = "./noticelist.html"
+      },
+      error: function (xhr) {
+        if (xhr.responseJSON.details == 'NOT_FOUND_ADMIN') {
+          alert('삭제 권한이 없습니다.')
+        }
+      },
+
+    });
+  })
+
 });

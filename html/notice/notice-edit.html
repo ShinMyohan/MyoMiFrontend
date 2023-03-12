@@ -2,20 +2,21 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../../css/notice/noticedetail.css" />
-    <link rel="stylesheet" href="../..//css/basic.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/basic.css" />
     <!-- 부트스트랩 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/notice/noticeadd.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap"
         rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="../../js/basic.js"></script>
-    <script src="../../js/notice/noticedetail.js"></script>
+    <script src="../../js/notice/notice-edit.js"></script>
 </head>
 
 <body>
@@ -227,34 +228,34 @@
             </div>
         </div>
     </header>
-    <div class="notice-wrap">
-        <div class="notice-view-wrap">
-            <div class="notice-view">
-                <div class="notice-title">공지사항</div>
-                <div class="notice-num" style="display: none"></div>
-                <div class="notice-id">user2</div>
-                <div class="notice-date">2023.02.01</div>
-                <div class="notice-cont">공지합니다</div>
+    <div class="notice-add">
+        <div class="notice-head">
+            <h4>공지사항 수정</h4>
+        </div>
+        <div class="notice-write-wrap">
+
+            <div class="title">
+                <input type="text" id="notice-title" name="notice-title" placeholder="제목을 입력해주세요"
+                    aria-label="제목을 입력해주세요" />
             </div>
-            <div class="notice-wrap-add">
-                <div class="notice-edit">
-                    <button type="button" class="btn btn-success" id="notice-edit">
-                        수정
-                    </button>
-                </div>
-                <div class="notice-list">
-                    <button type="button" class="btn btn-success" id="notice-list">
-                        목록
-                    </button>
+            <div class="content-textarea">
+                <div class="mb-3">
+                    <textarea class="notice-textarea" id="notice-content" placeholder="내용" aria-label="내용"></textarea>
                 </div>
             </div>
-            <div>
-                <button type="button" class="btn btn-success" id="notice-delete">
-                    삭제
-                </button>
+            <div class="bt-wrap-add">
+                <div class="submit">
+                    <button type="button" class="btn btn-success" id="submit">수정완료
+                    </button>
+                </div>
+                <div class="cancel">
+                    <button type="button" class="btn btn-success" id="write-cancel" onclick=history.back()>취소
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
     <!-- ----footer 시작 ---- -->
     <footer>
         <div id="footer_wrap">

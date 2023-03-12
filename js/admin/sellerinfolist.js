@@ -1,6 +1,7 @@
 $(() => {
-let token = Cookies.get('token')
+    let token = Cookies.get('token')
     function showList() {
+        $('empty-seller').hide();
         let $origin = $("tr#admin-seller-org").first();
         $("tr#admin-seller-org").not(":first-child").remove();
         $origin.show();
@@ -13,7 +14,7 @@ let token = Cookies.get('token')
             },
             // 응답이 성공했을 때의 콜백함수
             success: function (jsonObj) {
-                
+
                 // console.log("jsonObj:" + jsonObj);
                 let list = jsonObj;
                 localStorage.setItem("list", JSON.stringify(list));
@@ -52,12 +53,15 @@ let token = Cookies.get('token')
                     $copy.find("td.signout-date").html(signoutDate);
                     $parent.append($copy);
                 });
-                $origin.hide(); 
+                $origin.hide();
             },
             // 응답이 실패했을 때의 콜백함수
             // 응답코드가 200번이 아니면 즉 에러 404, 500, CORS 에러 등을 마주하면 여기로 빠진다.
             error: function (xhr) {
-                alert(xhr.status);
+                if (xhr.responseJSON.details == 'SELLER_NOT_FOUND') {
+                    $origin.hide();
+                    $('empty-seller').show();
+                }
             },
         });
     } showList();
@@ -133,7 +137,12 @@ let token = Cookies.get('token')
                 });
                 $origin.hide();
             },
-
+            error: function (xhr) {
+                if (xhr.responseJSON.details == 'NOTICE_NOT_FOUND') {
+                    $origin.hide();
+                    $('div.empty-seller').show();
+                }
+            },
         })
     });
     //판매자 승인 상태 검색 End
