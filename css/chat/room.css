@@ -18,7 +18,7 @@
     align-items: center;
     font-size: 16px;
     padding: 9px 0;
-    background: #6638b8da;
+    background: rgb(255, 173, 67);
     /* background: #fff6f6; */
     color: rgb(255, 255, 255);
     text-align: center;
@@ -79,12 +79,31 @@
     float: left;
     align-items: flex-end;
 }
+
+.chat_wrap .chat #chatMsg div.leftMsg div.msgContent {
+    background-color: #fcfcda;
+    border-radius: 5px;
+    max-width: 40%;
+    /* clear:both; */
+    border: 1px solid #efefef;
+    padding: 2px 5px;
+}
+
 /* 회원 메시지 */
 .chat_wrap .chat #chatMsg div.rightMsg {
     display: inline-flex;
     flex-direction: row-reverse;
     float: right;
     align-items: flex-end;
+}
+
+.chat_wrap .chat #chatMsg div.rightMsg div.msgContent {
+    background-color: #fff;
+    border-radius: 5px;
+    max-width: 40%;
+    /* clear:both; */
+    border: 1px solid #efefef;
+    padding: 2px 5px;
 }
 
 /* 처음 인삿말 가운데 */
@@ -99,14 +118,6 @@
     color: rgb(80, 80, 80);
 }
 
-.chat_wrap .chat #chatMsg div div.msgContent {
-    background-color: #fff;
-    border-radius: 5px;
-    max-width: 40%;
-    /* clear:both; */
-    border: 1px solid #efefef;
-    padding: 2px 5px;
-}
 
 .chat_wrap .chat #chatMsg div div.date {
     margin-left: 4px;
@@ -120,7 +131,7 @@
 .chat_wrap .msg-send {
     display: flex;
     width: 100%;
-    height: 62px;
+    height: 67px;
     background-color: #fff;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;

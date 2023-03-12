@@ -1,36 +1,51 @@
 let token = Cookies.get('token')
 
-// 본인의 채팅룸 조회
-function getMyChatRoom(token) {
-    $.ajax({
-        type: 'GET',
-        url: backURL + 'chat/room',
-        xhrFields: {
-            withCredentials: true
-        },
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader('Content-type', 'application/json');
-            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-        },
-        success: function (response) {
-            let chat = response.data;
-            let roomNum = chat.num
-            let userId = chat.userId
-            getChatDetails(chat.num) // 채팅 내역 조회
-            // connectStomp(roomNum, userId);
+$(() => {
+    getChatRooms()
+    function getChatRooms() {
+        $.ajax({
+            type: 'GET',
+            url: backURL + 'chat/rooms',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Content-type', 'application/json');
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            },
+            success: function (response) {
+                let chatList = response.data;
+                console.log(chatList)
 
-        },
-        error: function (xhr) {
-            console.log(xhr.status);
-        }
-    })
-}
+                for(let i =0; i<= chatList.length-1; i++){
+                    let num = chatList[i]['num']
+                    let userId = chatList[i]['userId']
+                    let adminId = chatList[i]['adminId']
+                    let createdDate = chatList[i]['createdDate']
+                    let role = chatList[i]['role']
+                    role = role == 0 ? "구매자" : "판매자"
+                    let membershipLevel = chatList[i]['membershipLevel']
+                    if(role == "판매자") {membershipLevel = ''}
 
-// 본인의 채팅 메시지 내역 조회
+                    let chatHTML = `<tr onclick="getChatDetails(${num})">
+                                        <td>${num}</td>
+                                        <td>${userId}</td>
+                                        <td>${role}</td>
+                                        <td>${membershipLevel}</td>
+                                        <td>${createdDate}</td>
+                                        <td>${adminId}</td>
+                                    </tr>`;
+
+                    $('#chatRoomList').append(chatHTML);
+            }
+            },
+            error: function (xhr) {
+                console.log(xhr.status);
+            }
+        })
+    }
+
+})
+
 function getChatDetails(num) {
-    let token = Cookies.get('token')
     $('#chatMsg').empty();
-    let senderId = ''
     $.ajax({
         type: 'GET',
         url: backURL + 'chat/room/' + num + '/message',
@@ -45,15 +60,15 @@ function getChatDetails(num) {
             for(let i =0; i<= chatList.length-1; i++){
                 let content = chatList[i]['content']
                 let createdDate = chatList[i]['createdDate']
-                senderId = chatList[i]['senderId']
+                let senderId = chatList[i]['senderId']
 
-                let assembleMsg = (senderId == 'admin') ? 'leftMsg' : 'rightMsg';
+                let assembleMsg = (senderId == 'admin') ? 'rightMsg' : 'leftMsg';
 
                 let chatHTML = `<div class=${assembleMsg}><div class="msgContent">${content}</div><div class="date">${createdDate}</div></div>`
 
                 $('#chatMsg').append(chatHTML);
-            }
-            connectStomp(num, senderId);
+            } $('#chatRoomNum').text(' ' +num);
+            connectStomp(num);
         },
         error: function (xhr) {
             console.log(xhr.status);
@@ -61,11 +76,12 @@ function getChatDetails(num) {
     })
 }
 
-
+// 관리자로 채팅하기
 stomp = '';
 
 // stomp 연결
-function connectStomp(roomNum, userId) {
+function connectStomp(roomNum) {
+    // let token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJxd2VyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY3ODY5NTc2Nn0.TmeXe7aj6VqYGi_-5F4Wbq5zlxuM-v4eA4P0Ni-5too'
     let token = Cookies.get('token')
 
 	var sock = new SockJS(backURL + "stomp");
@@ -78,14 +94,12 @@ function connectStomp(roomNum, userId) {
 
     // 2. connection이 맺어지면 실행한다
     stomp.connect({Authorization:token}, function () {
-        // setConnected(true)
-        // console.log('Connected: ' + frame)
 
         // 메시지 전송하기 (publish) /pub/chat/message 로 @MessageMapping을 이용해서 메시지를 서버에서 받으면, return 값인 /sub/chat/room/ 으로 이동
         $(".send-btn").on("click", function(e){
             // let textarea = document.getElementById('#msg-input');
             let sendMsg = $('#msg-input').val()
-            stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': userId,'content': sendMsg}));
+            stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': 'admin', 'content': sendMsg}));
             clearTextarea()
         });
 
@@ -102,9 +116,7 @@ function connectStomp(roomNum, userId) {
             var minutes = ('0' + today.getMinutes()).slice(-2);
             let createdDate = hours + ':' + minutes;
 
-            var str = '';
-
-            let assembleMsg = (senderId == 'admin') ? 'leftMsg' : 'rightMsg';
+            let assembleMsg = (senderId == 'admin') ? 'rightMsg' : 'leftMsg';
 
             let chatHTML = `<div class=${assembleMsg}><div class="msgContent">${content}</div><div class="date">${createdDate}</div></div>`
             chatBox.append(chatHTML)
@@ -116,7 +128,7 @@ function connectStomp(roomNum, userId) {
             if(e.keyCode == 13 && !e.shiftKey) {
                 e.preventDefault();
                 let sendMsg = $('#msg-input').val()
-                stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': userId, 'content': sendMsg}));
+                stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': 'admin', 'content': sendMsg}));
                 // 입력창 clear
                 clearTextarea();
                 $('.chat').scrollTop($('#chatMsg').prop('scrollHeight')); // 자동 스크롤
@@ -129,22 +141,3 @@ function connectStomp(roomNum, userId) {
 function clearTextarea() {
     $('div.input-box textarea').val('');
 }
-
-function openForm() {
-    let token = Cookies.get('token')
-
-    if(token == null) {
-        alert('로그인이 필요한 서비스입니다.')
-    } else if ($('.chat-popup').css('display') == 'none') {
-        getMyChatRoom(token)
-        $('.chat-popup').css('display', 'block')
-    } else if($('.chat-popup').css('display') == 'block') {
-        stomp.disconnect()
-        $('.chat-popup').css('display', 'none')
-    }
-}
-
-function closeForm() {
-    $('div.chat-container').hide();
-}
-
