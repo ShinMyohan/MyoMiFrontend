@@ -4,7 +4,7 @@
     padding: 0px;
 } */
 section.board{
-    margin-top: 80px;
+    margin-top: 100px;
     width: 100%;
 }
 /* 민트색 바 */
@@ -45,6 +45,7 @@ div.mp-background {
 }
 
 .board-list>div.top {
+    background-color:#d0d7d015;
     border-bottom: 1px solid #999;
     -webkit-text-stroke: thin
 }
@@ -135,21 +136,27 @@ div.mp-background {
     font-size: 13px;
 }
 
-.searcharea {
+.board-searcharea {
     position:relative;
     width:20%;
     margin-bottom:20px;
     display: flex;
     margin-left: 59%;
-    
+}
+
+div.board-search-btn{
+    float:right;
+}
+
+#searchselect{
+    width:250px;
+}
+
+#submit{
+    width:55px;
 }
 
 .bt-wrap {
-    float: right;
-}
-
-.search {
-    width: 20%;
     float: right;
 }
 

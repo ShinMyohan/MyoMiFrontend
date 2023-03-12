@@ -21,6 +21,10 @@ $(() => {
 
                 let $origin = $('div.list-body').first();
                 let $parent = $('div.my-board-list');
+
+                if(list.length == 0){
+                    $('div.empty-board-list').show();
+                }else{
                 $(list).each((p) => {
                     // console.log(list);
                     let num = list[p]["boardNum"];
@@ -40,6 +44,7 @@ $(() => {
 
                     $parent.append($copy);
                 })
+            }
                 $origin.hide();
             },
             error: function (xhr) {
@@ -51,7 +56,7 @@ $(() => {
 
     //---게시글 탭 클릭시---
     $('#home-tab').click(() => {
-        $('#home-tab').css('border-top', '3px solid #00af85');
+        $('#home-tab').css('border-top', '3px solid #079c3b');
         $('#my-reps-tab').css('border-top', '0');
         $('div.my-rep-list').hide();
         $('div.my-board-list').show();
@@ -59,7 +64,7 @@ $(() => {
 
     //---댓글 탭 클릭시---
     $('#my-reps-tab').click(() => {
-        $('#my-reps-tab').css('border-top', '3px solid #00af85');
+        $('#my-reps-tab').css('border-top', '3px solid #079c3b');
         $('#home-tab').css('border-top', '0');
         $('div.my-rep-list').show();
         $('div.my-board-list').hide();
@@ -99,6 +104,10 @@ function showCommentList() {
             let list = jsonObj;
             let $origin = $('div.list-rep-body').first();
             let $parent = $('div.my-rep-list');
+
+            if(list.length == 0){
+                $('div.empty-rep-list').show();
+            }else{
             $(list).each((p) => {
                 let num = list[p]["boardNum"];
                 let category = list[p]["category"];
@@ -116,6 +125,7 @@ function showCommentList() {
 
                 $parent.append($copy);
             })
+        }
             $origin.hide();
         },
         error: function (xhr) {
