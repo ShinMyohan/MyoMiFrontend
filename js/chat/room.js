@@ -16,7 +16,7 @@ function getMyChatRoom(token) {
             let chat = response.data;
             let roomNum = chat.num
             let userId = chat.userId
-            getChatDetails(chat.num) // 채팅 내역 조회
+            getChatDetails(chat.num, userId) // 채팅 내역 조회
             // connectStomp(roomNum, userId);
 
         },
@@ -27,10 +27,9 @@ function getMyChatRoom(token) {
 }
 
 // 본인의 채팅 메시지 내역 조회
-function getChatDetails(num) {
+function getChatDetails(num, userId) {
     let token = Cookies.get('token')
     $('#chatMsg').empty();
-    let senderId = ''
     $.ajax({
         type: 'GET',
         url: backURL + 'chat/room/' + num + '/message',
@@ -53,7 +52,7 @@ function getChatDetails(num) {
 
                 $('#chatMsg').append(chatHTML);
             }
-            connectStomp(num, senderId);
+            connectStomp(num, userId);
         },
         error: function (xhr) {
             console.log(xhr.status);

@@ -46,6 +46,7 @@ $(() => {
 
 function getChatDetails(num) {
     $('#chatMsg').empty();
+    let userId = 'admin'
     $.ajax({
         type: 'GET',
         url: backURL + 'chat/room/' + num + '/message',
@@ -68,7 +69,7 @@ function getChatDetails(num) {
 
                 $('#chatMsg').append(chatHTML);
             } $('#chatRoomNum').text(' ' +num);
-            connectStomp(num);
+            connectAdminStomp(num, userId);
         },
         error: function (xhr) {
             console.log(xhr.status);
@@ -80,9 +81,9 @@ function getChatDetails(num) {
 stomp = '';
 
 // stomp 연결
-function connectStomp(roomNum) {
+function connectAdminStomp(roomNum, userId) {
     // let token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJxd2VyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY3ODY5NTc2Nn0.TmeXe7aj6VqYGi_-5F4Wbq5zlxuM-v4eA4P0Ni-5too'
-    let token = Cookies.get('token')
+    // let token = Cookies.get('token')
 
 	var sock = new SockJS(backURL + "stomp");
 
@@ -93,13 +94,13 @@ function connectStomp(roomNum) {
     var chatBox = $('#chatMsg');
 
     // 2. connection이 맺어지면 실행한다
-    stomp.connect({Authorization:token}, function () {
+    stomp.connect(function () {
 
         // 메시지 전송하기 (publish) /pub/chat/message 로 @MessageMapping을 이용해서 메시지를 서버에서 받으면, return 값인 /sub/chat/room/ 으로 이동
         $(".send-btn").on("click", function(e){
             // let textarea = document.getElementById('#msg-input');
             let sendMsg = $('#msg-input').val()
-            stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': 'admin', 'content': sendMsg}));
+            stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': userId, 'content': sendMsg}));
             clearTextarea()
         });
 
@@ -128,7 +129,7 @@ function connectStomp(roomNum) {
             if(e.keyCode == 13 && !e.shiftKey) {
                 e.preventDefault();
                 let sendMsg = $('#msg-input').val()
-                stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': 'admin', 'content': sendMsg}));
+                stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': userId, 'content': sendMsg}));
                 // 입력창 clear
                 clearTextarea();
                 $('.chat').scrollTop($('#chatMsg').prop('scrollHeight')); // 자동 스크롤
