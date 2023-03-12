@@ -162,6 +162,58 @@ $(()=>{
         let totalPrice = price*qtt;
         $('#tt-price').html(totalPrice.toLocaleString()+"원")
     })
+
+    //--모달 열기 
+$(document).on('click', '.qna-add-button', function (e) {
+    $('.qna-write').addClass('show');
+    });
+    
+    //--모달창 등록버튼 눌렀을 때 할 일 START--
+    $(document).on('click','.modal-submit', function(e){
+      // let userId = 
+      let qnaTitle = $('input[name=modal-qna-title]').val();
+      let qnaContent = $('#modal-qna-content').val();
+      let imgFile = $('input[name="qnafile"]').get(0).files[0];
+      // console.log(qnaTitle,qnaContent)
+    
+      if(qnaTitle == ''){
+        alert("제목이 입력되지 않았습니다.");
+        return;
+      }
+    
+      if(qnaContent == ''){
+        alert("내용이 입력되지 않았습니다.");
+        return;
+      }
+  
+      let formData = new FormData();
+      formData.append('queTitle', qnaTitle);
+      formData.append('queContent', qnaContent);
+      formData.append('file', imgFile)
+      // console.log(formData)
+  
+      $.ajax({
+        type: "POST",
+        url: url+prodNum, //임시 상품번호
+        data: formData,
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+        },
+        contentType: false,
+        processData: false,
+        enctype: 'multipart/form-data',
+        data: formData,
+        success: function (response) {
+          alert("등록이 완료되었습니다.");
+          window.location.href = "../product/productinfo.html?prodNum="+prodNum;
+        },
+        error: function (xhr) {
+          alert(xhr.status);
+        },
+      });
+    }
+    )
+    //--모달창 등록버튼 눌렀을 때 할 일 END--
 })
 
 // 수량 조절 + , - 버튼

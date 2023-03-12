@@ -117,6 +117,11 @@ nav.menulist a{
     background-color: #ffffff;
 }
 
+#scrollMyPageBtn{
+    border:none;
+    background-color: #ffffff;
+}
+
 nav.menulist > ul{
     float: right;
     /* margin-right: 60px; */
@@ -310,13 +315,13 @@ nav.menulist > ul.main-menu-bar > li > a:hover {
 
 .foot-list_in {
     position: relative;
-    width: 1200px;
+    width: 98%;
     margin: 0 auto;
 }
 
 .foot-list div > ul {
     overflow: hidden;
-    width: 1200px;
+    width: 94%;
     padding-left:0px;
     padding-bottom: 40px;
     border-bottom: 1px solid #999;
@@ -358,7 +363,7 @@ nav.menulist > ul.main-menu-bar > li > a:hover {
 
 .foot-list ul, .foot-cont, .foot-certify {
     position: relative;
-    width: 1200px;
+    width: 92%;
     margin: 0 auto;
 }
 

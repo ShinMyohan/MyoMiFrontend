@@ -42,6 +42,67 @@ $(()=>{
             $('#agreementPersonal').prop("checked", false);
         }
     })
+
+    $("#agreementAll").click(function(e){
+        if($('#agreementAll').is(':checked') == true) {
+            $('#agreementTnc').prop("checked", true);
+            $('#agreementPersonal').prop("checked", true);
+        } else {
+            $('#agreementTnc').prop("checked", false);
+            $('#agreementPersonal').prop("checked", false);
+        }
+    })
+
+    $("#telSmsCheck").click(function(e){
+        let tel1 = $('#signupTel1 option:selected').val();
+        let tel2 = $('#signupTel2').val();
+        let tel3 = $('#signupTel3').val();
+        let phoneNumber = tel1 + tel2 + tel3;
+
+        alert(phoneNumber);
+        console.log(phoneNumber)
+        if(tel1 == '' || tel2 == '' || tel3 == '') {
+            alert('번호를 입력해주세요.')
+            return;
+        } else {
+            alert('인증번호 발송이 완료되었습니다. \n인증번호를 확인해주세요.')
+            $('#certificateTelNum').css('display','');
+            $('#afterCheck').css('display','');
+        }
+        $.ajax({
+            type:"POST",
+            url:backURL+"user/check/sendSMS",
+            cache: false,
+            xhrFields: {
+                withCredentials: true
+            },
+            data: {
+                "phoneNumber" : "01077428168",
+            },
+            success: function(response){
+                console.log(response);
+                $('#afterCheck').click(function(){
+                    if($.trim(response)==$('#certificateTelNum').val()){
+                        alert('인증성공!')
+                        isTelChecked = true;
+                        $('#signupTel1').prop('readonly',true)
+                        $('#signupTel2').prop('readonly',true)
+                        $('#signupTel3').prop('readonly',true)
+                    } else {
+                        alert('인증에 실패했습니다. 다시 시도해주세요.')
+                        // $('#certificateTelNum').css('display','none');
+                        // $('#afterCheck').css('display','none');
+                        isTelChecked = false;
+                    }
+                })
+            },
+            error: function(xhr){
+                alert(xhr.status);
+                console.log(xhr.responseJSON)
+            },
+        })
+    })
+
 })
 
 // 회원가입 ajax
@@ -70,7 +131,6 @@ let isIdChecked = false;
 
 // 회원가입 버튼 눌렀을 때 먼저 체크해야할 필수 입력 사항들
 window.getSignupInfo = () => {
-// function getSignupInfo() {
     let id = $('#signupId').val();
     let pwd = $('#signupPwd').val();
     let checkpwd = $('#checkPwd').val();
@@ -79,7 +139,6 @@ window.getSignupInfo = () => {
     let tel2 = $('#signupTel2').val();
     let tel3 = $('#signupTel3').val();
     let tel = tel1 + '-' + tel2 + '-' + tel3;
-
     let email1 = $('#signupEmail').val();
     let email2 = $('#userEmailBasic option:selected').val();
     let email = email1 + '@' + email2;
@@ -117,6 +176,13 @@ window.getSignupInfo = () => {
 
     if(isIdChecked == true) {
         $('#userIdDupCheck').css('color','#079c3b')
+    }
+
+    if(isTelChecked == false) {
+        $('#information p').html('휴대폰 본인인증을 해주세요.')
+        $('#agreementModal').modal("show");
+
+        return;
     }
 
     if(pwd == '' || !isPassword(pwd)) {

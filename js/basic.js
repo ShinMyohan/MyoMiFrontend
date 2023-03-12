@@ -1,3 +1,5 @@
+let backURL = 'http://172.30.1.24:8888/myomi/'
+let frontURL = 'http://172.30.1.24:5500/html/index.html'
 
 $(()=>{
     let token = Cookies.get('token')
@@ -64,20 +66,35 @@ $(()=>{
         // console.log(originUri);
         // let decode = decodeURI(originUri);
         // console.log(decode);
-        location.href = '../html/product/productsearch.html?keyword=' + keyword;
+        location.href = '../../html/product/productsearch.html?keyword=' + keyword;
     })
 
     // 마이페이지 아이콘 클릭시 마이페이지 이동
     $('#goToMyPageBtn').click(() => {
         if(userRole == 0) {
-            // alert(userRole);
-            location.href = '../html/mypage/mypage.html';
+            location.href = '../../html/mypage/mypage.html';
         } else if(userRole == 1) {
-            // alert(userRole);
-            location.href = '../html/sellerpage/sellerproductlist.html'
+            location.href = '../../html/sellerpage/sellerproductlist.html'
+        } else if(userRole == 2){
+            location.href = '../../html/admin/sellerinfolist.html'
+        } else {
+            alert('로그인해주세요!')
         }
     })
 })
+
+function goToMypage() {
+    let userRole = Cookies.get('role')
+    if(userRole == 0) {
+        location.href = '../../html/mypage/mypage.html';
+    } else if(userRole == 1) {
+        location.href = '../../html/sellerpage/sellerproductlist.html'
+    } else if(userRole == 2){
+        location.href = '../../html/admin/sellerinfolist.html'
+    } else {
+        alert('로그인해주세요!')
+    }
+}
 
 function execDaumPostcode() {
     new daum.Postcode({
@@ -132,5 +149,7 @@ function execDaumPostcode() {
 function logout() {
     alert('로그아웃 되었습니다')
     Cookies.remove('token')
+    Cookies.remove('userName')
+    Cookies.remove('role')
     location.href=frontURL
 }

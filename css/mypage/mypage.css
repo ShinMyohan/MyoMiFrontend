@@ -1,6 +1,6 @@
 /* 마이페이지 전체 적용 속성 */
 section.mp-page{
-    margin-top: 80px;
+    margin-top: 100px;
     width: 100%;
 }
 
@@ -159,7 +159,7 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit div.mp-con-plus:hove
 }
 
 /* 주문 내역 테이블 */
-div.mypage-basic div.mp-user div.mp-activity div.mp-table{
+/* div.mypage-basic div.mp-user div.mp-activity div.mp-table{
     margin-top:20px;
     width: 100%;
     border: 0;
@@ -193,6 +193,113 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-table table tbody tr td{
 
 div.mypage-basic div.mp-user div.mp-activity div.mp-table table tbody tr td strong{
     color: #00af85;
+} */
+
+/* 주문 내역 테이블 */
+div.mp-order-list-table {
+    margin-top: 20px;
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+div.mp-order-list-table table {
+    width: 100%;
+}
+
+div.mp-order-list-table table th {
+    height: 3em;
+    background-color: #f7f7f7;
+    border-top: 1px solid #777777;
+}
+
+div.mp-order-list-table table tbody tr {
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+div.mp-order-list-table table tbody tr:last-child {
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #777777;
+}
+
+div.mp-order-list-table table thead tr th {
+    font-weight: 500;
+}
+
+div.mp-order-list-table table tbody tr td {
+    padding: 15px 0;
+    border-right: 1px dashed #d9d9d9;
+}
+
+div.mp-order-list-table table tbody tr td:last-child {
+    padding: 15px 0;
+    border-right: 1px dashed #ffffff;
+}
+
+div.mp-order-list-table .order-date {
+    color: #353535;
+    font-size: 15.5px;
+    font-weight: 600;
+}
+
+div.mp-order-list-table .order-num {
+    color: #777777;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+div.mp-order-list-table #pName:hover {
+    color: #ff6b02a5;
+    font-size: 16.5px;
+    font-weight: 700;
+}
+
+
+/* div.mp-order-list-table .img-prod{
+display: flex;
+margin: 0 15px 0 15px;
+align-items: center;
+} */
+
+/* 결제 완료 */
+div.mp-order-list-table .pay-complete {
+    font-weight: 700;
+}
+
+/* 주문 취소 */
+div.mp-order-list-table .pay-cancel {
+    color: #777777;
+}
+
+
+/* 리뷰 남기기 버튼 (활성화) */
+div.mp-order-list-table .review-show {
+    color: #079c3bd9;
+    background-color: #fff;
+    border-color: #079c3bdc;
+    font-weight: 500;
+    height: 36px;
+}
+
+div.mp-order-list-table .review-show:hover {
+    color: #fff;
+    background-color: #ff6b02b2;
+    border-color: #ff6d02;
+    font-weight: 500;
+    height: 36px;
+}
+
+
+/* 리뷰 남기기 버튼 (비활성화) */
+div.mp-order-list-table .review-hide {
+    color: #555454cb;
+    background-color: #ededed8a;
+    border-color: #9b9b9b92;
+    font-weight: 500;
+    height: 36px;
 }
 
 /* 최근 본 상품 카드 */
