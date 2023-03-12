@@ -1,10 +1,10 @@
-$(()=>{
+$(() => {
     let token = Cookies.get('token')
     $('div.submit>#submit').click(function () {
 
         let title = $('#notice-title').val();
         let content = $('div.mb-3>#notice-content').val();
-    
+
         if (title == '') {
             alert('제목을 입력하세요.');
 
@@ -18,12 +18,12 @@ $(()=>{
         }
 
         let data = {
-        
+
             "title": title,
             "content": content
         };
         console.log(data);
-    
+
         $.ajax({
             url: backURL + 'notice/add',
             method: "POST",
@@ -34,21 +34,22 @@ $(()=>{
             data: JSON.stringify(data),
 
             success: function (response) {
-                alert('글 작성이 완료되었습니다.');
                 window.location.href = './noticelist.html';
             },
             error: function (xhr) {
-                alert(xhr.status + "작성실패");
+                if (xhr.responseJSON.details == 'NOT_FOUND_ADMIN') {
+                    alert('글 작성 권한이 없습니다.')
+                }
             },
-         
+
         });
     });
 
-  
-//--취소 클릭시 START --
-$('div.cancel>#write-cancel').click(() => {
-    location.href ="./noticelist.html"
-   });
-//--취소 클릭시 END --
+
+    //--취소 클릭시 START --
+    $('div.cancel>#write-cancel').click(() => {
+        location.href = "./noticelist.html"
+    });
+    //--취소 클릭시 END --
 
 });

@@ -32,7 +32,7 @@ function getOrderList() {
             let orderList= jsonObj
 
             // Object 객체 배열로 반환
-            let array = Object.keys(orderList.data).map(item => orderList.data[item]);
+            let array = Object.keys(orderList.data).reverse().map(item => orderList.data[item]);
 
             if(array.length == 0) {
                 let emptyHTML = `<div class="emptyOrderList">

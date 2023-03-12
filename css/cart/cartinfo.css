@@ -117,6 +117,15 @@ div.cart-box-detail {
     align-items: center;
 }
 
+#productDetail a {
+    color: #000000;
+    text-decoration: none;
+}
+
+#productDetail h5 {
+    color: #079c3b;
+}
+
 #percentage {
     /* 아이템들 가운데 정렬 */
     display: flex;

@@ -1,3 +1,15 @@
+header {
+    padding-bottom: 62px;
+}
+
+div.title dl dt {
+    width: 85px;
+}
+
+div.info dl dt {
+    width: 91px;
+}
+
 .review-wrap {
     width: 1000px;
     margin: 100px auto;
@@ -20,11 +32,12 @@
     margin-top: 30px;
     text-align: center;
     font-size: 0;
-    display:flex;
+    display: flex;
     position: relative;
-    left:380px;
+    left: 380px;
 }
-.submit{
+
+.submit {
     margin-left: 20px;
 }
 
@@ -56,11 +69,6 @@
     font-size: 1.4rem;
 }
 
-.review-write .title dt,
-.review-write .info dt {
-    width: 100px;
-}
-
 .review-write .title dd {
     width: calc(100% - 100px);
 }
@@ -74,14 +82,16 @@
 
 .review-write .title input[type="text"] {
     width: 80%;
-    position:relative;
+    position: relative;
     left: 7px;
 }
-dd.prod-name{
+
+dd.prod-name {
     margin-bottom: initial;
 }
+
 .review-write .cont {
-    border-bottom: 1px solid #000;
+    border-bottom: 2px solid #000;
 }
 
 .review-write .cont textarea {
@@ -94,6 +104,6 @@ dd.prod-name{
     resize: vertical;
 }
 
-.review-write-submit{
+.review-write-submit {
     margin-right: 10px;
 }

@@ -16,6 +16,7 @@ function Afterpayment(orderNum) {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         success: function (response) {
+            console.log(response)
             let orderInfo = response.data;
             console.log(orderInfo)
 
@@ -42,8 +43,11 @@ function Afterpayment(orderNum) {
 
             // 상품 원래 금액
             for(let i=0; i<= orderDetailsLength-1; i++) {
-                let prodCnt = orderDetails[i * 5 + 2]
-                let originPricePerOne = orderDetails[i * 5 + 3]
+                console.log(orderDetails)
+                let prodCnt = orderDetails[i * 5 + 3]
+                console.log(prodCnt)
+                let originPricePerOne = orderDetails[i * 5 + 4]
+                console.log(originPricePerOne)
                 originPrice += originPricePerOne * prodCnt
             }
 
@@ -62,6 +66,7 @@ function Afterpayment(orderNum) {
             $('#paymentUsedPoint').html(usedPoint.toLocaleString().split(".")[0]+'원')
             $('#paymentTotalPrice').html(totalPrice.toLocaleString().split(".")[0])
             $('#paymentSavePoint').html(savePoint.toLocaleString().split(".")[0])
+            localStorage.removeItem('orderNum');
         },
         error: function (xhr) {
             console.log(xhr.status);

@@ -90,7 +90,7 @@ margin-top: 3px;
 
 .order-page .order-li {
     display: grid;
-    grid-template-columns: 110px 300px 200px;
+    grid-template-columns: 25% 70% 50%;
     align-items: center;
     width: 40%;
     margin: 2%;
@@ -112,9 +112,9 @@ margin-top: 3px;
 }
 
 .order-page #searchPostNum {
-    /* margin-top: -89px; */
+    margin-top: -99px;
     margin-left: 10px;
-    width: 130px;
+    width: 60%;
     height: 36px;
     border: #fff;
     background-color: #079c3b;
@@ -122,6 +122,7 @@ margin-top: 3px;
 
 .order-page #roadAddress, #extraAddress{
     margin-top: 4%;
+    width: 150%;
 }
 
 .order-page #selectRecieveDate {
@@ -134,7 +135,7 @@ margin-top: 3px;
 }
 
 .order-page #dayInfo {
-    margin-left: -120px;
+    margin-left: -140px;
 }
 
 .order-page div.dropdown {

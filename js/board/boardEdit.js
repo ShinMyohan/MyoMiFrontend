@@ -1,6 +1,6 @@
 $(() => {
   let token = Cookies.get('token')
-  
+
   let list = JSON.parse(localStorage.getItem("list"));
   // console.log(list);
 
@@ -10,7 +10,7 @@ $(() => {
   let content = list["content"];
   let category = list["category"];
   let image = list["boardImgUrl"];
-  
+
   // console.log(">>>>>>"+image)
 
   $('input[name=board-num]').attr('value', num)
@@ -18,16 +18,24 @@ $(() => {
   $('input[name=board-writer]').attr('value', writer);
   $('#select').val(category).prop("selected", true);
   $('#exampleFormControlTextarea1').val(content);
-  $('input[name=boardFile]').attr('src',image)
+  $('input[name=boardFile]').attr('src', image)
 
   $('div.submit>#submit').click(function () {
+    if (token == null) {
+      if (confirm('로그인이 필요한 서비스입니다. 로그인 하시겠습니까?')) {
+        location.href = "../user/login.html"
+      } else {
+        location.href = "./boardList.html"
+      }
+    }
     num = $('input[name=board-num]').val();
     title = $('input[name=board-title]').val();
     // writer = $('input[name=board-writer]').val();
     category = $('#select').val();
     content = $('#exampleFormControlTextarea1').val();
     image = $('input[name="boardFile"]').get(0).files[0];
-
+    let maxSize = 5 * 1024 * 1024;
+    let fileSize = image.size;
     if (title == "") {
       alert("제목을 입력하세요.");
 
@@ -45,7 +53,11 @@ $(() => {
 
       return;
     }
-    
+    if (fileSize > maxSize) {
+      alert('파일은 5MB까지 첨부 가능합니다.');
+
+      return;
+    }
     let formData = new FormData();
 
     // formData.append('id', writer);
@@ -73,11 +85,16 @@ $(() => {
       },
       error: function (xhr) {
         alert(xhr.status);
+        if (xhr.responseJSON.status == 500) {
+          alert("잘못된 접근입니다.")
+        } else {
+          alert(xhr.responseJSON.details);
+        }
       },
     });
   });
 
-  $('div.cancle>button').click(()=>{
+  $('div.cancle>button').click(() => {
     history.back();
   })
 })

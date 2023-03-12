@@ -1,8 +1,12 @@
+header {
+    padding-bottom: 155px;
+}
+
 .notice-wrap {
     width: 1000px;
     box-sizing: border-box;
     margin: 100px auto;
-} 
+}
 
 .notice-view {
     width: 100%;
@@ -13,7 +17,7 @@
     padding: 20px 15px;
     border-bottom: 1px dashed #ddd;
     font-size: 2rem;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
 .notice-view .info {
@@ -28,51 +32,61 @@
     line-height: 160%;
     font-size: 1.4rem;
 }
-.notice-id{
-   font-size: 20px;
-   padding-left: 15px;
+
+.notice-id {
+    font-size: 20px;
+    padding-left: 15px;
 }
 
-.hits{
-    float:right;
+.hits {
+    float: right;
     font-size: 20px;
-    padding-left:15px;
+    padding-left: 15px;
 }
-.notice-date{
-    display:flex;
+
+.notice-date {
+    display: flex;
     font-size: 20px;
     padding-left: 15px;
     justify-content: flex-end;
 }
-.notice-title{
+
+.notice-title {
     font-size: xx-large;
 }
-.notice-id{
+
+.notice-id {
     display: flex;
     justify-content: flex-end;
 }
-.notice-cont{
-    margin-top:30px;
+
+.notice-cont {
+    margin-top: 30px;
     border-top: 1px solid #999;
     height: 300px;
 }
 
-.back{
+.back {
     margin: 0 auto;
     float: right;
     padding-top: 10px;
     padding-right: 5px;
- } 
- .notice-edit{
+}
+
+.notice-edit {
     margin: 0 auto;
-    margin-right:5px;
-    float: right;
-    padding-top: 10px;
- }
-.notice-list{
- margin: 0 auto;
-    margin-right:5px;
+    margin-right: 5px;
     float: right;
     padding-top: 10px;
 }
- 
+
+.notice-list {
+    margin: 0 auto;
+    margin-right: 5px;
+    float: right;
+    padding-top: 10px;
+}
+
+#notice-delete {
+    margin-top: 10px;
+}

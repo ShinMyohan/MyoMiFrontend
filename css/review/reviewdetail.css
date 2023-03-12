@@ -1,15 +1,15 @@
-
-.review-img img{
-    width:140px;
-    height:140px;
+.review-img img {
+    width: 140px;
+    height: 140px;
     display: flex;
 
 }
-  .review-wrap {
-     width: 1000px;
-     box-sizing: border-box;
-     margin: 100px auto;
-  } 
+
+.review-wrap {
+    width: 1000px;
+    box-sizing: border-box;
+    margin: 100px auto;
+}
 
 .review-view .info dl {
     width: 50%;
@@ -37,8 +37,18 @@
 .review-view .title {
     padding: 20px 15px;
     border-bottom: 1px dashed #ddd;
-    font-size: 2rem;
-    margin-bottom:10px;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+div.id,
+div.date,
+div.prodname {
+    font-size: 20px;
+}
+
+div.star-rating {
+    font-size: 22px;
 }
 
 .review-view .info {
@@ -87,46 +97,296 @@
     padding: 15px;
     border-bottom: 1px solid #000;
     line-height: 160%;
+    height: 386px;
     font-size: 1.4rem;
 }
-.writer{
-   font-size: 20px;
-   padding-left: 15px;
-}
 
-.hits{
-    float:right;
-    font-size: 20px;
-    padding-left:15px;
-}
-.created-date{
-    display:inline-block;
+.writer {
     font-size: 20px;
     padding-left: 15px;
 }
-.cont{
-    margin-top:30px;
+
+.hits {
+    float: right;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.created-date {
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.cont {
+    margin-top: 30px;
     border-top: 1px solid #999;
     height: 300px;
 }
 
-.back{
+.back {
     margin: 0 auto;
     float: right;
     padding-top: 10px;
     padding-right: 5px;
- }
-.bt-wrap-add{
-    display:flex;
 }
 
- .review-edit{
+.bt-wrap-add {
+    display: flex;
+}
+
+.review-edit {
     margin: 0 auto;
-    margin-right:5px;
+    margin-right: 5px;
     float: right;
     padding-top: 10px;
- } 
+}
 
-.review-list{
+.review-list {
     padding-top: 10px;
+}
+
+
+
+/**마이페이지**/
+/* 마이페이지 전체 적용 속성 */
+section.mp-page {
+    margin-top: 150px;
+    width: 100%;
+}
+
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
+}
+
+/* i 태그 속성주기 */
+div.mypage-basic i {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+}
+
+/* a 태그 속성주기 */
+div.mypage-basic a {
+    color: black;
+    text-decoration: none;
+}
+
+div.mypage-basic {
+    margin: 0 auto;
+    padding-top: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
+}
+
+/* 마이페이지 박스 속성 */
+div.mypage-basic div.mp-user {
+    display: flex;
+    margin: 0 50px 0 20px;
+}
+
+div.mypage-basic div.mp-user-info div.mp-user-name-level {
+    width: 200px;
+    margin: 0 20px 0 20px;
+    padding-left: 0px;
+    height: 6em;
+    border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-items: flex-start; */
+}
+
+/* user 프로필 박스 */
+div.mypage-basic div.mp-user-info span.mp-user-name {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border: 0 solid black;
+    /* input 박스 테두리 지우기*/
+    pointer-events: none;
+    /* input 박스 클릭 이벤트 지우기 */
+    background: transparent;
+    /* input 박스 transparent 효과 지우기*/
+}
+
+/* user 이름 아래 menu */
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu {
+    margin-top: 40px;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu {
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: -20px;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul li {
+    margin: 10px 0 10px 0;
+}
+
+/* user 마이페이지 상단 고정 정보(적립금,쿠폰,팔로우) */
+section.mp-page div.mypage-basic div.mp-user div.mp-activity {
+    width: 100%;
+}
+
+div.mypage-basic div.mp-user-activity {
+    width: 100%;
+    height: 6em;
+    display: flex;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    text-align: center;
+}
+
+div.mypage-basic div.mp-user-activity div.row {
+    border-color: #d9d9d9;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.mp-border {
+    border-right: 1px solid #d9d9d9;
+}
+
+
+div.mypage-basic div.mp-user-activity div.row div.col div {
+    font-weight: 500;
+}
+
+/* div.mypage-basic div.mp-user-activity div.row div.col i{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+} */
+
+div.mypage-basic div.mp-user-activity div.row div.col span {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.col span:hover {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(0, 175, 133);
+    cursor: pointer;
+}
+
+/* 세부 내용 기본 form */
+div.mypage-basic div.mp-user div.mp-activity div.mp-section-form {
+    margin-top: 40px;
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit {
+    display: flex;
+    justify-content: space-between
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
+    font-size: 15px;
+    font-weight: 400;
+    color: #777777;
+    margin: 1em;
+}
+
+/* 더보기 */
+div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit div.mp-con-plus a {
+    font-size: 13px;
+    text-decoration: none;
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit div.mp-con-plus:hover {
+    text-decoration: underline;
+}
+
+/* 주문 내역 테이블 */
+div.mypage-basic div.mp-user div.mp-activity div.mp-table {
+    margin-top: 20px;
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-table table {
+    width: 100%;
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-table table thead {
+    height: 3em;
+    background-color: #f7f7f7;
+    border-top: 1px solid #777777;
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-table table tbody tr {
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-table table thead tr th {
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-table table tbody tr td {
+    padding: 15px 0;
+}
+
+div.mypage-basic div.mp-user div.mp-activity div.mp-table table tbody tr td strong {
+    color: #00af85;
+}
+
+/* 최근 본 상품 카드 */
+div.mypage-basic div.mp-user div.mp-activity div.mp-recent-box {
+    margin-top: 80px;
+}
+
+div.mp-recent-list div.row div.col div.card {
+    border: none;
+}
+
+div.mp-recent-list div.row div.col div.card div.prodNum {
+    display: none;
+}
+
+div.mp-recent-list div.row div.col div.card div.prodName {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+div.mp-recent-list div.row div.col div.card-body {
+    margin-left: -16px;
+}
+
+div.mp-recent-list div.row div.col div.card div.percentage {
+    float: left;
+    margin-right: 10px;
+    color: #f5634b;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+div.mp-recent-list div.row div.col div.card div.prodPrice {
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+div.mp-recent-list div.row div.col div.card div.originPrice {
+    float: left;
+    color: #afafaf;
+    text-decoration: line-through;
 }

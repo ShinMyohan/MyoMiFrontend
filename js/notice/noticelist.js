@@ -1,5 +1,8 @@
 $(() => {
-       //-- 공지사항목록 요청 start --
+    let token = Cookies.get('token');
+    $('div.empty-notice').hide();
+    $('div.empty-title').hide();
+    //-- 공지사항목록 요청 start --
     function showList() {
         let $origin = $("tr#notice-org").first();
 
@@ -10,42 +13,52 @@ $(() => {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('Content-type', 'application/json');
             },
-            url:backURL+ "notice/list",
+            url: backURL + "notice/list",
             method: "GET",
             // 응답이 성공했을 때의 콜백함수
             success: function (jsonObj) {
                 let list = jsonObj;
-                 console.log(jsonObj);
-
                 let $origin = $("tr#notice-org").first();
                 let $parent = $("tbody#notice-parent");
-                $(list).each((p) => {
-                   // console.log(p);
-                    // console.log(list[p]["createdDate"]);
-                    let id = list[p]["adminId"];
-                    let content = list[p]["content"];
-                    let date = list[p]["createdDate"];
-                    let num = list[p]["noticeNum"];
-                    let title = list[p]["title"];
-                    let $copy = $origin.clone();
+                if (list == 0) {
+                    $('div.empty-notice').show();
+                } else {
+                    $(list).each((p) => {
+                        // console.log(p);
+                        // console.log(list[p]["createdDate"]);
+                        let id = list[p]["adminId"];
+                        let content = list[p]["content"];
+                        let date = list[p]["createdDate"];
+                        let num = list[p]["noticeNum"];
+                        let title = list[p]["title"];
+                        // let enableAdd = list[p]["enableAdd"];
+                        let $copy = $origin.clone();
 
-                    $copy.find("#notice-writer").html(id);
-                    $copy.find("#notice-num").html(num);
-                    $copy.find("#notice-created-date").html(date);
-                    $copy.find("#notice-title").html(title);
-                    $parent.append($copy);
-                });
+                        $copy.find("#notice-writer").html(id);
+                        $copy.find("#notice-num").html(num);
+                        $copy.find("#notice-created-date").html(date);
+                        $copy.find("#notice-title").html(title);
+                        $parent.append($copy);
+                        // if (enableAdd == false) {
+                        //     $("div.bt-write").attr('class', 'button none');
+                        // }
+                    });
+                }
                 $origin.hide(); //원래 기본형 지우기
+
             },
             // 응답이 실패했을 때의 콜백함수
             // 응답코드가 200번이 아니면 즉 에러 404, 500, CORS 에러 등을 마주하면 여기로 빠진다.
             error: function (xhr) {
-                alert(xhr.status);
+                if (xhr.responseJSON.details == 'NOTICE_NOT_FOUND') {
+                    $origin.hide();
+                    $('div.empty-notice').show();
+                }
             },
         });
     } showList()
-   
- 
+
+
     //-- 공지목록 요청 end --
 
     //--글 클릭시 START--
@@ -53,16 +66,20 @@ $(() => {
         let noticeNum = $(e.target).parents("tr#notice-org").find("#notice-num").html();
         location.href = './noticedetail.html?noticeNum=' + noticeNum
     })
-     //--글 클릭시 END--
-    
+    //--글 클릭시 END--
+
     //--글 작성버튼 클릭시 START--
     $("div.bt-write").click(() => {
-    location.href ="./noticeadd.html"
-   });
+        if (token == null) {
+            alert('로그인이 필요한 서비스입니다.')
+        } else {
+            location.href = "./noticeadd.html"
+        }
+    });
     //------------검색START----------------
     $('#submit').click(function () {
         let title = $('#searchbox').val();
-        
+
         let $origin = $("tr#notice-org").first();
         $("tr#notice-org").not(":first-child").remove();
         $origin.show();
@@ -70,37 +87,42 @@ $(() => {
             "title": title,
         }
         $.ajax({
-            method: "POST",
-            url: url + 'notice/title/' + title,
+            method: "GET",
+            url: backURL + 'notice/title/' + title,
             data: data,
 
             success: function (jsonObj) {
                 let list = jsonObj;
                 let $origin = $("tr#notice-org").first();
-                let $parent = $("tbody#notice-parent");      
-          
-                $(list).each(p => {
-                    //console.log(list[p]["num"]);
-                    let id = list[p]["adminId"];
-                    let content = list[p]["content"];
-                    let date = list[p]["createdDate"];
-                    let num = list[p]["noticeNum"];
-                    let title = list[p]["title"];
-                    let $copy = $origin.clone();
-
-                    $copy.find("td#notice-writer").html(id);
-                    $copy.find("td#notice-num").html(num);
-                    $copy.find("td#notice-created-date").html(date);
-                    $copy.find("td#notice-title").html(title);
-                    $parent.append($copy);
-                });
+                let $parent = $("tbody#notice-parent");
+                if (list == 0) {
+                    $('div.empty-title').show();
+                } else {
+                    $(list).each(p => {
+                        let id = list[p]["adminId"];
+                        let content = list[p]["content"];
+                        let date = list[p]["createdDate"];
+                        let num = list[p]["noticeNum"];
+                        let title = list[p]["title"];
+                        let $copy = $origin.clone();
+                        $copy.find("td#notice-writer").html(id);
+                        $copy.find("td#notice-num").html(num);
+                        $copy.find("td#notice-created-date").html(date);
+                        $copy.find("td#notice-title").html(title);
+                        $parent.append($copy);
+                    });
+                }
                 $origin.hide();
-            
+
             },
             error: function (xhr) {
-                alert(xhr.status);
+                if (xhr.responseJSON.details == 'NOTICE_NOT_FOUND') {
+                    $origin.hide();
+                    $('div.empty-notice').hide();
+                    $('div.empty-title').show();
+                }
             },
-         
+
         })
     });
 });

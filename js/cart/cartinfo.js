@@ -1,3 +1,5 @@
+let token = Cookies.get('token')
+
 window.removeCart = () => {
     removeCartList()
 }
@@ -13,19 +15,13 @@ window.updatePlusProdCnt = (value) => {
 // 전체 선택
 window.allCheckCart = () => {
     $("input:checkbox[name=cart-check]").each(function() {
-        // console.log(!$("input:checkbox[name=cart-check]:disabled").attr('disabled'))
-        // if($("input:checkbox[name=cart-check]").prop('disabled') == 'false') {
-            $("input:checkbox[name=cart-check]").prop('checked', true)
-        // } else if ($("input:checkbox[name=cart-check]").attr('disabled')){
-        //     $("input:checkbox[name=cart-check]").prop("checked", true);
+        $("input:checkbox[name=cart-check]").prop('checked', true)
     })
 }
 
 
 
 $(()=>{
-    let token = Cookies.get('token')
-
     function infoCart() {
         let $origin = $('div.cart-box-detail').first()
 
@@ -84,16 +80,13 @@ $(()=>{
                     $copy.find('div#productDetail h5').html(prodName)
                     $copy.find('div#percentage h5').html(percentage + '%')
                     $copy.find('div#cart-price h5').html(totalPrice.toLocaleString().split(".")[0] + '원')
-                    $copy.find('input[name=cart-check]').attr('disabled', false);
-                    if(status != 0) {
-                        $copy.css({
-                            "background-color": "#efefef",
-                            "color": "rgb(190 189 189)",
-                        })
-                        $copy.find('input[name=cart-check]').attr('disabled', true);
-                    }
+
+                    let prodHref = "../../html/product/productinfo.html?prodNum=" + prodNum
+                    $copy.find('#productDetail a').attr('href', prodHref)
+
                     $parent.append($copy);
-                })
+                }
+                )
                 $origin.hide();
 
                 $('button#all-prod-price').html(allProdPrice.toLocaleString().split(".")[0] + '원')
