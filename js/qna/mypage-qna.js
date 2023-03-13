@@ -32,7 +32,7 @@ $(() => {
                 let $origin = $("div.qna-list-row").first();
                 let $parent = $("div.qna-list-body");
 
-                if (list ==null) {
+                if (list.length == 0) {
                     $("div.mpqna-list-empty").show();
                 } else {
                     $(list).each(p => {

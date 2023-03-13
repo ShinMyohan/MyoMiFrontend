@@ -130,7 +130,7 @@ div.mypage-basic div.mp-user-activity div.row div.col span{
 div.mypage-basic div.mp-user-activity div.row div.col span:hover{
     font-size: 20px;
     font-weight: 500;
-    color: rgb(0, 175, 133);
+    color: #079c3b;
     cursor: pointer;
 }
 
@@ -183,8 +183,8 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
 #signout-button{
     border-radius: 3px;
     padding:4px;
-    border:  rgb(0, 175, 133) solid 0.5px;
-    color:rgb(0, 175, 133);
+    border:  #079c3b solid 0.5px;
+    color:#079c3b;
     background-color: white;
     width:20%;
 }

@@ -29,7 +29,7 @@
                     <div class="qna-row">
                     <div class="qna-num"></div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" id = "heartQna"/>
                       </svg>&nbsp;
                     <div class="qna-fake-title">문의드립니다</div>
                     <div class="qna-user-name"></div>
@@ -62,29 +62,24 @@
             <div>
                 <input type="button" class="qna-add-button" value="상품문의 글쓰기">
             </div>
-            <!--상품문의 모달창-->
+            <!--상품문의 모달창 START-->
             <form>
                 <div class="qna-write">
-                    <div class ="qna-group">
+                    <div class="qna-group">
                         <div class="modal-head">
-                        <div class="qna-top">상품문의 쓰기</div>
-                        <div class="close-btn" id="close-btn">X</div>
+                            <div class="qna-top">상품문의 쓰기</div>
+                            <div class="close-btn" id="close-btn">X</div>
                         </div>
-                        <div class="modal-prod-info">
-                            <!-- <div class="prod-img"><img src="" id="qnaProdImg" alt="..."></div> -->
-                            <div class="prod-info-text">
-                            <div class="seller-name"></div>
-                            <div class="prod-name"></div>
-                            </div>
-                        </div> 
                         <div class="qna-box">
                             <div class="modal-qna-title">
                                 <div class="modal-col-1">제목</div>
-                                <div class="modal-col-2"><input type ="text" id="modal-qna-title" name="modal-qna-title" placeholder="제목 입력" maxlength="50"></div>
+                                <div class="modal-col-2"><input type="text" id="modal-qna-title" name="modal-qna-title"
+                                        placeholder="제목 입력" maxlength="50"></div>
                             </div>
                             <div class="modal-qna-content">
                                 <div class="modal-col-1">내용</div>
-                                <div class="modal-col-2"><textarea id="modal-qna-content" placeholder="문의글을 작성해 주세요." maxlength="1000"></textarea></div>
+                                <div class="modal-col-2"><textarea id="modal-qna-content" placeholder="문의글을 작성해 주세요."
+                                        maxlength="1000"></textarea></div>
                             </div>
                             <div class="modal-file">
                                 <div class="modal-col-1">파일</div>
@@ -92,8 +87,8 @@
                                     <div class="modal-file-row">
                                         <div class="file-button">
                                             <div class="mb-3">
-                                                <input class="form-control" type="file" name="qnafile" id="formfile" >
-                                              </div>
+                                                <input class="form-control" type="file" name="qnafile" id="formfile">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -106,6 +101,8 @@
                     </div>
                 </div>
             </form>
+            <!--상품문의 모달창 END-->
+        </div>
     </body>
 </html>
 

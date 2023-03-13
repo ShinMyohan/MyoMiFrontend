@@ -5,11 +5,6 @@ $(()=>{
   let data = location.search.substring(1)
   let regex = 'prodNum=';
   let prodNum = data.replace(regex,'');
-//--모달 닫기
-$(document).on('click', '#close-btn', function (e) {
-$('.qna-write').removeClass('show');
-
-});
 
 //--상품별 문의보기 START--
 function showList(){
@@ -25,7 +20,6 @@ function showList(){
       },
       success: function(jsonObj){
           let list = jsonObj;
-          // console.log(list)
           let $origin = $("div.qna-list").first();
           let $parent = $("div.qna-parent-list");
           $(list).each(p=>{
@@ -56,17 +50,16 @@ function showList(){
               $copy.find("div.answer-content").html(ansContent);
               
               $parent.append($copy);
-              //모달창 기본 정보
-              $("div.seller-name").html(ansName);
-              $("div.prod-name").html(prodName);
-              // $("#qnaProdImg").attr('src',prodImg);
 
           });
           $origin.hide();
           
+          //--문의 목록 슬라이드 START--
           $(".qna-row").on('click',function(){
             $(this).next(".qna-detail").slideToggle(100)
           })
+          //--문의 목록 슬라이드 END--
+
       },
       error: function (xhr) {
           alert(xhr.status);
@@ -92,9 +85,9 @@ function showList(){
     }
   });
   
+
   //--모달창 등록버튼 눌렀을 때 할 일 START--
   $(document).on('click','.modal-submit', function(e){
-    // let userId = 
     let qnaTitle = $('input[name=modal-qna-title]').val();
     let qnaContent = $('#modal-qna-content').val();
     let imgFile = $('input[name="qnafile"]').get(0).files[0];
@@ -127,7 +120,7 @@ function showList(){
       enctype: 'multipart/form-data',
       data: formData,
       success: function (response) {
-        alert("등록이 완료되었습니다.");
+        alert("상품문의 등록이 완료되었습니다.");
         window.location.href = "../product/productinfo.html?prodNum="+prodNum;
       },
       error: function (xhr) {
@@ -154,6 +147,13 @@ $('#modal-qna-content').keyup(function () {
     }
 });
 //글 본문 글자수 초과시 alert START--
+
+//--모달 닫기 START--
+$(document).on('click', '#close-btn', function (e) {
+  $('.qna-write').removeClass('show');
+
+});
+//--모달 닫기 END--
 
 })
 
