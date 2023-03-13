@@ -121,7 +121,7 @@ div.mypage-basic div.mp-user-activity div.row div.col span{
 div.mypage-basic div.mp-user-activity div.row div.col span:hover{
     font-size: 20px;
     font-weight: 500;
-    color: rgb(0, 175, 133);
+    color: #079c3b;
     cursor: pointer;
 }
 
@@ -159,9 +159,9 @@ div.mypage-basic div.mp-user div.main-box{
 
 .sl-signup-btn,.sl-store-btn{
     border-radius: 5px;
-    border:rgb(0, 175, 133) solid 1px;
+    border:#079c3b solid 1px;
     background-color: white;
-    color:rgb(0, 175, 133);
+    color:#079c3b;
     padding:5px;
     font-size: 15px;
 }

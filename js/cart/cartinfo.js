@@ -19,8 +19,6 @@ window.allCheckCart = () => {
     })
 }
 
-
-
 $(()=>{
     function infoCart() {
         let $origin = $('div.cart-box-detail').first()
@@ -118,9 +116,9 @@ function modifyMinusProdCnt(prodNum) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
-        data: JSON.stringify({'product': {'prodNum': prodNum}, 'prodCnt': '-1'}),
+        data: JSON.stringify({'prodNum': prodNum, 'prodCnt': '-1'}),
         success: function (jsonObj) {
-            console.log(prodNum + '번 상품 수량 1개 감소 완료')
+            // console.log(prodNum + '번 상품 수량 1개 감소 완료')
             window.location.reload()
         }
     })
@@ -139,9 +137,9 @@ function modifyPlusProdCnt(prodNum) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
-        data: JSON.stringify({'product': {'prodNum': prodNum}, 'prodCnt': '1'}),
+        data: JSON.stringify({'prodNum': prodNum, 'prodCnt': '1'}),
         success: function (jsonObj) {
-            console.log(prodNum + '번 상품 수량 1개 증가 완료')
+            // console.log(prodNum + '번 상품 수량 1개 증가 완료')
             window.location.reload()
             // 현재 화면에 표시된 값
             // let number = $('div#options .prodCnt').html()

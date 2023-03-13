@@ -40,11 +40,11 @@ $(() => {
           status = "승인대기";
         }
         else if (status == 1) {
-          
+
           $('div.seller-approve').hide();
           status = "승인완료";
-          
-          
+
+
         } else if (status == 2) {
           status = "승인거절";
         } else {
@@ -73,7 +73,7 @@ $(() => {
         $('#seller-companyimg').attr('src', companyImgUrl);
         $('#seller-internetimg').attr('src', internetImgUrl);
         $('#inputTel3').val(phoneNum);
-      }, 
+      },
       error: function (xhr) {
         alert(xhr.status);
       },
@@ -84,7 +84,7 @@ $(() => {
   viewSeller()
 
   //---------판매자 승인 혹은 거절 START ----------------------------
-  
+
   $('#submit').click(function () {
     let status = $('#approve-category').val();
     console.log(status);
@@ -93,12 +93,12 @@ $(() => {
     let phoneNum = $('#inputTel3').val();
     // alert(phoneNum)
     let data = {
-      "sellerId":sellerId,
+      "sellerId": sellerId,
       "status": status
     }
     $.ajax({
       method: "PUT",
-      url: backURL +"admin/seller/"+sellerId+"/"+status,
+      url: backURL + "admin/seller/" + sellerId + "/" + status,
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -144,9 +144,7 @@ $(() => {
           alert(xhr.status);
           console.log(xhr.responseJSON)
       },
-  })
+    })
   });
   //--------판매자 승인혹은 거절 END---------------------------
-
-
 });

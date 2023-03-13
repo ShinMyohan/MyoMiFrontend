@@ -58,17 +58,6 @@ function getOrderList() {
                     let disabled = ''
                     let oneOrderLength = array[i].length
 
-                    if(canceledDate !== null || payCreatedDate == null) {
-                        payStatus = '주문 취소'
-                        payCss = 'pay-cancel'
-                    } else if(payCreatedDate !== null) {
-                        payStatus = '결제 완료'
-                        payCss = 'pay-complete'
-                    } else {
-                        payStatus = '주문 취소'
-                        payCss = 'pay-cancel'
-                    }
-
                         //리뷰 썼는지 확인
                     if(reviewNum == null) {
                         reviewCss = 'show'
@@ -77,6 +66,17 @@ function getOrderList() {
                         reviewCss = 'hide'
                         reviewStatus= '리뷰 완료'
                         disabled = 'disabled'
+                    }
+
+                    if(canceledDate == null && payCreatedDate != null) {
+                        payStatus = '결제 완료'
+                        payCss = 'pay-complete'
+                    } else {
+                        payStatus = '주문 취소'
+                        payCss = 'pay-cancel'
+                        reviewStatus= '취소된 주문'
+                        disabled = 'disabled'
+                        reviewCss = 'hide'
                     }
 
                     if( j == 0) {
@@ -117,7 +117,7 @@ function getOrderList() {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td><button type="button" class="btn btn-light review-${reviewCss}">${reviewStatus}</button></td>
+                                                <td><button type="button" class="btn btn-light review-${reviewCss}" ${disabled}>${reviewStatus}</button></td>
                                             </tr>`
                         $('#mypageOrderList').append(addOrderHTML);
                     }

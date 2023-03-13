@@ -55,21 +55,25 @@ $(() => {
     $('div.mp-follow-body').on('click', 'div.mp-follow-r>div.mp-unfollow-bt>button.mp-unfollow-btn', (e) => {
         let sellerid = $(e.target).parents('.mp-follow-r').find('.seller-id').html();
         console.log(sellerid);
-        $.ajax({
-            url: backURL + 'store/follow/' + sellerid,
-            method: 'DELETE',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Content-type', 'application/json');
-                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-            },
-            success: function () {
-                alert("언팔로우 되었습니다.");
-                window.location.href = "./mypage-followlist.html"
-            },
-            error: function (xhr) {
-                alert(xhr);
-            }
-        });
+        if (window.confirm("정말 팔로우를 취소하시겠습니까?")) {
+            $.ajax({
+                url: backURL + 'store/follow/' + sellerid,
+                method: 'DELETE',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Content-type', 'application/json');
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+                },
+                success: function () {
+                    alert("언팔로우 되었습니다.");
+                    window.location.href = "./mypage-followlist.html"
+                },
+                error: function (xhr) {
+                    alert(xhr);
+                }
+            });
+        }else{
+            console.log("언팔로우를 취소하셨습니다.");
+        }
     })
     //--언팔로우 버튼이 눌렸을 떄 할일 END--
     

@@ -1,0 +1,129 @@
+/* 세부 내용 기본 form */
+div.chat-rooms-wrap{
+    width: 90%;
+    margin-top: 7%;
+    margin-bottom: 10%;
+    margin-left: 10%; /* 임시 */
+    display: column;
+}
+
+div.chat-room-title {
+    margin-top: 3em;
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 관리자 페이지 메뉴바 */
+div.chat-rooms-wrap div.admin-menu-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
+    /* border: 1px solid #d2d2d2; */
+    margin-right: 20px;
+    border-radius: 15px;
+    width: 90%;
+}
+
+div.chat-rooms-wrap div.admin-menu-bar div.admin-welcome{
+    width:200px;
+    margin: 0em 20px 0 20px;
+    height: 6em;
+    border-right: 1px dashed #079c3b;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* user 프로필 박스 */
+div.chat-rooms-wrap div.admin-menu-bar span.user-name{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border:0 solid black; /* input 박스 테두리 지우기*/
+    pointer-events: none; /* input 박스 클릭 이벤트 지우기 */
+    background: transparent; /* input 박스 transparent 효과 지우기*/
+}
+
+div.chat-rooms-wrap div.admin-menu-bar div.admin-menu {
+    margin-top: 20px;
+}
+
+div.chat-rooms-wrap div.admin-menu-bar div.admin-menu ul {
+    display: flex;
+}
+
+div.chat-rooms-wrap div.admin-menu-bar div.admin-menu ul li.admin-sub-menu {
+    margin-left: 20px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+div.chat-rooms-wrap  a {
+    color: black;
+    text-decoration:none;
+}
+
+div.chat-rooms-wrap  a:hover {
+    color: #079c3b;
+    text-decoration:none;
+}
+
+/* 채팅방 목록 테이블 */
+div.chat-room-table{
+    display: inline-flex;
+    margin-top:20px;
+    margin-left: 10px;
+    width: 90%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+div.chat-room-table table {
+    /* display: block; */
+    width: 100%;
+    margin-right: 40px;
+}
+
+div.chat-room-table table th{
+    height: 3em;
+    background-color: #f7f7f7;
+    border-top: 1px solid #777777;
+}
+
+div.chat-room-table table tbody tr{
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+div.chat-room-table table thead tr th{
+    font-weight: 500;
+    color: #515151;
+}
+
+div.chat-room-table table tbody tr td{
+    padding: 15px 0;
+}
+
+div.chat-room-table table tbody tr td.num{
+    color: #079c3b;
+    font-weight: 700;
+}
+
+/* 채팅 문의 CSS */
+.chat_wrap {
+    width: 300px;
+    height: 550px;
+}
+
+.chat_wrap .chat {
+    height: 420px;
+}
+
+.chat_wrap .header {
+    background-color: rgb(255, 173, 67);
+}
+

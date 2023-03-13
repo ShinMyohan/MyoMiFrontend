@@ -14,7 +14,6 @@ $(() => {
         let content = $('#content').val();
         let imgFile = $('input[name="boardFile"]').get(0).files[0];
         let maxSize = 5 * 1024 * 1024;
-        let fileSize = imgFile.size;
 
         if (title == '') {
             alert('제목을 입력하세요.');
@@ -31,10 +30,13 @@ $(() => {
             return;
         }
 
-        if (fileSize > maxSize){
-            alert('파일은 5MB까지 첨부 가능합니다.')
-            return;
-        }
+        if (imgFile != null) {
+            if (imgFile.size > maxSize) {
+              alert('파일은 5MB까지 첨부 가능합니다.');
+      
+              return;
+            }
+          }
 
         let formData = new FormData();
 

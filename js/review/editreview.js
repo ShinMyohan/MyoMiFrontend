@@ -39,9 +39,11 @@ $(() => {
             success: function (response) {
                 alert("리뷰 수정이 완료되었습니다.");
                 window.location.href = "./reviewdetail.html?" + reviewNum
+
             },
             error: function (xhr) {
                 alert(xhr.responseJSON.data)
+                $('#submit').attr('disabled', 'disabled');
             },
         });
     });

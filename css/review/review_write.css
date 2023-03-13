@@ -18,6 +18,10 @@
     font-size: 1.4rem;
 }
 
+#content {
+    resize: none
+}
+
 .bt-wrap {
     margin-top: 30px;
     font-size: 0;
