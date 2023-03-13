@@ -1,8 +1,9 @@
 $(() => {
   let token = Cookies.get('token')
-
+  let userRole = Cookies.get('role');
   // $('.re-hidden-rep-btn').hide();
-
+  $('#notice-edit-btn').hide();
+  $('#notice-delete-btn').hide();
   function viewNotice() {
     let url = backURL;
     // ------글 상세내용 START------
@@ -25,7 +26,10 @@ $(() => {
         let date = notice["createdDate"];
         let num = notice["noticeNum"];
         let title = notice["title"];
-
+        if (userRole == 2) {
+          $('#notice-edit-btn').show();
+          $('#notice-delete-btn').show();
+        }
         $("div.notice-num").html(num);
         $("div.notice-cont").html(content);
         $("div.notice-title").html(title);
@@ -51,12 +55,10 @@ $(() => {
 
   //-------수정폼으로 이동 START--------
   $("div.notice-edit").click((e) => {
-    if (token == null) {
-      alert('로그인이 필요한 서비스입니다.')
-    } else {
-      let noticeNum = $(e.target).parents("div.notice-view").find("div.notice-num").html();
-      location.href = "./notice-edit.html?noticenum=" + noticeNum;
-    }
+
+    let noticeNum = $(e.target).parents("div.notice-view").find("div.notice-num").html();
+    location.href = "./notice-edit.html?noticenum=" + noticeNum;
+
   });
 
   //-------수정폼으로 이동 END--------

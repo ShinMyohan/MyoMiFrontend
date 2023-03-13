@@ -11,7 +11,7 @@ $(() => {
     let regex = /[^0-9]/g;
     //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
     let prodNum = data.replace(regex, "");
-
+    console.log(prodNum);
     $.ajax({
       method: "get",
       url: backURL + "sellerpage/review/" + prodNum,
