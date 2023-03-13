@@ -145,7 +145,7 @@ function cancelMyPaymemt() {
 
     $.ajax({
         type: 'PATCH',
-        url: backURL + 'payment/cancel/' + orderNum,
+        url: backURL + 'payments/cancel/' + orderNum,
         beforeSend: function (xhr) {
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -156,7 +156,7 @@ function cancelMyPaymemt() {
             let res = response;
             console.log(res)
         }, error: function(xhr) {
-            console.log(xhr.status)
+            console.log(xhr)
         }
     })
 }

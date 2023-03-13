@@ -16,9 +16,8 @@ function Afterpayment(orderNum) {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         success: function (response) {
-            console.log(response)
             let orderInfo = response.data;
-            console.log(orderInfo)
+            // console.log(orderInfo)
 
             // 주문자 정보 보여주기
             let orderNum = orderInfo['orderNum'];
@@ -43,11 +42,8 @@ function Afterpayment(orderNum) {
 
             // 상품 원래 금액
             for(let i=0; i<= orderDetailsLength-1; i++) {
-                console.log(orderDetails)
                 let prodCnt = orderDetails[i * 5 + 3]
-                console.log(prodCnt)
                 let originPricePerOne = orderDetails[i * 5 + 4]
-                console.log(originPricePerOne)
                 originPrice += originPricePerOne * prodCnt
             }
 

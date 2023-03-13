@@ -41,16 +41,15 @@
     padding: 10px;
     font-size: 13px;
     display: flex;
-    padding-bottom: 20px;
-
 }
 
 /* 스크롤 바 CSS */
 .chat_wrap .chat::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
+    height: 0px;
 }
 .chat_wrap .chat::-webkit-scrollbar-thumb {
-    background: #f9f5e79e;  /*스크롤바 뒷 배경 색상*/
+    background: #f9f5e79e;
     border-radius: 10px;
     box-shadow: inset 0px 0px 15px white;
 }

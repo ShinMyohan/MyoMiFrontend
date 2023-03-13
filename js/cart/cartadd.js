@@ -10,7 +10,7 @@ function addCart() {
 
     let prodNum = location.search.substring(1).replace('prodNum=', '')
     let prodCnt = $('#result').html()
-    let data = {'product' : {'prodNum' : prodNum}, 'prodCnt' : prodCnt}
+    let data = {'prodNum' : prodNum, 'prodCnt' : prodCnt}
 
     $.ajax({
         method: 'POST',
@@ -24,9 +24,11 @@ function addCart() {
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         success: function (jsonObj) {
+            // $('#exampleModal').modal({backdrop: 'static', keyboard: false});
             $('#exampleModal').modal('show');
 
         }, error: function (xhr) {
+            // console.log(xhr)
             if(xhr.responseJSON.details == 'PRODUCT_STATUS_ERROR') {
                 alert('품절인 상품은 장바구니에 담을 수 없습니다.')
             } else if(xhr.responseJSON.status == 401) {
