@@ -1,5 +1,5 @@
-let backURL = 'http://172.30.1.24:8888/myomi/'
-let frontURL = 'http://172.30.1.24:5500/html/index.html'
+let backURL = 'http://192.168.0.18:8888/myomi/'
+let frontURL = 'http://192.168.0.18:5500/html/index.html'
 
 $(()=>{
     let token = Cookies.get('token')

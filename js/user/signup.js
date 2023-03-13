@@ -77,7 +77,7 @@ $(()=>{
                 withCredentials: true
             },
             data: {
-                "phoneNumber" : "01077428168",
+                "phoneNumber" : phoneNumber,
             },
             success: function(response){
                 console.log(response);
