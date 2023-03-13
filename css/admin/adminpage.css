@@ -32,12 +32,12 @@ div.mypage-basic {
 div.mypage-basic div.mp-user {
     display: flex;
     margin: 0 50px 0 20px;
-    
+
 }
 
-div.mypage-basic div.mp-user-info{
+div.mypage-basic div.mp-user-info {
     background-color: black;
-    color:white;
+    color: white;
 }
 
 div.mypage-basic div.mp-user-info div.mp-user-name-level {
@@ -67,21 +67,21 @@ div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu {
     margin-top: 40px;
 }
 
-div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul a{
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul a {
     margin-bottom: 40px;
     font-size: 20px;
     font-weight: 600;
     color: white;
 }
 
-div.mp-activity-main-frame{
+div.mp-activity-main-frame {
     width: 100%;
     margin-top: 30px;
     margin-bottom: 30px;
     background: white;
 }
 
-div.mp-activity-sub-frame{
+div.mp-activity-sub-frame {
     background: #dee2e6;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -102,8 +102,8 @@ section.mp-page div.mypage-basic div.mp-user div.mp-activity {
     /* width: 100%; */
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 26px;
+    margin-right: 26px;
     background: white;
 }
 

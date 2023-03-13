@@ -36,6 +36,7 @@
     height: 400px;
     width: 950px;
     font-size: 20px;
+    resize: none
 }
 
 .notice-head {

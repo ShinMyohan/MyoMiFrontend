@@ -28,6 +28,10 @@ div.info dl dt {
     font-size: 1.4rem;
 }
 
+#content {
+    resize: none
+}
+
 .bt-wrap {
     margin-top: 30px;
     text-align: center;

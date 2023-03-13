@@ -51,6 +51,7 @@ div.my-admin-search {
     display: flex;
     float: right;
     margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 div.admin-approve-category {
@@ -65,6 +66,6 @@ div.mp-admin-tit {
 
 }
 
-
-
+div.empty-seller {
+    font-size: 16px;
 }
