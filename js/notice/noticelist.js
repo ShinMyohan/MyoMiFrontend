@@ -50,10 +50,7 @@ $(() => {
             // 응답이 실패했을 때의 콜백함수
             // 응답코드가 200번이 아니면 즉 에러 404, 500, CORS 에러 등을 마주하면 여기로 빠진다.
             error: function (xhr) {
-                if (xhr.responseJSON.details == 'NOTICE_NOT_FOUND') {
-                    $origin.hide();
-                    $('div.empty-notice').show();
-                }
+
             },
         });
     } showList()
@@ -97,6 +94,7 @@ $(() => {
                 let $parent = $("tbody#notice-parent");
                 if (list == 0) {
                     $('div.empty-title').show();
+                    $('div.empty-notice').hide();
                 } else {
                     $(list).each(p => {
                         let id = list[p]["adminId"];
@@ -116,11 +114,6 @@ $(() => {
 
             },
             error: function (xhr) {
-                if (xhr.responseJSON.details == 'NOTICE_NOT_FOUND') {
-                    $origin.hide();
-                    $('div.empty-notice').hide();
-                    $('div.empty-title').show();
-                }
             },
 
         })
