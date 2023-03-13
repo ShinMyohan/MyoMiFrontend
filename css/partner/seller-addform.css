@@ -122,7 +122,7 @@ div.mypage-basic div.mp-user-activity div.row div.col span{
 div.mypage-basic div.mp-user-activity div.row div.col span:hover{
     font-size: 20px;
     font-weight: 500;
-    color: rgb(0, 175, 133);
+    color: #079c3b;
     cursor: pointer;
 }
 
@@ -215,9 +215,9 @@ div.mypage-basic div.mp-user div.main-box{
 }
 
 .sl-num-button, #searchPostNum{
-    color:rgb(0, 175, 133);
+    color:#079c3b;
     background-color: white;
-    border: rgb(0, 175, 133) solid 0.5px;
+    border: #079c3b solid 0.5px;
     border-radius: 5px;
     padding: 3px;
     font-size: 14px;
@@ -298,9 +298,9 @@ div.mypage-basic div.mp-user div.main-box{
 }
 
 #signup-button{
-    background-color:rgb(0, 175, 133);
+    background-color:#079c3b;
     border-radius: 5px;
-    border:rgb(0, 175, 133);
+    border:#079c3b;
     color: white;
     padding: 5px;
     width: 200px;

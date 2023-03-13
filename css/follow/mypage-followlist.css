@@ -115,7 +115,7 @@ div.mypage-basic div.mp-user-activity div.row div.col span{
 div.mypage-basic div.mp-user-activity div.row div.col span:hover{
     font-size: 20px;
     font-weight: 500;
-    color: rgb(0, 175, 133);
+    color: #079c3b;
     cursor: pointer;
 }
 
@@ -140,9 +140,9 @@ div.mypage-basic div.mp-user div.main-box{
     padding: 4px;
     font-size: 13px;
     background-color: white;
-    color:rgb(0, 175, 133);
+    color:#079c3b;
     border-radius: 5px;
-    border:rgb(0, 175, 133) solid 1px;
+    border:#079c3b solid 1px;
 }
 
 
@@ -192,11 +192,11 @@ div.mypage-basic div.mp-user div.main-box{
 }
 
 .visitbtn{
-    background-color:rgb(0, 175, 133);
+    background-color:#079c3b;
     border-radius: 5px;
     font-size: 13px;
     padding: 3px;
-    border : rgb(0, 175, 133) solid ;
+    border : #079c3b solid ;
     color:white;
     margin-top: 0;
     font-weight: 400;

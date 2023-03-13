@@ -122,7 +122,7 @@ div.mypage-basic div.mp-user-activity div.row div.col span{
 div.mypage-basic div.mp-user-activity div.row div.col span:hover{
     font-size: 20px;
     font-weight: 500;
-    color: rgb(0, 175, 133);
+    color: #079c3b;
     cursor: pointer;
 }
 
@@ -395,9 +395,9 @@ tbody tr td {
 }
 
 .modal-submit{
-    background-color:rgb(0, 175, 133);
+    background-color:#079c3b;
     color:white;
-    border:rgb(0, 175, 133) 0.5px solid;
+    border:#079c3b 0.5px solid;
 }
 
 .modal-cancel,.modal-submit{
@@ -531,12 +531,12 @@ tbody tr td {
     float:right;
     background-color:white;
     border:1px solid;
-    color:rgb(0, 175, 133);
+    color:#079c3b;
     padding: 5px 20px;
     margin-right:5px;
     margin-top:20px;
     font-weight: 600;
-    border-color:rgb(0, 175, 133);
+    border-color:#079c3b;
 }
 
 .answer-info{
