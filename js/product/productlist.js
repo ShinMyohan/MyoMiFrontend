@@ -39,38 +39,48 @@ $(()=>{
 function dataList(list){
     let $origin = $('.menunav .card');
     let $parent = $('div.productlist');
+    
     list.forEach(item=>{
-        // console.log(item);
-        let prodNum = item["prodNum"];
-        let prodName = item["week"] + "주 " + item["name"];
-        let originPrice = item["originPrice"];
-        let percentage = item["percentage"];
-        let prodPrice = originPrice - originPrice*(percentage/100);
-        let roundPrice = Math.round(prodPrice)
-        let image = item["productImgUrl"];
-        let reviewCnt = item["reviewCnt"];
-        let stars = item["stars"];
-        let $copy = $origin.clone()
-        $copy.show()
-        $copy.find('div.prodNum').html(prodNum)
-        $copy.find('div.prodName').html(prodName)
-        $copy.find('div.percentage').html(percentage + "%")
-        $copy.find('div.prodPrice').html(roundPrice.toLocaleString() + '원')
-        $copy.find('div.originPrice').html(originPrice.toLocaleString() + '원')
-        $copy.find('#productMainImg').attr('src', image)
-        if(reviewCnt == null) {
-            $copy.find('div.card-footer small.review-cnt').html(0)
-        } else {
-            $copy.find('div.card-footer small.review-cnt').html(reviewCnt)
+        console.log(item);
+        if(item.status != 2) {
+            let prodNum = item["prodNum"];
+            let prodName = item["week"] + "주 " + item["name"];
+            let originPrice = item["originPrice"];
+            let percentage = item["percentage"];
+            let prodPrice = originPrice - originPrice*(percentage/100);
+            let roundPrice = Math.round(prodPrice)
+            let image = item["productImgUrl"];
+            let reviewCnt = item["reviewCnt"];
+            let stars = item["stars"];
+            console.log(stars)
+            let $copy = $origin.clone()
+            $copy.show()
+            $copy.find('div.prodNum').html(prodNum)
+            $copy.find('div.prodName').html(prodName)
+            $copy.find('div.percentage').html(percentage + "%")
+            $copy.find('div.prodPrice').html(roundPrice.toLocaleString() + '원')
+            $copy.find('div.originPrice').html(originPrice.toLocaleString() + '원')
+            $copy.find('#productMainImg').attr('src', image)
+            if(reviewCnt == null || reviewCnt == 0) {
+                $copy.find('div.card-footer small.review-cnt').html(0)
+            } else {
+                $copy.find('div.card-footer small.review-cnt').html(reviewCnt)
+            }
+
+            if(stars == null || stars == 0) {
+                $copy.find('div.card-footer small.prod-stars').html(0)
+            } else {
+                $copy.find('div.card-footer small.prod-stars').html((stars/reviewCnt).toFixed(1))
+            }
+            
+            if(item.status == 0) {
+                $('#outOfStockBg').css('display','')
+            } else {
+                $('#outOfStockBg').css('display','none')
+            }
+
+            $parent.append($copy);
         }
-
-        if(stars == null) {
-            $copy.find('div.card-footer small.prod-stars').html(0)
-
-        }
-        $copy.find('div.card-footer small.prod-stars').html(stars)
-
-        $parent.append($copy);
     })
 
     $('div.productlist').on('click', 'div.card', (e)=>{

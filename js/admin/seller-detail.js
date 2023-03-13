@@ -19,7 +19,7 @@ $(() => {
 
       success: function (jsonObj) {
         let seller = jsonObj;
-        //console.log(seller);
+        console.log(seller);
         //console.log("viewSeller() 불려와짐");
         let sellerId = seller['sellerId'];
         let companyName = seller['companyName'];
@@ -35,6 +35,7 @@ $(() => {
         let email = seller["email"]
         let companyImgUrl = seller["companyImgUrl"]
         let internetImgUrl = seller["internetImgUrl"]
+        let phoneNum = seller["phoneNum"]
         if (status == 0) {
           status = "승인대기";
         }
@@ -71,6 +72,7 @@ $(() => {
         $("input[name=sign-out-date]").val(signoutDate);
         $('#seller-companyimg').attr('src', companyImgUrl);
         $('#seller-internetimg').attr('src', internetImgUrl);
+        $('#inputTel3').val(phoneNum);
       },
       error: function (xhr) {
         alert(xhr.status);
@@ -89,6 +91,7 @@ $(() => {
     let seller = location.search.substring(1);
     let sellerId = seller.replace("sellerid=", "");
     let phoneNum = $('#inputTel3').val();
+    // alert(phoneNum)
     let data = {
       "sellerId": sellerId,
       "status": status
@@ -103,49 +106,45 @@ $(() => {
       data: JSON.stringify(data),
 
       success: function () {
-
         alert("판매자 상태 변경이 완료되었습니다!");
         window.location.href = "./sellerinfolist.html"
       },
       error: function (xhr) {
         alert(xhr.status);
       },
-
     })
     $.ajax({
-      type: "GET",
-      url: backURL + "user/seller/sendSMS",
+      type:"GET",
+      url:backURL+"user/seller/sendSMS",
       cache: false,
       xhrFields: {
-        withCredentials: true
+          withCredentials: true
       },
       data: {
-        "phoneNumber": phoneNum,
+          "phoneNumber" : phoneNum,
       },
-      success: function (response) {
-        console.log(response);
-        $('#afterCheck').click(function () {
-          if ($.trim(response) == $('#certificateTelNum').val()) {
-            alert('인증성공!')
-            isTelChecked = true;
-            $('#signupTel1').prop('readonly', true)
-            $('#signupTel2').prop('readonly', true)
-            $('#signupTel3').prop('readonly', true)
-          } else {
-            alert('인증에 실패했습니다. 다시 시도해주세요.')
-            // $('#certificateTelNum').css('display','none');
-            // $('#afterCheck').css('display','none');
-            isTelChecked = false;
-          }
-        })
+      success: function(response){
+          console.log(response);
+          $('#afterCheck').click(function(){
+              if($.trim(response)==$('#certificateTelNum').val()){
+                  alert('인증성공!')
+                  isTelChecked = true;
+                  $('#signupTel1').prop('readonly',true)
+                  $('#signupTel2').prop('readonly',true)
+                  $('#signupTel3').prop('readonly',true)
+              } else {
+                  alert('인증에 실패했습니다. 다시 시도해주세요.')
+                  // $('#certificateTelNum').css('display','none');
+                  // $('#afterCheck').css('display','none');
+                  isTelChecked = false;
+              }
+          })
       },
-      error: function (xhr) {
-        alert(xhr.status);
-        console.log(xhr.responseJSON)
+      error: function(xhr){
+          alert(xhr.status);
+          console.log(xhr.responseJSON)
       },
     })
   });
   //--------판매자 승인혹은 거절 END---------------------------
-
-
 });

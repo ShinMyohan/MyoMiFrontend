@@ -72,15 +72,20 @@ function prodList(list){
         $copy.find("div.prod-price").html(p.prodPrice.toLocaleString()+"원");
         $copy.find("div.prod-percentage").html(p.prodPercentage +"%");
         $copy.find('#sellerProdListImg').attr('src', p.prodImgUrl)
-        if(p.status === 2) {
+        if(p.status == 2) {
             $copy.find("button#prod-detail-btn").hide();
+            $copy.find('#sellerProdListImg').attr('src', p.prodImgUrl)
+            $copy.find('#sellerProdListImg').css('filter', 'grayscale(100%)')
             // $("#soldOutDate").css('display', 'none');
             // $("#readOrModify").css('display', '');
             // $copy.find("button#prod-detail-btn").val(p.modifiedDate);
         } else {
+            $copy.find('#sellerProdListImg').attr('src', p.prodImgUrl)
             $copy.find("button#review-detail-btn").val(p.prodNum);
             $copy.find("button#prod-detail-btn").show();
             $copy.find("button#prod-detail-btn").val(p.prodNum);
+            $copy.find("button#prod-detail-btn").val(p.prodNum);
+            $copy.find('#sellerProdListImg').css('filter', '')
             // $("#soldOutDate").css('display', 'none');
             // $("#readOrModify").css('display', '');
         }

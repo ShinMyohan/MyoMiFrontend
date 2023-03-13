@@ -1,7 +1,9 @@
 let regex = /[^0-9]/g; //숫자를 제외한 정규식(즉, 영어,한글,특수문자 등등...)
 $(()=>{
   // function addProduct() {
-  $('#prodAddBtn').click(function(){
+  $('#prodAddBtn').click(function(){ //이벤트 전파가 버튼 클릭에서 폼의 섭밋으로 이벤트 처리가 되는중...
+    //클릭 이벤트 처리하고 그 다음에 이벤트 전파를 막아야해서 return false 필수였다.
+    //이벤트 처리자체를 클릭말고 form의 submit 이벤트 처리하는 방법도 있다.
     let prodName = $('#addProdname').val()
     let prodCate = $('#categorySelect option:selected').val();
     let prodWeek = $('#weekSelect option:selected').val();
@@ -56,16 +58,16 @@ $(()=>{
       enctype: 'multipart/form-data',
       data: formData,
       success: function (response) {
-        console.log(response)
         alert("상품 등록 완료.");
-        // location.href="../../html/sellerpage/productlist.html"
+        location.href="../../html/sellerpage/sellerproductlist.html"
       },
-      error: function(response){
-        alert(response.responseJSON)
-        
+      error: function(xhr){
+        console.log(xhr.responseJSON)
+        alert('상품등록실퍀!')
         //JSON.parse(xhr.responseText) //. 예) .msg 어드바이스가 응답할 내용 -> json형태로 응답을받으니
       }
     })
+    return false;
   })
 
 // }

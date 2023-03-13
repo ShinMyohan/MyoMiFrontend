@@ -14,7 +14,7 @@ $(()=>{
         success: function(jsonObj){
             let product = jsonObj['body'];
             localStorage.setItem('cartList', JSON.stringify(product))
-            console.log(product);
+            // console.log(product);
             $('#prodMainImg').attr('src', product["productImgUrl"])
             $('div.prodNum').html(product['prodNum']);
             $('div.prodName>h4').html(product['name'])
@@ -22,6 +22,7 @@ $(()=>{
             $('div.percentage b').html(product['percentage']+"%")
             $('div.originPrice').html(product['originPrice'].toLocaleString()+"원")
             $('#sellerId').val(product['sellerId'])
+            $('#prodDetailInfo').html(product['detail'])
             let percentage = product['percentage']
             let originPrice = product['originPrice']
             let prodPrice = Math.round(originPrice - originPrice*(percentage/100));
@@ -99,6 +100,7 @@ $(()=>{
                 let ansContent = qna['ansContent']
                 let ansCreatedDate = qna['ansCreatedDate']
                 let writer = qna['userId']
+                let qnaImgUrl = qna['qnaImgUrl']
                 //유저네임 첫글자 빼고 다 * 로 치환
                 let userName = writer.replace(/(?<=.{1})./gi,"*")
                 let $copy = $origin.clone()
@@ -107,18 +109,28 @@ $(()=>{
                 $copy.find('.qna-num').html(qnum--)
                 $copy.find('.qna-user-name').html(userName)
                 $copy.find('.qna-date').html(queCreatedDate)
-                if(ansCreatedDate == '' || ansContent == '') {
-                    $copy.find('.qna-status').html('답변대기')
+                if(ansCreatedDate == '' || ansCreatedDate == null) {
+                    $copy.find('#qnaStatus').html('답변대기')
+                    $copy.find('#qnaAnswer').hide();
                 } else {
                     $copy.find('.qna-status').html('답변완료')
+                    $copy.find('#qnaAnswer').show();
                 }
                 $copy.find('.qna-title').html(queTitle)
                 $copy.find('.qna-content').html(queContent)
                 $copy.find('.ans-date').html(ansCreatedDate)
                 $copy.find('.answer-content').html(ansContent)
+                $copy.find('#qnaMainImg').attr('src', qnaImgUrl)
 
                 $parent.append($copy);
             })
+            $origin.hide()
+
+            //—문의 목록 슬라이드 START—
+            $(".qna-row").on('click',function(){
+                $(this).next(".qna-detail").slideToggle(100)
+            })
+            //—문의 목록 슬라이드 END—
         },
         error: function(xhr){
             alert(xhr.status)
@@ -163,57 +175,90 @@ $(()=>{
         $('#tt-price').html(totalPrice.toLocaleString()+"원")
     })
 
-    //--모달 열기 
-$(document).on('click', '.qna-add-button', function (e) {
-    $('.qna-write').addClass('show');
+    //--문의작성 모달 열기 START-- 
+    $(document).on('click', '.qna-add-button', function (e) {
+        let token = Cookies.get('token')
+        if (token == null) {
+        if (confirm('로그인 후 이용 가능합니다. 로그인 하시겠습니까?')) {
+            location.href = "../user/login.html"
+        } else {
+            location.href = "../product/productinfo.html?prodNum=" + prodNum;
+        }
+        }
+        if (token != null) {
+        $('.qna-write').addClass('show');
+        }
     });
     
+
     //--모달창 등록버튼 눌렀을 때 할 일 START--
     $(document).on('click','.modal-submit', function(e){
-      // let userId = 
-      let qnaTitle = $('input[name=modal-qna-title]').val();
-      let qnaContent = $('#modal-qna-content').val();
-      let imgFile = $('input[name="qnafile"]').get(0).files[0];
-      // console.log(qnaTitle,qnaContent)
+        let qnaTitle = $('input[name=modal-qna-title]').val();
+        let qnaContent = $('#modal-qna-content').val();
+        let imgFile = $('input[name="qnafile"]').get(0).files[0];
     
-      if(qnaTitle == ''){
+        if(qnaTitle == ''){
         alert("제목이 입력되지 않았습니다.");
         return;
-      }
+        }
     
-      if(qnaContent == ''){
+        if(qnaContent == ''){
         alert("내용이 입력되지 않았습니다.");
         return;
-      }
-  
-      let formData = new FormData();
-      formData.append('queTitle', qnaTitle);
-      formData.append('queContent', qnaContent);
-      formData.append('file', imgFile)
-      // console.log(formData)
-  
-      $.ajax({
+        }
+
+        let formData = new FormData();
+        formData.append('queTitle', qnaTitle);
+        formData.append('queContent', qnaContent);
+        formData.append('file', imgFile)
+        // console.log(formData)
+
+        $.ajax({
         type: "POST",
-        url: url+prodNum, //임시 상품번호
+        url: backURL + 'product/qna/' +prodNum,
         data: formData,
         beforeSend: function (xhr) {
-          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
         },
         contentType: false,
         processData: false,
         enctype: 'multipart/form-data',
         data: formData,
         success: function (response) {
-          alert("등록이 완료되었습니다.");
-          window.location.href = "../product/productinfo.html?prodNum="+prodNum;
+            alert("상품문의 등록이 완료되었습니다.");
+            window.location.href = "../product/productinfo.html?prodNum="+prodNum;
         },
         error: function (xhr) {
-          alert(xhr.status);
+            alert(xhr.status);
         },
-      });
-    }
-    )
-    //--모달창 등록버튼 눌렀을 때 할 일 END--
+        });
+    })
+    //—모달창 등록버튼 눌렀을 때 할 일 END—
+
+    //—글 제목 글자수 초과시 alert START—
+    $('#modal-qna-title').keyup(function () {
+        let title = $('#modal-qna-title').val();
+        if (title.length > 50) {
+            alert("최대 50자까지 입력 가능합니다.")
+        }
+    })
+    //—글 제목 글자수 초과시 alert END—
+
+    //글 본문 글자수 초과시 alert START—
+    $('#modal-qna-content').keyup(function () {
+        let content = $('#modal-qna-content').val();
+        if (content.length > 1000) {
+            alert("최대 1000자까지 입력 가능합니다.")
+        }
+    });
+    //글 본문 글자수 초과시 alert START—
+
+    //—모달 닫기 START—
+    $(document).on('click', '#close-btn', function (e) {
+    $('.qna-write').removeClass('show');
+
+    });
+    //—모달 닫기 END—
 })
 
 // 수량 조절 + , - 버튼

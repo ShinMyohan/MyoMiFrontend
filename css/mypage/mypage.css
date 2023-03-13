@@ -158,6 +158,11 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit div.mp-con-plus:hove
     text-decoration: underline;
 }
 
+#mypageUserId{
+    color:#079c3b;
+    font-weight: 700;
+}
+
 /* 주문 내역 테이블 */
 /* div.mypage-basic div.mp-user div.mp-activity div.mp-table{
     margin-top:20px;
