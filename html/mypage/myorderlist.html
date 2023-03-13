@@ -22,10 +22,12 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="../../js/basic.js"></script>
     <script src="../../js/index.js"></script>
-    <!-- <script src="../../js/board/basic.js"></script> -->
     <script src="../../js/mypage/userinfo.js"></script>
     <script src="../../js/mypage/myorderlist.js"></script>
-    <!-- <script src="../../js/mypage/myorderdetail.js"></script> -->
+    <!-- sockjs, stomp -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="../../js/chat/room.js"></script>
     <!-- DatePicker -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -225,8 +227,6 @@
         <div class="mp-background"></div>
         <div class="mypage-basic">
             <!------------ 마이페이지 START -------------->
-            <div class="mp-user">
-                <!-- 유저정보 박스 START -->
                 <div class="mp-user">
                     <!-- 유저정보 박스 START -->
                     <div class="mp-user-info">
@@ -319,10 +319,10 @@
                         <!-- 주문리스트 메인 페이지 -->
                         <div class="mp-order-list-form">
                             <div class="mp-order-list-title">
-                                <h5>주문목록/ 배송조회</h5>
+                                <h4>주문목록/ 배송조회</h4>
                             </div>
                             <div class="mp-order-list-main">
-                                <div class="period">
+                                <!-- <div class="period">
                                     <span class="search-period">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
                                             fill="currentColor" class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
@@ -348,9 +348,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">1년</a>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                     <!-- Date Picker -->
-                                    <div class="datepicker">
+                                    <!-- <div class="datepicker">
                                         <form autocomplete="off">
                                             <div class="flex-row d-flex justify-content-center">
                                                 <div class="input-group input-daterange">
@@ -367,7 +367,7 @@
                                                 <path
                                                     d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                             </svg></button></span>
-                                </div>
+                                </div> -->
                                 <!-- 주문정보 테이블 START -->
                                 <div class="mp-order-list-table">
                                     <table>
@@ -417,9 +417,6 @@
                                             <td><button type="button" class="btn btn-light review-show">리뷰남기기</button>
                                             </td>
                                         </tr> -->
-
-
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -439,7 +436,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
     </section>
     <!-- ----footer 시작 ---- -->

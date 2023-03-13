@@ -71,6 +71,7 @@ div.mp-order-list-form strong {
 
 div.mp-order-list-title {
     margin-top: 40px;
+    margin-bottom: 7px;
     display: flex;
     justify-content: space-between;
 }
