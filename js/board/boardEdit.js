@@ -2,7 +2,6 @@ $(() => {
   let token = Cookies.get('token')
 
   let list = JSON.parse(localStorage.getItem("list"));
-  // console.log(list);
 
   let num = list["boardNum"];
   let title = list["title"];
@@ -10,8 +9,6 @@ $(() => {
   let content = list["content"];
   let category = list["category"];
   let image = list["boardImgUrl"];
-
-  // console.log(">>>>>>"+image)
 
   $('input[name=board-num]').attr('value', num)
   $('input[name=board-title]').attr('value', title);
@@ -30,12 +27,11 @@ $(() => {
     }
     num = $('input[name=board-num]').val();
     title = $('input[name=board-title]').val();
-    // writer = $('input[name=board-writer]').val();
     category = $('#select').val();
     content = $('#exampleFormControlTextarea1').val();
     image = $('input[name="boardFile"]').get(0).files[0];
     let maxSize = 5 * 1024 * 1024;
-    let fileSize = image.size;
+
     if (title == "") {
       alert("제목을 입력하세요.");
 
@@ -53,10 +49,13 @@ $(() => {
 
       return;
     }
-    if (fileSize > maxSize) {
-      alert('파일은 5MB까지 첨부 가능합니다.');
 
-      return;
+    if (image != null) {
+      if (image.size > maxSize) {
+        alert('파일은 5MB까지 첨부 가능합니다.');
+
+        return;
+      }
     }
     let formData = new FormData();
 
@@ -97,6 +96,20 @@ $(() => {
   $('div.cancle>button').click(() => {
     history.back();
   })
+
+  //글 작성 본문 글자수초과시 alert / 글자수 세기 
+     $('#exampleFormControlTextarea1').keyup(function (e) {
+      var content = $(this).val();
+      $('#textarea-length').text("( " + content.length + " / 1000 )")
+
+      if (content.length > 1000) {
+          alert("최대 1000자까지 입력 가능합니다.")
+          $(this).val(content.substring(0, 1000))
+          $('#taxtarea-length').text("( 1000 / 1000 )");
+      }
+  });
 })
+
+
 
 let url = backURL + 'board/';
