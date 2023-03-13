@@ -27,20 +27,20 @@ $(()=>{
         });
 
     //10초마다 실시간 상태확인 //협의 후 적용하거나, 삭제 예정!
-    // timer = setInterval( function (){
-    //     $.ajax({
-    //         url: backURL+'store/info/'+seller,
-    //         method:'GET',
-    //         success: function(jsonObj){
-    //         console.log(jsonObj);
-    //         $("div.store-name").html(jsonObj.companyName);
-    //         $("div.follow-cnt").html(jsonObj.followCnt);
-    //         },
-    //         error: function(xhr){
-    //             alert(xhr.status);
-    //         }
-    //     });
-    // },10000);
+    timer = setInterval( function (){
+        $.ajax({
+            url: backURL+'store/info/'+seller,
+            method:'GET',
+            success: function(jsonObj){
+            console.log(jsonObj);
+            $("div.store-name").html(jsonObj.companyName);
+            $("div.follow-cnt").html(jsonObj.followCnt);
+            },
+            error: function(xhr){
+                alert(xhr.status);
+            }
+        });
+    },10000);
     //--스토어 셀러 정보 END--
 
     //--팔로잉 상태확인START--

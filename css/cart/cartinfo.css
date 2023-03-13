@@ -11,6 +11,7 @@ section{
 .cart-page {
     width: 80%;
     margin: 0 auto;
+    padding-top: 50px;
 }
 /* 주문 상품 목록 보여주기 START */
 div.container {

@@ -19,6 +19,7 @@ div.productinfo {
 
 div.prodmainimg {
     float: left;
+    margin-left: 8%;
 }
 
 div.prodmainimg>img {

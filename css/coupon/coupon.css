@@ -279,4 +279,6 @@ div.mp-order-list-form .period .nav-link:focus {
     border-radius: 15px;
 }
 
-
+.nav-tab > ul > li > button {
+    color : black;
+}

@@ -306,3 +306,9 @@ div.mypage-basic div.mp-user div.main-box{
     width: 200px;
     height: 40px;
 }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

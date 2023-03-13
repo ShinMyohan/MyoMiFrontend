@@ -44,7 +44,7 @@ div.mypage-basic div.mp-user{
 }
 
 div.mypage-basic div.mp-user-info div.mp-user-name-level{
-    width:280px;
+    /* width:280px; */
     margin: 0 20px 0 20px;
     padding-left: 20px;
     height: 6em;
@@ -127,7 +127,7 @@ div.mypage-basic div.mp-user div.main-box{
 /*팔로우목록 조회*/
 .mp-follow-h{
     margin-top: 50px;
-    font-size: 17px;
+    font-size: 24px;
     font-weight: 500;
 }
 .mp-follow-h2{

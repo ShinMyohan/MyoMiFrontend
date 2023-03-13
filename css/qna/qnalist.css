@@ -187,9 +187,9 @@ div.qna-row{
 }
 
 .modal-submit{
-    background-color:rgb(0, 175, 133);
+    background-color:#079c3b;
     color:white;
-    border:rgb(0, 175, 133) 0.5px solid;
+    border:#079c3b 0.5px solid;
 }
 
 .modal-cancel,.modal-submit{

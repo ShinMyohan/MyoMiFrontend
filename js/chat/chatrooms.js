@@ -31,7 +31,7 @@ $(() => {
                                         <td>${membershipLevel}</td>
                                         <td>${createdDate}</td>
                                         <td>${adminId}</td>
-                                    </tr>`;
+                                    </tr><hr>`;
 
                     $('#chatRoomList').append(chatHTML);
             }

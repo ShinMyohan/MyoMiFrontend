@@ -73,6 +73,7 @@ div.chat-rooms-wrap  a:hover {
 /* 채팅방 목록 테이블 */
 div.chat-room-table{
     display: inline-flex;
+    align-items: flex-start;
     margin-top:20px;
     margin-left: 10px;
     width: 90%;
