@@ -120,7 +120,7 @@ $(() => {
         let endPage = jsonObj.endPage;
         let totalCnt = list.length;
         cnt=0;
-        console.log(list.length)
+        // console.log(list.length)
         if (list.length == 0) {
           $('div.empty-list').show();
           $('div.empty-list').html('검색 결과가 없습니다.');

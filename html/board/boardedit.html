@@ -237,9 +237,11 @@
 
                 <div class="content-textarea">
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">글 내용을 입력해주세요.</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" name="content"
-                            style="height: 400px; resize: none;"></textarea>
+                        <label for="exampleFormControlTextarea1" class="form-label">글 내용을 입력해주세요.
+                            <span name="textarea-length" id="textarea-length"> ( 0 / 1000 ) </span>
+                        </label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1"  name="content"
+                            style="height: 400px; resize: none;"  maxlength="1000"></textarea>
                     </div>
                 </div>
 
