@@ -46,11 +46,14 @@
                 </div>
                 <!-- 검색 input 박스 -->
                 <div class="main-search">
-                        <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search" id="searchBox">
-                        <div class="search-icon">
-                        <button class="btn" type="submit" id="prodKeywordSearch"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg></button></div>
+                    <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search" id="searchBox">
+                    <div class="search-icon">
+                        <button class="btn" type="submit" id="prodKeywordSearch"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg></button>
+                    </div>
                 </div>
                 <!-- 메뉴바 -->
                 <nav class="menulist">
@@ -62,12 +65,17 @@
                         <li id="logoutLi"><button id="logOutBtn" onclick="logout()">로그아웃</button></li>
                         <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
                         <li><a href="../../html/board/boardList.html">커뮤니티 </a></li>
-                        <li><button id="goToMyPageBtn"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                        </svg></button></li>
-                        <li><a href="../../html/cart/cartinfo.html" style="margin-bottom:13px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                        </svg></a></li>
+                        <li><button id="goToMyPageBtn"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32"
+                                    fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                </svg></button></li>
+                        <li><a href="../../html/cart/cartinfo.html" style="margin-bottom:13px"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg></a></li>
                     </ul>
                 </nav>
             </div>
@@ -76,9 +84,12 @@
                 <div class="gnb-in">
                     <div class="gnb-menu-box" id="gnbMenuBox">
                         <ul class="depth0 gnb-menu0">
-                            <li class="gnb-sub-list" style="width:10%"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-list" viewBox="0 -3 24 24">
-                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                            </svg><span>전체 카테고리</span></a></li>
+                            <li class="gnb-sub-list" style="width:10%"><a href="#"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        stroke="black" stroke-width="0.2" class="bi bi-list" viewBox="0 -3 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                                    </svg><span>전체 카테고리</span></a></li>
                             <li class="gnb-sub-list" id="subMenuList">정기배송</li>
                             <li class="gnb-sub-list" id="subMenuList">샐러드</li>
                             <li class="gnb-sub-list" id="subMenuList">도시락</li>
@@ -89,39 +100,39 @@
                         <div class="allmenu" id="menubarListMenu">
                             <ul class="allmenu-list">
                                 <li style="margin-top: -15px">
-                                        <hr>
-                                        <ul>
-                                            <li>1주 식단</li>
-                                            <li>2주 식단</li>
-                                            <li>3주 식단</li>
-                                            <li>4주 식단</li>
-                                            <li>5주 이상 식단</li>
-                                        </ul>
+                                    <hr>
+                                    <ul>
+                                        <li>1주 식단</li>
+                                        <li>2주 식단</li>
+                                        <li>3주 식단</li>
+                                        <li>4주 식단</li>
+                                        <li>5주 이상 식단</li>
+                                    </ul>
                                 </li>
                                 <li style="margin-top: -15px">
-                                        <hr>
-                                        <ul>
-                                            <li>데일리 샐러드</li>
-                                            <li>채소만 샐러드</li>
-                                            <li>프리미엄 샐러드</li>
-                                        </ul>
+                                    <hr>
+                                    <ul>
+                                        <li>데일리 샐러드</li>
+                                        <li>채소만 샐러드</li>
+                                        <li>프리미엄 샐러드</li>
+                                    </ul>
                                 </li>
                                 <li style="margin-top: -15px">
-                                        <hr>
-                                        <ul>
-                                            <li>데일리 도시락</li>
-                                            <li>비건 도시락</li>
-                                            <li>프리미엄 도시락</li>
-                                        </ul>
+                                    <hr>
+                                    <ul>
+                                        <li>데일리 도시락</li>
+                                        <li>비건 도시락</li>
+                                        <li>프리미엄 도시락</li>
+                                    </ul>
                                 </li>
                                 <li style="margin-top: -15px">
-                                        <hr>
-                                        <ul>
-                                            <li>K식단 밀키트</li>
-                                            <li>서양식 밀키트</li>
-                                            <li>퓨전 밀키트</li>
-                                            <li>프리미엄 밀키트</li>
-                                        </ul>
+                                    <hr>
+                                    <ul>
+                                        <li>K식단 밀키트</li>
+                                        <li>서양식 밀키트</li>
+                                        <li>퓨전 밀키트</li>
+                                        <li>프리미엄 밀키트</li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -132,15 +143,21 @@
             <div class="scroll-right-menu">
                 <div class="qmenu-wrap">
                     <ul class="qm">
-                        <li><button onclick="goToMypage()" id="scrollMyPageBtn"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="40" fill="currentColor" class="bi bi-person" viewBox="2 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                            </svg></button>
+                        <li><button onclick="goToMypage()" id="scrollMyPageBtn"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="38" height="40" fill="currentColor" class="bi bi-person" viewBox="2 0 16 16">
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                </svg></button>
                         </li>
                         <li>
-                            <span><a href="../../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg></a></span>
-                            <span class="position-absolute badge translate-middle text-bg-success rounded-5" id="scroll-cart">0</span>
+                            <span><a href="../../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="32" height="32" fill="currentColor" stroke="black" stroke-width="0.2"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg></a></span>
+                            <span class="position-absolute badge translate-middle text-bg-success rounded-5"
+                                id="scroll-cart">0</span>
                         </li>
                         <li>
                             <span onclick="openForm()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
@@ -155,8 +172,10 @@
                     <div class="scroll-right-cont">
                         <div class="scr-paging">
                             <button class="bnt-scroll-prev">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
                                 </svg>
                             </button>
                         </div>
@@ -176,8 +195,10 @@
                         </ul>
                         <div class="scr-paging scr-paging2">
                             <button class="bnt-scroll-next">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
                                 </svg>
                             </button>
                         </div>
@@ -203,8 +224,8 @@
                                         <textarea id="msg-input" placeholder="메시지를 입력하세요"></textarea>
                                     </div>
                                     <span class="send-btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
-                                            class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                            fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
                                                 d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
                                         </svg>
@@ -282,8 +303,7 @@
                 <div class="d-flex bd-highlight gap-2 btn-orders">
                     <!-- Button trigger modal -->
                     <button type="button" class="p-2 flex-fill bd-highlight btn btn-outline-success btn-cart"
-                        id="btn-cart"
-                        onclick="addCart()">장바구니</button>
+                        id="btn-cart" onclick="addCart()">장바구니</button>
                     <button type="button" class="p-2 flex-fill bd-highlight btn btn-success btn-order"
                         onclick="buyProduct()">바로구매</button>
                 </div>
@@ -413,9 +433,9 @@
                                 <div class="num" style="display: none;">번호</div>
                                 <div class="prod-review">
                                     <div style="display:flex">
-                                        <div class="b-id" style="float:left">임**</div>
+                                        <div class="r-id" style="float:left">임**</div>
                                         <div style="margin:0 10px">|</div>
-                                        <div class="b-date" style="float:left">
+                                        <div class="r-date" style="float:left">
                                             2023-02-01
                                         </div>
                                     </div>
@@ -430,7 +450,8 @@
                                     </div>
                                     <div class="star-num">ddd</div>
                                 </div>
-                                <div class="review-img"><img src="../../images/product/IMG_4728.JPG" alt="상품사진"></div>
+                                <div class="review-img"><img src="../../images/product/IMG_4728.JPG" alt="상품사진"
+                                        id="rImg"></div>
                                 <strong class="title">진짜 최고였어요</strong>
                                 <div class="review-content">
                                     <p class="spr-review-content-body">지금 거의 8주째 시켜먹고 있는데 일주일 뒤에 먹어도 상하지 않고 항상 너무너무 편하고
@@ -603,7 +624,8 @@
                             <div class="modal-file-row">
                                 <div class="file-button">
                                     <div class="mb-3">
-                                        <input class="form-control" type="file" name="qnafile" id="formfile" accept=".png, .jpg, .jpeg">
+                                        <input class="form-control" type="file" name="qnafile" id="formfile"
+                                            accept=".png, .jpg, .jpeg">
                                     </div>
                                 </div>
                             </div>
