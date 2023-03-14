@@ -17,7 +17,7 @@ $(()=>{
                 let orderList= jsonObj
     
                 // Object 객체 배열로 반환
-                let array = Object.keys(orderList.data).map(item => orderList.data[item]);
+                let array = Object.keys(orderList.data).reverse().map(item => orderList.data[item]);
     
                 if(array.length == 0) {
                     let emptyHTML = `<div class="emptyOrderList">
@@ -27,7 +27,7 @@ $(()=>{
                     $('#mypageOrderList').css('display','table-caption');
                     $('#mypageOrderList').css('padding','20px');
                 }
-    
+
                 for(let i=0; i<= 4; i++) { // 1부터 시작
                     for(let j=0; j<= array[i].length-1; j++) {
                         let orderNum = array[i][j]['orderNum'];
@@ -84,7 +84,6 @@ $(()=>{
                                                 </td>
                                                 <td rowspan="${oneOrderLength}">
                                                 <div class="${payCss}">${payStatus}</div>
-                                                <td><button type="button" class="btn btn-light review-${reviewCss}" ${disabled}>${reviewStatus}</button></td>
                                             </tr>`
                             $('#mypageOrderList').append(orderHTML);
                         }
@@ -102,7 +101,6 @@ $(()=>{
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td><button type="button" class="btn btn-light review-${reviewCss}">${reviewStatus}</button></td>
                                                 </tr>`
                             $('#mypageOrderList').append(addOrderHTML);
                         }

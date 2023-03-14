@@ -43,16 +43,6 @@ $(()=>{
         }
     })
 
-    $("#agreementAll").click(function(e){
-        if($('#agreementAll').is(':checked') == true) {
-            $('#agreementTnc').prop("checked", true);
-            $('#agreementPersonal').prop("checked", true);
-        } else {
-            $('#agreementTnc').prop("checked", false);
-            $('#agreementPersonal').prop("checked", false);
-        }
-    })
-
     $("#telSmsCheck").click(function(e){
         let tel1 = $('#signupTel1 option:selected').val();
         let tel2 = $('#signupTel2').val();
@@ -217,7 +207,7 @@ window.getSignupInfo = () => {
         return;
     }
 
-    if($('#agreementAll').is(':checked') == false || $('#agreementTnc').is(':checked') == false || $('#agreementPersonal').is(':checked') == false) {
+    if($('#agreementTnc').is(':checked') == false || $('#agreementPersonal').is(':checked') == false) {
         $('#information p').html('약관을 읽어보시고 동의해주세요.')
         $('#agreementModal').modal("show");
 
@@ -271,3 +261,19 @@ function idDupCheck(){
         }
     })
 }
+
+$(document).ready(function(){
+    //한글입력 안되게 처리
+    $("#signupEmail").keyup(function(event){ 
+        if (!(event.keyCode >=37 && event.keyCode<=40)) {
+            var inputVal = $(this).val();
+            $(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+        }
+    });
+    $("#signupId").keyup(function(event){ 
+        if (!(event.keyCode >=37 && event.keyCode<=40)) {
+            var inputVal = $(this).val();
+            $(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+        }
+    });
+});

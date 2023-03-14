@@ -224,15 +224,15 @@ function couponApplyAmount(percentage) {
     let price = $('#totalProdPrice').val().replace(',', '')
     let amount = price * percentage/100
     let point = $('#usedPoint').val().replace(',', '')
-    $('#couponAmount').html(amount.toLocaleString().split(".")[0]+'원')
-    let total = (price - amount - point)
+    $('#couponAmount').html(Math.round(amount).toLocaleString().split(".")[0]+'원')
+    let total = Math.round(price - amount - point)
     if(total < 100) {
         alert('최소 결제금액은 100원 입니다.')
         localStorage.setItem('coupon', 0);
         $('#couponAmount').html('')
     } else {
         $('#totalPayPrice').val(total.toLocaleString().split(".")[0])
-        $('#savePoint').val(((price - amount - point) / 100).toLocaleString().split(".")[0])
+        $('#savePoint').val((total / 100).toLocaleString().split(".")[0])
         $('#totalPay').html(total.toLocaleString().split(".")[0]+'원')
     }
 }
@@ -387,7 +387,7 @@ function payment(orderNum) {
 
 // 카드 결제
 function paymentCard(data) {
-    // console.log(data)
+    console.log(data)
     var IMP = window.IMP;
 
 	IMP.init("imp48531312");  // 가맹점 식별 코드
@@ -407,7 +407,7 @@ function paymentCard(data) {
         m_redirect_url: '../order/payment.html'
 },
 	function (rsp) { // callback
-        // console.log(rsp)
+        console.log(rsp)
 		if (rsp.success) {
          // 결제 성공 시 로직,
         data.impUid = rsp.imp_uid; // 고유 id
@@ -439,7 +439,7 @@ function paymentComplete(data) {
         },
     })
     .done(function(result) {
-        // console.log(result)
+        console.log(result)
             localStorage.removeItem('cartList');
             localStorage.removeItem('orderList');
             localStorage.removeItem('coupon');

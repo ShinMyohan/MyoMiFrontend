@@ -74,9 +74,7 @@ $(() => {
 
     //--글 작성버튼 클릭시 START--
     $("div.bt-write").click(() => {
-
         location.href = "./noticeadd.html"
-
     });
     //------------검색START----------------
     $('#submit').click(function () {
@@ -121,7 +119,6 @@ $(() => {
 
             },
             error: function (xhr) {
-
             },
 
         })

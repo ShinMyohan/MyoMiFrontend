@@ -2,6 +2,7 @@
 section.mp-page{
     margin-top: 80px;
     width: 100%;
+    margin-bottom: 80px;
 }
 
 /* 민트색 바 */
@@ -146,11 +147,11 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
 
 /*셀러주문현황 시작*/
 .sp-order{
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-    margin-top:50px;
-    margin-bottom: 50px;
+    /* text-align: center; */
+    font-size: 23.3px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 /* 조회기간 */
@@ -252,7 +253,6 @@ tbody tr td {
 /*셀러주문현황 리스트*/
 
 .sp-order-list{
-    margin-top:150px;
     font-size:15px;
     justify-content: center;
 }

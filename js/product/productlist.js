@@ -52,7 +52,7 @@ function dataList(list){
             let image = item["productImgUrl"];
             let reviewCnt = item["reviewCnt"];
             let stars = item["stars"];
-            console.log(stars)
+            console.log(item.status)
             let $copy = $origin.clone()
             $copy.show()
             $copy.find('div.prodNum').html(prodNum)
@@ -73,14 +73,16 @@ function dataList(list){
                 $copy.find('div.card-footer small.prod-stars').html((stars/reviewCnt).toFixed(1))
             }
             
-            if(item.status == 0) {
-                $('#outOfStockBg').css('display','')
-            } else {
-                $('#outOfStockBg').css('display','none')
+            if(item.status === 1) {
+                $copy.find('#outOfStockBg').css('display','')
+            }
+            else if(item.status === 0){
+                $copy.find('#outOfStockBg').css('display','none')
             }
 
             $parent.append($copy);
         }
+        $origin.hide()
     })
 
     $('div.productlist').on('click', 'div.card', (e)=>{

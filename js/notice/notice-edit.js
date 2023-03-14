@@ -38,7 +38,6 @@ $(() => {
                 window.location.href = "./noticedetail.html?" + noticeNum
             },
             error: function (xhr) {
-
             },
         });
     });

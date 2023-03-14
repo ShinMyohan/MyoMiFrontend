@@ -55,10 +55,8 @@ $(() => {
 
   //-------수정폼으로 이동 START--------
   $("div.notice-edit").click((e) => {
-
     let noticeNum = $(e.target).parents("div.notice-view").find("div.notice-num").html();
     location.href = "./notice-edit.html?noticenum=" + noticeNum;
-
   });
 
   //-------수정폼으로 이동 END--------

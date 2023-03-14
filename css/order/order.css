@@ -65,6 +65,13 @@
     align-items: center;
 }
 
+.order-page .col-2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 .order-page #productAmount {
     padding: 0;
     /* 글자 가운데 정렬 */

@@ -44,7 +44,7 @@ $(() => {
     formData.append('stars', star)
     formData.append('title', title)
     formData.append('file', imgfile)
-    console.log(formData);
+    //console.log(formData);
     $.ajax({
       type: "POST",
       url: backURL + "mypage/review/add",
@@ -60,7 +60,6 @@ $(() => {
         window.location.href = '../../html/mypage/reviewmypage.html';
       },
       error: function (xhr) {
-
       },
     });
   });

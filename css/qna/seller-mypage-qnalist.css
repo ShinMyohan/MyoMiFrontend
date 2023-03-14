@@ -145,11 +145,11 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
 
 /*나의 상품문의 시작*/
 .mp-qna{
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-    margin-top:50px;
-    margin-bottom: 50px;
+    /* text-align: center; */
+    font-size: 23.3px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 /* 조회기간 */
@@ -258,7 +258,7 @@ tbody tr td {
     
 }
 .mpq-qna-list{
-    margin-top:150px;
+    /* margin-top:150px; */
     font-size:15px;
     justify-content: center;
     height: auto;
