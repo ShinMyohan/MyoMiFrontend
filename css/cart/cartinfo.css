@@ -123,9 +123,6 @@ div.cart-box-detail {
     text-decoration: none;
 }
 
-#productDetail h5 {
-    color: #079c3b;
-}
 
 #percentage {
     /* 아이템들 가운데 정렬 */
@@ -144,13 +141,14 @@ div.cart-box-detail {
 
 #options .cnt-update {
     display: flex;
+    margin-left: 16px;
 }
 
 div.cart-box-detail #updateProdCnt {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 5px 0px 5px;
+    margin: 3px -2px 0px -18px;
     padding-top: 0;
     font-size: larger;
     font-weight: 700;
@@ -160,6 +158,19 @@ div.cart-box-detail #updateProdCnt {
     color: #6c6c6c;
     border-radius: 50%;
     border-color: #fff;
+}
+
+#cartProdCnt {
+    color: #079c3b;
+    width: 42px;
+    padding-left: 4px;
+    border: none;
+    font-size: large;
+    font-weight: 500;
+}
+
+#cartProdCnt:focus {
+    outline: none;
 }
 
 #cart-price {

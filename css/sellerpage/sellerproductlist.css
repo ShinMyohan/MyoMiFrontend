@@ -152,11 +152,11 @@ div.mypage-basic div.mp-user div.mp-activity div.mp-con-tit span {
 
 /*셀러주문현황 시작*/
 .sp-productlist{
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-    margin-top:50px;
-    margin-bottom: 50px;
+    /* text-align: center; */
+    font-size: 23.3px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 /*셀러주문현황 리스트*/

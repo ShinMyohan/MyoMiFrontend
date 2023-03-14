@@ -24,7 +24,7 @@ $(() => {
                     let membershipLevel = chatList[i]['membershipLevel']
                     if(role == "판매자") {membershipLevel = ''}
 
-                    let chatHTML = `<tr onclick="getChatDetails(${num})">
+                    let chatHTML = `<tr onclick="getChat(${num})">
                                         <td class="num">${num}</td>
                                         <td>${userId}</td>
                                         <td>${role}</td>
@@ -41,10 +41,24 @@ $(() => {
             }
         })
     }
-
 })
 
+// 연결 안됐을 때 : false
+connect = false
+
+// 여러번 눌러도 연결 많이 되지 않도록
+window.getChat = (num) => {
+    if(connect == true) {
+        stomp.disconnect()
+        connect = false
+    } else {
+        getChatDetails(num)
+    }
+}
+
 function getChatDetails(num) {
+    // 연결 됐을 때 : true
+    connect = true
     $('#chatMsg').empty();
     let userId = 'admin'
     $.ajax({
@@ -69,7 +83,7 @@ function getChatDetails(num) {
 
                 $('#chatMsg').append(chatHTML);
             }
-            $('#chatRoomNum').text(' ' +num);
+            $('#chatRoomNum').text(' ' + num);
             connectAdminStomp(num, userId);
         },
         error: function (xhr) {
@@ -96,7 +110,6 @@ function connectAdminStomp(roomNum, userId) {
 
         // 메시지 전송하기 (publish) /pub/chat/message 로 @MessageMapping을 이용해서 메시지를 서버에서 받으면, return 값인 /sub/chat/room/ 으로 이동
         $(".send-btn").on("click", function(e){
-            // let textarea = document.getElementById('#msg-input');
             let sendMsg = $('#msg-input').val()
             stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': userId, 'content': sendMsg}));
             clearTextarea()
@@ -105,11 +118,9 @@ function connectAdminStomp(roomNum, userId) {
         // 4. subscribe(path, callback)으로 메세지를 받을 수 있음 -> 메세지를 받아오기(subscribe) -> get
         stomp.subscribe("/sub/chat/room/" + roomNum, function (msgDto) {
             let getMsg = JSON.parse(msgDto.body);
-            // console.log(getMsg)
 
             let senderId = getMsg.senderId;
             let content = getMsg.content;
-
             var today = new Date();
             var hours = ('0' + today.getHours()).slice(-2);
             var minutes = ('0' + today.getMinutes()).slice(-2);
@@ -120,6 +131,12 @@ function connectAdminStomp(roomNum, userId) {
             let chatHTML = `<div class=${assembleMsg}><div class="msgContent">${content}</div><div class="date">${createdDate}</div></div>`
             chatBox.append(chatHTML)
 
+            // 자동스크롤 시간 지연
+            setTimeout(function() {
+                    let height1 = $('#chatMsg')[0].scrollHeight
+                    $('.chat').scrollTop(height1); // 자동 스크롤
+                }, 100
+            )
         });
 
         // 엔터키로 메시지 보내기
@@ -130,14 +147,8 @@ function connectAdminStomp(roomNum, userId) {
                 stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': userId, 'content': sendMsg}));
                 // 입력창 clear
                 clearTextarea();
-                // 자동스크롤 시간 지연
-                setTimeout(function() {
-                    let height1 = $('#chatMsg')[0].scrollHeight
-                    $('.chat').scrollTop(height1); // 자동 스크롤
-                }, 100)
             }
         });
-
     });
 }
 

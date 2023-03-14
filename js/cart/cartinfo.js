@@ -74,7 +74,7 @@ $(()=>{
                     $copy.find('input[name=cart-check]').val(prodNum)
                     $copy.find('button#updateProdCnt').val(prodNum)
                     $copy.find('#img').attr('src', prodImg)
-                    $copy.find('div#options h5').html(prodCnt)
+                    $copy.find('input[id=cartProdCnt]').val(prodCnt)
                     $copy.find('div#productDetail h5').html(prodName)
                     $copy.find('div#percentage h5').html(percentage + '%')
                     $copy.find('div#cart-price h5').html(totalPrice.toLocaleString().split(".")[0] + '원')
@@ -120,9 +120,15 @@ function modifyMinusProdCnt(prodNum) {
         success: function (jsonObj) {
             // console.log(prodNum + '번 상품 수량 1개 감소 완료')
             window.location.reload()
+        }, error : function (xhr) {
+            console.log(xhr)
+            if(xhr.responseJSON.status == 500) {
+                alert(xhr.responseJSON.details)
+            }
         }
     })
 }
+
 
 
 // 장바구니 상품 수량 수정 (더하기)

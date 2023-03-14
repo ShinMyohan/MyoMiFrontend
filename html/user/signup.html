@@ -83,17 +83,11 @@
                             <tr class="signup-user-login-id">
                                 <th scope="row"><small>*</small> 아이디</th>
                                 <td style="display:flex; margin-top: 10px; flex-direction: column">
-                                    <!-- <div class="wrap seller-wrap-cate">
-
-                                    </div> -->
-                                    <div style="display:flex">
-                                        <input type="text" class="users-info form-control" id="signupId" style="-ms-ime-mode: disabled;"> <button
+                                    <div style="display:flex" class="signup-id">
+                                        <input type="text" class="users-info form-control" id="signupId" style="-ms-ime-mode: disabled;" minlength="3" maxlength="10"> <button
                                         type="button" class="btn btn-dup-check" onclick="idDupCheck()">중복확인</button>
+                                        <small> * 영문 혹은 숫자를 혼용하여 5자~10자</small>
                                     </div>
-                                    <!-- <div><small id="userIdDupCheck">사용가능한 아이디입니다.</small></div> -->
-                                    <!-- <div class="valid-feedback" id="userIdDupCheck">
-                                        Looks good!
-                                    </div> -->
                                 </td>
                             </tr>
                             <tr>
@@ -183,7 +177,7 @@
                                 <th scope="row" style="padding-left: 26px;">상세 주소</th>
                                 <td>
                                     <input type="text" id="detailAddress" placeholder="상세주소">
-                                    <input type="text" id="extraAddress" placeholder="(상세주소)">
+                                    <!-- <input type="text" id="extraAddress" placeholder="(상세주소)"> -->
                                 </td>
                             </tr>
                         </tbody>

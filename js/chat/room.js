@@ -108,6 +108,12 @@ function connectStomp(roomNum, userId) {
             let chatHTML = `<div class=${assembleMsg}><div class="msgContent">${content}</div><div class="date">${createdDate}</div></div>`
             chatBox.append(chatHTML)
 
+            // 자동스크롤 시간 지연
+            setTimeout(function() {
+                let height1 = $('#chatMsg')[0].scrollHeight
+                $('.chat').scrollTop(height1); // 자동 스크롤
+            }, 100)
+
         });
 
         // 엔터키로 메시지 보내기
@@ -118,11 +124,6 @@ function connectStomp(roomNum, userId) {
                 stomp.send('/pub/chat/message', {}, JSON.stringify({'num': roomNum, 'senderId': userId, 'content': sendMsg}));
                 // 입력창 clear
                 clearTextarea();
-                // 자동스크롤 시간 지연
-                setTimeout(function() {
-                    let height1 = $('#chatMsg')[0].scrollHeight
-                    $('.chat').scrollTop(height1); // 자동 스크롤
-                }, 100)
             }
         });
 

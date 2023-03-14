@@ -70,10 +70,10 @@ div.mp-order-list-form strong {
 }
 
 div.mp-order-list-title {
-    margin-top: 45px;
-    margin-bottom: 7px;
     display: flex;
     justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 

@@ -128,3 +128,7 @@ div.chat-room-table table tbody tr td.num{
     background-color: rgb(255, 173, 67);
 }
 
+#chatRoomNum {
+    margin-left: 4px;
+    color: #000000;
+}

@@ -4,6 +4,8 @@ section .mp-seller-update {
 }
 
 .mp-seller-update h5.add-title {
+    padding-top: 50px;
+    padding-left: 10px;
     padding-bottom: 20px;
     font-weight: 600;
     font-family: 'Noto Sans KR', sans-serif;
@@ -12,7 +14,7 @@ section .mp-seller-update {
 
 .mp-seller-update h6 {
     font-size: 20px;
-    margin-left: 2.5%;
+    margin-left: 15px;
     margin-top: 2em;
 
 }

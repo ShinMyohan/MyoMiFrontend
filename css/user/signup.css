@@ -91,6 +91,10 @@ table tbody tr td {
     border: 1px solid #5b5b5b44;
 }
 
+.mp-signup div.signup-id small {
+    margin: 10px;
+}
+
 /* 비밀번호 */
 .mp-signup div.signup-password {
     display: flex;
@@ -151,6 +155,18 @@ input[type="number"]::-webkit-inner-spin-button {
 #telSmsCheck, #afterCheck{
     border-radius:0;
     margin-left: 5px;
+    border:1px solid #888888;
+    color:#888888;
+    font-size: 12px;
+}
+
+#telSmsCheck:hover, #afterCheck:hover{
+    border-radius:0;
+    margin-left: 5px;
+    border:1px solid #888888;
+    background-color: #888888;
+    color:#ffffff;
+    font-size: 12px;
 }
 /* 휴대폰번호 E */
 
