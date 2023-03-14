@@ -7,8 +7,8 @@ $(() => {
     let params = string[1].split('&');
     //console.log(params[0])
     let regex = /[^0-9]/g;
-    let prodNum = params[0].replace(regex, "");
-    let orderNum = params[1].replace(regex, "");
+    let orderNum = params[0].replace(regex, "");
+    let prodNum = params[1].replace(regex, "");
 
 
     let title = $('input[name="title"]').val();
@@ -25,7 +25,7 @@ $(() => {
       alert('제목을 입력하세요.');
       return;
     }
-    if (star == '--1~5점--') {
+    if (star == '1~5점') {
       alert('평점을 선택하세요.')
       return;
     }
@@ -44,7 +44,7 @@ $(() => {
     formData.append('stars', star)
     formData.append('title', title)
     formData.append('file', imgfile)
-    //console.log(formData);
+    console.log(formData);
     $.ajax({
       type: "POST",
       url: backURL + "mypage/review/add",
@@ -60,20 +60,18 @@ $(() => {
         window.location.href = '../../html/mypage/reviewmypage.html';
       },
       error: function (xhr) {
-        if (xhr.responseJSON.details == 'EXCEED_FILE_SIZE') {
-          alert('이미지 용량은 20MB를 초과할 수 없습니다.')
-        }
+
       },
     });
   });
   // ---------- 리뷰 글자수 제한 ----------
   $("#content").keyup(function (e) {
     var reviewContent = $(this).val();
-    $("#textLengthCheck").text("(" + reviewContent.length + " / 200)"); //실시간 글자수 카운팅
-    if (reviewContent.length > 200) {
-      alert("최대 200자까지 입력 가능합니다.");
-      $(this).val(reviewContent.substring(0, 200));
-      $('#textLengthCheck').text("(200 / 200)");
+    $("#textLengthCheck").text("(" + reviewContent.length + " / 500)"); //실시간 글자수 카운팅
+    if (reviewContent.length > 500) {
+      alert("최대 500자까지 입력 가능합니다.");
+      $(this).val(reviewContent.substring(0, 500));
+      $('#textLengthCheck').text("(500 / 500)");
     }
   });
 

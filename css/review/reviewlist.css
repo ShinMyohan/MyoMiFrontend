@@ -14,6 +14,13 @@
   overflow: hidden;
 }
 
+.b-prod-name {
+  color: #079c3b;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 40px;
+}
+
 .b-pr-header {
   border-bottom: 1px solid #d9d9d9;
 }
@@ -487,7 +494,7 @@ div.mystar {
   margin-left: 10px;
 }
 
-div.r-info-point div.bt-wrap button.review-write-btn{
+div.r-info-point div.bt-wrap button.review-write-btn {
   border-radius: 0;
   margin-right: 10px;
 }

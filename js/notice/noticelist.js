@@ -1,11 +1,15 @@
 $(() => {
     let token = Cookies.get('token');
+    let userRole = Cookies.get('role')
+    $('#notice-write-btn').hide();
     $('div.empty-notice').hide();
     $('div.empty-title').hide();
     //-- 공지사항목록 요청 start --
     function showList() {
         let $origin = $("tr#notice-org").first();
-
+        if (userRole == 2) {
+            $('#notice-write-btn').show();
+        }
         $("tr#notice-org").not(":first-child").remove();
         $origin.show();
         $.ajax({
@@ -50,7 +54,10 @@ $(() => {
             // 응답이 실패했을 때의 콜백함수
             // 응답코드가 200번이 아니면 즉 에러 404, 500, CORS 에러 등을 마주하면 여기로 빠진다.
             error: function (xhr) {
-
+                if (xhr.responseJSON.details == 'NOTICE_NOT_FOUND') {
+                    $origin.hide();
+                    $('div.empty-notice').show();
+                }
             },
         });
     } showList()
@@ -67,16 +74,16 @@ $(() => {
 
     //--글 작성버튼 클릭시 START--
     $("div.bt-write").click(() => {
-        if (token == null) {
-            alert('로그인이 필요한 서비스입니다.')
-        } else {
-            location.href = "./noticeadd.html"
-        }
+
+        location.href = "./noticeadd.html"
+
     });
     //------------검색START----------------
     $('#submit').click(function () {
         let title = $('#searchbox').val();
-
+        if (userRole == 2) {
+            $('#notice-write-btn').show();
+        }
         let $origin = $("tr#notice-org").first();
         $("tr#notice-org").not(":first-child").remove();
         $origin.show();
@@ -114,6 +121,7 @@ $(() => {
 
             },
             error: function (xhr) {
+
             },
 
         })

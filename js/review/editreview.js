@@ -50,11 +50,11 @@ $(() => {
     // ---------- 리뷰 글자수 제한 ----------
     $("#content").keyup(function (e) {
         var reviewContent = $(this).val();
-        $("#textLengthCheck").text("(" + reviewContent.length + " / 200)"); //실시간 글자수 카운팅
-        if (reviewContent.length > 200) {
-            alert("최대 200자까지 입력 가능합니다.");
-            $(this).val(reviewContent.substring(0, 200));
-            $('#textLengthCheck').text("(200 / 200)");
+        $("#textLengthCheck").text("(" + reviewContent.length + " / 500)"); //실시간 글자수 카운팅
+        if (reviewContent.length > 500) {
+            alert("최대 500자까지 입력 가능합니다.");
+            $(this).val(reviewContent.substring(0, 500));
+            $('#textLengthCheck').text("(500 / 500)");
         }
     });
 })
