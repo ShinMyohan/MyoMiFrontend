@@ -84,7 +84,9 @@ $(() => {
             // console.log(reviewList)
             $('div.review-cnt').html(reviewCnt + "건")
             $('.total-starrating').html((stars / reviewCnt).toFixed(1) + "점")
-
+            if (reviewCnt == 0) {
+                $('.total-starrating').hide()
+            }
             reviewList.forEach(review => {
                 // console.log(review)
 

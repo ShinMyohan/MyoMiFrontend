@@ -2,8 +2,8 @@ $(() => {
   let token = Cookies.get('token')
   let userRole = Cookies.get('role');
   // $('.re-hidden-rep-btn').hide();
-  $('#notice-edit-btn').hide();
-  $('#notice-delete-btn').hide();
+  $('#notice-edit').hide();
+  $('#notice-delete').hide();
   function viewNotice() {
     let url = backURL;
     // ------글 상세내용 START------
@@ -27,8 +27,8 @@ $(() => {
         let num = notice["noticeNum"];
         let title = notice["title"];
         if (userRole == 2) {
-          $('#notice-edit-btn').show();
-          $('#notice-delete-btn').show();
+          $('#notice-edit').show();
+          $('#notice-delete').show();
         }
         $("div.notice-num").html(num);
         $("div.notice-cont").html(content);
