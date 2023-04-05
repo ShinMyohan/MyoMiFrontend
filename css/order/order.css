@@ -1,0 +1,302 @@
+*{
+    box-sizing: border-box;
+}
+
+/* 주문 상품 목록 보여주기 START */
+.order-page div.container {
+    width: 80%;
+    margin-top: 3%;
+}
+
+.order-page #mainContainer {
+    margin-top: 10%;
+}
+
+.order-page #hr1 {
+    border: 0;
+    border-top: 6px solid #079c3b;
+}
+
+.order-page #hr2 {
+    width: 78%;
+    padding: 0;
+    border: none;
+    border-top: 2px solid #2e2e2e;
+    color: #303030;
+    text-align: center;
+    margin-left: 11%;
+}
+
+.order-page #productContainer {
+    margin-top: 2%;
+    /* display: block; */
+}
+
+.order-page #orderProduct {
+    display: flex;
+    align-items: center;
+}
+
+.order-page #orderProduct h5{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.order-page #img {
+    padding-top : -10%;
+    margin-left: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+.order-page #productDetail {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-page #amountContainer {
+    width:50%;
+    margin-top: 0%;
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.order-page .col-2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-page #productAmount {
+    padding: 0;
+    /* 글자 가운데 정렬 */
+    text-align: center;
+    font-size: 17px;
+}
+
+.order-page #productAmount .btn-success{
+font-size: 18px;
+background-color: #FFEBB4;
+color:#3c3c3c;
+border-radius: 0;
+border:none;
+border-radius: 10px;
+margin-top: 3px;
+}
+
+.order-page .amountInput {
+    padding: 15% 7%;
+    height: 20px;
+    width: 90%;
+}
+
+.order-page .order-li {
+    display: grid;
+    grid-template-columns: 25% 70% 50%;
+    align-items: center;
+    width: 40%;
+    margin: 2%;
+}
+
+.order-page .order-title {
+    font-weight: bold;
+    float:left;
+    margin: 1% 0;
+}
+.order-page .order-content {
+    font-weight: 450;
+    letter-spacing: 0.5px;
+    width: 300px;
+}
+
+.order-page .form-control {
+    background-color: #f8f7f7a7;
+}
+
+.order-page #searchPostNum {
+    margin-top: -99px;
+    margin-left: 10px;
+    width: 60%;
+    height: 36px;
+    border: #fff;
+    background-color: #079c3b;
+}
+
+.order-page #roadAddress, #extraAddress{
+    margin-top: 4%;
+    width: 150%;
+}
+
+.order-page #selectRecieveDate {
+    width: 160px;
+    height: 35px;
+    padding: 5px 5px 5px 10px;
+    /* margin: 10px 0 0 0px; */
+    border-radius: 4px;
+    outline: 0 none;
+}
+
+.order-page #dayInfo {
+    margin-left: -140px;
+}
+
+.order-page div.dropdown {
+    margin: 4% 0 0 10%;
+    border: #fff;
+}
+
+.order-page #payment {
+    padding: 220px;
+}
+
+.order-page .coupon-button {
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.order-page #coupon {
+    width: 95px;
+    border: #fff;
+    background-color: #079c3b;
+    color: #fff;
+    margin-left: 20px;
+}
+
+.order-page .coupon-display {
+    margin: 22px 0 0 10px;
+}
+
+
+.order-page #usedPoint, #totalProdPrice, #totalPayPrice, #savePoint {
+    width: 140px;
+    margin-left: 20px;
+}
+
+.order-page #point1 {
+    margin-left: 7px;
+    width: 55px;
+    border: #fff;
+    background-color: #ff6d02;
+    color: #fff;
+}
+
+.order-page #point2 {
+    margin-left: 3px;
+    width: 135px;
+    border: #fff;
+    background-color: #079c3b;
+    color: #fff;
+}
+
+.order-page .payMethod {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.order-page #radio {
+    margin: 5px 0 0 -5px;
+}
+
+.order-page div.alert-primary {
+    background-color: #f0f0f0b6;
+    margin-top: 40px;
+    text-align: center;
+    width: 70%;
+    border: #fff;
+}
+
+.order-page div.payment {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-page #paymentBtn {
+    background-color: #079c3b;
+    font-size: large;
+    border: #fff;
+    color: #fff;
+}
+
+.order-page #paymentBtn:hover {
+    background-color: #015eff;
+}
+/* 주문 작성탭 보여주기 END */
+
+/* 쿠폰 목록 조회 모달 보여주기 START */
+
+
+/* 쿠폰 목록 조회 모달 보여주기 END */
+div.modal .modal-header  {
+    display: none;
+}
+
+div.modal .modal-footer {
+    background-color: #fff;
+    padding-top:5px;
+    padding-bottom:5px;
+    /* height: 30px; */
+}
+
+div.modalTitle {
+    font-weight: 600;
+    display: grid;
+    grid-template-columns: 17% 38% 20% 20%;
+    justify-items: center;
+    background-color: #edecec7f;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.modal-body {
+    padding: 0px !important;
+}
+
+#couponList {
+    display: grid;
+    grid-template-columns: 17% 38% 20% 20%;
+    justify-items: center;
+    padding-left: 0px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #d0d0d0;
+}
+
+#couponList:last-child {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 0px;
+}
+
+#couponPercentage {
+    font-weight: 600;
+}
+
+.modal .btn-danger {
+    background-color: #ff6b02d4;
+    border-color: #fff;
+}
+
+.modal .btn-secondary {
+    background-color: #b6b6b6d6;
+    border-color: #fff;
+    margin-right: 15px;
+}
+
+/* 사용가능한 쿠폰이 없습니다 */
+.emptyCoupon {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    color: #3c3c3c;
+}

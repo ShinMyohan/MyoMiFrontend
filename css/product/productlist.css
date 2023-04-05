@@ -1,0 +1,97 @@
+/* ------ 롤링배너 ------ */
+.carousel {
+    width: 100%;
+    margin: 100px 0px 100px 0px;
+}
+
+div.carousel-item>img {
+    height: 400px;
+}
+
+div.menunav {
+    width: 80%;
+    margin: auto;
+}
+
+div.menunav button.prod-menu-list-btns{
+    border-radius: 0;
+    height: 70px;
+    border: 1px solid #f5f5f5b7;
+    background-color: #f5f5f58b;
+}
+/*  */
+div.prod {
+    cursor: pointer;
+}
+
+div.card-body {
+    width: 100%;
+    padding: 0px;
+}
+
+div.prodName {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+div.card-body>div.percentage {
+    float: left;
+    margin-right: 10px;
+    color: #f5634b;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+div.card-body>div.prodPrice {
+    float: left;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.card-body>div.originPrice {
+    float: left;
+    color: #afafaf;
+    text-decoration: line-through;
+}
+
+
+div.prod>div.prodNum {
+    display: none;
+}
+
+/* div.productlist{
+    margin-top: 10px;
+} */
+
+div.list {
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+div.card-footer {
+    padding: 0px;
+}
+
+/* 이미지 */
+#productMainImg {
+    width: 100%;
+    /* height: 25%; */
+}
+
+#prodStars {
+    margin-left: 5px;
+}
+
+#prodReviews {
+    margin-right: 5px;
+}
+
+#outOfStockBg{
+    width: 56px;
+    height: 20px;
+    border-radius: 0;
+    padding: 3px;
+    margin:5px;
+    font-weight: 500;
+}

@@ -1,0 +1,491 @@
+.header-bar{
+    width:100%;
+    height:40px;
+    font-size: 16px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #079c3bdd;
+}
+
+/* ---- 헤더 영역 ---- */
+#header {
+    width: 90%;
+    margin: 60px auto 0 auto;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#header .h1-logo {
+    text-align: left;
+    /* padding: 50px 0 0 100px; */
+    height: 58px;
+    /* display : inline; */
+}
+
+#header .h1-logo > .logo-main {
+    display: block;
+    float: left;
+    margin-right: 30px;
+}
+
+.main-search{
+    width:250px;
+    float: left;
+    margin-top: 10px;
+    position: relative;
+}
+
+.main-search .search-icon{
+    float: left;
+}
+
+.main-search .searchbox{
+    padding-left: 20px;
+    border:none;
+    background-color: #f8f8f8;
+    height: 40px;
+}
+
+.main-search .searchbox:focus{
+    outline:none;
+    color:#333;
+    box-shadow: none;
+    background-color: #f8f8f8;
+}
+
+.main-search .search-icon{
+    position: absolute;
+    top: -2px;
+    right: 20px;
+}
+
+nav.main-menu-bar li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+nav.main-menu-bar ul, ol, li {
+    list-style: none;
+}
+
+nav.main-menu-bar ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+nav.menulist a{
+    text-decoration: none;
+    color: black;
+    margin: 0.5em;
+    float: right;
+}
+
+
+#logOutBtn {
+    border:none;
+    background-color: #ffffff;
+    /* margin-right: 12px; */
+}
+
+#logOutBtn:hover {
+    color:#00b06a;
+    transition: 0.3s;
+}
+
+#logInUserName{
+    margin-right:20px;
+}
+
+#userNameIs{
+    color:#079c3bda;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    border:none;
+    background-color: #ffffff;
+    padding-top:4px;
+}
+
+#goToMyPageBtn{
+    border:none;
+    background-color: #ffffff;
+}
+
+#scrollMyPageBtn{
+    border:none;
+    background-color: #ffffff;
+}
+
+nav.menulist > ul{
+    float: right;
+    /* margin-right: 60px; */
+    display: flex;
+    align-items: center;
+}
+
+nav.menulist > ul > li{
+    float: left;
+}
+
+nav.menulist > ul.main-menu-bar > li > a:hover {
+    color:#00b06a;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* 전체 카테고리 및 메뉴 */
+.gnb{
+    position: relative;
+    /* z-index: 2; */
+    cursor: pointer;
+}
+
+.gnb a{
+    color: #333;
+    text-decoration: none;
+}
+
+.gnb .gnb-in{
+    width: 107%;
+    margin: 40px auto -100px auto;
+}
+
+/*  메뉴박스  */
+.gnb-menu-box{
+    clear:both;
+}
+
+.gnb-menu-box ul.gnb-menu0 {
+    /* height: 30px; */
+    height: 40px;
+    overflow: visible;
+    padding-left: 0;
+    list-style-type: none;
+    clear:both;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e3e3e3;
+    margin-left:-1%
+}
+
+.gnb-menu-box ul li:first-child {
+    margin-right:-100px;
+}
+
+.gnb-menu-box ul li.gnb-sub-list{
+    width: 22.3%;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    float: left;
+    /* text-align: left; */
+    list-style-type: none;
+    /* padding-left: 60px; */
+    text-align: right;
+}
+
+/* 클릭시 전체메뉴 박스 */
+#menubarListMenu{
+    position: absolute;
+    z-index: 2;
+    width: 99%;
+    right: -9%;
+    margin-top: -17px;
+}
+
+.allmenu{
+    background-color: #ffffff;
+    font-family: 'Noto Sans KR', sans-serif;
+    border: 1px solid #e9e9e9;
+    border-top: none;
+}
+
+.gnb-allmenu .allmenu ul.allmenu-list{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-bottom: 50px;
+    padding-top: 0;
+}
+
+.gnb-allmenu .allmenu ul.allmenu-list li{
+    display: inline-block;
+    margin: 30px 0 0 0;
+    text-align: left;
+    line-height: 0;
+    vertical-align: top;
+}
+
+.gnb-allmenu .allmenu ul.allmenu-list li hr{
+    width: 90%;
+    border: 0.5px solid black;
+    padding-top: 0;
+}
+
+.gnb-allmenu .allmenu ul.allmenu-list li ul{
+    padding-left: 0;
+    margin-top: -14px;
+    margin-left: 10px;
+}
+
+.gnb-allmenu div.allmenu ul.allmenu-list li ul li{
+    display: block;
+}
+
+/* ------ floating scroll 메뉴 ------ */
+.scroll-right-menu{
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+    position: fixed;
+    z-index: 100;
+}
+
+.scroll-right-menu a {
+    color: #333;
+    text-decoration: none;
+}
+
+#scroll-cart{
+    height: 28px;
+    padding-top: 5px;
+    border: 2px solid #ffffff;
+}
+
+.qmenu-wrap{
+    width: 68px;
+    border: 1px solid #e2e2e2;
+    border-radius: 999px;
+    background: #fff;
+    padding-bottom: 6px;
+}
+
+.qmenu-wrap ul.qm {
+    padding: 10px 14px 0 14px;
+}
+
+.qmenu-wrap ul.qm li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.scroll-right-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scr-paging button{
+    border:none;
+    background-color: #ffffff;
+}
+
+.scroll-right-cont ul{
+    margin: 10px;
+    padding-left: 0px;
+}
+
+.scr-paging2{
+    margin-bottom: 10px;
+}
+
+/* ------ footer 시작 ------ */
+#footer_wrap {
+    font-family: 'Noto Sans KR', sans-serif;
+    position: relative;
+    background: #f7f7f7;
+}
+
+#footer {
+    padding: 20px 0 0px 0;
+}
+
+.foot-list {
+    position: relative;
+    margin-top: 40px;
+}
+
+.foot-list_in {
+    position: relative;
+    width: 98%;
+    margin: 0 auto;
+}
+
+.foot-list div > ul {
+    overflow: hidden;
+    width: 94%;
+    padding-left:0px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #999;
+}
+
+.foot-list div > ul li {
+    float: left;
+}
+
+.foot-list div > ul li:first-child a {
+    padding-left: 0;
+    border-left: 0 none;
+}
+
+.foot-list div > ul li:first-child a {
+    background: none;
+}
+
+.foot-list div > ul li a {
+    padding: 0 40px 0 0px;
+    color: #999;
+    font-size: 16px;
+    letter-spacing: -0.8px;
+    text-decoration: none;
+}
+
+.foot-cont a {
+    color: #333;
+    text-decoration: none;
+}
+
+.foot-cont {
+    overflow: hidden;
+    padding: 40px 0 40px 0;
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+}
+
+.foot-list ul, .foot-cont, .foot-certify {
+    position: relative;
+    width: 92%;
+    margin: 0 auto;
+}
+
+.foot-cont .foot-logo {
+    padding: 0 0 0 0;
+    position: absolute;
+    top: 38px;
+    right: 0;
+}
+
+.foot-cont .foot-logo > img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.foot-cont .foot-info-list {
+    width: 100%;
+}
+
+.foot-cont .foot-info-list dl {
+    float: left;
+    line-height: 1;
+    position: relative;
+    margin-right: 30px;
+    line-height: 1px;
+}
+
+.foot-cont .foot-info-list dt {
+    float: left;
+    font-size: 15px;
+    color: #999;
+    font-weight: 400;
+}
+
+.foot-cont .foot-info-list dd {
+    float: left;
+    padding: 0 15px 0 3px;
+    font-size: 15px;
+    color: #999;
+    font-weight: 400;
+    letter-spacing: -1px;
+    position: relative;
+    overflow: visible;
+}
+
+.foot-cont dd {
+    margin-inline-start: 0px;
+}
+
+.foot-cont .foot-info-list dl.ts dd {
+    padding-right: 14px;
+}
+
+.foot-cont .foot-info-list dd > a.btn_licensee_info {
+    border: 1px solid #999;
+    height: 24px;
+    width: 105px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 4px;
+    color: #999;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 11;
+    margin-top: -13px;
+    text-align: center;
+}
+
+.foot-cont .foot-info-list:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.foot-cont .foot-info-list dd > a {
+    font-size: 15px;
+    color: #999;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.foot-cont .copyright {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    color: #999999;
+    font-size: 15px;
+}
+
+.foot-cont .copyright strong {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.foot-certify {
+    overflow: hidden;
+    padding: 5px 0 15px 0;
+    text-align: right;
+    float: right;
+    display: none;
+}
+
+.foot-certify span:first-child {
+    padding: 0 10px 0 0;
+}
+
+.foot-certify span {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+}
+
+.foot-cont .foot-info-list dl.dl:after {
+    content: "/";
+    display: block;
+    position: absolute;
+    right: -1.5em;
+    color: #8a8989;
+    font-size: 12px;
+}
+/* ------ footer 끝 ------ */

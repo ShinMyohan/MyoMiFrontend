@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- basic.css 는 모든 페이지에 들어갈 공통 부분이다. -->
+        <link rel="stylesheet" href="../../css/basic.css">
+        <!-- <link rel="stylesheet" href="../../css/index.css"> -->
+        <link rel="stylesheet" href="../../css/qna/qnalist.css">
+        <!-- 구글폰트 -->
+        <!-- 구글폰트 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <!-- 부트스트랩 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- JQuery CDN HOST-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="../../js/basic.js"></script>
+        <script src="../../js/qna/qnalist.js"></script>
+    </head>
+    <body>
+        <div class="qna">
+            <div class="qna-text">상품 Q&A</div>
+            <div class = "qna-parent-list">
+                <div class="qna-list">
+                    <div class="qna-row">
+                    <div class="qna-num"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" id = "heartQna"/>
+                      </svg>&nbsp;
+                    <div class="qna-fake-title">문의드립니다</div>
+                    <div class="qna-user-name"></div>
+                    <div class="qna-date"></div>
+                    <div class="qna-status"></div>
+                    </div>
+                    <div class="qna-detail">
+                        <div class="qna-question-top">
+                            <div class="q-icon">Q.</div>
+                            <div class="qna-title"></div>
+                        </div>
+                        <div class="qna-question-bottom">
+                            <div class="qna-content"></div>
+                            <div class="qna-content-imgbox">
+                                <img src="" id="qnaMainImg" alt="..." class="qna-content-img">
+                            </div>
+                        </div>
+                        <div class="qna-answer">
+                            <div class="qna-answer-top">
+                            <div class="a-icon">A.</div>
+                                <p>&nbsp;안녕하세요<div class="answer-title"></div>&nbsp;입니다.</p>
+                            </div>
+                            <div class="qna-answer-bottom">
+                                <div class="answer-content" id="answer-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+            <div>
+                <input type="button" class="qna-add-button" value="상품문의 글쓰기">
+            </div>
+            <!--상품문의 모달창 START-->
+            <form>
+                <div class="qna-write">
+                    <div class="qna-group">
+                        <div class="modal-head">
+                            <div class="qna-top">상품문의 쓰기</div>
+                            <div class="close-btn" id="close-btn">X</div>
+                        </div>
+                        <div class="qna-box">
+                            <div class="modal-qna-title">
+                                <div class="modal-col-1">제목</div>
+                                <div class="modal-col-2"><input type="text" id="modal-qna-title" name="modal-qna-title"
+                                        placeholder="제목 입력" maxlength="50"></div>
+                            </div>
+                            <div class="modal-qna-content">
+                                <div class="modal-col-1">내용</div>
+                                <div class="modal-col-2"><textarea id="modal-qna-content" placeholder="문의글을 작성해 주세요."
+                                        maxlength="1000"></textarea></div>
+                            </div>
+                            <div class="modal-file">
+                                <div class="modal-col-1">파일</div>
+                                <div class="modal-col-2">
+                                    <div class="modal-file-row">
+                                        <div class="file-button">
+                                            <div class="mb-3">
+                                                <input class="form-control" type="file" name="qnafile" id="formfile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-buttons">
+                                <input type="button" class="modal-cancel" id="close-btn" value="취소">
+                                <input type="button" class="modal-submit" value="등록">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!--상품문의 모달창 END-->
+        </div>
+    </body>
+</html>
+

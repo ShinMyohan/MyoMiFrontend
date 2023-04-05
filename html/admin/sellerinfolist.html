@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../../css/basic.css" />
+  <link rel="stylesheet" href="../../css/admin/adminpage.css" />
+  <link rel="stylesheet" href="../../css/admin/sellerlist.css" />
+  <!-- 부트스트랩 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap"
+    rel="stylesheet" />
+  <!-- JQuery CDN HOST-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script src="../../js/basic.js"></script>
+  <script src="../../js/admin/sellerinfolist.js"></script>
+</head>
+
+<body>
+
+  <!-- header end -->
+
+  <!-- section start -->
+  <section class="mp-page">
+    <div class="mp-background"></div>
+    <div class="mypage-basic">
+      <!------------ 마이페이지 START -------------->
+      <div class="mp-user">
+        <!-- 유저정보 박스 START -->
+        <div class="mp-user-info">
+          <div class="mp-user-name-level">
+            <span class="mp-user-name">[관리자]<i>님</i></span>
+            <span class="mp-user-level">오늘 하루도 힘내세요!</span>
+          </div>
+          <div class="mp-user-menu">
+            <ul>
+              <li class="mp-sub-menu" id="manage-seller"><a href="./sellerinfolist.html">| 판매자 관리</a></li>
+              <li class="mp-sub-menu" id="manage-seller"><a href="../chat/chatrooms.html">| 채팅룸 관리</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- 유저정보 박스 END -->
+
+        <!------------ 회원 활동 표시 창 START -------------->
+        <div class="mp-activity-main-frame">
+          <div class="mp-activity-sub-frame">
+            <div class="mp-activity">
+              <div class="mp-admin-tit">
+                <h5>판매자관리</h5>
+              </div>
+              <hr class="mp-hr" />
+              <div class="my-admin-search">
+                <div class="admin-approve-category">
+                  <select id="approve-category">
+                    <option value="0">승인대기</option>
+                    <option value="1">승인</option>
+                    <option value="2">승인거절</option>
+                    <option value="9">탈퇴</option>
+                  </select>
+                </div>
+                <div class="admin-search-btn-wrap">
+                  <button type="button" class="admin-search-btn" id="submit">
+                    확인
+                  </button>
+                </div>
+              </div>
+              <div class="mp-admin-table">
+                <table>
+                  <colgroup>
+                    <!-- 판매자아이디-->
+                    <col style="width: 15%" />
+                    <!-- 상호 -->
+                    <col style="width: 20%" />
+                    <!-- 승인여부-->
+                    <col style="width: 20%" />
+
+                    <col style="width: 30%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>판매자아이디</th>
+                      <th>상호</th>
+                      <th class="th-store-approve">승인여부</th>
+                      <th class="th-user-out-date">회원탈퇴일자</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-seller-parent">
+                    <tr id="admin-seller-org">
+                      <td rowspan="1" class="seller-id">
+                        <a href="#"> 판매자아이디 </a>
+                      </td>
+                      <td class="store-name">상호명</td>
+                      <td class="seller-status">승인</td>
+                      <td class="signout-date">탈퇴일</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="empty-seller">판매자가 없습니다.</div>
+              </div>
+              <!-- 주문정보 테이블 START -->
+              <div class="mp-table"></div>
+              <!-- 주문정보 테이블 END -->
+              <!-- 최근 본 상품 카드 START -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!------------ 회원 활동 표시 창 END -------------->
+    </div>
+    <!------------ 마이페이지 END -------------->
+  </section>
+  <!-- section end -->
+
+  <!-- ----footer 시작 ---- -->
+
+</body>
+
+</html>

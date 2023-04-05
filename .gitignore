@@ -1,3 +1,13 @@
+# OS Caches
+**/.DS_Store
+
+# images
+*.png
+*.jpeg
+
+package-lock.json
+package.json
+
 # Logs
 logs
 *.log

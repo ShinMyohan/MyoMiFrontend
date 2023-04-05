@@ -1,0 +1,247 @@
+
+/* * {
+    margin: 0px;
+    padding: 0px;
+} */
+section.board{
+    margin-top: 100px;
+    width: 100%;
+}
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
+}
+
+.board-wrap {
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
+}
+
+.board-list-wrap{
+    border-bottom : 2px solid #999;
+}
+
+.board-title strong {
+    font-size: 30px;
+}
+
+.board-title {
+    margin-bottom: 30px;
+    margin-left : 30px;
+}
+
+.board-list {
+    width: 100%;
+    border-top: 2px solid #999;
+}
+
+.board-list>div.top {
+    background-color:#d0d7d015;
+    border-bottom: 1px solid #999;
+    -webkit-text-stroke: thin
+}
+
+.board-list>div>div {
+    display: inline-block;
+    font-weight: 600;
+    padding: 15px 0;
+}
+
+.board-list .num {
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board-list .category {
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board-list .title {
+    width: 45%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board-list .date {
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board-list .writer {
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.board-list .hits {
+    width: 10%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.bt-wrap a:first-child {
+    margin-left: 0;
+}
+
+.board-detail {
+    width: 100%
+}
+
+.board-detail .b_num {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.board-detail .b_category {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.board-detail .b_title {
+    width: 45%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.board-detail .b_date {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.board-detail .b_writer {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.board-detail .b_hits {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.board-searcharea {
+    position:relative;
+    width:20%;
+    margin-bottom:20px;
+    display: flex;
+    margin-left: 59%;
+}
+
+div.board-search-btn{
+    float:right;
+}
+
+#searchselect{
+    width:250px;
+}
+
+#submit{
+    width:55px;
+}
+
+.bt-wrap {
+    float: right;
+}
+
+.list {
+    width: 100%;
+}
+
+.list .board-num {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.list .bcategory {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.list .btitle {
+    width: 45%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.list .bdate {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.list .bwriter {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.list .bhits {
+    width: 10%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.boardlist>div>div {
+    display: inline-block;
+    font-weight: 600;
+    padding: 15px 0;
+}
+
+.board-view .info dl {
+    width: 50%;
+    padding: 0;
+}
+
+.board-view .info dl:nth-child(-n+2) {
+    margin-bottom: 5px;
+}
+
+.board-view .info dl::before {
+    display: none;
+}
+
+.empty-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
+}
+
+.pagenation{
+    clear: both;
+    justify-content : center;
+    display: flex;
+}
+.empty-search-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
+}

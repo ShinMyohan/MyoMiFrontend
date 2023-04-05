@@ -1,0 +1,258 @@
+.mp-board-list-div {
+    width : 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.mp-board-list-header{
+    margin-top:50px;
+    margin-bottom : 30px;
+}
+
+.nav-tap {
+    margin-top : 100px;
+}
+
+.my-board-list-header {
+    margin-top : 30px;
+    margin-bottom : 10px;
+}
+
+.list-header { 
+    background-color:#d0d7d015;
+    height : 40px;
+    display : flex;
+    align-items : center;
+    justify-content: space-between;
+    border-top : 1.7px solid grey;
+    border-bottom :1.3px solid lightgrey;
+    -webkit-text-stroke: thin;
+   
+}
+
+.list-header > div{
+    display : inline-block;
+    font-size: 15px;
+    text-align : center;
+  
+}
+
+#home-tab {
+    border-top : 3px solid #00af85;
+}
+
+.list-body {
+    height : 40px;
+    display : flex;
+    align-items : center;
+    justify-content: space-between;
+    text-align: center;
+    border-bottom:1px solid lightgrey;
+    font-size : 13px;
+}
+
+/* .my-board-list-num{
+    width : 20%;
+} */
+.my-board-list-category {
+    width : 20%;
+}
+.my-board-list-title {
+    width : 30%;
+}
+.my-board-list-created-date {
+    width : 30%;
+}
+.my-board-list-hits {
+    width : 15%;
+}
+
+/* .my-board-list-num{
+    width : 20%;
+} */
+.my-board-body-category {
+    width : 20%;
+}
+.my-board-body-title {
+    width : 30%;
+}
+.my-board-body-created-date {
+    width : 30%;
+}
+.my-board-body-hits {
+    width : 15%;
+}
+
+/*=====유효기간 만료 쿠폰 div===*/
+
+.my-rep-list-header {
+    margin-top : 30px;
+    margin-bottom : 10px;
+}
+
+.list-rep-header { 
+    background-color:#d0d7d015;
+    height : 40px;
+    display : flex;
+    align-items : center;
+    justify-content: space-between;
+    border-top : 1.7px solid grey;
+    border-bottom :1.3px solid lightgrey;
+    -webkit-text-stroke: thin;
+   
+}
+.list-rep-header > div{
+    display : inline-block;
+    font-size: 15px;
+    text-align : center;
+}
+
+
+.list-rep-body {
+    height : 40px;
+    display : flex;
+    align-items : center;
+    justify-content: space-between;
+    text-align: center;
+    border-bottom:1px solid lightgrey;
+    font-size : 13px;
+}
+
+/* .my-rep-list-num{
+   
+} */
+.my-rep-list-category {
+    width : 20%;
+}
+.my-rep-list-title {
+    width : 30%;
+}
+.my-rep-list-content {
+    width : 30%;
+}
+.my-rep-list-created-date {
+    width : 15%;
+}
+
+/* .my-rep-list-num{
+   
+} */
+.my-rep-body-category {
+    width : 20%;
+}
+.my-rep-body-title {
+    width : 30%;
+}
+.my-rep-body-content {
+    width : 30%;
+}
+.my-rep-body-created-date {
+    width : 15%;
+}
+
+.empty-board-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
+}
+.empty-rep-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
+}
+
+
+/* ------ Date Picker CSS  ------- */
+
+div.mp-order-list-main .datepicker {
+    margin-left: 10px;
+}
+
+div.mp-order-list-main input {
+    padding: 10px 15px !important;
+    border: 1px solid #CFD8DC !important;
+    border-radius: 12px !important;
+    /* box-sizing: border-box; */
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 13px !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    width: 215px;
+}
+
+div.mp-order-list-main input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #FFA000 !important;
+    outline-width: 0;
+}
+
+div.mp-order-list-main .daterangepicker {
+    background-color: #fff !important;
+    border-radius: 0 !important;
+    align-content: center !important;
+    padding: 0 !important;
+}
+
+
+/* 조회기간 */
+.period {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1% 0 3% 0;
+    padding: 0.5%;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 175, 133, 0.3);
+    font-size: 14px;
+}
+
+div.mp-order-list-form .bi-calendar2-check-fill {
+    margin-bottom: 4px;
+    color: #FFA000;
+}
+
+div.mp-order-list-form .search-period {
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+div.mp-order-list-form .period .nav-item {
+    width: 70px;
+    margin-right: 3px;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+}
+
+div.mp-order-list-form .period .nav-link {
+    padding: 3.5px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+div.mp-order-list-form .period .nav-link:focus {
+    border-color: #fff;
+    border: 1px dashed #FFA000 !important;
+    color: #00af85;
+    border-radius: 15px;
+}
+
+

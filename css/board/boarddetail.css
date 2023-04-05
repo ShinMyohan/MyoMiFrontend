@@ -1,0 +1,258 @@
+section.board{
+    margin-top: 100px;
+    width: 100%;
+}
+
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
+}
+
+.board-wrap {
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
+}
+
+.board-view {
+    clear : both;
+    width: 100%;
+    /* border-top: 2px solid #000; */
+}
+
+.board-view .title {
+    padding: 20px 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.board-view .info {
+    padding: 15px;
+    border-bottom: 1px solid #999;
+}
+
+.cont {
+    height: auto;
+    min-height: 300px;
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    font-size: 18px;
+    margin-top: 30px;
+    border-top: 1px solid #999;
+}
+
+.writer {
+    font-size: 15px;
+    padding-left: 15px;
+}
+
+.hits {
+    float: right;
+    font-size: 15px;
+    padding-left: 15px;
+}
+
+.createdDate {
+    display: inline-block;
+    font-size: 15px;
+    padding-left: 15px;
+}
+
+.bt-wrap-add {
+    margin-top: 10px;
+    float: right;
+}
+
+.back {
+    margin: 0 auto;
+    float: right;
+    padding-top: 10px;
+    padding-right: 5px;
+}
+
+.edit {
+    margin: 0 auto;
+    margin-right: 5px;
+    float: right;
+    padding-top: 10px;
+}
+
+.del {
+    margin: 0 auto;
+    margin-right: 5px;
+    float: right;
+    padding-top: 10px;
+}
+
+.board-rep {
+    margin-top: 80px;
+    margin-bottom: 10px;
+    clear:both;
+}
+
+.board-rep-count {
+   margin: 0 10px;
+}
+
+.rep-add {
+    float: right;
+    margin: 10px 10px;
+    clear:both;
+}
+
+.board-rep-list {
+    margin-top: 25px;
+    clear:both;
+}
+
+.rep-line {
+    border-top: 1px solid #999;
+    margin-top: 40px;
+}
+
+.empty-list {
+    height : 100px;
+    display : flex;
+    align-items : center;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom:1.7px solid lightgrey;
+    font-size : 15px;
+    margin :0 auto;
+}
+
+.just-space {
+    height : 100px;
+}
+
+.rep-list {
+    border: 3px solid green;
+}
+
+.parent-div {
+    float: left;
+    width: 80%;
+    height: 100px;
+    margin-left: 10px;
+    clear : both;
+}
+
+.parent-clone{
+    border-bottom : 1px solid lightgrey;
+}
+
+.prwriter {
+    width: 100px;
+    display: inline-block;
+}
+
+.prdate {
+    margin-top: 5px;
+    width: 100px;
+    display: inline-block;
+}
+
+.pcontent {
+    height: 60px;
+    margin-top: 5px;
+}
+
+#rep-edit {
+    float: right;
+}
+
+.rep-menu {
+    margin-top: 15px;
+    margin-bottom: 60px;
+    float: right;
+}
+
+.rep-list button {
+    margin-left: 10px;
+    margin-top: 33px;
+}
+
+.rep-edit-btn {
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.rep-del-btn {
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.rep-second-btn {
+    text-align: center;
+}
+
+#prep-content {
+    width: 100%;
+    height: 70px;
+    border: 0;
+    float: right;
+}
+.hidden-rep-btn {
+    width : auto;
+    float : right;
+    margin-top: 62px;
+}
+
+/* #re-rep-content {
+    width: 100%;
+    height: 70px;
+    border: 0;
+    float: right;
+}
+
+.re-rep-writer {
+    margin-top: 10px;
+}
+
+.re-rep {
+    /* clear:both; */
+    /* border: 3px solid orange;
+    width: 80%;
+    margin-left: 50px;
+    height: 70px;
+}
+
+.hidden-rep-btn {
+    float: right;
+    margin-top: 60px;
+}
+
+.re-rep-write {
+    margin-top: 10px;
+    width: 100%;
+    height: 90px;
+    display: inline-table;
+}
+
+#re-rep-content {
+    margin-left: 50px;
+}
+
+.re-rep-btns {
+    width: 15%;
+    display: inline-flex;
+    float: right;
+    margin-top: 30px;
+
+}
+
+#re-rep-add-btn {
+    margin-right: 7px;
+    margin-left: 25px;
+} */ 
+
+/*-----------------------------------------*/

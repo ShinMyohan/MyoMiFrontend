@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <!-- CSS 파일 -->
+    <link rel="stylesheet" href="../../css/order/payment.css">
+    <script src="../../js/basic.js"></script>
+    <script src="../../js/order/payment.js"></script>
+</head>
+
+<body>
+    <!---------------- Section ----------------->
+    <div class="payment">
+        <div>
+            <h3>주문완료</h3>
+            <hr>
+        </div>
+        <div class="payment-title">
+            <h2>주문이 <span style="color: #ff6d02;">완료</span> 되었습니다!</h2>
+            아래 주문 상세내역을 확인해주세요!
+        </div>
+        <!-- 주문 정보 -->
+        <div class="info">
+            <h4>주문 정보</h4>
+            <hr>
+            <div class="order-info-wrap">
+                <ul class="order-info">
+                    <li class="order-li-item">
+                        <div class="order-title">주문번호</div>
+                        <div class="order-content" id="paymentOrderNum"></div>
+                    </li>
+                    <li class="order-li-item">
+                        <div class="order-title">배송정보</div>
+                        <div class="order-content" id="paymentUserInfo">
+                    </li>
+                    <li class="order-li-item">
+                        <div class="order-title">배송 요청사항</div>
+                        <div class="order-content" id="paymentDeliveryMsg"></div>
+                    </li>
+                    <li class="order-li-item">
+                        <div class="order-title">수령일</div>
+                        <div class="order-content" id="paymentRecieveDate">
+                    </li>
+                    <li class="order-li-item">
+                        <div class="order-title">주문상품</div>
+                        <div class="order-content" id="paymentProdName"></div>
+                    </li>
+                </ul>
+            </div>
+            <hr style="border-color: #b4b4b4;">
+        </div>
+        <!-- 결제 금액 정보 -->
+        <div class="info">
+            <h4>결제 금액 정보</h4>
+            <hr>
+            <div class="order-info-wrap">
+                <ul class="order-info">
+                    <li class="order-li-item">
+                        <div class="order-title">주문일자</div>
+                        <div class="order-content" id="paymentPayCreatedDate">
+                        </div>
+                    </li>
+                    <li class="order-li-item">
+                        <div class="order-title">결제수단</div>
+                        <div class="order-content">카카오페이</div>
+                    <li class="order-li-item">
+                        <div class="order-title">총 상품금액</div>
+                        <div class="order-content" id="paymentOriginPrice"><strong></strong></div>
+                    </li>
+                    <li class="order-li-item">
+                        <div class="order-title">쿠폰 사용</div>
+                        <div class="order-content" id="paymentCoupon"></div>
+                    </li>
+                    <li class="order-li-item">
+                        <div class="order-title">포인트 사용</div>
+                        <div class="order-content" id="paymentUsedPoint"></div>
+                    </li>
+                    <li class="order-li-item">
+                        <div class="order-title">총 결제금액</div>
+                        <div class="order-content"><span class="payment-amount" id="paymentTotalPrice"></span>원<br>적립
+                            예정금 : + <strong id="paymentSavePoint"></strong>원</div>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+        </div>
+        <div class="ok-button">
+            <button type="button" class="btn btn-success" onclick="paymentOk()">확인</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

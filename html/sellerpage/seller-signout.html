@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../css/basic.css">
+    <!-- <link rel="stylesheet" href="../../css/mypage/mypage.css"> -->
+    <link rel="stylesheet" href="../../css/sellerpage/seller-signout.css">
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- JQuery CDN HOST-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="../../js/basic.js"></script>
+    <script src="../../js/sellerpage/sellerproductlist.js"></script>
+    <script src="../../js/sellerpage/seller-signout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="../../js/sellerpage/sellerinfo.js"></script>
+    <!-- DatePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <!-- Cookies -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <!-- sockjs, stomp -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="../../js/chat/room.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <div class="h1-logo">
+                <!-- 로고 -->
+                <div class="logo-main" id="logoImg">
+                    <img src="../../images/main/myomi_logo.png" alt="상단로고" title="상단 로고">
+                </div>
+                <!-- 검색 input 박스 -->
+                <div class="main-search">
+                        <input class="form-control me-2 rounded-5 searchbox" type="text" aria-label="Search" id="searchBox">
+                        <div class="search-icon">
+                        <button class="btn" type="submit" id="prodKeywordSearch"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg></button></div>
+                </div>
+                <!-- 메뉴바 -->
+                <nav class="menulist">
+                    <ul class="main-menu-bar">
+                        <li id="signUpLi"><a href="../../html/user/signup.html">회원가입</a></li>
+                        <li id="logInLi"><a href="../../html/user/login.html">로그인</a></li>
+                        <li><button id="userNameIs">유저네임</button></li>
+                        <li id="logInUserName" style="display:none">님</li>
+                        <li id="logoutLi"><button id="logOutBtn" onclick="logout()">로그아웃</button></li>
+                        <li><a href="../../html/notice/noticelist.html">공지사항</a></li>
+                        <li><a href="../../html/board/boardList.html">커뮤니티 </a></li>
+                        <li><button id="goToMyPageBtn"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                        </svg></button></li>
+                        <li><a href="../../html/cart/cartinfo.html" style="margin-bottom:13px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- 메뉴바 -->
+            <div class="gnb" id="allllll">
+                <div class="gnb-in">
+                    <div class="gnb-menu-box" id="gnbMenuBox">
+                        <ul class="depth0 gnb-menu0">
+                            <li class="gnb-sub-list" style="width:10%"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-list" viewBox="0 -3 24 24">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                            </svg><span>전체 카테고리</span></a></li>
+                            <li class="gnb-sub-list" id="subMenuList">정기배송</li>
+                            <li class="gnb-sub-list" id="subMenuList">샐러드</li>
+                            <li class="gnb-sub-list" id="subMenuList">도시락</li>
+                            <li class="gnb-sub-list" id="subMenuList">밀키트</li>
+                        </ul>
+                    </div>
+                    <div class="gnb-allmenu">
+                        <div class="allmenu" id="menubarListMenu">
+                            <ul class="allmenu-list">
+                                <li style="margin-top: -15px">
+                                        <hr>
+                                        <ul>
+                                            <li>1주 식단</li>
+                                            <li>2주 식단</li>
+                                            <li>3주 식단</li>
+                                            <li>4주 식단</li>
+                                            <li>5주 이상 식단</li>
+                                        </ul>
+                                </li>
+                                <li style="margin-top: -15px">
+                                        <hr>
+                                        <ul>
+                                            <li>데일리 샐러드</li>
+                                            <li>채소만 샐러드</li>
+                                            <li>프리미엄 샐러드</li>
+                                        </ul>
+                                </li>
+                                <li style="margin-top: -15px">
+                                        <hr>
+                                        <ul>
+                                            <li>데일리 도시락</li>
+                                            <li>비건 도시락</li>
+                                            <li>프리미엄 도시락</li>
+                                        </ul>
+                                </li>
+                                <li style="margin-top: -15px">
+                                        <hr>
+                                        <ul>
+                                            <li>K식단 밀키트</li>
+                                            <li>서양식 밀키트</li>
+                                            <li>퓨전 밀키트</li>
+                                            <li>프리미엄 밀키트</li>
+                                        </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 스크롤 메뉴 -->
+            <div class="scroll-right-menu">
+                <div class="qmenu-wrap">
+                    <ul class="qm">
+                        <li><button onclick="goToMypage()" id="scrollMyPageBtn"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="40" fill="currentColor" class="bi bi-person" viewBox="2 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                            </svg></button>
+                        </li>
+                        <li>
+                            <span><a href="../../html/cart/cartinfo.html"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" stroke="black" stroke-width="0.2" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg></a></span>
+                            <span class="position-absolute badge translate-middle text-bg-success rounded-5" id="scroll-cart">0</span>
+                        </li>
+                        <li>
+                            <span onclick="openForm()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                    fill="currentColor" class="bi bi-chat-text" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z" />
+                                    <path
+                                        d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8zm0 2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z" />
+                                </svg></span>
+                        </li>
+                    </ul>
+                    <div class="scroll-right-cont">
+                        <div class="scr-paging">
+                            <button class="bnt-scroll-prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- 최근에 본 상품 -->
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <span>
+                                        <img src="../../images/product/prod01.png" style="width:40px">
+                                    </span>
+                                    <span class="scr-box" style="display: none;">
+                                        <em>그린 샐러드</em>
+                                        <strong>4,700원<b>원</b></strong>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="scr-paging scr-paging2">
+                            <button class="bnt-scroll-next">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-----------------  채팅 START ---------------------->
+                <div class="chat-popup" id="myForm" style="display: none;">
+                    <form action="/action_page.php" class="form-container">
+                        <div class="chat-container">
+                            <div class="chat_wrap">
+                                <div class="header">
+                                    <img src="../images/main/avocado.png" style="width:20px; margin-right: 3px;">
+                                    채팅 문의
+                                </div>
+                                <div class="chat">
+                                    <div id="chatMsg">
+                                        <div class="center">안녕하세요. 무엇을 도와드릴까요?</div>
+                                        <!-- 동적 생성 -->
+                                    </div>
+                                </div>
+                                <div class="msg-send">
+                                    <div class="input-box">
+                                        <textarea id="msg-input" placeholder="메시지를 입력하세요"></textarea>
+                                    </div>
+                                    <span class="send-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
+                                            class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- ————————  채팅 END ——————————— -->
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section class="mp-page">
+        <div class="mp-background"></div>
+        <div class="mypage-basic">
+            <!------------ 마이페이지 START -------------->
+            <div class="mp-user">
+                <!-- 유저정보 박스 START -->
+                <div class="mp-user-info">
+                    <div class="mp-user-name-level">
+                        <span class="mp-user-hi">안녕하세요!</span>
+                        <div class="mp-store-name">
+                            <span class="mp-user-name"></span><i>&nbsp님</i>
+                        </div>
+                    </div>
+                    <div class="mp-user-menu">
+                        <ul>
+                            <li class="mp-sub-menu"> | 상품관리
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/sellerpage/sellerproductlist.html">상품목록</a></li>
+                                    <li><a href="../../html/seller/productadd.html">상품등록</a></li>
+                                </ul>
+                            </li>
+                            <li class="mp-sub-menu"> | 주문정보
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/sellerpage/orderlist.html">주문목록</a></li>
+                                </ul>
+                            </li>
+                            <li class="mp-sub-menu"> | 스토어 문의
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/qna/sellerpage-qnalist.html">상품 문의</a></li>
+                                </ul>
+                            </li>
+                            <li class="mp-sub-menu"> | 회원정보
+                                <ul class="mp-sub-side-menu">
+                                    <li><a href="../../html/sellerpage/seller-signout.html">파트너 탈퇴</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 유저정보 박스 END -->
+
+                <!------------ 회원 활동 표시 창 START -------------->
+                <div class="mp-activity">
+                    <div class="mp-user-activity">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col mp-border">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                                        </svg>
+                                        오늘 주문 건
+                                    </div>
+                                    <span class="mp-user-order"></span>
+                                    <i>건</i>
+                                </div>
+                                <div class="col mp-border">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-chat-left-heart" viewBox="0 0 16 16">
+                                            <path
+                                                d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12ZM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Z" />
+                                            <path
+                                                d="M8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+                                        </svg> 미답변 문의 건
+                                    </div>
+                                    <span class="mp-user-qna"></span>
+                                    <i>건</i>
+                                </div>
+                                <div class="col">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
+                                            <path
+                                                d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z" />
+                                        </svg> 팔로우
+                                    </div>
+                                    <span class="mp-user-follow"></span>
+                                    <i>명</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mp-section-form">
+                     
+                        <!-- 셀러탈퇴신청 START -->
+                        <div class="myomi-head">Myomi</div>
+                        <div>
+                            <div class="signout-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                              </svg>&nbsp탈퇴 안내</div>
+                            <div class="signout-content" >
+                                탈퇴를 진행하시면 동일 사업자번호와 ID로 스토어를 재가입 할 수 없으며, 탈퇴신청은 취소가 불가능합니다.<br/>
+                                탈퇴를 하기 위해서는 아래의 조건이 모두 충족되어야 합니다.<br/><br/>
+                                <span class="signout-text">탈퇴조건<br/></span>
+                                1. 판매중인 상품을 모두 '판매중지' 상태로 변경해 주셔야 합니다.<br/>
+                                &nbsp&nbsp&nbsp- 판매중/일시품절 상태의 상품이 있는 경우 탈퇴 신청이 거부될 수 있습니다.<br/>
+                                2. 배송/교환/반품/고객문의/상품문의 등 Myomi에서의 모든 CS 처리를 완료하셔야 합니다.<br/>
+                                3. 모든 주문건의 배송이 완료된 이후 탈퇴 처리 됩니다. (탈퇴 신청일로부터 두 달 경과 된 이후 정상 탈퇴 처리됩니다.)<br/><br/>
+                                <span class="signout-text">탈퇴시 서비스 이용 제한 안내<br/></span>
+                                묘미 파트너센터 이용이 제한되며 탈퇴 신청 이후에 상품등록 및 전시가 불가능 합니다.<br/>
+                                탈퇴 처리 완료 후 Myomi 일반소비자 서비스를 이용 하시려면 '일반회원'으로 재가입 하실 수 있습니다.
+                                다른 문의 사항이 있으실 경우, <br/>
+                                고객센터 1588-0000(오전9시~오후 6시, 토/일/공휴일 제외)로 문의 주시면 안내 도와드리겠습니다.<br/><br/>
+                                <span class="signout-b-text">*상기 내용을 모두 확인하였으며, 동의 하시는 경우에만 탈퇴신청 부탁드립니다.</span>
+                            </div>
+                            <div class="signout-button">
+                                <input type="button" id="signout-button" value="탈퇴신청">
+                            </div>
+                        </div>
+
+                        <!-- 셀러탈퇴신청 END -->
+                    </div>
+                </div>
+                <!------------ 마이페이지 END -------------->
+            </div>
+    </section>
+    <!-- section end -->
+
+    <!-- ----footer 시작 ---- -->
+    <footer>
+        <div id="footer_wrap">
+            <div id="footer">
+                <div class="foot-list">
+                    <div class="foot-list_in">
+                        <ul>
+                            <li>
+                                <a href="#">묘미소개</a>
+                            </li>
+                            <li>
+                                <a href="#">이용약관</a>
+                            </li>
+                            <li>
+                                <a href="#">개인정보처리방침</a>
+                            </li>
+                            <li>
+                                <a href="#">이용안내</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="foot-cont">
+                    <div class="foot-logo">
+                        <img src="../../images/main/myomi_logo.png" alt="하단로고" title="하단로고" style="width:150px">
+                    </div>
+                    <div class="foot-info">
+                        <div class="foot-info-list">
+                            <dl class="dl">
+                                <dt>법인명(상호):</dt>
+                                <dt>주식회사 신묘한컴퍼니</dt>
+                            </dl>
+                            <dl class="dl">
+                                <dt>대표:</dt>
+                                <dt>신묘한</dt>
+                            </dl>
+                            <dl>
+                                <dt>TEL:</dt>
+                                <dd>
+                                    <strong>1522-0125</strong>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="foot-info-list">
+                            <dl class="dl">
+                                <dt>사업자등록번호:</dt>
+                                <dt> 220-10-250316</dt>
+                            </dl>
+                            <dl class="ts">
+                                <dt>통신판매업신고번호:</dt>
+                                <dd>" 제 2022-분당오리-0316호 "
+                                    <a href="#">사업자정보확인</a>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="foot-info-list">
+                            <dl class="dl">
+                                <dt>주소:</dt>
+                                <dt>경기도 성남시 분당구 성남대로 34 하나프라자</dt>
+                            </dl>
+                            <dl class="dl">
+                                <dt>개인정보관리책임자:</dt>
+                                <dd>세리 성언</dd>
+                            </dl>
+                            <dl>
+                                <dt>E-Mail:</dt>
+                                <dd>
+                                    <a href="#">taetaetae@myomi.co.kosta</a>
+                                </dd>
+                            </dl>
+                        </div>
+                        <p class="copyright">
+                            Copyright©
+                            <strong>myomi.co.kr</strong>
+                            All rights reserved.
+                        </p>
+                    </div>
+                </div>
+                <div class="foot-certify">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

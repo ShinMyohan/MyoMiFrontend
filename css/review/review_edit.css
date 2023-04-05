@@ -1,0 +1,113 @@
+header {
+    padding-bottom: 62px;
+}
+
+div.title dl dt {
+    width: 85px;
+}
+
+div.info dl dt {
+    width: 91px;
+}
+
+.review-wrap {
+    width: 1000px;
+    margin: 100px auto;
+}
+
+.review-title {
+    margin-bottom: 30px;
+}
+
+.review-title strong {
+    font-size: 3rem;
+}
+
+.review-title p {
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
+
+#content {
+    resize: none
+}
+
+.bt-wrap {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+    display: flex;
+    position: relative;
+    left: 380px;
+}
+
+.submit {
+    margin-left: 20px;
+}
+
+.review-write {
+    border-top: 2px solid #000;
+}
+
+.review-write .title,
+.review-write .info {
+    padding: 15px;
+}
+
+.review-write .info {
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size: 0;
+}
+
+.review-write .title dl {
+    font-size: 0;
+}
+
+.review-write .title dt,
+.review-write .title dd,
+.review-write .info dt,
+.review-write .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+
+.review-write .title dd {
+    width: calc(100% - 100px);
+}
+
+.review-write .title input[type="text"],
+.review-write .info input[type="text"],
+.review-write .info input[type="password"] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.review-write .title input[type="text"] {
+    width: 80%;
+    position: relative;
+    left: 7px;
+}
+
+dd.prod-name {
+    margin-bottom: initial;
+}
+
+.review-write .cont {
+    border-bottom: 2px solid #000;
+}
+
+.review-write .cont textarea {
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
+
+.review-write-submit {
+    margin-right: 10px;
+}

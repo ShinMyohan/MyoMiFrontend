@@ -1,0 +1,217 @@
+/* 마이페이지 전체 적용 속성 */
+section.mp-page{
+    margin-top: 80px;
+    width: 100%;
+}
+
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
+    margin-top: 100px;
+}
+
+/* i 태그 속성주기 */
+div.mypage-basic i{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+}
+
+/* a 태그 속성주기 */
+div.mypage-basic a{
+    color:black;
+    text-decoration: none;
+}
+
+div.mypage-basic{
+    margin: 0 auto;
+    padding-top: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
+}
+
+/* 마이페이지 박스 속성 */
+div.mypage-basic div.mp-user{
+    display: flex;
+    margin: 0 50px 0 20px;
+}
+
+div.mypage-basic div.mp-user-info div.mp-user-name-level{
+    /* width:280px; */
+    margin: 0 20px 0 20px;
+    padding-left: 20px;
+    height: 6em;
+    border-bottom: 1px solid #d9d9d9;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* user 프로필 박스 */
+div.mypage-basic div.mp-user-info span.mp-user-name{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border:0 solid black; /* input 박스 테두리 지우기*/
+    pointer-events: none; /* input 박스 클릭 이벤트 지우기 */
+    background: transparent; /* input 박스 transparent 효과 지우기*/
+}
+
+/* user 이름 아래 menu */
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu {
+    margin-top: 40px;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu{
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul li{
+    margin: 10px 0 10px 0;
+}
+
+    /* user 마이페이지 상단 고정 정보(적립금,쿠폰,팔로우) */
+div.mypage-basic div.mp-user-activity{
+    width: 100%;
+    height: 6em;
+    display:flex;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    text-align: center;
+}
+
+div.mypage-basic div.mp-user-activity div.row{
+    border-color: #d9d9d9;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.mp-border{
+    border-right: 1px solid #d9d9d9;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.col div{
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.col span{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.col span:hover{
+    font-size: 20px;
+    font-weight: 500;
+    color: #079c3b;
+    cursor: pointer;
+}
+
+div.mypage-basic div.mp-user div.main-box{
+    flex:content;
+
+}
+
+/*팔로우목록 조회*/
+.mp-follow-h{
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: 500;
+}
+.mp-follow-h2{
+    font-size:13px;
+    color:#888787;
+    margin-top: 10px;
+}
+
+.mp-unfollow-btn{
+    padding: 4px;
+    font-size: 13px;
+    background-color: white;
+    color:#079c3b;
+    border-radius: 5px;
+    border:#079c3b solid 1px;
+}
+
+
+
+.mp-follow-t{
+    display:flex;
+    margin-top: 80px;
+    border-top:#888787 solid 0.5px;
+    border-bottom:#d9d9d9 solid 0.3px;
+    padding: 7px;
+    background-color:#d0d7d015;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.mp-follow-col-2{
+    width:45%;
+    text-align: center;
+}
+
+.mp-follow-col-3{
+    width:15%;
+    text-align: center;
+}
+
+.mp-follow-col-4{
+    width:20%;
+    text-align: center;
+}
+
+.seller-id{
+    width:10%;
+    display:none;
+}
+
+.mp-unfollow-bt{
+    width:15%;
+    text-align:center;
+}
+
+.mp-follow-r{
+    display:flex;
+    border-bottom:#d9d9d9 solid 0.3px;
+    padding: 7px;
+    font-size: 15px;
+    height: 40px;
+}
+
+.visitbtn{
+    background-color:#079c3b;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 3px;
+    border : #079c3b solid ;
+    color:white;
+    margin-top: 0;
+    font-weight: 400;
+}
+
+
+/*리스트가 없는경우*/
+.mp-follow-empty{
+    height:40px;
+    color:#888787;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom:#d9d9d9 solid 0.3px;
+}
+
+
+

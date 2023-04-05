@@ -1,0 +1,32 @@
+.prod-sellerstore-cont .seller-store-title .store-name{
+    padding-top: 60px;
+    color:black;
+    font-size: 36px;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+.prod-sellerstore-cont .dropdown{
+    float: right;
+}
+
+/*팔로우*/
+.store-follow-cnt{
+    display: flex;
+    font-weight: 500;
+}
+
+.prod-sellerstore-cont .seller-store-title .unfollow-btn{
+    border-radius: 5px;
+    border: 1px solid rgb(247, 42, 72);
+    color:rgb(247, 42, 72);
+    margin-top: 20px;
+    font-size: 12px; 
+}
+
+.prod-sellerstore-cont .seller-store-title .follow-btn{
+    border-radius: 5px;
+    border: 1px solid rgb(247, 42, 72);
+    color:rgb(247, 42, 72);
+    margin-top: 20px;
+    font-size: 12px; 
+}

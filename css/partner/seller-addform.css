@@ -1,0 +1,314 @@
+/* 마이페이지 전체 적용 속성 */
+section.mp-page{
+    margin-top: 80px;
+    width: 100%;
+}
+
+/* 민트색 바 */
+div.mp-background {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 175, 133, 0.5);
+    position: relative;
+    margin-top: 100px;
+}
+
+/* i 태그 속성주기 */
+div.mypage-basic i{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+}
+
+/* a 태그 속성주기 */
+div.mypage-basic a{
+    color:black;
+    text-decoration: none;
+}
+
+div.mypage-basic{
+    margin: 0 auto;
+    padding-top: 40px;
+    border-radius: 20px;
+    width: 85%;
+    background-color: white;
+    position: relative;
+    top: -60px;
+}
+
+/* 마이페이지 박스 속성 */
+div.mypage-basic div.mp-user{
+    display: flex;
+    margin: 0 50px 0 20px;
+}
+
+div.mypage-basic div.mp-user-info div.mp-user-name-level{
+    width:280px;
+    margin: 0 20px 0 20px;
+    padding-left: 20px;
+    height: 6em;
+    border-bottom: 1px solid #d9d9d9;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-items: flex-start; */
+}
+
+/* user 프로필 박스 */
+div.mypage-basic div.mp-user-info span.mp-user-name{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border:0 solid black; /* input 박스 테두리 지우기*/
+    pointer-events: none; /* input 박스 클릭 이벤트 지우기 */
+    background: transparent; /* input 박스 transparent 효과 지우기*/
+}
+
+/* user 이름 아래 menu */
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu {
+    margin-top: 40px;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu{
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul{
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: -20px;
+}
+
+div.mypage-basic div.mp-user div.mp-user-info div.mp-user-menu ul li.mp-sub-menu ul li{
+    margin: 10px 0 10px 0;
+}
+
+/* user 마이페이지 상단 고정 정보(적립금,쿠폰,팔로우) */
+section.mp-page div.mypage-basic div.mp-user div.mp-activity{
+    width: 100%;
+}
+
+div.mypage-basic div.mp-user-activity{
+    width: 100%;
+    height: 6em;
+    display:flex;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    text-align: center;
+}
+
+div.mypage-basic div.mp-user-activity div.row{
+    border-color: #d9d9d9;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.mp-border{
+    border-right: 1px solid #d9d9d9;
+}
+
+
+div.mypage-basic div.mp-user-activity div.row div.col div{
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.col span{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+div.mypage-basic div.mp-user-activity div.row div.col span:hover{
+    font-size: 20px;
+    font-weight: 500;
+    color: #079c3b;
+    cursor: pointer;
+}
+
+div.mypage-basic div.mp-user div.main-box{
+    flex:content;
+
+}
+/*판매자신청폼*/
+.sl-signup-title{
+    font-size:20px;
+    font-weight: 700;
+    margin-top:50px;
+}
+
+.sl-signup-info{
+    background-color: #d9d9d92f;
+    padding:15px 0px 10px 15px;
+    margin-top: 20px;
+}
+.info-head{
+    display: flex;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.info-head-text{
+    margin-left:7px;
+}
+
+.info-text{
+    font-size: 13px;
+    margin-left:22px;
+}
+
+.sl-signup-body{
+    margin-top: 40px;
+}
+
+.signup-body-t{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.signup-body-content{
+    margin-top: 20px;
+}
+
+.sl-number,.sl-ceo-name,.sl-store-name,.sl-store-addr,.sl-itn-num,.sl-store-manager,.sl-bank-info,.sl-account-info,.signup-file-upload{
+    font-size:13px;
+    width: 100%;
+}
+
+.sl-number{
+    border-bottom: #d9d9d9 solid 0.5px;
+    padding-bottom: 12px;
+}
+
+.sl-num-warn{
+    margin-left: 16%;
+    font-size: 12px;
+    color:red;
+}
+
+.form-col-1{
+    width:15%;
+    margin:15px 0 15px 0;
+}
+
+#input-sl-number, #input-sl-ceo-name, #postcode,#input-sl-itn-num,#input-sl-manager{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:30%;
+}
+
+#input-sl-store-name, #roadAddress, #input-sl-store-addr-3{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:40%;
+}
+
+.btnbtn{
+    background-color: #d9d9d9;
+}
+
+.sl-num-btn, .sl-search-addr{
+    display: contents;
+}
+
+.sl-num-button, #searchPostNum{
+    color:#079c3b;
+    background-color: white;
+    border: #079c3b solid 0.5px;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 14px;
+}
+
+.sl-store-addr-warn{
+    margin-left: 16%;
+    margin-top: 5px;
+    font-size: 14px;
+    color:#eab42c;
+}
+
+#input-sl-bank,#input-account-uname{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:20%;
+}
+
+#int-num-1,#int-num-2,#int-num-3{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:15%;
+}
+
+#input-account-num{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:30%;
+}
+
+.mp-sl-singup-formbox{
+    height:auto;
+    margin-bottom: 100px;
+}
+
+.signup-body-upload{
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 30px;
+    border-top: #d9d9d9 solid 0.5px;
+    padding-top: 20px;
+}
+
+.signup-upload-info{
+    font-size: 12px;
+    margin-top: 5px;
+    color:#6d6c6c
+}
+
+.upload-name{
+    border-radius: 5px;
+    border:#acacac solid 0.5px;
+    padding: 5px;
+    width:20%;
+    height: 30px;
+    margin-top: 8px;
+}
+
+#detail-formfile1,#detail-formfile2{
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.sl-upload-num{
+    display:flex;
+}
+
+.signup-file-upload{
+    margin-top: 15px;
+}
+
+.submit{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#signup-button{
+    background-color:#079c3b;
+    border-radius: 5px;
+    border:#079c3b;
+    color: white;
+    padding: 5px;
+    width: 200px;
+    height: 40px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
